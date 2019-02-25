@@ -22,4 +22,6 @@ each admin can see all the portfolios.
   > it sucks when you reset your password (on user create)
     just doesn't feel well
 #### throw it up on the server
-  > this is gonna suck so it has been delayed, but it's pretty important 
+  > this is gonna suck so it has been delayed, but it's pretty important
+#### logout a user after a certain amount of time
+  > 
