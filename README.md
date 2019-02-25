@@ -21,3 +21,5 @@ each admin can see all the portfolios.
   > it sucks having to login & logout through /home
   > it sucks when you reset your password (on user create)
     just doesn't feel well
+#### throw it up on the server
+  > this is gonna suck so it has been delayed, but it's pretty important 
