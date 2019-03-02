@@ -35,4 +35,5 @@ each admin can see all the portfolios.
   > this is gonna suck so it has been delayed, but it's pretty important
   
 #### logout a user after a certain amount of time
-  > 
+  > simlar to how banks do it, a client would likely be 'active' on the site for a maximum of ten minutes,
+    so log them out after that period of time so another person doesn't see their information on their laptop
