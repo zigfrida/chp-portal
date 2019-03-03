@@ -37,3 +37,6 @@ each admin can see all the portfolios.
 #### logout a user after a certain amount of time
   > simlar to how banks do it, a client would likely be 'active' on the site for a maximum of ten minutes,
     so log them out after that period of time so another person doesn't see their information on their laptop
+
+#### on user create, give a signal to the admin
+  > use sweet alert 2 to make a modal or something so that there is visual feedback when a user is succesfully created
