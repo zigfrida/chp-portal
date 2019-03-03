@@ -11,34 +11,37 @@ class CustomRegister extends Controller
 {
     public function foo(Request $request)
     {
-        echo '<h1>User created!</h1>';
         $name = $request->input('name');
         $email = $request->input('email');
-        $password = $request->input('password');
+        // $password = $request->input('password');
+        $telephone = $request->input('telephone');
+        $address = $request->input('address');
+        $salary = $request->input('salary');
 
-        echo $name;
-        echo '<br>';
-        echo $email;
-        echo '<br>';
-        echo $password;
-        echo '<br>';
+        $hairType = $request->input('hairType'); // fix this later. don't just want to see 'on'
 
-        echo auth()->id();
-
-        echo '<br>';
+        $personType = $request->input('personType');
 
         $user = new User(); //same as App/User() but had to do it this way to resolve namespace conflicts
         $user->name = $name;
-        $user->password = Hash::make($password);
+        // $user->password = Hash::make($password);
+        $user->password = Hash::make(str_random(16));
         $user->email = $email;
+        $user->telephone = $telephone;
+        $user->address = $address;
+        $user->salary = $salary;
+        $user->hairType = $hairType;
+        $user->personType = $personType;
         $user->role = 'standard';
         $user->save();
 
-        \Invytr::invite($user);
+        // \Invytr::invite($user);
 
         Portfolio::create([
             'user_id' => $user['id'],
             'balance' => 0,
         ]);
+
+        return redirect('/admin');
     }
 }

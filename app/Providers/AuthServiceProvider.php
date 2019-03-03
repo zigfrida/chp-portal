@@ -23,13 +23,13 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
         // Gate::define('own-porfolio', function ($user, $portfolio) {
-        //     error_log('ayy nig chris has a small dick');
+        //     error_log('uhh');
 
         //     return $user->id == $portfolio->user_id || $user->role == 'admin';
         // });
 
         Gate::define('own-porfolio', function ($user) {
-            error_log('ayy nig chris has a small dick');
+            error_log('uhh');
 
             return $user->id == 22;
         });

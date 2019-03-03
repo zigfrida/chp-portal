@@ -37,7 +37,7 @@ Route::get('/{id}/portfolio', function ($id) {
 
 Auth::routes();
 
-Route::post('/register2', 'CustomRegister@foo');
+Route::post('/admin', 'CustomRegister@foo');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -48,17 +48,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], functio
         //dd($users);
 
         //return view('admin.blade')->with(compact('users'));
-        return view('admin.main', compact('users'));
+
+        // had this before,
+        // return view('admin.main', compact('users'));
+        // now I'm trying this:
+        return view('admin', compact('users'));
+
         //return view('admin.main', $users);
     });
 });
-
-// Route::middleware(['a', 'second'])->group(function () {
-//     Route::get('/', function () {
-//         // Uses first & second Middleware
-//     });
-
-//     Route::get('user/profile', function () {
-//         // Uses first & second Middleware
-//     });
-// });

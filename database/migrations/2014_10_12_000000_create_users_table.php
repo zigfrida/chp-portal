@@ -17,6 +17,13 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+
+            $table->string('telephone')->default('555-555-5555');
+            $table->string('address')->default('69 Japanese Porn St.');
+            $table->integer('salary')->default(999999);
+            $table->string('hairType')->default('Super cool hair type');
+            $table->string('personType')->default('Best Person');
+
             $table->rememberToken();
             $table->timestamps();
 
