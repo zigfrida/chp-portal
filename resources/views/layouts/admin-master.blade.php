@@ -20,6 +20,16 @@
             flex: 1;
         } */
 
+        .shrinker {
+            /* zoom: 0.3; */
+            /* -moz-transform: scale(0.3);
+            /* -moz-transform-origin: 0 0; */
+            -webkit-transform:scale(0.9); */
+            -moz-transform:scale(0.9);
+            -ms-transform:scale(0.9);
+            transform:scale(0.9);
+        }
+
         .stick-bot {
             min-height: 67vh;
         }
@@ -32,23 +42,39 @@
 <body class="Site">
     @include('layouts.partials.header')
     
-    <main class="Site-content stick-bot">
-        <div class="container has-text-centered">
-            <h1 class="title is-2">Register a New Client</h1>
-        </div>
-        <div class="container has-text-centered">
-            <section class="section">
-                @yield('new-client-ayy')
-            </section>
-        </div>
+    <main class="stick-bot">
+
+            <div class="container has-text-centered">
+                <h1 class="title is-2">Register a New Client</h1>
+            </div>
+            <div class="container has-text-centered shrinker">
+                <section class="section">
+                    @yield('new-client-ayy')
+                </section>
+            </div>
+
+        <hr class="hr" style="height: 10px;">
         
         <div class="container content">
             <section class="section">
                 @yield('list-clients')
             </section>
         </div>
-    </main>
 
+        <hr class="hr" style="height: 10px;">
+
+        <div class="container has-text-centered">
+            <h1 class="title is-2">Do Something Else</h1>
+            <p>something else</p>
+        </div>
+
+        <hr class="hr" style="height: 10px;">
+
+        <div class="container has-text-centered">
+            <h1 class="title is-2">Do Something Else</h1>
+            <p>something else</p>
+        </div>
+    </main>
 
     @include('layouts.partials.footer')
 </body>

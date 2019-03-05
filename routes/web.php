@@ -24,7 +24,10 @@ Route::get('/{id}/portfolio', function ($id) {
     if ($id != auth()->id() && \Auth::user()->role != 'admin') {
         abort(403);
     } else {
-        return view('layouts.portfolio');
+        $user = DB::table('users')->where('id', $id)->get();
+        // $user = $user->toArray();
+
+        return view('portfolio', compact('user'));
     }
 
     // gates, how do they work??

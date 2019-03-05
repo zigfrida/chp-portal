@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-//use Illuminate\Contracts\Auth\MustVerifyEmail;        << this gets deleted if I save SAD
+//use Illuminate\Contracts\Auth\MustVerifyEmail;        << this gets deleted if I save
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable

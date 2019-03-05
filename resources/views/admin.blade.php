@@ -93,42 +93,42 @@
     </div>
 
     <div class="field is-horizontal">
-    <div class="field-label is-normal">
-        <label class="label">Personality Type</label>
-    </div>
-    <div class="field-body">
-        <div class="field is-narrow">
-            <div class="control">
-                <div class="select is-fullwidth">
-                <select name="personType">
-                    <option>Normal Person</option>
-                    <option>Strong Person</option>
-                    <option>Super Person</option>
-                </select>
+        <div class="field-label is-normal">
+            <label class="label">Personality Type</label>
+        </div>
+        <div class="field-body">
+            <div class="field is-narrow">
+                <div class="control">
+                    <div class="select is-fullwidth">
+                    <select name="personType">
+                        <option>Normal Person</option>
+                        <option>Strong Person</option>
+                        <option>Super Person</option>
+                    </select>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
         
     <div class="field is-horizontal">
-    <div class="field-label">
-        <label class="label">Hair Type?</label>
-    </div>
-    <div class="field-body">
-        <div class="field is-narrow">
-        <div class="control">
-            <label class="radio">
-            <input type="radio" name="hairType"> {{-- remember to put name attribute here --}}
-            Curly
-            </label>
-            <label class="radio">
-            <input type="radio" name="hairType">
-            Bald
-            </label>
+        <div class="field-label">
+            <label class="label">Hair Type?</label>
         </div>
+        <div class="field-body">
+            <div class="field is-narrow">
+            <div class="control">
+                <label class="radio">
+                <input type="radio" name="hairType"> {{-- remember to put name attribute here --}}
+                Curly
+                </label>
+                <label class="radio">
+                <input type="radio" name="hairType">
+                Bald
+                </label>
+            </div>
+            </div>
         </div>
-    </div>
     </div>
         
     <div class="field is-horizontal">
@@ -211,24 +211,29 @@
             </div>
         </div>
             
+        @if ($errors->has('password'))
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $errors->first('password') }}</strong>
+            </span>
+        @endif
+    </div>
 
-            @if ($errors->has('password'))
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('password') }}</strong>
-                </span>
-            @endif
-        </div>
-    </div>
-        
     <div class="field is-horizontal">
-    <div class="field-label">
-        <!-- Left empty for spacing -->
-    </div>
-    <div class="field-body">
-        <div class="has-text-centered">
-            <button class="button is-large is-pulled-right is-warning" type="submit">
-            Create Client
-            </button>
+        <div class="field-label">
+            <!-- Left empty for spacing -->
+        </div>
+        <div class="field-body">
+            {{-- group might make you think it's more than one item but we need it to align btn right
+                 even though the 'group' consists of merely 1 --}}
+            <div class="field is-grouped is-grouped-right">
+                <div class="control">
+                    <button class="button is-primary">
+                        <span class="icon is-medium">
+                            <i class="fas fa-user-plus"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </form>

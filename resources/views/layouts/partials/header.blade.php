@@ -43,9 +43,8 @@
                     </div>
                 </div>
                 </div>
-
-                    <h1 class="is-size-4" style="margin-top:10px;">{{ auth()->user()->name }}</h1>
-                
+                    <h1 class="is-size-7" style="margin-top:10px;">
+                        <span style="font-style: italic;">Logged in as</span> <span style="font-weight: bold;">{{ auth()->user()->name }}</span></h1>
             </div>
         </nav>
     </section>
