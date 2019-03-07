@@ -29,7 +29,19 @@
                 <h1 class="title"><span class="decor">Portfolio of</span> <span class="le-decor">{{ $user[0]->name }}</span></h1>
             </div>
         </div>
+        <div class="container">&nbsp;</div>
+        <div class="container">&nbsp;</div>
+        <div class="container">&nbsp;</div>
+        <div class="container">&nbsp;</div>
+        <div class="container">&nbsp;</div>
+        <div class="container">
+            <div class="has-text-centered">
+                <p></p>
+            </div>
+        </div>
     </main>
+
+
 
     @include('layouts.partials.footer')
 </body>
