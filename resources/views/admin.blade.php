@@ -1,9 +1,9 @@
 @extends('layouts.admin-master')
 
-
 @section('list-clients')
     <h1>All Clients</h1>    
     <ul>
+        
         @foreach ($users as $user)
             <li>Name: {{ $user->name  }} </li>
             Email: {{ $user->email }} <br>
@@ -182,7 +182,7 @@
         </div>
     </div>
     
-    {{-- <div class="field is-horizontal">
+    <div class="field is-horizontal">
         <div class="field-label is-normal">
             <label class="label">Why you?</label>
         </div>
@@ -193,9 +193,9 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 
-    <div class="field is-horizontal">
+    {{-- <div class="field is-horizontal">
         <div class="field-label is-normal">
             <label for="password" class="label">Password</label>
         </div>
@@ -205,9 +205,7 @@
             <div class="control">
                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} input" name="password" required>
             </div>
-            {{-- <p class="help is-danger">
-                This field is required
-            </p> --}}
+
             </div>
         </div>
             
@@ -216,7 +214,7 @@
                 <strong>{{ $errors->first('password') }}</strong>
             </span>
         @endif
-    </div>
+    </div> --}}
 
     <div class="field is-horizontal">
         <div class="field-label">
@@ -227,7 +225,7 @@
                  even though the 'group' consists of merely 1 --}}
             <div class="field is-grouped is-grouped-right">
                 <div class="control">
-                    <button class="button is-primary">
+                    <button class="button is-warning">
                         <span class="icon is-medium">
                             <i class="fas fa-user-plus"></i>
                         </span>
