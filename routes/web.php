@@ -16,10 +16,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/admin', function () {
-//     return view('admin.index');
-// });
-
 Route::get('/{id}/portfolio', function ($id) {
     if ($id != auth()->id() && \Auth::user()->role != 'admin') {
         abort(403);
@@ -29,13 +25,6 @@ Route::get('/{id}/portfolio', function ($id) {
 
         return view('portfolio', compact('user'));
     }
-
-    // gates, how do they work??
-    // if (Gate::allows('own-portfolio', Auth::user())) {
-    //     return 'User'.$id;
-    // } else {
-    //     return 'no access';
-    // }
 })->middleware('auth');
 
 Auth::routes();
@@ -48,15 +37,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], functio
     Route::get('/', function () {
         $users = DB::table('users')->
                     where('role', 'standard')->get();
-        //dd($users);
 
-        //return view('admin.blade')->with(compact('users'));
-
-        // had this before,
-        // return view('admin.main', compact('users'));
-        // now I'm trying this:
         return view('admin', compact('users'));
-
-        //return view('admin.main', $users);
     });
 });
