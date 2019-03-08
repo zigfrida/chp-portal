@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
 
             $table->string('telephone')->default('555-555-5555');
             $table->string('address')->default('16th St. West London');
-            $table->integer('salary')->default(999999);
+            $table->integer('salary')->default(573844);
             $table->string('hairType')->default('Super cool hair type');
             $table->string('personType')->default('Best Person');
 

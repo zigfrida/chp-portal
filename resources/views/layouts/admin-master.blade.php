@@ -76,5 +76,9 @@
     </main>
 
     @include('layouts.partials.footer')
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Include this after the sweet alert js file -->
+    @include('sweet::alert')
 </body>
 </html>

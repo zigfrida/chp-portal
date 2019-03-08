@@ -21,7 +21,6 @@ Route::get('/{id}/portfolio', function ($id) {
         abort(403);
     } else {
         $user = DB::table('users')->where('id', $id)->get();
-        // $user = $user->toArray();
 
         return view('portfolio', compact('user'));
     }
@@ -29,7 +28,7 @@ Route::get('/{id}/portfolio', function ($id) {
 
 Auth::routes();
 
-Route::post('/admin', 'CustomRegister@foo');
+Route::post('/admin', 'UserController@store');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
