@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'telephone', 'address', 'salary', 'hairType', 'personType',
+        'name', 'email', 'password', 'telephone', 'address', 'salary', 'class',
     ];
 
     /**
@@ -36,11 +36,6 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function portfolio()
-    {
-        return $this->hasOne('App\Portfolio');
-    }
 
     // second thing I made for middleware
     public function userRole()

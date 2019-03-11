@@ -31,15 +31,6 @@
                     </span>
                 </p>
             </div>
-
-            {{-- <div class="field">
-                <p class="control is-expanded has-icons-left">
-                    <input class="input " type="text" name="lname" placeholder="Brando">
-                    <span class="icon is-small is-left">
-                        <i class="fas fa-user"></i>
-                    </span>
-                </p>
-            </div> --}}
         </div>
     </div>
 
@@ -82,55 +73,30 @@
         </div>
         <div class="field-body">
             <div class="field">
-            <div class="control">
-                <input class="input" name="address" type="text" placeholder="West 57th Street and, most likely, Henry Hudson Parkway, Manhattan, New New York, United States">
-            </div>
-            {{-- <p class="help ">
-            One nice line
-            </p> --}}
+                <div class="control">
+                    <input class="input" name="address" type="text" placeholder="West 57th Street and, most likely, Henry Hudson Parkway, Manhattan, New New York, United States">
+                </div>
             </div>
         </div>
     </div>
 
     <div class="field is-horizontal">
         <div class="field-label is-normal">
-            <label class="label">Personality Type</label>
+            <label class="label">Investor Class</label>
         </div>
         <div class="field-body">
             <div class="field is-narrow">
                 <div class="control">
                     <div class="select is-fullwidth">
-                    <select name="personType">
-                        <option>Normal Person</option>
-                        <option>Strong Person</option>
-                        <option>Super Person</option>
+                    <select name="class">
+                        <option>A</option>
+                        <option>B</option>
                     </select>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-        
-    <div class="field is-horizontal">
-        <div class="field-label">
-            <label class="label">Hair Type?</label>
-        </div>
-        <div class="field-body">
-            <div class="field is-narrow">
-            <div class="control">
-                <label class="radio">
-                <input type="radio" name="hairType"> {{-- remember to put name attribute here --}}
-                Curly
-                </label>
-                <label class="radio">
-                <input type="radio" name="hairType">
-                Bald
-                </label>
-            </div>
-            </div>
-        </div>
-    </div>
-        
     <div class="field is-horizontal">
         <div class="field-label"><label class="label" style="padding-top:7px">Annual Income </label></div>
             <div class="field-body">
@@ -165,56 +131,6 @@
             </div>
         </div>
     </div>
-
-    <div class="field is-horizontal">
-        <div class="field-label is-normal">
-            <label class="label">Bank Info</label>
-        </div>
-        <div class="field-body">
-            <div class="field">
-            <div class="control">
-                <input class="input " name="bankInfo" type="text" placeholder="Super Bank Info">
-            </div>
-            {{-- <p class="help is-danger">
-                This field is required
-            </p> --}}
-            </div>
-        </div>
-    </div>
-    
-    <div class="field is-horizontal">
-        <div class="field-label is-normal">
-            <label class="label">Why you?</label>
-        </div>
-        <div class="field-body">
-            <div class="field">
-                <div class="control">
-                    <textarea class="textarea is-large" name="sellusprompt" placeholder="Sell yourself to us. Why should we take you on?"></textarea>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    {{-- <div class="field is-horizontal">
-        <div class="field-label is-normal">
-            <label for="password" class="label">Password</label>
-        </div>
-
-        <div class="field-body">
-            <div class="field">
-            <div class="control">
-                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} input" name="password" required>
-            </div>
-
-            </div>
-        </div>
-            
-        @if ($errors->has('password'))
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->first('password') }}</strong>
-            </span>
-        @endif
-    </div> --}}
 
     <div class="field is-horizontal">
         <div class="field-label">

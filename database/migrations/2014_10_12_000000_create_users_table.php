@@ -17,17 +17,14 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-
             $table->string('telephone')->default('555-555-5555');
             $table->string('address')->default('16th St. West London');
-            $table->integer('salary')->default(573844);
-            $table->string('hairType')->default('Super cool hair type');
-            $table->string('personType')->default('Best Person');
+            $table->integer('salary')->default(0);
+            $table->string('class')->default('B');
 
             $table->rememberToken();
             $table->timestamps();
 
-            //$table->boolean('isAdmin')->default(0);
             $table->string('role')->default('standard');
         });
     }

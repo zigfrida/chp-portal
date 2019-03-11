@@ -30,16 +30,14 @@
             </div>
         </div>
         <div class="container">&nbsp;</div>
-        <div class="container">&nbsp;</div>
-        <div class="container">&nbsp;</div>
-        <div class="container">&nbsp;</div>
-        <div class="container">&nbsp;</div>
-        <div class="container">&nbsp;</div>
-        <div class="container">
-            <div class="has-text-centered">
-                <p>hello</p>
-            </div>
+    <div class="container">
+        <div class="has-text-centered">
+            <section class="section">
+                @yield('client-portfolio')
+            </section>
         </div>
+    </div>
+
     </main>
 
 

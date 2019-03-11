@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use App\Portfolio;
 
 class RegisterController extends Controller
 {
@@ -73,11 +72,6 @@ class RegisterController extends Controller
         ]);
 
         //app('App\Http\Controllers\PortfolioController')->init($freshUser);
-
-        $portfolio = Portfolio::create([
-            'user_id' => $freshUser['id'],
-            'balance' => 0,
-        ]);
 
         return $freshUser;
     }
