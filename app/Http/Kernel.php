@@ -63,7 +63,10 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 
         // added this one after making a new middleware called admin
-        'admin' => \App\Http\Middleware\admin::class,
+        // also, changed this because it has to be UNIX like ?? something about
+        // case sensitive file names
+        //'admin' => \App\Http\Middleware\admin::class,
+        'admin' => 'App\Http\Middleware\Admin',
     ];
 
     /**
