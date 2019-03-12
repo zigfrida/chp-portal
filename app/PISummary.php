@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class PISummary extends Model
 {
     protected $fillable = [
-        'user_id', 'class',
+        'user_id', 'class', 'name',
     ];
 
     protected $hidden = [
@@ -15,5 +15,4 @@ class PISummary extends Model
         'cumulative_pref_distribution', 'month_distribution',
         'year_profit_share',
     ];
-
 }
