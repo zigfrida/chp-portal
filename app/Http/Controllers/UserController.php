@@ -61,7 +61,7 @@ class UserController extends Controller
         PISummary::create([
             'user_id' => $user['id'],
             'class' => $user['class'],
-
+            'name' => $user['name'],
         ]);
 
         return redirect('/admin')->with('success', 'User created!');
@@ -87,7 +87,6 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-
     }
 
     /**
