@@ -38,6 +38,12 @@
         </div>
     </div>
 
+    <div class="container">
+        <div class="has-text-centered">
+            <h1 class="title"><span class="decor">File</span> <span class="le-decor">Upload</span></h1>
+        </div>
+    </div>
+    @yield('fileupload')
     </main>
 
 

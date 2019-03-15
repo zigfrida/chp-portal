@@ -52,3 +52,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], functio
         return view('admin', compact('clientsA', 'clientsB'));
     });
 });
+
+Route::view('/upload',"upload");
+Route::post('/{id}/store',"UserController@uploadFile");
+
+
+//Route::get('/file/download/{id}','UserController@show')->name('downloadfile');
