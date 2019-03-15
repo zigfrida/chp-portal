@@ -34,9 +34,21 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], function () {
     Route::get('/', function () {
-        $users = DB::table('users')->
-                    where('role', 'standard')->get();
+        // $users = DB::table('users')->
+        //             where('role', 'standard')->get();
 
-        return view('admin', compact('users'));
+        $clientsA = DB::table('users')
+                        ->where('role', 'standard')
+                        ->where('class', 'A')
+                        ->get();
+
+        $clientsB = DB::table('users')
+                        ->where('role', 'standard')
+                        ->where('class', 'B')
+                        ->get();
+
+        //return view('admin')->with(compact('clientsA'))->with(compact('clientsB'));
+
+        return view('admin', compact('clientsA', 'clientsB'));
     });
 });

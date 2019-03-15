@@ -46,11 +46,6 @@
         <div class="container has-text-centered">
             <h1 class="title is-2">Register a New Client</h1>
         </div>
-        <div class="container has-text-centered shrinker">
-            <section class="section">
-                @yield('new-client-ayy')
-            </section>
-        </div>
 
         <hr class="hr" style="height: 10px;">
         
@@ -72,6 +67,12 @@
         <div class="container has-text-centered">
             <h1 class="title is-2">Do Something Else</h1>
             <p>something else</p>
+        </div>
+
+        <div class="container has-text-centered shrinker">
+            <section class="section">
+                @yield('new-client-ayy')
+            </section>
         </div>
     </main>
 
