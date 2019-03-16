@@ -1,9 +1,8 @@
 @extends('layouts.admin-master')
 
 @section('list-clients')
-    <h1>All Clients</h1>    
-    <ul>
-        <h2>Class A</h2>
+<ul>
+        <h2 class="subtitle is-3">Class A</h2>
         <div class="columns is-multiline">
             @foreach ($clientsA as $cA)
             <div class="column is-one-quarter">
@@ -17,7 +16,7 @@
 
         <hr>
         
-        <h2>Class B</h2>
+        <h2 class="subtitle is-3">Class B</h2>
         <div class="columns is-multiline">
             @foreach ($clientsB as $cB)
             <div class="column is-one-quarter">
@@ -28,20 +27,6 @@
             </div>
         @endforeach
         </div>
-        {{-- @foreach ($clientsA as $cA)
-            <li>Name: {{ $cA->name  }} </li>
-            Email: {{ $cA->email }} <br>
-            <a href="/{{ $cA->id }}/portfolio">Portfolio</a>
-            <hr>
-        @endforeach --}}
-
-        {{-- @foreach ($clientsA as $cA)
-            <li>Name: {{ $cA->name }} </li>
-        @endforeach
-        <hr>
-        @foreach ($clientsB as $cB)
-            <li>Name: {{ $cB->name }} </li>
-        @endforeach --}}
     </ul>
 @endsection
 

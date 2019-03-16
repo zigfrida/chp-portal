@@ -76,6 +76,10 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
+        $dl = File::find($user);
+        // check if this does anything (later), because originally it was a typo with
+        // $dl-title >.<
+        return Storage::download($dl->path, $dl->title);
     }
 
     /**
@@ -110,5 +114,14 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+    }
+
+    public function uploadFile(Request $request, $id)
+    {
+        $path = $request->file('image')->store("upload/$id");
+        $str = $id.'/portfolio';
+        alert()->success('File got uploaded', 'Good Bye!');
+
+        return redirect($str)->with('success', 'File uploaded!');
     }
 }

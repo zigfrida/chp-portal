@@ -37,6 +37,14 @@
         .ml {
             margin-left: 1.47em;
         }
+
+        .decor {
+            color: #FBC033;
+        }
+
+        .le-decor {
+            font-weight: 200 !important;
+        }
     </style>
 </head>
 <body class="Site">
@@ -44,32 +52,22 @@
     
     <main class="stick-bot">
         <div class="container has-text-centered">
-            <h1 class="title is-2">Register a New Client</h1>
+            <h1 class="title"><span class="decor">Admin</span> <span class="le-decor"> Panel</span></h1>
         </div>
 
-        <hr class="hr" style="height: 10px;">
+        <hr class="hr" style="height: 3px;">
         
         <div class="container content">
+            <h1 class="title is-2" style="margin-bottom: 0; margin-left:2.5%">All Clients</h1>
             <section class="section">
                 @yield('list-clients')
             </section>
         </div>
 
-        <hr class="hr" style="height: 10px;">
+        <hr>
 
-        <div class="container has-text-centered">
-            <h1 class="title is-2">Do Something Else</h1>
-            <p>something else</p>
-        </div>
-
-        <hr class="hr" style="height: 10px;">
-
-        <div class="container has-text-centered">
-            <h1 class="title is-2">Do Something Else</h1>
-            <p>something else</p>
-        </div>
-
-        <div class="container has-text-centered shrinker">
+        <div class="container shrinker">
+            <h1 class="title is-2">Register a New Client</h1>
             <section class="section">
                 @yield('new-client-ayy')
             </section>
@@ -79,7 +77,6 @@
     @include('layouts.partials.footer')
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <!-- Include this after the sweet alert js file -->
     @include('sweet::alert')
 </body>
 </html>
