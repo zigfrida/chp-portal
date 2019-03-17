@@ -166,7 +166,7 @@
 
     <nav class="navbar ">
         <div class="navbar-brand">
-            <a class="navbar-item" href="http://bulma.io">
+            <a class="navbar-item" href="#">
                     <img src="https://www.cypresshillspartners.com/uploads/5/9/5/6/59561431/cypresshills-black-yellow.png" alt="Cypress Hills Partners" width="112" height="28">
                   </a>
 
