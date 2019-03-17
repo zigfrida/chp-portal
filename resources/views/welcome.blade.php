@@ -105,8 +105,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Cypress Hill Partners</title>
     <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <!-- Bulma Version 0.7.4-->
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.7.4/css/bulma.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
@@ -120,7 +119,7 @@
             background-image: url(https://i.imgur.com/DZOPrj2.jpg);
 
             width: 100%;
-            height: 333px;
+            height: 370px;
             background-size: cover;
             background-repeat: no-repeat;
             background-position: 50% 50%;
@@ -167,18 +166,18 @@
     <nav class="navbar ">
         <div class="navbar-brand">
             <a class="navbar-item" href="#">
-                    <img src="https://www.cypresshillspartners.com/uploads/5/9/5/6/59561431/cypresshills-black-yellow.png" alt="Cypress Hills Partners" width="112" height="28">
+                    <img src="https://www.cypresshillspartners.com/uploads/5/9/5/6/59561431/cypresshills-black-yellow.png" alt="Cypress Hills Partners">
                   </a>
 
             <a class="navbar-item is-hidden-desktop" href="#" target="_blank">
-                    <span class="icon" style="color: #333;">
-                      <i class="fa fa-github"></i>
+                    <span class="icon" style="color: #345eff;">
+                        <i class="fas fa-american-sign-language-interpreting"></i>
                     </span>
                   </a>
 
             <a class="navbar-item is-hidden-desktop" href="#" target="_blank">
                     <span class="icon" style="color: #55acee;">
-                      <i class="fa fa-twitter"></i>
+                        <i class="fab fa-accessible-icon"></i>
                     </span>
                   </a>
 
@@ -301,12 +300,6 @@
         </div>
     </nav>
 
-
-    <br>
-
-
-    <br><br>
-
     <div class="bgimg" style="padding-top: 70px;">
         <div class="has-text-centered">
             <div style="                          
@@ -317,21 +310,36 @@
                 display: inline-block;
                 padding: 0.5rem;">
                 <h1 class="" style="">
-                   <i> Cyber<span style="color:goldenrod">Hills</span></i></h1>
+                   <i> Cypress Hills<span style="color:goldenrod">&nbsp;Partners</span></i></h1>
 
             </div>
 
         </div>
         <div class="has-text-centered">
             <h1 class="title" style="
-            margin-top: 10px;   
+            margin-top: 10px;
+            margin-bottom: 25px;
             background-color: black;
             color: #fff; 
             display: inline-block;
             padding: 0.5rem;
+            
             ">
                 THE NEW STANDARD IN FINANCIAL INVESTING
             </h1>
+        </div>
+        <div class=" has-text-centered">
+            @if (auth()->user())
+                @if (auth()->user()->userType() == 'admin')
+                    {{-- <h1>Hello, {{ auth()->user()->name }}</h1> --}}
+                    <a href="{{ url('/admin') }}">Admin Portal</a>
+                @elseif (auth()->user()->userType() == 'standard')
+                    {{-- <h1>Hello, {{ auth()->user()->name }}</h1> --}}
+                    <a href="{{ url('/' . auth()->user()->id . '/portfolio') }}">My Portolio</a>
+                @endif
+            @else
+                <span class="title is-1 "><a href="{{ url('/login') }}" class="button is-large has-text-white" style="background-color:#ffbf00">Login</a></span>
+            @endif 
         </div>
     </div>
 
@@ -378,18 +386,23 @@
             </div>
         </div>
 
-        </div>
-        </div>
     </section>
+
+
+<br>
+
 
     <div style="margin-top: 50px">
     <div class="box cta">
         <p class="has-text-centered">
             <span class="tag is-primary">New</span> Open up an account with us now and get 15% off your next Happy Meal.
-            <i>While
-                supplies last.</i>
+            <i>While supplies last.</i>
         </p>
     </div>
+
+
+    <br>
+
     <footer class="footer">
         <div class="container">
             <div class="columns">
@@ -409,12 +422,10 @@
                     <h2><strong>Blah blah blah</strong></h2>
                     <ul>
                         <li><a href="#">La la la</a></li>
-
                     </ul>
                 </div>
             </div>
         </div>
-        <script src="../js/bulma.js"></script>
     </footer>
 </body>
 
