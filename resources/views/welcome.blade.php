@@ -310,7 +310,7 @@
                 display: inline-block;
                 padding: 0.5rem;">
                 <h1 class="" style="">
-                   <i>  Hills<span style="color:goldenrod">&nbsp;Partners</span></i></h1>
+                   <i>Cypress Hills<span style="color:goldenrod">&nbsp;Partners</span></i></h1>
 
             </div>
 
