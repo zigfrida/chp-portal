@@ -42,10 +42,10 @@
                         </a>
                         <hr class="navbar-divider">
                                     {{-- if I remove this href it doesn't seemingly affect the logout - what gives? --}}
-                        <a class="navbar-item" href="http://localhost:8000/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <a class="navbar-item" href="/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             Logout
                         </a>
-                        <form id="logout-form" action="http://localhost:8000/logout" method="POST" style="display: none;">@csrf</form>
+                        <form id="logout-form" action="/logout" method="POST" style="display: none;">@csrf</form>
                     </div>
                 </div>
             </div>
