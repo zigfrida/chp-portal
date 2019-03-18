@@ -54,7 +54,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], functio
 });
 
 Route::view('/upload',"upload");
+Route::view('/test',"test");
 Route::post('/{id}/store',"UserController@uploadFile");
-
-
-//Route::get('/file/download/{id}','UserController@show')->name('downloadfile');
+Route::get('files/{file_name}', function($file_name = null)
+{
+    $path = storage_path().'/'.'app'.$file_name;
+    if (file_exists($path)) {
+        return Response::download($path);
+    }
+});

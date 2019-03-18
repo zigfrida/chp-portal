@@ -124,7 +124,17 @@ th, td{
 @section('fileupload')
 <div class="tile">
 	<article class="tile is-child box">
-		<p class="title"> Personal 	</p>
+		<p class="title"> Files</p>
+		<?php
+			 $files = Storage::files('/upload/'.$user[0]->id);
+
+			// $files = Storage::disk('public')->files('upload/'.$user[0]->id);
+		?>
+		<ul>
+			@foreach($files as $file)
+			<li><a href="{{asset($file)}}" download>{{basename($file)}}</a></li>
+			@endforeach	
+		</ul>		
 	</article>
 </div>
 <form action="<?php echo e(URL::to($user[0]->id.'/store')); ?>" enctype="multipart/form-data" method="post">

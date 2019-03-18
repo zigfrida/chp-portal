@@ -6,9 +6,11 @@ use App\User;
 use App\PISummary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Storage;
 
 class UserController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -76,8 +78,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        $dl = File::find($user);
-        return Storage::download($dl->path,$dl-title);
+
     }
 
     /**
@@ -115,14 +116,20 @@ class UserController extends Controller
     }
 
     public function uploadFile(Request $request,$id)
-    {
-        $path=$request->file('image')->store("upload/$id");
-
+    {   
+        if($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+            $originalname = $file->getClientOriginalName();
+            $extend = $file->getClientOriginalExtension();
+        //    $request->image->store('upload/'.$id);
+            Storage::disk('local')->put('/upload/'.$id.'/'.$originalname,$request->file);
+            $request->image->move(public_path('upload/'.$id), $originalname);
+        }
 
         $str = $id . "/portfolio";
-
         alert()->success('File got uploaded','Good Bye!');
         return redirect($str)->with('success', 'File uploaded!');
     }
-
+    
 }

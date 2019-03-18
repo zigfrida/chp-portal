@@ -1,0 +1,86 @@
+function onOpen() {
+
+var spreadsheet = SpreadsheetApp.getActive();
+
+var menuItems = [
+  {name: 'Get Data', functionName: 'readData'},
+  {name: 'Update Data', functionName:'updateData' }
+];
+spreadsheet.addMenu('My Functions', menuItems);
+
+}
+
+// Replace the variables in this block with real values.
+//var address = 'Mysql@localhost:3306'; //ex. '10.1.1.1:1433'
+ var user = 'sql9282422';
+ var userPwd = '1RN5TdpxGn';
+ var db = 'test';
+ var dbUrl = "jdbc:mysql://sql9.freemysqlhosting.net:3306/sql9282422";
+
+
+
+function updateData() {
+  var conn = Jdbc.getConnection(dbUrl, user, userPwd);
+  var stmt = conn.createStatement();
+  var sheet = SpreadsheetApp.getActiveSheet();
+  var data = sheet.getDataRange().getValues();
+  for (var i = 1; i < data.length; i++) {
+  
+    var results = stmt.executeQuery('SELECT * FROM DarrenTest WHERE ID='+data[i][3]);
+    if(results.next()){
+      var sql = "UPDATE DarrenTest Set Name='"+data[i][0]+"',ClassSet='"+data[i][1]+"',Score="+data[i][2]+" WHERE ID="+data[i][3]+";"
+    }else{
+      var sql = "INSERT INTO DarrenTest (Name,ClassSet,Score) VALUES ('" + data[i][0] + "','" + data[i][1] + "',"+data[i][2]+")";
+    }
+  var count = stmt.executeUpdate(sql,1);
+  }
+  stmt.close();
+  conn.close();
+}
+
+function updateUsersData() {
+  var conn = Jdbc.getConnection(dbUrl, user, userPwd);
+  var stmt = conn.createStatement();
+  var sheet = SpreadsheetApp.getActiveSheet();
+  var data = sheet.getDataRange().getValues();
+  for (var i = 1; i < data.length; i++) {
+    var userNameInDatabase = data[i][0];
+    Logger.log(userNameInDatabase)
+    var results = stmt.executeQuery("SELECT * FROM p_i_summaries WHERE name='" + userNameInDatabase+"'");
+    if(results.next()){
+      var sql = "UPDATE p_i_summaries Set units='"+data[i][2]+"',NAVPerUnit='"+data[i][9]+"',NAV='"+data[i][10]+"',cost='"+data[i][3]+"',cumulative_pref_distribution='"+data[i][6]
+      +"',month_distribution='"+data[i][4]+"',year_profit_share='"+data[i][7]+"' WHERE name='"+userNameInDatabase+"';"
+    }else{
+      var sql = "INSERT INTO p_i_summaries (name,units,NAVPerUnit,NAV,cost,cumulative_pref_distribution,month_distribution,year_profit_share) VALUES ('"+ 
+        data[i][0]+"','"+data[i][2]+"','"+data[i][9]+"','"+data[i][10]+"','"+data[i][3]+"','"+data[i][6]+"','"+data[i][4]+"','"+data[i][7]+"');"
+    }
+  var count = stmt.executeUpdate(sql,1);
+  }
+  stmt.close();
+  conn.close();
+}
+
+function readData() {
+var conn = Jdbc.getConnection(dbUrl, user, userPwd);
+var stmt = conn.createStatement();
+var results = stmt.executeQuery('SELECT * FROM DarrenTest');
+var metaData=results.getMetaData();
+var numCols = metaData.getColumnCount();
+var sheet = SpreadsheetApp.getActiveSheet();
+sheet.clearContents();
+var arr=[];
+for (var col = 0; col < numCols; col++) {
+  arr.push(metaData.getColumnName(col + 1));
+ }
+sheet.appendRow(arr);
+while (results.next()) {
+  arr=[];
+  for (var col = 0; col < numCols; col++) {
+   arr.push(results.getString(col + 1));
+  }
+ sheet.appendRow(arr);
+}
+results.close();
+stmt.close();
+sheet.autoResizeColumns(1, numCols);
+}
