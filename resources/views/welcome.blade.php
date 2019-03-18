@@ -332,10 +332,10 @@
             @if (auth()->user())
                 @if (auth()->user()->userType() == 'admin')
                     {{-- <h1>Hello, {{ auth()->user()->name }}</h1> --}}
-                    <a href="{{ url('/admin') }}">Admin Portal</a>
+                    <span class="title is-1 "><a href="{{ url('/admin') }}" class="button is-large has-text-white" style="background-color:#ffbf00">Admin Portal</a></span>
                 @elseif (auth()->user()->userType() == 'standard')
                     {{-- <h1>Hello, {{ auth()->user()->name }}</h1> --}}
-                    <a href="{{ url('/' . auth()->user()->id . '/portfolio') }}">My Portolio</a>
+                    <span class="title is-1 "><a href="{{ url('/' . auth()->user()->id . '/portfolio') }}" class="button is-large has-text-white" style="background-color:#ffbf00">My Portfolio</a></span>
                 @endif
             @else
                 <span class="title is-1 "><a href="{{ url('/login') }}" class="button is-large has-text-white" style="background-color:#ffbf00">Login</a></span>
