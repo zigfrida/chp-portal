@@ -292,7 +292,7 @@
                     </div>
                 </div>
                 <a class="navbar-item " href="#">
-                      <span class="bd-emoji">❤️</span> &nbsp;Maybe not
+                      <span class="bd-emoji">❤️</span> &nbsp;WhatToPutHere
                     </a>
             </div>
         </div>
@@ -310,7 +310,7 @@
                 display: inline-block;
                 padding: 0.5rem;">
                 <h1 class="" style="">
-                   <i> Cypress Hills<span style="color:goldenrod">&nbsp;Partners</span></i></h1>
+                   <i>  Hills<span style="color:goldenrod">&nbsp;Partners</span></i></h1>
 
             </div>
 
@@ -378,8 +378,8 @@
                     <div class="card-content">
                         <div class="content">
                             <h4>Ken Jeong</h4>
-                            <p>They told me if I don't comment they would take my wife, my kids, and my..</p>
-                            <p><a href="#">Understand why you shouldn't reject us</a></p>
+                            <p>I was very satisfied with how I was treated and..</p>
+                            <p><a href="#">Click here to learn more</a></p>
                         </div>
                     </div>
                 </div>
@@ -395,8 +395,7 @@
     <div style="margin-top: 50px">
     <div class="box cta">
         <p class="has-text-centered">
-            <span class="tag is-primary">New</span> Open up an account with us now and get 15% off your next Happy Meal.
-            <i>While supplies last.</i>
+            <span class="tag is-primary">New</span> We've just won first place at the Superville Investor's Awards 2019.
         </p>
     </div>
 
