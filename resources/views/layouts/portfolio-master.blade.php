@@ -30,12 +30,14 @@
             </div>
         </div>
         <div class="container">&nbsp;</div>
-    <div class="container">
-        <div class="has-text-centered">
-            <section class="section">
-                @yield('client-portfolio')
-            </section>
+        <div class="container">
+            <div class="has-text-centered">
+                <section class="section">
+                    @yield('client-portfolio')
+                </section>
+            </div>
         </div>
+<<<<<<< HEAD
     </div>
 
     <div class="container">
@@ -44,6 +46,22 @@
         </div>
     </div>
     @yield('fileupload')
+=======
+        
+        <div class="container">
+            <div class="has-text-centered">
+                <h1 class="title"><span class="decor">Documents For</span> <span class="le-decor"> {{ $user[0]->name }}</span></h1>
+            </div>
+        </div>
+        {{-- If admin, give them the ability to upload files for the user --}}
+        @if (auth()->check())
+            @if (auth()->user()->isAdmin())
+                @yield('fileupload')
+            @else
+                hey {{ $user[0]->name }} U AINT NO ADMIN LOLLLLLLL
+            @endif        
+        @endif
+>>>>>>> 8028c0126709ffd29fc5242f1740bf159c5ce778
     </main>
 
 

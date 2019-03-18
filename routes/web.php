@@ -34,25 +34,20 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], function () {
     Route::get('/', function () {
-        // $users = DB::table('users')->
-        //             where('role', 'standard')->get();
-
         $clientsA = DB::table('users')
                         ->where('role', 'standard')
                         ->where('class', 'A')
                         ->get();
-
         $clientsB = DB::table('users')
                         ->where('role', 'standard')
                         ->where('class', 'B')
                         ->get();
 
-        //return view('admin')->with(compact('clientsA'))->with(compact('clientsB'));
-
         return view('admin', compact('clientsA', 'clientsB'));
     });
 });
 
+<<<<<<< HEAD
 Route::view('/upload',"upload");
 Route::view('/test',"test");
 Route::post('/{id}/store',"UserController@uploadFile");
@@ -63,3 +58,8 @@ Route::get('files/{file_name}', function($file_name = null)
         return Response::download($path);
     }
 });
+=======
+Route::view('/upload', 'upload');
+Route::post('/{id}/store', 'UserController@uploadFile');
+//Route::get('/file/download/{id}','UserController@show')->name('downloadfile');
+>>>>>>> 8028c0126709ffd29fc5242f1740bf159c5ce778
