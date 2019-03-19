@@ -15,5 +15,4 @@ class PISummary extends Model
         'cumulative_pref_distribution', 'month_distribution',
         'year_profit_share',
     ];
-
 }

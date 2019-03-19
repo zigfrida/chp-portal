@@ -6,9 +6,11 @@ use App\User;
 use App\PISummary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Storage;
 
 class UserController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -61,7 +63,7 @@ class UserController extends Controller
         PISummary::create([
             'user_id' => $user['id'],
             'class' => $user['class'],
-
+            'name' => $user['name'],
         ]);
 
         return redirect('/admin')->with('success', 'User created!');
@@ -76,6 +78,14 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
+<<<<<<< HEAD
+
+=======
+        $dl = File::find($user);
+        // check if this does anything (later), because originally it was a typo with
+        // $dl-title >.<
+        return Storage::download($dl->path, $dl->title);
+>>>>>>> 8028c0126709ffd29fc5242f1740bf159c5ce778
     }
 
     /**
@@ -87,7 +97,6 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-
     }
 
     /**
@@ -112,4 +121,33 @@ class UserController extends Controller
     public function destroy(User $user)
     {
     }
+
+<<<<<<< HEAD
+    public function uploadFile(Request $request,$id)
+    {   
+        if($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+            $originalname = $file->getClientOriginalName();
+            $extend = $file->getClientOriginalExtension();
+        //    $request->image->store('upload/'.$id);
+            Storage::disk('local')->put('/upload/'.$id.'/'.$originalname,$request->file);
+            $request->image->move(public_path('upload/'.$id), $originalname);
+        }
+
+        $str = $id . "/portfolio";
+        alert()->success('File got uploaded','Good Bye!');
+        return redirect($str)->with('success', 'File uploaded!');
+    }
+    
+=======
+    public function uploadFile(Request $request, $id)
+    {
+        $path = $request->file('image')->store("upload/$id");
+        $str = $id.'/portfolio';
+        alert()->success('File got uploaded', 'Good Bye!');
+
+        return redirect($str)->with('success', 'File uploaded!');
+    }
+>>>>>>> 8028c0126709ffd29fc5242f1740bf159c5ce778
 }

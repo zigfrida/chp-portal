@@ -180,7 +180,78 @@
 		</div>
 	</div>
 </div>
+
+<hr>
+
+
+
 @endsection
 
 
+@section('fileupload')
 
+<div class="tile">
+	<article class="tile is-child box">
+		<p class="title"> Files</p>
+		<?php
+			 $files = Storage::files('/upload/'.$user[0]->id);
+
+			// $files = Storage::disk('public')->files('upload/'.$user[0]->id);
+		?>
+		<ul>
+			@foreach($files as $file)
+			<li><a href="{{asset($file)}}" download>{{basename($file)}}</a></li>
+			@endforeach	
+		</ul>		
+<br>
+<div class="tile">
+	<article class="tile is-child box">
+		<p class="title"> Darren do dis	</p>
+	</article>
+</div>
+<form action="<?php echo e(URL::to($user[0]->id.'/store')); ?>" enctype="multipart/form-data" method="post">
+	@csrf
+	<div class="file has-name is-fullwidth">
+		<label class="file-label">
+		  <input class="file-input" id="file-upload" type="file" name="image">
+		  <span class="file-cta">
+			<span class="file-icon">
+			  <i class="fas fa-upload"></i>
+			</span>
+			<span class="file-label">
+			  Choose a file…
+			</span>
+		  </span>
+		  <div style="width:90%">
+		  	<span class="file-name" id="file-upload-filename">
+			Nothing Choose
+			</span>
+		  		  </div>
+		  <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
+		  <button type="submit" name="button" class="button is-link">Upload File</button>
+		</label>
+	   </div>
+
+	   <script>
+			var input = document.getElementById( 'file-upload' );
+			var infoArea = document.getElementById( 'file-upload-filename' );
+			input.addEventListener( 'change', showFileName );
+
+			function showFileName( event ) {
+ 			var input = event.srcElement;
+  			var fileName = input.files[0].name;
+  			infoArea.textContent = fileName;
+			}
+	   </script>
+
+
+	
+</form>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- Include this after the sweet alert js file -->
+@include('sweet::alert')
+@endsection
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+@include('sweet::alert')

@@ -18,7 +18,7 @@
         <i class="far fa-copyright"></i>
     </span>
     Cypress Hill Partners <br>
-    <a href="#" class="ml">with love</a>
+    <a href="#" class="ml">with ❤️</a>
 </div>
                     
  

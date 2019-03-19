@@ -1,0 +1,180 @@
+function onOpen() {
+
+var spreadsheet = SpreadsheetApp.getActive();
+
+var menuItems = [
+  {name: 'Get Data Sheet1', functionName: 'readDataToSheet1'},
+  {name: 'Push Data Sheet1', functionName:'updateClassAClassB'},
+   {name: 'Get Data Sheet2', functionName: 'readDataToSheet2'},
+  {name: 'Push Data Sheet2', functionName:'updateClassAClassB' }
+];
+spreadsheet.addMenu('My Functions', menuItems);
+
+}
+
+ var user = 'sql9282422';
+ var userPwd = '1RN5TdpxGn';
+ var db = 'test';
+ var dbUrl = "jdbc:mysql://sql9.freemysqlhosting.net:3306/sql9282422";
+
+
+function updateClassAClassB(){
+  var conn = Jdbc.getConnection(dbUrl, user, userPwd);
+  var stmt = conn.createStatement();
+  var sheet = SpreadsheetApp.getActiveSheet();
+  var data = sheet.getDataRange().getValues();
+  for (var i = 1; i < data.length; i++) {
+    var userNameInDatabase = data[i][0];
+    var results = stmt.executeQuery("SELECT * FROM p_i_summaries WHERE name='" + userNameInDatabase+"'");
+    if(results.next()){
+      var sql = "UPDATE p_i_summaries Set units='"+data[i][2]+"',NAVPerUnit='"+data[i][9]+"',NAV='"+data[i][10]+"',cost='"+data[i][3]+"',cumulative_pref_distribution='"+data[i][6]
+      +"',month_distribution='"+data[i][4]+"',year_profit_share='"+data[i][7]+"' WHERE name='"+userNameInDatabase+"';"
+    }else{
+      var sql = "INSERT INTO p_i_summaries (name,units,NAVPerUnit,NAV,cost,cumulative_pref_distribution,month_distribution,year_profit_share) VALUES ('"+ 
+        data[i][0]+"','"+data[i][2]+"','"+data[i][9]+"','"+data[i][10]+"','"+data[i][3]+"','"+data[i][6]+"','"+data[i][4]+"','"+data[i][7]+"');"
+    }
+  var count = stmt.executeUpdate(sql,1);
+  }
+  stmt.close();
+  conn.close();
+}
+
+function updateL_P_Performance(){
+  var conn = Jdbc.getConnection(dbUrl, user, userPwd);
+  var stmt = conn.createStatement();
+
+  var ui = SpreadsheetApp.getUi();
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getActiveSheet();
+  var data = sheet.getDataRange().getValues();
+  var rangeData = sheet.getDataRange();
+  var lastColumn = rangeData.getLastColumn();
+  var lastRow = rangeData.getLastRow();
+  var searchRange = sheet.getRange(2,2, lastRow-1, lastColumn-1);
+  var classA = "A";
+  var classB = "B";
+  Logger.log(data[0][lastColumn-3])
+  for (var i = 1; i <= lastColumn-3; i++) {
+    //ClassA
+    var cell = data[0][i];
+    var monthAndYear = [{}];
+    monthAndYear = cell.split("/");
+    var year = monthAndYear[1];
+    var month = monthAndYear[0];
+    var results = stmt.executeQuery("SELECT * FROM l_p_performances WHERE class='"+classA+"' AND month='"+month+"'AND year="+year+";");
+    if(results.next()){
+      var sql = "UPDATE l_p_performances Set class='"+classA+"',month='"+month+"',year="+year+",value="+data[1][i]+
+        " WHERE class='"+classA+"' AND month='"+month+"'AND year="+year+";"
+    }else{
+      var sql = "INSERT INTO l_p_performances (class,month,year,value) VALUES ('"+ 
+        classA+"','"+month+"',"+year+","+data[1][i]+");"
+    }
+    var count = stmt.executeUpdate(sql,1);
+    //ClassB
+    var cell = data[0][i];
+    var monthAndYear = [{}];
+    monthAndYear = cell.split("/");
+    var year = monthAndYear[1];
+    var month = monthAndYear[0];
+    var results = stmt.executeQuery("SELECT * FROM l_p_performances WHERE class='"+classB+"' AND month='"+month+"'AND year="+year+";");
+    if(results.next()){
+      var sql = "UPDATE l_p_performances Set class='"+classB+"',month='"+month+"',year="+year+",value="+data[2][i]+
+        " WHERE class='"+classB+"' AND month='"+month+"'AND year="+year+";"
+    }else{
+      var sql = "INSERT INTO l_p_performances (class,month,year,value) VALUES ('"+ 
+        classB+"','"+month+"',"+year+","+data[2][i]+");"
+    }
+    var count = stmt.executeUpdate(sql,1);
+  }
+  stmt.close();
+  conn.close();
+}
+
+
+function readDataToSheet1() {
+var conn = Jdbc.getConnection(dbUrl, user, userPwd);
+var stmt = conn.createStatement();
+  var results = stmt.executeQuery('SELECT * FROM p_i_summaries');
+var metaData=results.getMetaData();
+var numCols = metaData.getColumnCount();
+var sheet = SpreadsheetApp.getActiveSheet();
+sheet.clearContents();
+var arr=[];
+for (var col = 2; col < numCols; col++) {
+  arr.push(metaData.getColumnName(col + 1));
+ }
+sheet.appendRow(arr);
+while (results.next()) {
+  arr=[];
+  for (var col = 2; col < numCols; col++) {
+   arr.push(results.getString(col + 1));
+  }
+ sheet.appendRow(arr);
+}
+results.close();
+stmt.close();
+sheet.autoResizeColumns(1, numCols);
+}
+
+
+
+
+function readDataToSheet2() {
+var conn = Jdbc.getConnection(dbUrl, user, userPwd);
+var stmt = conn.createStatement();
+var results = stmt.executeQuery("SELECT * FROM l_p_performances WHERE class = 'A'");
+var metaData=results.getMetaData();
+var numCols = metaData.getColumnCount();
+var sheet = SpreadsheetApp.getActiveSheet();
+sheet.clearContents();
+
+  var firstColumn =[];
+  var AColumn =[];
+  var BColumn =[];
+  firstColumn.push(" ");
+  AColumn.push("Class A");
+  BColumn.push("Class B");
+  while(results.next()){
+    var monthAndYear = results.getString(3)+"/"+results.getString(4);
+    firstColumn.push(monthAndYear);
+  }
+  for(var i=1;i<firstColumn.length;i++){
+    var monthAndYear = [{}];
+    monthAndYear = firstColumn[i].split("/");
+    var resultMonAndYearClassA = stmt.executeQuery("SELECT * FROM l_p_performances WHERE class ='A' AND month='"+monthAndYear[0]+"'AND year="+monthAndYear[1]+";");
+    if(resultMonAndYearClassA.next()){
+        var convertToPercentage = parseFloat(resultMonAndYearClassA.getString(5)) * 100;
+        AColumn.push(convertToPercentage+"%");
+    }else{
+        AColumn.push("no data");
+    }
+    var resultMonAndYearClassB = stmt.executeQuery("SELECT * FROM l_p_performances WHERE class ='B' AND month='"+monthAndYear[0]+"'AND year="+monthAndYear[1]+";");
+    if(resultMonAndYearClassB.next()){
+        var convertToPercentage = parseFloat(resultMonAndYearClassB.getString(5)) * 100;
+        BColumn.push(convertToPercentage+"%");
+    }else{
+        BColumn.push("no data");
+    }
+  }
+
+  firstColumn.push("Overall");
+  var resultSumClassA = stmt.executeQuery("SELECT SUM(value)/2 FROM l_p_performances WHERE class ='A'");
+  resultSumClassA.next();
+  var convertToPercentageA =  parseFloat(resultSumClassA.getString(1)) * 100;
+  AColumn.push(convertToPercentageA+"%");
+  var resultSumClassB = stmt.executeQuery("SELECT SUM(value)/2 FROM l_p_performances WHERE class ='B'");
+  resultSumClassB.next();
+  var convertToPercentageB =  parseFloat(resultSumClassB.getString(1)) * 100;
+  BColumn.push(convertToPercentageB+"%");
+  firstColumn.push("LTM");
+  
+  sheet.appendRow(firstColumn);
+  sheet.appendRow(AColumn);
+  sheet.appendRow(BColumn);
+  results.close();
+  resultMonAndYearClassA.close();
+  resultMonAndYearClassB.close();
+  resultSumClassA.close();
+  resultSumClassB.close();
+  stmt.close();
+}s

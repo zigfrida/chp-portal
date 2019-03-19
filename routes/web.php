@@ -34,9 +34,25 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], function () {
     Route::get('/', function () {
-        $users = DB::table('users')->
-                    where('role', 'standard')->get();
+        $clientsA = DB::table('users')
+                        ->where('role', 'standard')
+                        ->where('class', 'A')
+                        ->get();
+        $clientsB = DB::table('users')
+                        ->where('role', 'standard')
+                        ->where('class', 'B')
+                        ->get();
 
-        return view('admin', compact('users'));
+        return view('admin', compact('clientsA', 'clientsB'));
     });
+});
+
+Route::view('/upload', 'upload');
+Route::view('/test', 'test');
+Route::post('/{id}/store', 'UserController@uploadFile');
+Route::get('files/{file_name}', function ($file_name = null) {
+    $path = storage_path().'/'.'app'.$file_name;
+    if (file_exists($path)) {
+        return Response::download($path);
+    }
 });

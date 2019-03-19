@@ -94,7 +94,7 @@ return [
         'users' => [
             'provider' => 'users',
             'table' => 'password_resets',
-            'expire' => 60,
+            'expire' => 1440,
             'invites_expire' => 10080,  // This let's invites be valid for 7 days
         ],
     ],

@@ -8,14 +8,13 @@ class CreatePISummariesTable extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
         Schema::create('p_i_summaries', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
+            $table->string('name');
             $table->string('class');
             $table->decimal('units', 15, 3)->default(0);
             $table->decimal('NAVPerUnit', 15, 3)->default(0);
@@ -33,8 +32,6 @@ class CreatePISummariesTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {
