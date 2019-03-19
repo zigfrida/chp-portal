@@ -182,14 +182,10 @@
 </div>
 
 <hr>
-
-
-
 @endsection
 
 
 @section('fileupload')
-
 <div class="tile">
 	<article class="tile is-child box">
 		<p class="title"> Files</p>
@@ -203,10 +199,6 @@
 			<li><a href="{{asset($file)}}" download>{{basename($file)}}</a></li>
 			@endforeach	
 		</ul>		
-<br>
-<div class="tile">
-	<article class="tile is-child box">
-		<p class="title"> Darren do dis	</p>
 	</article>
 </div>
 <form action="<?php echo e(URL::to($user[0]->id.'/store')); ?>" enctype="multipart/form-data" method="post">
