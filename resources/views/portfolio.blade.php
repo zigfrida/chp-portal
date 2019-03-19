@@ -115,17 +115,13 @@ th, td{
 
 </style>
 
-<<<<<<< HEAD
 <hr>
-=======
->>>>>>> 8028c0126709ffd29fc5242f1740bf159c5ce778
 
 
 @endsection
 
 
 @section('fileupload')
-<<<<<<< HEAD
 <div class="tile">
 	<article class="tile is-child box">
 		<p class="title"> Files</p>
@@ -139,12 +135,6 @@ th, td{
 			<li><a href="{{asset($file)}}" download>{{basename($file)}}</a></li>
 			@endforeach	
 		</ul>		
-=======
-<br>
-<div class="tile">
-	<article class="tile is-child box">
-		<p class="title"> Darren do dis	</p>
->>>>>>> 8028c0126709ffd29fc5242f1740bf159c5ce778
 	</article>
 </div>
 <form action="<?php echo e(URL::to($user[0]->id.'/store')); ?>" enctype="multipart/form-data" method="post">
@@ -174,7 +164,6 @@ th, td{
 			var input = document.getElementById( 'file-upload' );
 			var infoArea = document.getElementById( 'file-upload-filename' );
 			input.addEventListener( 'change', showFileName );
-<<<<<<< HEAD
 
 			function showFileName( event ) {
  			var input = event.srcElement;
@@ -194,15 +183,6 @@ th, td{
 
 
 
-=======
-			function showFileName( event ) {
-				var input = event.srcElement;
-				var fileName = input.files[0].name;
-				infoArea.textContent = fileName;
-			}
-	   </script>
-</form>
->>>>>>> 8028c0126709ffd29fc5242f1740bf159c5ce778
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 @include('sweet::alert')
