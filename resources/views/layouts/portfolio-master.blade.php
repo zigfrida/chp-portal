@@ -37,6 +37,16 @@
                 </section>
             </div>
         </div>
+<<<<<<< HEAD
+    </div>
+
+    <div class="container">
+        <div class="has-text-centered">
+            <h1 class="title"><span class="decor">File</span> <span class="le-decor">Upload</span></h1>
+        </div>
+    </div>
+    @yield('fileupload')
+=======
         
         <div class="container">
             <div class="has-text-centered">
@@ -51,6 +61,7 @@
                 hey {{ $user[0]->name }} NOT AN ADMIN
             @endif        
         @endif
+>>>>>>> 8028c0126709ffd29fc5242f1740bf159c5ce778
     </main>
 
 
