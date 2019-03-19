@@ -16,8 +16,8 @@ class CreateLPPerformancesTable extends Migration
         Schema::create('l_p_performances', function (Blueprint $table) {
             $table->increments('id');
             $table->string('class');
-            $table->string('month');
-            $table->string('year');
+            $table->integer('month');
+            $table->integer('year');
             $table->decimal('value', 25, 10);
             $table->timestamps();
         });

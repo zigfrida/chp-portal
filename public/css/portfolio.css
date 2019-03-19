@@ -1,0 +1,58 @@
+p,
+li {
+    font-size: 20px;
+    text-align: left;
+    padding-top: 7px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.hero {
+    height: 50px;
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+h1 {
+    padding-top: 5px;
+    height: 50px;
+}
+
+.stick-bot {
+    min-height: 67vh;
+}
+
+.decor {
+    color: #FBC033;
+}
+
+.le-decor {
+    font-weight: 200 !important;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table,
+th,
+td {
+    border: 1px solid lightgrey;
+    padding-left: 10px;
+}
+
+th,
+td {
+    padding: 11px;
+}
+
+.bulletPoint {
+    padding-top: 10px;
+    float: left;
+}
+
+.lptable {
+    background-color: lightgray;
+    text-align: center;
+}
