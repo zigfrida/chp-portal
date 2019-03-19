@@ -48,7 +48,7 @@
             @if (auth()->user()->isAdmin())
                 @yield('fileupload')
             @else
-                hey {{ $user[0]->name }} U AINT NO ADMIN LOLLLLLLL
+                hey {{ $user[0]->name }} NOT AN ADMIN
             @endif        
         @endif
     </main>
