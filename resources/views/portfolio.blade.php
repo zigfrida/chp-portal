@@ -143,8 +143,18 @@
 											<div class="control">
 												<div class="select is-warning">
 													<select>
-														<option disabled selected>Select dropdown</option>
-														<option>With options</option>
+														<option disabled selected>Select dropdown</option>			<option>Janurary</option>
+														<option>Februrary</option>
+														<option>March</option>
+														<option>April</option>
+														<option>May</option>
+														<option>June</option>
+														<option>July</option>
+														<option>August</option>
+														<option>September</option>
+														<option>October</option>
+														<option>November</option>
+														<option>December</option>
 													</select>
 												</div>
 											</div>
@@ -172,12 +182,12 @@
 								</div>
 								<div class="lpInputContainer">
 									<div>
-										<p class="lpinputTitle">Month Value: </p>
+										<p class="lpinputTitle">LP Data Value: </p>
 									</div>
 									<div class="lpinput">
 										<div class="field">
 											<div class="control">
-												<input class="input is-warning" type="text" placeholder="Month value">
+												<input class="input is-warning" type="text" placeholder="LP Data value">
 											</div>
 										</div>
 									</div>
@@ -188,62 +198,7 @@
 										<button class="button is-light">Cancel</button>
 									</div>
 								</div>
-
 							</form>
-
-
-
-
-
-{{-- 							
-							<div class="field">
-								<div class="control">
-									<div class="select is-warning">
-										<div class="lpinput">	
-											<label for="select_quater">Select new quater:</label>
-											<select>
-												<option  disabled selected>Select new quater:</option>
-												<option>Q1</option>
-												<option>Q2</option>
-												<option>Q3</option>
-												<option>Q4</option>
-												<option>Janurary</option>
-												<option>Februrary</option>
-												<option>March</option>
-												<option>April</option>
-												<option>May</option>
-												<option>June</option>
-												<option>July</option>
-												<option>August</option>
-												<option>September</option>
-												<option>October</option>
-												<option>November</option>
-												<option>December</option>
-											</select>
-										</div>
-										<div class="lpinput">
-											<label for="select_year">Select quater year:</label>
-											<select>
-												<option  disabled selected>Select quater year:</option>
-													@for ($i = 0; $i <= 299; $i++)
-														<option>{{date("Y") + $i}}</option>
-													@endfor
-											</select>
-										</div>
-										<div class="lpinput">
-											<label for="select_year">LP Data Value:</label>
-											<div class="field">
-												<input class="input is-warning" type="text" placeholder="LP Data Value">
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="field">
-								<div class="control">
-									<input class="input is-warning" type="text" placeholder="LP Data Value">
-								</div>
-							</div> --}}
 						</article>
 					</div>	
                 @endif
