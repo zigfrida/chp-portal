@@ -77,8 +77,8 @@
 	</div>
 
 	<div class="tile is-ancestor">
-		<div class="tile is-vertical">
-			<div class="tile is-parent">
+		<div class="tile">
+			<div class="tile is-parent is-7">
 				<div class="tile">
 					<article class="tile is-child box">
 						<section class="hero is-dark is-bold">
@@ -125,6 +125,135 @@
 					</article>
 				</div>
 			</div>
+
+			<div class="tile is-parent">
+				@if(auth()->user()->userType() == 'admin')
+                    <div class="tile">
+					    <article class="tile is-child box">
+							<section class="hero is-bold">
+								<h1 class="title"><span class="decor">New LP Data for</span><span class="le-decor"> Class {{$thisUser[0]->class}}</span></h1>
+							</section>
+							<form id="newLP">
+								<div class="lpInputContainer">
+									<div>
+										<p class="lpinputTitle">Select Month: </p>
+									</div>
+									<div class="lpinput">
+										<div class="field">
+											<div class="control">
+												<div class="select is-warning">
+													<select>
+														<option disabled selected>Select dropdown</option>
+														<option>With options</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="lpInputContainer">
+									<div>
+										<p class="lpinputTitle">Select Year: </p>
+									</div>
+									<div class="lpinput">
+										<div class="field">
+											<div class="control">
+												<div class="select is-warning">
+													<select>
+														<option  disabled selected>Select dropdown</option>
+															@for ($i = 0; $i <= 299; $i++)
+																<option>{{date("Y") + $i}}</option>
+															@endfor
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="lpInputContainer">
+									<div>
+										<p class="lpinputTitle">Month Value: </p>
+									</div>
+									<div class="lpinput">
+										<div class="field">
+											<div class="control">
+												<input class="input is-warning" type="text" placeholder="Month value">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="lpInputButton">
+									<div class="control">
+										<button class="button is-warning" type="submit">Save</button>
+										<button class="button is-light">Cancel</button>
+									</div>
+								</div>
+
+							</form>
+
+
+
+
+
+{{-- 							
+							<div class="field">
+								<div class="control">
+									<div class="select is-warning">
+										<div class="lpinput">	
+											<label for="select_quater">Select new quater:</label>
+											<select>
+												<option  disabled selected>Select new quater:</option>
+												<option>Q1</option>
+												<option>Q2</option>
+												<option>Q3</option>
+												<option>Q4</option>
+												<option>Janurary</option>
+												<option>Februrary</option>
+												<option>March</option>
+												<option>April</option>
+												<option>May</option>
+												<option>June</option>
+												<option>July</option>
+												<option>August</option>
+												<option>September</option>
+												<option>October</option>
+												<option>November</option>
+												<option>December</option>
+											</select>
+										</div>
+										<div class="lpinput">
+											<label for="select_year">Select quater year:</label>
+											<select>
+												<option  disabled selected>Select quater year:</option>
+													@for ($i = 0; $i <= 299; $i++)
+														<option>{{date("Y") + $i}}</option>
+													@endfor
+											</select>
+										</div>
+										<div class="lpinput">
+											<label for="select_year">LP Data Value:</label>
+											<div class="field">
+												<input class="input is-warning" type="text" placeholder="LP Data Value">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="field">
+								<div class="control">
+									<input class="input is-warning" type="text" placeholder="LP Data Value">
+								</div>
+							</div> --}}
+						</article>
+					</div>	
+                @endif
+			</div>
+		</div>
+	</div>
+
+	<div class="tile is-ancestor">
+
+		<div class="tile is-vertical"> 
 			<div class="tile is-parent">
 				<div class="tile">
 					<article class="tile is-child box">
@@ -134,24 +263,22 @@
 					</article>
 				</div>
 			</div>
-		</div>
-	</div>
 
-	<div class="tile is-ancestor">
-		<div class="tile is-parent">
-			<article class="tile is-child box">
-				<p class="title">Return Summary</p>
-			</article>
-		</div>
-		<div class="tile is-parent">
-			<article class="tile is-child box">
-				<p class="title">Consumer Loan Portfolio<br>Metrics</p>
-			</article>
-		</div>
-		<div class="tile is-parent">
-			<article class="tile is-child box">
-				<p class="title">SME Portfolio Metrics</p>
-			</article>
+			<div class="tile is-parent">
+				<article class="tile is-child box">
+					<p class="title">Return Summary</p>
+				</article>
+			</div>
+			<div class="tile is-parent">
+				<article class="tile is-child box">
+					<p class="title">Consumer Loan Portfolio<br>Metrics</p>
+				</article>
+			</div>
+			<div class="tile is-parent">
+				<article class="tile is-child box">
+					<p class="title">SME Portfolio Metrics</p>
+				</article>
+			</div>
 		</div>
 	</div>
 
@@ -184,7 +311,6 @@
 <hr>
 @endsection
 
-
 @section('fileupload')
 <div class="tile">
 	<article class="tile is-child box">
@@ -205,38 +331,30 @@
 	@csrf
 	<div class="file has-name is-fullwidth">
 		<label class="file-label">
-		  <input class="file-input" id="file-upload" type="file" name="image">
-		  <span class="file-cta">
-			<span class="file-icon">
-			  <i class="fas fa-upload"></i>
-			</span>
-			<span class="file-label">
-			  Choose a file…
-			</span>
-		  </span>
-		  <div style="width:90%">
-		  	<span class="file-name" id="file-upload-filename">
-			Nothing Choose
-			</span>
-		  		  </div>
-		  <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
-		  <button type="submit" name="button" class="button is-link">Upload File</button>
+		  	<input class="file-input" id="file-upload" type="file" name="image">
+		  	<span class="file-cta">
+				<span class="file-icon"><i class="fas fa-upload"></i></span>
+				<span class="file-label">Choose a file…</span>
+		  	</span>
+		  	<div style="width:90%">
+		  		<span class="file-name" id="file-upload-filename">Nothing Choose</span>
+		  	</div>
+		 	<input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
+		  	<button type="submit" name="button" class="button is-link">Upload File</button>
 		</label>
-	   </div>
+	</div>
 
-	   <script>
-			var input = document.getElementById( 'file-upload' );
-			var infoArea = document.getElementById( 'file-upload-filename' );
-			input.addEventListener( 'change', showFileName );
+	<script>
+		var input = document.getElementById( 'file-upload' );
+		var infoArea = document.getElementById( 'file-upload-filename' );
+		input.addEventListener( 'change', showFileName );
 
-			function showFileName( event ) {
+		function showFileName( event ) {
  			var input = event.srcElement;
   			var fileName = input.files[0].name;
   			infoArea.textContent = fileName;
-			}
-	   </script>
-
-
+		}
+    </script>
 	
 </form>
 
