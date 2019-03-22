@@ -42,7 +42,6 @@ class UserController extends Controller
         // $password = $request->input('password');
         $telephone = $request->input('telephone');
         $address = $request->input('address');
-        $salary = $request->input('salary');
         $class = $request->input('class');
         $user = new User(); //same as App/User() but had to do it this way to resolve namespace conflicts
         $user->name = $name;
@@ -52,7 +51,6 @@ class UserController extends Controller
         $user->email = $email;
         $user->telephone = $telephone;
         $user->address = $address;
-        $user->salary = $salary;
         $user->class = $class;
         $user->role = 'standard';
         $user->save();
@@ -61,8 +59,6 @@ class UserController extends Controller
 
         PISummary::create([
             'user_id' => $user['id'],
-            'class' => $user['class'],
-            'name' => $user['name'],
         ]);
 
         return redirect('/admin')->with('success', 'User created!');

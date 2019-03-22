@@ -41,7 +41,7 @@
 				<table id="summaryTable">
 					<tr>
 						<th>Class of Units</th>
-						<td>{{$thisUser[0]->class}}</td>
+						<td>{{$user[0]->class}}</td>
 					</tr>
 					<tr>
 						<th>Units</th>
@@ -86,7 +86,7 @@
 						</section>
 						<table>
 							<?php
-								$years = DB::table('l_p_performances')->select('year')->distinct()->where('class', 'LIKE', $thisUser[0]->class)->get();
+								$years = DB::table('l_p_performances')->select('year')->distinct()->where('class', 'LIKE', $user[0]->class)->get();
 							?>
 							<tr>
 								<td class="lptable"></td>
@@ -103,7 +103,7 @@
 									<?php $values = DB::table('l_p_performances')->select('value')
 										->whereBetween('month', [$i, $i+2])
 										->where('year','=', $year->year)
-										->where('class','LIKE', $thisUser[0]->class)->get();
+										->where('class','LIKE', $user[0]->class)->get();
 										if(isset($values[0]->value))
 											$quater = $values->sum('value') * 100 . "%";
 										else
@@ -113,7 +113,7 @@
 								<?php $ytdValues = DB::table('l_p_performances')->select('value')
 									->where('month','=',0)
 									->where('year','=', $year->year)
-									->where('class','LIKE', $thisUser[0]->class)->get(); 
+									->where('class','LIKE', $user[0]->class)->get(); 
 									if(isset($ytdValues[0]->value))
 										$ytd = $ytdValues[0]->value * 100 . "%";
 									else
@@ -131,7 +131,7 @@
                     <div class="tile">
 					    <article class="tile is-child box">
 							<section class="hero is-bold">
-								<h1 class="title"><span class="decor">New LP Data for</span><span class="le-decor"> Class {{$thisUser[0]->class}}</span></h1>
+								<h1 class="title"><span class="decor">New LP Data for</span><span class="le-decor"> Class {{$user[0]->class}}</span></h1>
 							</section>
 							<form id="newLP">
 								<div class="lpInputContainer">
@@ -246,11 +246,17 @@
 <div class="container">
 	<div class="tile is-ancestor">
 		<div class="has-text-centered">
-			<h1 class="title"><span class="decor">Create comment for </span> <span class="le-decor">{{$thisUser[0]->name}}</span></h1>
+			<h1 class="title"><span class="decor">Create comment for </span> <span class="le-decor">{{$user[0]->name}}</span></h1>
 		<form method="post" action="/portfolio">
 				<div class="field">
 					<div class="control">
-						<textarea class="textarea is-warning" name="comment">{{$thisUser[0]->comment}}</textarea>
+						<?php
+						$comment = "";
+						if(isset($thisUser[0]->comment)){
+							$comment = $thisUser[0]->comment;
+						}
+						?>
+						<textarea class="textarea is-warning" name="comment">{{$comment}}</textarea>
 					</div>
 					<br>
 					<div class="control">

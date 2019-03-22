@@ -17,10 +17,10 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('telephone')->default('555-555-5555');
-            $table->string('address')->default('16th St. West London');
-            $table->integer('salary')->default(0);
-            $table->string('class')->default('B');
+            $table->string('telephone')->nullable();
+            $table->string('address')->nullable();
+            $table->string('class')->nullable();
+            $table->integer('access')->default(0);
 
             $table->rememberToken();
             $table->timestamps();

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class PISummary extends Model
 {
     protected $fillable = [
-        'user_id', 'class', 'comment',
+        'user_id', 'comment',
     ];
 
     protected $hidden = [
