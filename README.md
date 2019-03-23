@@ -2,21 +2,21 @@
 ## Project Website
 
 ### Getting started
-Blah blah blah I am fat
+Blah blah blah
 
 ### Did you know..
 Blah blah blah
 
-As of right now, there are protected client & admin routes. Furthermore, each client can only see their own portfolio, whereas 
-each admin can see all the portfolios.
+As of right now, there are protected client & admin routes. 
+Each client can only see their own portfolio, but each admin can see all the portfolios.
 
 ### TODOs
 
 #### passwords should expire
-  > after a certain amount of time (in months), a user's password should expire
+  > after some time (in months), a user's password should expire
         > bold suggestion: a year
   
-#### client's should be booted out after a certain amount of time
+#### clients should be booted out after a certain amount of time
   > after 10 minutes of inactivity, the user should be logged out
   
 #### fix templating layouts
