@@ -56,3 +56,27 @@ td {
     background-color: lightgray;
     text-align: center;
 }
+
+#newLP {
+    padding-left: 15%;
+}
+
+.lpinput {
+    float: left;
+    width: 50%;
+    margin-bottom: 15px;
+}
+
+.lpinputTitle {
+    float: left;
+    width: 140px;
+    margin-left: 12px;
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+
+#lpInputButton {
+    /* padding-top: 7px;
+    margin-left: 120px; */
+    margin-left: calc(100% - 320px);
+}

@@ -42,7 +42,7 @@
 				<table id="summaryTable">
 					<tr>
 						<th>Class of Units</th>
-						<td>{{$thisUser[0]->class}}</td>
+						<td>{{$user[0]->class}}</td>
 					</tr>
 					<tr>
 						<th>Units</th>
@@ -78,8 +78,8 @@
 	</div>
 
 	<div class="tile is-ancestor">
-		<div class="tile is-vertical">
-			<div class="tile is-parent">
+		<div class="tile">
+			<div class="tile is-parent is-7">
 				<div class="tile">
 					<article class="tile is-child box">
 						<section class="hero is-dark is-bold">
@@ -87,7 +87,7 @@
 						</section>
 						<table>
 							<?php
-								$years = DB::table('l_p_performances')->select('year')->distinct()->where('class', 'LIKE', $thisUser[0]->class)->get();
+								$years = DB::table('l_p_performances')->select('year')->distinct()->where('class', 'LIKE', $user[0]->class)->get();
 							?>
 							<tr>
 								<td class="lptable"></td>
@@ -104,7 +104,7 @@
 									<?php $values = DB::table('l_p_performances')->select('value')
 										->whereBetween('month', [$i, $i+2])
 										->where('year','=', $year->year)
-										->where('class','LIKE', $thisUser[0]->class)->get();
+										->where('class','LIKE', $user[0]->class)->get();
 										if(isset($values[0]->value))
 											$quater = $values->sum('value') * 100 . "%";
 										else
@@ -114,7 +114,7 @@
 								<?php $ytdValues = DB::table('l_p_performances')->select('value')
 									->where('month','=',0)
 									->where('year','=', $year->year)
-									->where('class','LIKE', $thisUser[0]->class)->get(); 
+									->where('class','LIKE', $user[0]->class)->get(); 
 									if(isset($ytdValues[0]->value))
 										$ytd = $ytdValues[0]->value * 100 . "%";
 									else
@@ -126,6 +126,90 @@
 					</article>
 				</div>
 			</div>
+
+			<div class="tile is-parent">
+				@if(auth()->user()->userType() == 'admin')
+                    <div class="tile">
+					    <article class="tile is-child box">
+							<section class="hero is-bold">
+								<h1 class="title"><span class="decor">New LP Data for</span><span class="le-decor"> Class {{$user[0]->class}}</span></h1>
+							</section>
+							<form id="newLP">
+								<div class="lpInputContainer">
+									<div>
+										<p class="lpinputTitle">Select Month: </p>
+									</div>
+									<div class="lpinput">
+										<div class="field">
+											<div class="control">
+												<div class="select is-warning">
+													<select>
+														<option disabled selected>Select dropdown</option>			<option>Janurary</option>
+														<option>Februrary</option>
+														<option>March</option>
+														<option>April</option>
+														<option>May</option>
+														<option>June</option>
+														<option>July</option>
+														<option>August</option>
+														<option>September</option>
+														<option>October</option>
+														<option>November</option>
+														<option>December</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="lpInputContainer">
+									<div>
+										<p class="lpinputTitle">Select Year: </p>
+									</div>
+									<div class="lpinput">
+										<div class="field">
+											<div class="control">
+												<div class="select is-warning">
+													<select>
+														<option  disabled selected>Select dropdown</option>
+															@for ($i = 0; $i <= 299; $i++)
+																<option>{{date("Y") + $i}}</option>
+															@endfor
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="lpInputContainer">
+									<div>
+										<p class="lpinputTitle">LP Data Value: </p>
+									</div>
+									<div class="lpinput">
+										<div class="field">
+											<div class="control">
+												<input class="input is-warning" type="text" placeholder="LP Data value">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="lpInputButton">
+									<div class="control">
+										<button class="button is-warning" type="submit">Save</button>
+										<button class="button is-light">Cancel</button>
+									</div>
+								</div>
+							</form>
+						</article>
+					</div>	
+                @endif
+			</div>
+		</div>
+	</div>
+
+	<div class="tile is-ancestor">
+
+		<div class="tile is-vertical"> 
 			<div class="tile is-parent">
 				<div class="tile">
 					<article class="tile is-child box">
@@ -135,24 +219,22 @@
 					</article>
 				</div>
 			</div>
-		</div>
-	</div>
 
-	<div class="tile is-ancestor">
-		<div class="tile is-parent">
-			<article class="tile is-child box">
-				<p class="title">Return Summary</p>
-			</article>
-		</div>
-		<div class="tile is-parent">
-			<article class="tile is-child box">
-				<p class="title">Consumer Loan Portfolio<br>Metrics</p>
-			</article>
-		</div>
-		<div class="tile is-parent">
-			<article class="tile is-child box">
-				<p class="title">SME Portfolio Metrics</p>
-			</article>
+			<div class="tile is-parent">
+				<article class="tile is-child box">
+					<p class="title">Return Summary</p>
+				</article>
+			</div>
+			<div class="tile is-parent">
+				<article class="tile is-child box">
+					<p class="title">Consumer Loan Portfolio<br>Metrics</p>
+				</article>
+			</div>
+			<div class="tile is-parent">
+				<article class="tile is-child box">
+					<p class="title">SME Portfolio Metrics</p>
+				</article>
+			</div>
 		</div>
 	</div>
 
@@ -169,7 +251,13 @@
 		<form method="post" action="/portfolio">
 				<div class="field">
 					<div class="control">
-						<textarea class="textarea is-warning" name="comment">{{$thisUser[0]->comment}}</textarea>
+						<?php
+						$comment = "";
+						if(isset($thisUser[0]->comment)){
+							$comment = $thisUser[0]->comment;
+						}
+						?>
+						<textarea class="textarea is-warning" name="comment">{{$comment}}</textarea>
 					</div>
 					<br>
 					<div class="control">
@@ -185,6 +273,7 @@
 <hr>
 @endsection
 
+<<<<<<< HEAD
 
 
 
@@ -227,6 +316,8 @@
 
 
 
+=======
+>>>>>>> 9c4ed1e75dbf3fd184e6329d713acab9669e6757
 @section('fileupload')
 <div class="tile">
 	<article class="tile is-child box">
@@ -247,38 +338,30 @@
 	@csrf
 	<div class="file has-name is-fullwidth">
 		<label class="file-label">
-		  <input class="file-input" id="file-upload" type="file" name="image">
-		  <span class="file-cta">
-			<span class="file-icon">
-			  <i class="fas fa-upload"></i>
-			</span>
-			<span class="file-label">
-			  Choose a file…
-			</span>
-		  </span>
-		  <div style="width:90%">
-		  	<span class="file-name" id="file-upload-filename">
-			Nothing Choose
-			</span>
-		  		  </div>
-		  <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
-		  <button type="submit" name="button" class="button is-link">Upload File</button>
+		  	<input class="file-input" id="file-upload" type="file" name="image">
+		  	<span class="file-cta">
+				<span class="file-icon"><i class="fas fa-upload"></i></span>
+				<span class="file-label">Choose a file…</span>
+		  	</span>
+		  	<div style="width:90%">
+		  		<span class="file-name" id="file-upload-filename">Nothing Choose</span>
+		  	</div>
+		 	<input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
+		  	<button type="submit" name="button" class="button is-link">Upload File</button>
 		</label>
-	   </div>
+	</div>
 
-	   <script>
-			var input = document.getElementById( 'file-upload' );
-			var infoArea = document.getElementById( 'file-upload-filename' );
-			input.addEventListener( 'change', showFileName );
+	<script>
+		var input = document.getElementById( 'file-upload' );
+		var infoArea = document.getElementById( 'file-upload-filename' );
+		input.addEventListener( 'change', showFileName );
 
-			function showFileName( event ) {
+		function showFileName( event ) {
  			var input = event.srcElement;
   			var fileName = input.files[0].name;
   			infoArea.textContent = fileName;
-			}
-	   </script>
-
-
+		}
+    </script>
 	
 </form>
 
