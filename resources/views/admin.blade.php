@@ -5,13 +5,13 @@
         <h2 class="subtitle is-3">Class A</h2>
         <div class="columns is-multiline">
             @foreach ($clientsA as $cA)
-            <div class="column is-one-quarter">
-                Name: {{ $cA->name  }} <br>
-                Email: {{ $cA->email }} <br>
-                <a href="/{{ $cA->id }}/portfolio">Portfolio</a>
-                <hr>
-            </div>
-        @endforeach
+                <div class="column is-one-quarter">
+                    Name: {{ $cA->name  }} <br>
+                    Email: {{ $cA->email }} <br>
+                    <a href="/{{ $cA->id }}/portfolio">Portfolio</a>
+                    <hr>
+                </div>
+            @endforeach
         </div>
 
         <hr>

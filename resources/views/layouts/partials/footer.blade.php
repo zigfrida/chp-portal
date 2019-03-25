@@ -1,4 +1,4 @@
-<footer class="footer" style="padding: 2.5rem 1.5rem .5rem 1.5rem"> 
+<footer class="footer" style="margin-top: 30px;"> 
                                {{-- top right bottom left --}}
 
 <nav class="level has-text-weight-semibold is-size-5" style="margin-bottom: 2em">

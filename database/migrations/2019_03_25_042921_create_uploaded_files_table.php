@@ -15,6 +15,7 @@ class CreateUploadedFilesTable extends Migration
             $table->increments('id');
 
             $table->integer('user_id')->unsigned();
+            $table->string('filename');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->timestamps();

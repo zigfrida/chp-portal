@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\UploadedFiles;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\DB;
 
 class UploadController extends Controller
 {
@@ -38,14 +38,20 @@ class UploadController extends Controller
         // Storage::put(
         //     'filelolol.julian', $request->file('filelolol')
         // );
+        if (!$request->user()->isAdmin() && $request->user()->id != $request->input('user_id')) {
+            return 'fuck u u aint hacking this lol';
+        }
 
         $uploaded = $request->file('filelolol');
         $userID = $request->input('user_id');
 
-        $user = DB::table('users')->where('id', $userID)->get();
+        $filename = $uploaded->getClientOriginalName();
 
-        $time = time();
-        $filename = (string) $time.$uploaded->getClientOriginalName();
+        $tableEntry = new UploadedFiles();
+
+        $tableEntry->user_id = $userID;
+        $tableEntry->filename = $uploaded->getClientOriginalName();
+        $tableEntry->save();
 
         Storage::disk('local')->putFileAs(
             $userID,

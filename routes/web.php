@@ -21,8 +21,19 @@ Route::get('/{id}/portfolio', function ($id) {
         abort(403);
     } else {
         $user = DB::table('users')->where('id', $id)->get();
+        $files = DB::table('uploaded_files')->where('user_id', $id)->get();
 
-        return view('portfolio', compact('user'));
+        return view('portfolio', compact('user', 'files'));
+    }
+})->middleware('auth');
+
+Route::get('/{id}/portfolio/{filename}', function ($id, $filename) {
+    if ($id != auth()->id() && \Auth::user()->role != 'admin') {
+        abort(403);
+    } else {
+        $filepath = $id.'/'.$filename;
+
+        return Storage::download($filepath);
     }
 })->middleware('auth');
 
@@ -30,7 +41,7 @@ Auth::routes();
 
 Route::post('/admin', 'UserController@store');
 
-Route::post('/filetest', 'UploadController@store');
+Route::post('/fileupload', 'UploadController@store');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

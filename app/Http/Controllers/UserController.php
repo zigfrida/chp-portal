@@ -55,7 +55,7 @@ class UserController extends Controller
         $user->role = 'standard';
         $user->save();
 
-        // \Invytr::invite($user);
+        \Invytr::invite($user);
 
         PISummary::create([
             'user_id' => $user['id'],
