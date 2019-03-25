@@ -44,7 +44,7 @@
         {{-- If admin, give them the ability to upload files for the user --}}
         @if (auth()->check())
             @if (auth()->user()->isAdmin())
-                @yield('fileupload')
+                @yield('fileuploadbetter')
             @else
                 hey {{ $user[0]->name }} NOT AN ADMIN
             @endif        

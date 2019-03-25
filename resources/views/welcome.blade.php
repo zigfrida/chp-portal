@@ -116,8 +116,7 @@
         }
 
         .bgimg {
-            background-image: url(https://i.imgur.com/DZOPrj2.jpg);
-
+            background-image: url(/images/background.PNG);
             width: 100%;
             height: 370px;
             background-size: cover;

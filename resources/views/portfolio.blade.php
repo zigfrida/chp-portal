@@ -32,6 +32,7 @@
 		</div>
 		<?php
 		$thisUser = DB::table('p_i_summaries')->where('user_id', $user[0]->id)->get();
+		//$thisUserName = DB::table('users')->where('id', $user[0]->id)->get();
 		?>
 		<div class="tile is-parent">
 			<article class="tile is-child box">
@@ -164,7 +165,7 @@
 <div class="container">
 	<div class="tile is-ancestor">
 		<div class="has-text-centered">
-			<h1 class="title"><span class="decor">Create comment for </span> <span class="le-decor">{{$thisUser[0]->name}}</span></h1>
+			<h1 class="title"><span class="decor">Create comment for </span> <span class="le-decor">{{$user[0]->name}}</span></h1>
 		<form method="post" action="/portfolio">
 				<div class="field">
 					<div class="control">
@@ -183,6 +184,47 @@
 
 <hr>
 @endsection
+
+
+
+
+
+
+@section('fileuploadbetter')
+<form action="/filetest" method="post" enctype="multipart/form-data">
+	@csrf
+	<div class="field">
+		<div class="file is-warning has-name is-boxed">
+			<label class="file-label">
+			<input class="file-input" type="file" name="filelolol">
+			<span class="file-cta">
+				<span class="file-icon">
+				<i class="fas fa-cloud-upload-alt"></i>
+				</span>
+				<span class="file-label">
+				Danger file…
+				</span>
+			</span>
+			<span class="file-name">
+				Screen Shot 2017-07-29 at 15.54.25.png
+			</span>
+			</label>
+		</div>
+	  </div>
+	  <input type="hidden" name="user_id" value="{{ $user[0]->id }}">
+
+	  <button type="submit" >Submit</button>
+</form>
+@endsection
+
+@section('uploaded-file')
+	<h1>lol</h1>
+@endsection
+
+
+
+
+
 
 
 @section('fileupload')
@@ -243,7 +285,6 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- Include this after the sweet alert js file -->
 @include('sweet::alert')
+
 @endsection
 
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-@include('sweet::alert')

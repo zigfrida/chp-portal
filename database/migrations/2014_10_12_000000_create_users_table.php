@@ -21,7 +21,6 @@ class CreateUsersTable extends Migration
             $table->string('address')->default('16th St. West London');
             $table->integer('salary')->default(0);
             $table->string('class')->default('B');
-
             $table->rememberToken();
             $table->timestamps();
 

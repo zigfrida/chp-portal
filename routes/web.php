@@ -30,6 +30,8 @@ Auth::routes();
 
 Route::post('/admin', 'UserController@store');
 
+Route::post('/filetest', 'UploadController@store');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], function () {
@@ -49,6 +51,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], functio
 
 Route::view('/upload', 'upload');
 Route::view('/test', 'test');
+
 Route::post('/{id}/store', 'UserController@uploadFile');
 Route::get('files/{file_name}', function ($file_name = null) {
     $path = storage_path().'/'.'app'.$file_name;
