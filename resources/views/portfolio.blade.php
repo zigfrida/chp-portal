@@ -281,7 +281,7 @@
 	<div class="field">
 		<div class="file is-warning has-name is-boxed">
 			<label class="file-label">
-			<input class="file-input" type="file" name="filelolol">
+			<input class="file-input" type="file" name="filelolol" id="file-upload">
 			<span class="file-cta">
 				<span class="file-icon">
 				<i class="fas fa-cloud-upload-alt"></i>
@@ -290,7 +290,7 @@
 				Choose File..
 				</span>
 			</span>
-			<span class="file-name">
+			<span class="file-name" id="filename">
 				
 			</span>
 			</label>
@@ -300,7 +300,18 @@
 	  
 	  <div class="columns is-centered" style="margin-top: 10px;">
 			<button type="submit" class="button is-warning">Submit</button>
-	  </div>
+		</div>
+		<script>
+			var input = document.getElementById( 'file-upload' );
+			var infoArea = document.getElementById( 'filename' );
+			input.addEventListener( 'change', showFileName );
+	
+			function showFileName( event ) {
+				 var input = event.srcElement;
+					var fileName = input.files[0].name;
+					infoArea.textContent = fileName;
+			}
+			</script>
 	  
 
 </form>
