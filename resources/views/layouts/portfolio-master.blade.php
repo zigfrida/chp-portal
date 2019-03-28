@@ -8,18 +8,34 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/portfolio.css') }}">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <title>Portfolio</title>
+    <style>
+        .make-small {
+            padding: 3rem 30rem;
+        }
+    </style>
 </head>
 <body>
     
     @include('layouts.partials.header')
-    
+
     <main class="stick-bot">
         <div class="container">
             <div class="has-text-centered">
                 <h1 class="title"><span class="decor">Portfolio of</span> <span class="le-decor">{{ $user[0]->name }}</span></h1>
             </div>
         </div>
-        <div class="container">&nbsp;</div>
+        <br>
+        @if ($user[0]->access_level == 0 && $user[0]->form_level == 0)
+            @include('forms.formstack')
+        @elseif ($user[0]->access_level == 0 && $user[0]->form_level == 1)
+            <h1>Wait for Alli to complete it</h1>
+        @elseif ($user[0]->access_level == 1 && $user[0]->form_level == 1)
+            <h1>Show subagreement</h1>
+        @elseif ($user[0]->access_level == 1 && $user[0]->form_level == 2)
+            <h1>Wait for Alli to confirm subagreement</h1>
+        @elseif ($user[0]->access_level == 2 && $user[0]->form_level == 2)
+        
+
         <div class="container">
             <div class="has-text-centered">
                 @yield('client-portfolio')
@@ -56,6 +72,8 @@
     </div>
  
     </main>
+
+    @endif
     <br>
     @include('layouts.partials.footer')
 </body>
