@@ -1,21 +1,19 @@
 <section class="section make-small">
     <div class="field">
-
-            <label class="label">
-                    Type of Investor
-                </label>
-            <div class="control">
-              <label class="radio">
+        <label class="label">
+            Type of Investor
+        </label>
+        <div class="control">
+            <label class="radio">
                 <input type="radio" name="question">
                 Individual
-              </label>
-              <label class="radio">
+            </label>
+            <label class="radio">
                 <input type="radio" name="question">
                 Non-Individual (Fund, Corp, etc)
-              </label>
-            </div>
-          </div>
-
+            </label>
+        </div>
+    </div>
 
     <div class="field">
         <label class="label">Name of Subscriber (Individual or Entity)</label>
@@ -27,21 +25,40 @@
     <div class="field">
         <label class="label">Address</label>
         <div class="control">
-            <input class="input" type="text" placeholder="Jane Doe">
+            <input class="input" type="text" placeholder="">
         </div>
     </div>
 
+    <div class="field is-grouped is-grouped-multiline">
+        {{-- <label class="label">City</label> --}}
+        <div class="control is-expanded">
+            <input class="input" type="text" placeholder="City" value="">
+        </div>
+
+        <div class="control">
+            <input class="input" type="text" placeholder="Postal Code" value="">
+        </div>
+
+        <div class="control">
+            <div class="select">
+                <select>
+                  <option>Province</option>
+                  <option>British Columbia</option>
+                  <option>Manitoba</option>
+                  <option>Nova Scotia</option>
+                  <option>Alberta</option>
+                  <option>Nunavut</option>
+                  <option>Ontario</option>
+                  <option>Yukon</option>
+                </select>
+            </div>
+        </div>
+    </div>
 
     <div class="field">
-        <label class="label">Username</label>
-        <div class="control has-icons-left has-icons-right">
-            <input class="input" type="text" placeholder="Text input" value="bulma">
-            <span class="icon is-small is-left">
-            <i class="fas fa-user"></i>
-          </span>
-            <span class="icon is-small is-right">
-            <i class="fas fa-check"></i>
-          </span>
+        <label class="label">Phone</label>
+        <div class="control">
+            <input class="input" type="text" placeholder="">
         </div>
     </div>
 
