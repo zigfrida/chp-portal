@@ -143,7 +143,8 @@
 											<div class="control">
 												<div class="select is-warning">
 													<select>
-														<option disabled selected>Select dropdown</option>			<option>Janurary</option>
+														<option disabled selected>Select dropdown</option>			
+														<option>Janurary</option>
 														<option>Februrary</option>
 														<option>March</option>
 														<option>April</option>
@@ -200,43 +201,158 @@
 								</div>
 							</form>
 						</article>
-					</div>	
+					</div>
+				@else 
+					<div class="tile">
+					    <article class="tile is-child box">
+							<section class="hero is-bold">
+								<h1 class="title"><span class="decor">Comments for</span><span class="le-decor"> {{$user[0]->name}}</span></h1>
+							</section>
+							<?php
+								$comment = "";
+								if(isset($thisUser[0]->comment)){
+									$comment = $thisUser[0]->comment;
+								} ?>
+								<p>{{$comment}}</p>
+						</article>
+					</div>
+
                 @endif
 			</div>
 		</div>
 	</div>
 
-	<div class="tile is-ancestor">
-
-		<div class="tile is-vertical"> 
-			<div class="tile is-parent">
-				<div class="tile">
-					<article class="tile is-child box">
-						<section class="hero is-dark is-bold">
-							<h1 class="title">Performace Analysis</h1>
-						</section>
-					</article>
-				</div>
-			</div>
-
-			<div class="tile is-parent">
+<div class="tile is-ancestor">
+	<div class="tile is-parent">
+			<div class="tile">
 				<article class="tile is-child box">
-					<p class="title">Return Summary</p>
-				</article>
-			</div>
-			<div class="tile is-parent">
-				<article class="tile is-child box">
-					<p class="title">Consumer Loan Portfolio<br>Metrics</p>
-				</article>
-			</div>
-			<div class="tile is-parent">
-				<article class="tile is-child box">
-					<p class="title">SME Portfolio Metrics</p>
+					<section class="hero is-dark is-bold">
+						<h1 class="title">Performace Analysis</h1>
+					</section>
 				</article>
 			</div>
 		</div>
 	</div>
+	<div class="tile">
+		<div class="tile is-parent">
+			<article class="tile is-child box">
+				<table>
+					<tr>
+						<th class="tableName" colspan = "2">Return Summary</th>
+					</tr>
+					<tr>
+						<td># of Months</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Last 12 Months</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Total Return since Inception</td>
+						<td></td>
+					</tr>
+				</table>
+			</article>
+		</div>
+		<div class="tile is-parent">
+			<article class="tile is-child box">
+				<table>
+					<tr>
+						<th class="tableName" colspan = "2">Risk Summary</th>
+					</tr>
+					<tr>
+						<td>Sharpe Ratio</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td># of Negative Months</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Standard Deviation</td>
+						<td></td>
+					</tr>
+				</table>
+			</article>
+		</div>
+	</div>
+</div>
 
+<div class="tile is-ancestor">
+	<div class="tile is-parent">
+			<div class="tile">
+				<article class="tile is-child box">
+					<section class="hero is-dark is-bold">
+						<h1 class="title">Portfolio Metrics</h1>
+					</section>
+				</article>
+			</div>
+		</div>
+	</div>
+	<div class="tile">
+		<div class="tile is-parent">
+			<article class="tile is-child box">
+				<table>
+					<tr>
+						<th class="tableName" colspan = "2">Consumer Loan Portfolio Metrics</th>
+					</tr>
+					<tr>
+						<td>Weighted Avg Duration (months)</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Weighted Avg Credit Score</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Weighted Avg Loan Size</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Weighted Average <br> Interest Rate of Portfolio</td>
+						<td></td>
+					</tr>
+				</table>
+			</article>
+		</div>
+		<div class="tile is-parent">
+			<article class="tile is-child box">
+				<table>
+					<tr>
+						<th class="tableName" colspan = "2">SME Portfolio Metrics</th>
+					</tr>
+					<tr>
+						<td>Weighted Avg Duration (months)</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Weighted Avg Advance Size</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Weighted Avg Interest Rate of Portfolio</td>
+						<td></td>
+					</tr>
+				</table>
+			</article>
+		</div>
+	</div>
+</div>
+
+<div class="tile is-ancestor">
+	<div class="tile is-parent">
+			<div class="tile">
+				<article class="tile is-child box">
+					<section class="hero is-dark is-bold">
+						<h1 class="title">Comparative Performace Analysis</h1>
+					</section>
+				</article>
+			</div>
+		</div>
+	</div>
+	<div class="tile is-parent">
+	</div>
 </div>
 
 @endsection
@@ -247,7 +363,8 @@
 	<div class="tile is-ancestor">
 		<div class="has-text-centered">
 			<h1 class="title"><span class="decor">Create comment for </span> <span class="le-decor">{{$user[0]->name}}</span></h1>
-		<form method="post" action="/portfolio">
+		<form method="post" action="/{{$user[0]->id}}/portfolio">
+			@csrf
 				<div class="field">
 					<div class="control">
 						<?php
@@ -271,6 +388,11 @@
 
 <hr>
 @endsection
+
+
+
+
+
 
 @section('fileupload')
 <div class="tile">

@@ -16,6 +16,7 @@ li {
 h1 {
     padding-top: 5px;
     height: 50px;
+    text-align: center;
 }
 
 .stick-bot {
@@ -79,4 +80,8 @@ td {
     /* padding-top: 7px;
     margin-left: 120px; */
     margin-left: calc(100% - 320px);
+}
+
+.tableName {
+    background-color: lightgrey;
 }

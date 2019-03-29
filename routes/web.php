@@ -47,6 +47,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], functio
     });
 });
 
+Route::post('/{id}/portfolio', 'PortfolioController@update');
+
 Route::view('/upload', 'upload');
 Route::view('/test', 'test');
 Route::post('/{id}/store', 'UserController@uploadFile');

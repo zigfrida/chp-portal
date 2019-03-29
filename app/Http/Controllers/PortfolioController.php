@@ -17,19 +17,14 @@ class PortfolioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        // $modifyPIsummary = PISummary::where('user_id','=',$user->id);
-        //$comment = Input::get('comment');
-        // $modifyPIsummary->comment = Input::get('comment');
-        //$user->comment = $request->input('comment');
-        // $user->save();
 
-        // $sql = "UPDATE p_i_summaries SET comment = ? WHERE user_id = ?"
-        // DB::update($sql, array($comment, $user->id));
-        // alert("test");
+        $comment = $request->input('comment');
 
-        // return Redirect::to('/home');
+        PISummary::where('user_id', $id)->update(['comment' => $comment]);
+
+        return redirect('/'.$id.'/portfolio');
     }
 
 }
