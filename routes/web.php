@@ -74,3 +74,5 @@ Route::get('files/{file_name}', function ($file_name = null) {
 });
 
 Route::post('/{id}/portfolio', 'LPPerformanceController@insert');
+
+Route::post('/{id}/portfolio', 'FundInfoController@insert');
