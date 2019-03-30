@@ -482,7 +482,7 @@
 				<section class="hero is-dark is-bold">
 					<h1 class="title" style="font-size:27px">About Cypress Hills Partners</h1>
 				</section>
-				<p style="font-size:16px">Cypress Hills Partners is a boutique alternative merchant banking firm based out of Vancouver. The company specializes in the origination of private equity, specialty private debt, and other uniquely structured products. CHP has historically delivered a consistent high yield, low volatility income-type strategy for institutional investors and family offices and aims to build innovative structures to limit the downside volatility and protect investors in recessionary periods. CHP’s strategy remains uncorrelated to traditional alternative strategies.</p>
+				<p style="font-size:18px">Cypress Hills Partners is a boutique alternative merchant banking firm based out of Vancouver. The company specializes in the origination of private equity, specialty private debt, and other uniquely structured products. CHP has historically delivered a consistent high yield, low volatility income-type strategy for institutional investors and family offices and aims to build innovative structures to limit the downside volatility and protect investors in recessionary periods. CHP’s strategy remains uncorrelated to traditional alternative strategies.</p>
 			</article>
 		</div>
 	</div>
@@ -509,8 +509,8 @@
 				<section class="hero is-dark is-bold">
 					<h1 class="title">Contact Information</h1>
 				</section>
-				<p style="font-size:15px"><b>Alli Radiuk, Associate</b></p>
-				<p style="font-size:15px">Direct: +1-604-732-5840 Ext. 3 <br>
+				<p style="font-size:17px"><b>Alli Radiuk, Associate</b></p>
+				<p style="font-size:17px">Direct: +1-604-732-5840 Ext. 3 <br>
 					Alli@chillspartners.com <br>
 					www.cypresshillspartners.com</p>
 			</article>
