@@ -1,4 +1,4 @@
-<footer class="footer" style="margin-top: 30px;"> 
+<footer class="footer" style=""> 
                                {{-- top right bottom left --}}
 
 <nav class="level has-text-weight-semibold is-size-5" style="margin-bottom: 2em">
@@ -12,7 +12,6 @@
         <a href="#"><i class="fab fa-linkedin-in"></i></a>
     </div>
 </nav>
-
 <div>
     <span class="icon is-small" style="display: inline-block;">
         <i class="far fa-copyright"></i>

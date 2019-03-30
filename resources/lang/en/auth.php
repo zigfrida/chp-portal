@@ -12,6 +12,6 @@ return [
     |
     */
 
-    'failed' => 'Impossible. Perhaps the archives are incomplete. No, it\'s just you bro.',
+    'failed' => 'Impossible. Perhaps the archives are incomplete.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 ];
