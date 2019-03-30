@@ -194,7 +194,7 @@
 											<div class="select is-warning">
 												<select name="year" required>
 													<option  disabled selected value="">Select dropdown</option>
-														@for ($i = 0; $i <= 299; $i++)
+														@for ($i = -1; $i <= 299; $i++)
 															<option>{{date("Y") + $i}}</option>
 														@endfor
 												</select>
@@ -210,7 +210,7 @@
 								<div class="lpinput">
 									<div class="field">
 										<div class="control">
-											<input class="input is-warning" type="text" name="value" placeholder="LP Data value" required>
+											<input class="input is-warning" type="text" name="value" placeholder="LP Data value as decimal" required>
 										<input type="hidden" name="class" value="{{$user[0]->class}}" required>
 										<input type="hidden" name="id" value="{{$user[0]->id}}" required>
 										</div>
@@ -221,7 +221,7 @@
 							<div id="lpInputButton">
 								<div class="control">
 									<button class="button is-warning" type="submit">Save</button>
-									<button class="button is-light">Cancel</button>
+									<button class="button is-light" type="reset">Cancel</button>
 								</div>
 							</div>
 						</form>
@@ -407,36 +407,36 @@
 						<table>
 							<tr>
 								<td>Inception Date</td>
-							<td><input class="input is-warning" type="text" name="inception_date" value="{{$fundInfo[0]->inception_date}}"></td>
+							<td><input class="input is-warning is-small" type="text" name="inception_date" value="{{$fundInfo[0]->inception_date}}"></td>
 							</tr>
 							<tr>
 								<td>Minimum Investment</td>
-							<td><input class="input is-warning" type="text" name="min_investment" value="{{$fundInfo[0]->min_investment}}"></td>
+							<td><input class="input is-warning is-small" type="text" name="min_investment" value="{{$fundInfo[0]->min_investment}}"></td>
 							</tr>
 							<tr>
 								<td>Distributions</td>
-								<td><input class="input is-warning" type="text" name="distributions" value="{{$fundInfo[0]->distributions}}"></td>
+								<td><input class="input is-warning is-small" type="text" name="distributions" value="{{$fundInfo[0]->distributions}}"></td>
 							</tr>
 							<tr>
 								<td>Preferred Return</td>
-								<td><input class="input is-warning" type="text" name="preferred_return" value="{{$fundInfo[0]->preferred_return}}"></td>
+								<td><input class="input is-warning is-small" type="text" name="preferred_return" value="{{$fundInfo[0]->preferred_return}}"></td>
 							</tr>
 							<tr>
 								<td>Performance Fee</td>
-								<td><input class="input is-warning" type="text" name="performance_fee" value="{{$fundInfo[0]->performance_fee}}"></td>
+								<td><input class="input is-warning is-small" type="text" name="performance_fee" value="{{$fundInfo[0]->performance_fee}}"></td>
 							</tr>
 							<tr>
 								<td>Redemption</td>
-								<td><input class="input is-warning" type="text" name="redemption" value="{{$fundInfo[0]->redemption}}"></td>
+								<td><input class="input is-warning is-small" type="text" name="redemption" value="{{$fundInfo[0]->redemption}}"></td>
 							</tr>
 							<tr>
 								<td>Subscription</td>
-								<td><input class="input is-warning" type="text" name="subscription" value="{{$fundInfo[0]->subscription}}"></td>
+								<td><input class="input is-warning is-small" type="text" name="subscription" value="{{$fundInfo[0]->subscription}}"></td>
 							</tr>
 						</table>
 						<br>
 						<button class="button is-warning" type="submit">Save</button>
-						<button class="button is-light">Cancel</button>
+						<button class="button is-light" type="reset">Cancel</button>
 						<input type="hidden" name="class" value="{{$user[0]->class}}">
 						<input type="hidden" name="id" value="{{$user[0]->id}}">
 						@else
@@ -470,7 +470,6 @@
 									<td>{{$fundInfo[0]->subscription}}</td>
 								</tr>
 							</table>
-
 						@endif
 					</form>
 			</article>
@@ -486,33 +485,56 @@
 			</article>
 		</div>
 	</div>
+	<?php $extraInfo = DB::table('extra_infos')->get();?>
 	<div class="tile is-parent is-vertical">
 		<div class="tile">
 			<article class="tile is-child box">
 				<section class="hero is-dark is-bold">
 					<h1 class="title">Service Providers</h1>
 				</section>
-				<table>
-					<tr>
-						<th>Auditor</th>
-						<td>Smythe LLP</td>
-					</tr>
-					<tr>
-						<th>Legal Counsel</th>
-						<td>Owen Bird LLP</td>
-					</tr>
-				</table>
-			</article>
-		</div>
-		<div class="tile">
-			<article class="tile is-child box">
-				<section class="hero is-dark is-bold">
-					<h1 class="title">Contact Information</h1>
-				</section>
-				<p style="font-size:17px"><b>Alli Radiuk, Associate</b></p>
-				<p style="font-size:17px">Direct: +1-604-732-5840 Ext. 3 <br>
-					Alli@chillspartners.com <br>
-					www.cypresshillspartners.com</p>
+				<form method="POST" action="/{{$user[0]->id}}/portfolio">
+					@csrf
+					@if(auth()->user()->userType() == 'admin')
+						<table>
+							<tr>
+								<th>Auditor</th>
+								<td><input class="input is-warning is-small" type="text" name="auditor" value="{{$extraInfo[0]->auditor}}"></td>
+							</tr>
+							<tr>
+								<th>Legal Counsel</th>
+								<td><input class="input is-warning is-small" type="text" name="legal_counsel" value="{{$extraInfo[0]->legal_counsel}}"></td>
+							</tr>
+						</table>
+						<br>
+						<section class="hero is-dark is-bold">
+							<h1 class="title">Contact Information</h1>
+						</section>
+						<input class="input is-warning" type="text" name="contact_info_name" value="{{$extraInfo[0]->contact_info_name}}">
+						<br><br>
+						<textarea class="textarea is-warning" placeholder="Small textarea" name="contact_info">{{$extraInfo[0]->contact_info}}</textarea>
+						<br>
+						<button class="button is-warning" type="submit">Save</button>
+						<button class="button is-light" type="reset">Cancel</button>
+					@else
+						<br>
+						<table>
+							<tr>
+								<th>Auditor</th>
+								<td>{{$extraInfo[0]->auditor}}</td>
+							</tr>
+							<tr>
+								<th>Legal Counsel</th>
+								<td>{{$extraInfo[0]->legal_counsel}}</td>
+							</tr>
+						</table>
+						<hr>
+						<section class="hero is-dark is-bold">
+							<h1 class="title">Contact Information</h1>
+						</section>
+						<p style="font-size:17px"><b>{{$extraInfo[0]->contact_info_name}}</b></p>
+						<p style="font-size:17px">{{$extraInfo[0]->contact_info}}</p>
+					@endif
+				</form>
 			</article>
 		</div>
 	</div>
@@ -558,7 +580,7 @@
 					<br>
 					<div class="control">
 						<button class="button is-warning" type="submit">Save</button>
-						<button class="button is-light">Cancel</button>
+						<button class="button is-light" type="reset">Cancel</button>
 					</div>
 				</div>
 			</div>
