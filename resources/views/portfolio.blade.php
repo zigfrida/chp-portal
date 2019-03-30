@@ -327,9 +327,9 @@
 						{{ $file->created_at }} <br>
 					<a href="portfolio/{{ $file->filename }}" class="button is-warning">Download</a>
 
-					<?php dd($file); ?>
-       @if (auth()->user()->isAdmin())
-                
+					  
+      @if (auth()->user()->isAdmin())
+            
 					<div class="dropdown is-hoverable">
 						<div class="dropdown-trigger">
 							<button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
@@ -404,7 +404,7 @@
 		  	<div style="width:90%">
 		  		<span class="file-name" id="file-upload-filename">Nothing Choose</span>
 		  	</div>
-		 	<input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
+		 	<input type="hi	en" name="_token" value="<?php echo e(csrf_token()); ?>">
 		  	<button type="submit" name="button" class="button is-link">Upload File</button>
 		</label>
 	</div>
