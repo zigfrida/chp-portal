@@ -132,7 +132,8 @@
 						<section class="hero is-bold">
 							<h1 class="title"><span class="decor">New LP Data for</span><span class="le-decor"> Class {{$user[0]->class}}</span></h1>
 						</section>
-						<form id="newLP">
+						<form id="newLP" method="POST" action="/{{$user[0]->id}}/portfolio">
+							@csrf
 							<div class="lpInputContainer">
 								<div>
 									<p class="lpinputTitle">Select Month: </p>
@@ -141,7 +142,7 @@
 									<div class="field">
 										<div class="control">
 											<div class="select is-warning">
-												<select>
+												<select name="month">
 													<option disabled selected>Select dropdown</option>			
 													<option>Janurary</option>
 													<option>Februrary</option>
@@ -169,7 +170,7 @@
 									<div class="field">
 										<div class="control">
 											<div class="select is-warning">
-												<select>
+												<select name="year">
 													<option  disabled selected>Select dropdown</option>
 														@for ($i = 0; $i <= 299; $i++)
 															<option>{{date("Y") + $i}}</option>
@@ -187,11 +188,14 @@
 								<div class="lpinput">
 									<div class="field">
 										<div class="control">
-											<input class="input is-warning" type="text" placeholder="LP Data value">
+											<input class="input is-warning" type="text" name="value" placeholder="LP Data value">
+										<input type="hidden" name="class" value="{{$user[0]->class}}">
+										<input type="hidden" name="id" value="{{$user[0]->id}}">
 										</div>
 									</div>
 								</div>
 							</div>
+
 							<div id="lpInputButton">
 								<div class="control">
 									<button class="button is-warning" type="submit">Save</button>
@@ -277,6 +281,10 @@
 	</div>
 </div>
 
+<?php
+	$metrics = DB::table('metrics')->get();
+?>
+
 <div class="tile is-ancestor">
 	<div class="tile is-parent">
 			<div class="tile">
@@ -297,19 +305,24 @@
 					</tr>
 					<tr>
 						<td>Weighted Avg Duration (months)</td>
-						<td></td>
+						<td>{{number_format($metrics[0]->duration,2)}}</td>
 					</tr>
 					<tr>
 						<td>Weighted Avg Credit Score</td>
-						<td></td>
+						<td>{{number_format($metrics[0]->credit_score,2)}}</td>
 					</tr>
 					<tr>
 						<td>Weighted Avg Loan Size</td>
-						<td></td>
+						<td>{{number_format($metrics[0]->loan_size,2)}}</td>
+					</tr>
+					<tr>
+						<td>Number of Loans</td>
+						<td>{{number_format($metrics[0]->number_of_loans,2)}}</td>
 					</tr>
 					<tr>
 						<td>Weighted Average <br> Interest Rate of Portfolio</td>
-						<td></td>
+						<td>{{number_format($metrics[0]->int_rate,2)}}
+						</td>
 					</tr>
 				</table>
 			</article>
@@ -322,15 +335,15 @@
 					</tr>
 					<tr>
 						<td>Weighted Avg Duration (months)</td>
-						<td></td>
+						<td>{{number_format($metrics[0]->duration_a,2)}}</td>
 					</tr>
 					<tr>
 						<td>Weighted Avg Advance Size</td>
-						<td></td>
+						<td>{{number_format($metrics[0]->loan_size_a,2)}}</td>
 					</tr>
 					<tr>
 						<td>Weighted Avg Interest Rate of Portfolio</td>
-						<td></td>
+						<td>{{number_format($metrics[0]->int_rate_a,2)}}</td>
 					</tr>
 				</table>
 			</article>
@@ -381,8 +394,6 @@
 		</form>
 	</div>
 </div>
-
-<hr>
 @endsection
 
 @section('fileuploadbetter')
@@ -422,8 +433,7 @@
 					infoArea.textContent = fileName;
 			}
 			</script>
-	  
-
+	
 </form>
 @endsection
 
@@ -446,10 +456,6 @@
 @section('uploaded-file')
 	<h1>lol</h1>
 @endsection
-
-
-
-
 
 
 

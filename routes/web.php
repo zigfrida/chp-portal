@@ -72,3 +72,5 @@ Route::get('files/{file_name}', function ($file_name = null) {
         return Response::download($path);
     }
 });
+
+Route::post('/{id}/portfolio', 'LPPerformanceController@insert');
