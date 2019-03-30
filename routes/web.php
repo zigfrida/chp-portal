@@ -39,6 +39,7 @@ Route::get('/{id}/portfolio/{filename}', function ($id, $filename) {
 })->middleware('auth');
 
 Route::delete('/{id}/portfolio/{filename}', function ($id, $filename) {
+    dd($id);
     
     if(Auth::user()->role != 'admin'){
         abort(403);

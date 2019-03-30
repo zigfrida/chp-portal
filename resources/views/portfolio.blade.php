@@ -327,7 +327,7 @@
 						{{ $file->created_at }} <br>
 					<a href="portfolio/{{ $file->filename }}" class="button is-warning">Download</a>
 
-					
+					<?php dd($file); ?>
        @if (auth()->user()->isAdmin())
                 
 					<div class="dropdown is-hoverable">
