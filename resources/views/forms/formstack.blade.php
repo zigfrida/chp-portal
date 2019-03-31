@@ -1,6 +1,6 @@
 <div class="container">
         <section class="section">
-            <form action="/admin" method="post">
+            <form action="/{{ $user[0]->id }}/portfolio/form1" method="post">
                 @csrf
                 <div class="field is-horizontal">
                     <div class="field-label">
@@ -22,7 +22,6 @@
                     </div>
                 </div>
     
-    
                 <div class="field is-horizontal">
                     <div class="field-label is-normal">
                         <label class="label">Name of Subscriber</label>
@@ -40,7 +39,6 @@
                     </div>
                 </div>
     
-    
                 <div class="field is-horizontal">
                     <div class="field-label is-normal">
                         <label class="label">Address</label>
@@ -54,8 +52,6 @@
                             </div>
                             <i><p class="help">Street Name</p></i>
                         </div>
-    
-    
                     </div>
                 </div>
     
@@ -994,9 +990,7 @@
                         <div class="field is-grouped is-grouped-right">
                             <div class="control">
                                 <button class="button is-warning">
-                                    <span class="icon is-medium">
-                                        <i class="fas fa-user-plus"></i>
-                                    </span>
+                                    Submit
                                 </button>
                             </div>
                         </div>

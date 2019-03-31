@@ -28,6 +28,11 @@ class UserController extends Controller
     {
     }
 
+    public function storeFormstack(Request $request)
+    {
+        dd('hello');
+    }
+
     /**
      * Store a newly created resource in storage.
      *

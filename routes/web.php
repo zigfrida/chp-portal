@@ -28,7 +28,6 @@ Route::get('/{id}/portfolio', function ($id) {
 })->middleware('auth');
 
 Route::get('/{id}/portfolio/{filename}', function ($id, $filename) {
-    
     if ($id != auth()->id() && \Auth::user()->role != 'admin') {
         abort(403);
     } else {
@@ -39,23 +38,22 @@ Route::get('/{id}/portfolio/{filename}', function ($id, $filename) {
 })->middleware('auth');
 
 Route::delete('/{id}/portfolio/{filename}', function ($id, $filename) {
-    
-    
-    if(Auth::user()->role != 'admin'){
+    if (Auth::user()->role != 'admin') {
         abort(403);
-    } else{
+    } else {
         Storage::disk('local')->delete("$id/$filename");
         DB::table('uploaded_files')->where('user_id', $id)->where('filename', $filename)->delete();
     }
 
     return redirect('/admin');
-
 })->middleware('auth');
-
 
 Auth::routes();
 
 Route::post('/admin', 'UserController@store');
+
+// for formstack
+Route::post('/{id}/portfolio/form1', 'UserController@storeFormstack')->middleware('auth');
 
 Route::post('/fileupload', 'UploadController@store');
 
