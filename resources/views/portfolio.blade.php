@@ -663,7 +663,7 @@
 										@csrf
 										@method('delete')
 										
-										<a href="" onclick="$(this).closest('form').submit()">delete</a>
+										<a href="#" onclick="$(this).closest('form').submit()">delete</a>
 									</form>
  								</div>
 							</div>
