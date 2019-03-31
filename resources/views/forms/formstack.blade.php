@@ -10,11 +10,11 @@
                         <div class="field is-narrow">
                             <div class="control">
                                 <label class="radio">
-                                <input type="radio" name="member" onclick="hideCrap()">
+                                <input type="radio" name="member" onclick="individualOnly()">
                                 Individual
                               </label>
                                 <label class="radio">
-                                <input type="radio" name="member" onclick="hideCrap2()">
+                                <input type="radio" name="member" onclick="businessOnly()">
                                 Non-Individual (Fund, Corp, etc.)
                               </label>
                             </div>
@@ -39,7 +39,6 @@
                         </div>
                     </div>
                 </div>
-    
     
     
                 <div class="field is-horizontal">
@@ -187,8 +186,9 @@
                         </div>
                     </div>
                 </div>
-    
-                <div class="field is-horizontal">
+
+            <fieldset disabled="disabled" id="people_fieldset">
+                <div class="field is-horizontal" id="sin_num" style="margin-bottom: 4px;">
                     <div class="field-label is-normal">
                         <label class="label">Social Insurance Number</label>
                     </div>
@@ -200,7 +200,65 @@
                         </div>
                     </div>
                 </div>
-    
+            </fieldset>
+
+            <fieldset disabled="disabled" id="business_fieldset">
+                <div class="field is-horizontal" id="name_of_authorized_signatory">
+                    <div class="field-label is-normal">
+                        <label class="label">Name of Authorized Signatory</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                        <p class="control is-expanded has-icons-left">
+                            <input class="input" type="text" placeholder="fname">
+                            <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                            </span>
+                        </p>
+                        </div>
+                        <div class="field">
+                        <p class="control is-expanded has-icons-left has-icons-right">
+                            <input class="input" type="" placeholder="lname" value="">
+                            <span class="icon is-small is-left">
+                            <i class="fas fa-envelope"></i>
+                            </span>
+                            <span class="icon is-small is-right">
+                            <i class="fas fa-check"></i>
+                            </span>
+                        </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal" id="official_capacity_or_title_of_authorized_signatory">
+                    <div class="field-label is-normal">
+                        <label class="label">Official Capacity or Title of Authorized Signatory</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                        <p class="control is-expanded has-icons-left">
+                            <input class="input" type="text" placeholder="">
+                            <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                            </span>
+                        </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal" id="business_num">
+                    <div class="field-label is-normal">
+                        <label class="label">Business Number</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" name="SIN" type="text" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
                 <hr>
     
                 <div class="field is-horizontal">
@@ -904,10 +962,16 @@
     </div>
     </div>
     
-    <script>
-        function hideCrap2() {
-            let x = document.getElementsByClassName("non-human");
-            console.log(x);
+    <script defer>
+        function individualOnly() {
+            document.getElementById("business_fieldset").disabled = true;
+            document.getElementById("people_fieldset").disabled = false;
+
         }
-    
+
+        function businessOnly() {
+            document.getElementById("people_fieldset").disabled = true;
+            document.getElementById("business_fieldset").disabled = false;
+
+        }
     </script>
