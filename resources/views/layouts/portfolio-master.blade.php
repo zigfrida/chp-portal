@@ -29,7 +29,8 @@
             <link rel="stylesheet" type="text/css" href="{{ asset('css/random.css') }}">
             @include('forms.formstack')
         @elseif ($user[0]->access_level == 0 && $user[0]->form_level == 1)
-            <h1>Wait for Alli to complete it</h1>
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/random.css') }}">
+            @include('forms.formstackdone')
         @elseif ($user[0]->access_level == 1 && $user[0]->form_level == 1)
             <h1>Show subagreement</h1>
         @elseif ($user[0]->access_level == 1 && $user[0]->form_level == 2)
