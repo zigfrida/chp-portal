@@ -28,9 +28,39 @@ class UserController extends Controller
     {
     }
 
-    public function storeFormstack(Request $request)
+    public function storeFormstack(Request $request, $id)
     {
-        dd('hello');
+        $request->validate([
+            'clientType' => 'bail|required',
+        ]);
+        if ($request->clientType == 'individual') { // user selected Individual
+            $request->validate([
+                'subscriber_name' => 'required',
+                'city' => 'required',
+                'street' => 'required',
+                'postal_code' => 'required',
+                'province' => 'required',
+                'country' => 'required',
+                'sin' => 'required',
+                'phone' => 'required',
+                'email' => 'required',
+            ]);
+        } elseif ($request->clientType == 'business') { // user selected Non-Individual
+            $request->validate([
+                'subscriber_name' => 'required',
+                'street' => 'required',
+                'city' => 'required',
+                'postal_code' => 'required',
+                'province' => 'required',
+                'country' => 'required',
+                'phone' => 'required',
+                'email' => 'required',
+                'business_number' => 'required',
+                'signatory_first_name' => 'required',
+                'signatory_last_name' => 'required',
+                'official_capacity_or_title_of_authorized_signatory' => 'required',
+            ]);
+        }
     }
 
     /**

@@ -1,5 +1,14 @@
 <div class="container">
         <section class="section">
+            @if ($errors->any())
+                <div class="notification is-warning">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form action="/{{ $user[0]->id }}/portfolio/form1" method="post">
                 @csrf
                 <div class="field is-horizontal">
@@ -10,11 +19,11 @@
                         <div class="field is-narrow">
                             <div class="control">
                                 <label class="radio">
-                                <input type="radio" name="member" onclick="individualOnly()">
+                                <input value="individual" type="radio" name="clientType" onclick="individualOnly()">
                                 Individual
                               </label>
                                 <label class="radio">
-                                <input type="radio" name="member" onclick="businessOnly()">
+                                <input value="business" type="radio" name="clientType" onclick="businessOnly()">
                                 Non-Individual (Fund, Corp, etc.)
                               </label>
                             </div>
@@ -29,7 +38,7 @@
                     <div class="field-body">
                         <div class="field">
                             <p class="control is-expanded has-icons-left">
-                                <input class="input " type="text" name="name">
+                                <input class="input {{ $errors->has('subscriber_name') ? 'is-danger' : '' }}" type="text" name="subscriber_name">
                                 <span class="icon is-small is-left">
                                 <i class="fas fa-user" ></i>
                             </span>
@@ -47,7 +56,7 @@
                         <div class="field is-expanded">
                             <div class="field">
                                 <p class="control is-expanded">
-                                    <input class="input" name="telephone" type="tel" placeholder="778-555-5555">
+                                    <input class="input {{ $errors->has('street') ? 'is-danger' : '' }}" name="street" type="tel">
                                 </p>
                             </div>
                             <i><p class="help">Street Name</p></i>
@@ -64,14 +73,14 @@
                     <div class="field-body">
                         <div class="field">
                             <p class="control is-expanded ">
-                                <input class="input " name="email" type="email">
+                                <input class="input {{ $errors->has('city') ? 'is-danger' : '' }}"name="city" type="text">
                             </p>
                             <i><p class="help">City</p></i>
                         </div>
                         <div class="field is-narrow">
                             <div class="control">
                                 <div class="select is-fullwidth">
-                                    <select>
+                                    <select name="province">
                                         <option>British Columbia</option>
                                         <option>Alberta</option>
                                         <option>Ontario</option>
@@ -94,7 +103,7 @@
     
                         <div class="field">
                             <p class="control ">
-                                <input class="input " name="email" type="email">
+                                <input class="input {{ $errors->has('postal_code') ? 'is-danger' : '' }}" name="postal_code" type="text">
                             </p>
                             <i><p class="help">Postal Code</p></i>
                         </div>
@@ -164,7 +173,7 @@
                     <div class="field-body">
                         <div class="field">
                             <div class="control">
-                                <input class="input" name="address" type="tel">
+                                <input class="input {{ $errors->has('phone') ? 'is-danger' : '' }}" name="phone" type="tel">
                             </div>
                         </div>
                     </div>
@@ -172,12 +181,12 @@
     
                 <div class="field is-horizontal">
                     <div class="field-label is-normal">
-                        <label class="label">Email </label>
+                        <label class="label">Email</label>
                     </div>
                     <div class="field-body">
                         <div class="field">
                             <div class="control">
-                                <input class="input" name="email" type="email" placeholder="West 57th Street and, most likely, Henry Hudson Parkway, Manhattan, New New York, United States">
+                                <input class="input {{ $errors->has('email') ? 'is-danger' : '' }}" name="email" type="email">
                             </div>
                         </div>
                     </div>
@@ -191,7 +200,7 @@
                     <div class="field-body">
                         <div class="field">
                             <div class="control">
-                                <input class="input" name="SIN" type="text" placeholder="759 678 873">
+                                <input class="input {{ $errors->has('sin') ? 'is-danger' : '' }}" name="sin" type="text">
                             </div>
                         </div>
                     </div>
@@ -206,23 +215,23 @@
                     <div class="field-body">
                         <div class="field">
                         <p class="control is-expanded has-icons-left">
-                            <input class="input" type="text" placeholder="fname">
+                            <input class="input {{ $errors->has('signatory_first_name') ? 'is-danger' : '' }}" type="text" name="signatory_first_name">
                             <span class="icon is-small is-left">
                             <i class="fas fa-user"></i>
                             </span>
                         </p>
+                        <i><p class="help">First Name</p></i>
                         </div>
                         <div class="field">
-                        <p class="control is-expanded has-icons-left has-icons-right">
-                            <input class="input" type="" placeholder="lname" value="">
+                        <p class="control is-expanded has-icons-left t">
+                            <input class="input {{ $errors->has('signatory_last_name') ? 'is-danger' : '' }}" type="text" name="signatory_last_name">
                             <span class="icon is-small is-left">
-                            <i class="fas fa-envelope"></i>
-                            </span>
-                            <span class="icon is-small is-right">
-                            <i class="fas fa-check"></i>
+                                <i class="fas fa-user"></i>
                             </span>
                         </p>
+                        <i><p class="help">Last Name</p></i>
                         </div>
+                        
                     </div>
                 </div>
 
@@ -233,7 +242,7 @@
                     <div class="field-body">
                         <div class="field">
                         <p class="control is-expanded has-icons-left">
-                            <input class="input" type="text" placeholder="">
+                            <input class="input {{ $errors->has('official_capacity_or_title_of_authorized_signatory') ? 'is-danger' : '' }}" type="text" name="official_capacity_or_title_of_authorized_signatory">
                             <span class="icon is-small is-left">
                             <i class="fas fa-user"></i>
                             </span>
@@ -249,7 +258,7 @@
                     <div class="field-body">
                         <div class="field">
                             <div class="control">
-                                <input class="input" name="SIN" type="text" placeholder="">
+                                <input class="input {{ $errors->has('business_number') ? 'is-danger' : '' }}" name="business_number" type="text" placeholder="">
                             </div>
                         </div>
                     </div>
@@ -270,7 +279,7 @@
                                     </a>
                                 </p>
                                 <p class="control is-expanded">
-                                    <input class="input is-large" name="salary" type="tel" placeholder="531999">
+                                    <input class="input is-large {{ $errors->has('official_capacity_or_title_of_authorized_signatory') ? 'is-danger' : '' }}" name="total_investment" type="tel">
                                 </p>
                             </div>
                             <p class="help"></p>
