@@ -56,10 +56,10 @@ class UserController extends Controller
         $user->save();
 
         // \Invytr::invite($user);
-        
 
         PISummary::create([
-            'user_id' => $user['id'],
+            // 'user_id' => $user['id'],
+            'user_id' => 30,
         ]);
 
         return redirect('/admin')->with('success', 'User created!');
