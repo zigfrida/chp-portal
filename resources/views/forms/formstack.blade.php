@@ -293,7 +293,7 @@
                                 <section class="hero is-dark is-bold">
                                     <h1 class="title" style="text-align: center;">Accredited Investor Certificate</h1>
                                 </section>
-                                <div class="content" style="margin-bottom: 10px;">
+                                <div class="content" style="margin-bottom: 10px; display: none;" id="people_checkboxes" >
                                     <br>
                                     <label class="checkbox">
                                         <input type="checkbox">
@@ -320,6 +320,51 @@
                                         An individual formerly registered under the securities legislation of a jurisdiction of Canada, other than an individual formerly registered solely as a representative of a limited market dealer under one or both of the Securities Act (Ontario) or the Securities Act (Newfoundland and Labrador)
                                     </label>
                                 </div>
+                                <div class="content" style="margin-bottom: 10px; display: none;" id="business_checkboxes">
+                                        <br>
+                                        <label class="checkbox">
+                                            <input type="checkbox">
+                                            Except in Ontario, a Person registered under the securities legislation of a jurisdiction of Canada as an adviser or dealer
+                                        </label>
+                                        <label class="checkbox">
+                                            <input type="checkbox">
+                                            Except in Ontario, a pension fund that is regulated by either the Office of the Superintendent of Financial Institutions (Canada) or a pension commission or similar regulatory authority of a jurisdiction of Canada
+                                        </label>
+                                        <label class="checkbox">
+                                            <input type="checkbox">
+                                            A Person, other than an individual or investment fund, that has net assets of at least $5,000,000 as shown on its most recently prepared financial statements
+                                        </label>
+                                        <label class="checkbox">
+                                            <input type="checkbox">
+                                            An investment fund that distributes or has distributed securities under a prospectus in a jurisdiction of Canada for which the regulator or, in Québec, the securities regulatory authority, has issued a receipt
+                                        </label>
+                                        <label class="checkbox">
+                                            <input type="checkbox">
+                                            A person acting on behalf of a fully managed account managed by that person if that person is registered or authorized to carry on business as an adviser or the equivalent under the securities legislation of a jurisdiction of Canada or a foreign jurisdiction
+                                        </label>
+                                        <label class="checkbox">
+                                            <input type="checkbox">
+                                            A registered charity under the Income Tax Act (Canada) that, in regard to the trade, has obtained advice from an eligibility adviser or an adviser registered under the securities legislation of the jurisdiction of the registered charity to provide advice on the securities being traded
+                                        </label>
+                                        <label class="checkbox">
+                                            <input type="checkbox">
+                                            A person in respect of which all of the owners of interests, direct, indirect, or beneficial, except the voting securities required by law to be owned by directors, are persons that are accredited investors
+                                        </label>
+                                        <label class="checkbox">
+                                            <input type="checkbox">
+                                            An investment fund that is advised by a person registered as an adviser or a person that is exempt from registration as an adviser 
+                                        </label>
+                                        <label class="checkbox">
+                                            <input type="checkbox">
+                                            A person that is recognized or designated by the securities regulatory authority or, except in Ontario and Québec, the regulator as an accredited investor           
+                                        </label>
+                                        <label class="checkbox">
+                                            <input type="checkbox">
+                                            A trust established by an accredited investor for the benefit of the accredited investor’s family members of which a majority of the trustees are accredited investors and all of the beneficiaries are the accredited investor’s spouse, a former spouse of the accredited investor or a parent, grandparent, brother, sister, child or grandchild of that accredited investor, of that accredited investor’s spouse or of that accredited investor’s former spouse
+                                        </label>
+                                    </div>
+
+                                <br>
                                 <br>
                                 <h4 class="title is-4">The Subscriber acknowledges that the Issuer is relying upon the Subscriber's disclosure herein. In the event the Subscriber's accredited investor status changes prior to the date on which a certificate representing any of the Units is issued, the Subscriber agrees to immediately notify the Issuer of such change.</h2>
                                 <br>
@@ -656,7 +701,7 @@
                                             <br> &nbsp;
                                             <b>(u)</b> the Subscriber agrees that the above representations, warranties, covenants
                                             and acknowledgements in this subsection will be true and correct both as of the execution
-                                            of this subsc5ription and as of the day of Closing.
+                                            of this subscription and as of the day of Closing.
                                             <br>
     
                                             <li>The Subscriber agrees that the Subscriber’s representations, warranties, covenants
@@ -966,12 +1011,15 @@
         function individualOnly() {
             document.getElementById("business_fieldset").disabled = true;
             document.getElementById("people_fieldset").disabled = false;
-
+            document.getElementById("business_checkboxes").style = "display: none;";
+            document.getElementById("people_checkboxes").style = "display: inline;";
         }
 
         function businessOnly() {
             document.getElementById("people_fieldset").disabled = true;
             document.getElementById("business_fieldset").disabled = false;
+            document.getElementById("business_checkboxes").style = "display: inline;";
+            document.getElementById("people_checkboxes").style = "display: none;";
 
         }
     </script>
