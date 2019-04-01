@@ -76,6 +76,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], functio
 
 Route::post('/{id}/portfolio/comment', 'PortfolioController@update');
 
+// for Alli to change the form
+Route::patch('/{id}/portfolio', 'UserController@update');
+
 Route::view('/upload', 'upload');
 Route::view('/test', 'test');
 
