@@ -6,6 +6,7 @@ use App\User;
 use App\PISummary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use Storage;
 
 class UserController extends Controller
@@ -61,6 +62,14 @@ class UserController extends Controller
                 'official_capacity_or_title_of_authorized_signatory' => 'required',
             ]);
         }
+
+        $redirectPath = '/'.$id.'/portfolio';
+        // $user = DB::table('users')->where('id', $id)->get();
+        DB::table('users')
+            ->where('id', $id)
+            ->update(['form_level' => 1]);
+
+        return redirect($redirectPath);
     }
 
     /**
@@ -132,6 +141,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        dd('hi');
     }
 
     /**
