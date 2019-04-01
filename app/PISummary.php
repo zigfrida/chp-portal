@@ -12,7 +12,7 @@ class PISummary extends Model
 
     protected $hidden = [
         'user_id', 'units', 'NAVPerUnit', 'NAV', 'cost',
-        'cumulative_pref_distribution', 'month_distribution',
+        'cumulative_pref_distribution', 'month_distribution', 'amount_distribution',
         'year_profit_share',
     ];
 }

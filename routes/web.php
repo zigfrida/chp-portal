@@ -74,7 +74,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], functio
     });
 });
 
-Route::post('/{id}/portfolio', 'PortfolioController@update');
+Route::post('/{id}/portfolio/comment', 'PortfolioController@update');
 
 Route::view('/upload', 'upload');
 Route::view('/test', 'test');
@@ -87,8 +87,8 @@ Route::get('files/{file_name}', function ($file_name = null) {
     }
 });
 
-Route::post('/{id}/portfolio', 'LPPerformanceController@insert');
+Route::post('/{id}/portfolio/editLP', 'LPPerformanceController@insert');
 
-Route::post('/{id}/portfolio', 'FundInfoController@insert');
+Route::post('/{id}/portfolio/editFI', 'FundInfoController@insert');
 
-Route::post('/{id}/portfolio', 'ExtraInfoController@update');
+Route::post('/{id}/portfolio/editEI', 'ExtraInfoController@update');

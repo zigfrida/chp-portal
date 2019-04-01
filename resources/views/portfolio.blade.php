@@ -64,11 +64,11 @@
 					<td>{{$thisUser[0]->cumulative_pref_distribution}}</td>
 				</tr>
 				<tr>
-					<th>Q4 2018<br>Distribution</th>
-					<td>{{$thisUser[0]->month_distribution}}</td>
+					<th>{{$thisUser[0]->month_distribution}}<br>Distribution</th>
+					<td>{{$thisUser[0]->amount_distribution}}</td>
 				</tr>
 				<tr>
-					<th>2018 Profit Share</th>
+					<th>Year Profit Share</th>
 					<td>{{$thisUser[0]->year_profit_share}}</td>
 				</tr>                                        
 			</table>
@@ -154,7 +154,7 @@
 						<section class="hero is-bold">
 							<h1 class="title"><span class="decor">New LP Data for</span><span class="le-decor"> Class {{$user[0]->class}}</span></h1>
 						</section>
-						<form id="newLP" method="POST" action="/{{$user[0]->id}}/portfolio">
+						<form id="newLP" method="POST" action="/{{$user[0]->id}}/portfolio/editLP">
 							@csrf
 							<div class="lpInputContainer">
 								<div>
@@ -165,19 +165,19 @@
 										<div class="control">
 											<div class="select is-warning">
 												<select name="month" required>
-													<option disabled selected value="">Select dropdown</option>			
-													<option>Janurary</option>
-													<option>Februrary</option>
-													<option>March</option>
-													<option>April</option>
-													<option>May</option>
-													<option>June</option>
-													<option>July</option>
-													<option>August</option>
-													<option>September</option>
-													<option>October</option>
-													<option>November</option>
-													<option>December</option>
+													<option disabled selected value="">Select dropdown</option>
+													<option value="1">Janurary</option>
+													<option value="2">Februrary</option>
+													<option value="3">March</option>
+													<option value="4">April</option>
+													<option value="5">May</option>
+													<option value="6">June</option>
+													<option value="7">July</option>
+													<option value="8">August</option>
+													<option value="9">September</option>
+													<option value="10">October</option>
+													<option value="11">November</option>
+													<option value="12">December</option>
 												</select>
 											</div>
 										</div>
@@ -195,7 +195,7 @@
 												<select name="year" required>
 													<option  disabled selected value="">Select dropdown</option>
 														@for ($i = -1; $i <= 299; $i++)
-															<option>{{date("Y") + $i}}</option>
+													<option value="{{date("y") + $i}}">{{date("Y") + $i}}</option>
 														@endfor
 												</select>
 											</div>
@@ -401,7 +401,7 @@
 				<section class="hero is-dark is-bold">
 					<h1 class="title">Fund Information</h1>
 				</section>
-				<form method="POST" action="/{{$user[0]->id}}/portfolio">
+				<form method="POST" action="/{{$user[0]->id}}/portfolio/editFI">
 					@csrf
 					@if(auth()->user()->userType() == 'admin')
 						<table>
@@ -492,7 +492,7 @@
 				<section class="hero is-dark is-bold">
 					<h1 class="title">Service Providers</h1>
 				</section>
-				<form method="POST" action="/{{$user[0]->id}}/portfolio">
+				<form method="POST" action="/{{$user[0]->id}}/portfolio/editEI">
 					@csrf
 					@if(auth()->user()->userType() == 'admin')
 						<table>
@@ -565,7 +565,7 @@
 	<div class="tile is-ancestor">
 		<div class="has-text-centered">
 			<h1 class="title"><span class="decor">Create comment for </span> <span class="le-decor">{{$user[0]->name}}</span></h1>
-		<form method="post" action="/{{$user[0]->id}}/portfolio">
+		<form method="post" action="/{{$user[0]->id}}/portfolio/comment">
 			@csrf
 				<div class="field">
 					<div class="control">

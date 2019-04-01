@@ -11,8 +11,8 @@ class LPPerformanceController extends Controller
 {
     public function insert(Request $request){
         $class = $request->input('class');
-        $month = date("n", strtotime($request->input('month')));
-        $year = date("y", strtotime($request->input('year')));
+        $month = $request->input('month');
+        $year = $request->input('year');
         $value = (float)$request->input('value');
 
         $id = $request->input('id');
