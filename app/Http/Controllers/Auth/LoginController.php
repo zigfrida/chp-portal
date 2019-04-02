@@ -41,9 +41,6 @@ class LoginController extends Controller
             case 'standard':
                 return '/';
                 break;
-            case 'jew':
-                return '/hitler-playground';
-                break;
         }
     }
 

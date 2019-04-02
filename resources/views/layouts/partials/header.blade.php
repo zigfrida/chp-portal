@@ -37,9 +37,15 @@
                         <span>{{ auth()->user()->name }}</span>
                     </div>
                     <div class="navbar-dropdown">
-                        <a class="navbar-item" href="/admin">
-                            Admin Page
-                        </a>
+                        @if (auth()->user()->isAdmin())
+                            <a class="navbar-item" href="/admin">
+                                Admin Page
+                            </a>
+                        @else
+                            <a class="navbar-item" href="/{{auth()->user()->id}}/portfolio">
+                                My Portfolio
+                            </a>
+                        @endif
                         <hr class="navbar-divider">
                                     {{-- if I remove this href it doesn't seemingly affect the logout - what gives? --}}
                         <a class="navbar-item" href="/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
