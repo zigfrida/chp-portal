@@ -293,6 +293,7 @@
                     infoArea3.textContent = fileName3;
                 }
             </script>
+        </form>
 
     </div>
 </div>
@@ -322,11 +323,18 @@
                             </div>
                             <div class="dropdown-item">
                                 
-                                <form method="post" action="portfolio/0">
+                                <form method="post" action="/admin/files/A/{{$cA->filename}}">
                                     @csrf
                                     @method('delete')
                                     
-                                    <a href="#" onclick="$(this).closest('form').submit()">delete</a>
+                                    <div class="control">
+                                        <button type="submit" class="button is-danger">
+                                            delete&nbsp;&nbsp;
+                                            <span class="icon is-small">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </span>
+                                        </button>
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -343,17 +351,83 @@
         <div class="columns is-multiline">
             @foreach ($classBFiles as $cB)
             <div class="column is-one-quarter">
-                Filename: {{ $cB->filename }}
+                {{ $cB->filename }}
+                <div class="dropdown is-hoverable">
+                    <div class="dropdown-trigger">
+                        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                            
+                            <span class="icon is-small">
+                                <i class="fas fa-angle-down" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                        <div class="dropdown-content">
+                            <div class="dropdown-item">
+                                edit
+                            </div>
+                            <div class="dropdown-item">
+                                
+                                <form method="post" action="/admin/files/B/{{$cB->filename}}">
+                                    @csrf
+                                    @method('delete')
+                                    
+                                    <div class="control">
+                                        <button type="submit" class="button is-danger">
+                                            delete&nbsp;&nbsp;
+                                            <span class="icon is-small">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </span>
+                                        </button>
+                                    </div                                    
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <hr>
             </div>
             @endforeach
         </div>
-
+        <hr>
         <h2 class="subtitle is-3">Class AB</h2>
         <div class="columns is-multiline">
             @foreach ($classABFiles as $cAB)
             <div class="column is-one-quarter">
-                Filename: {{ $cAB->filename }}
+                {{ $cAB->filename }}
+                <div class="dropdown is-hoverable">
+                    <div class="dropdown-trigger">
+                        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                            
+                            <span class="icon is-small">
+                                <i class="fas fa-angle-down" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                        <div class="dropdown-content">
+                            <div class="dropdown-item">
+                                edit
+                            </div>
+                            <div class="dropdown-item">
+                                
+                                <form method="post" action="/admin/files/AB/{{$cAB->filename}}">
+                                    @csrf
+                                    @method('delete')
+                                    
+                                    <div class="control">
+                                        <button type="submit" class="button is-danger">
+                                            delete&nbsp;&nbsp;
+                                            <span class="icon is-small">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </span>
+                                        </button>
+                                    </div> 
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <hr>
             </div>
             @endforeach

@@ -81,14 +81,12 @@
         </div>
         <br><br>
         @yield('upload-to-class')
-
         <hr>
         <br>
         <div class="container has-text-centered">
             <h1 class="title"><span class="decor">View</span><span class="le-decor"> Files Uploaded</span></h1>
         </div>
         <div class="container content">
-            <h1 class="title is-2" style="margin-bottom: 0; margin-left:2.5%">All Clients</h1>
             <section class="section">
                 @yield('show-files-uploaded')
             </section>

@@ -119,6 +119,18 @@ Route::delete('/{id}/portfolio/{filename}', function ($id, $filename) {
     return redirect('/admin');
 })->middleware('auth');
 
+// DELETE CLASS UPLOADS
+Route::delete('/admin/files/{file_type}/{filename}', function ($file_type, $filename) {
+    if (\Auth::user()->role != 'admin') {
+        abort(403);
+    } else {
+        Storage::disk('local')->delete("/$file_type/$filename");
+        DB::table('uploaded_files')->where('file_type', $file_type)->where('filename', $filename)->delete();
+    }
+
+    return redirect('/admin');
+})->middleware('auth');
+
 Route::post('/{id}/portfolio', 'LPPerformanceController@insert');
 
 Route::post('/{id}/portfolio', 'FundInfoController@insert');
