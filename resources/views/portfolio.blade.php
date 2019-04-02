@@ -669,7 +669,6 @@
 							</div>
 						</div>
 					</div>
-					
 				@endif  <!-- drop down menu for file deletion -->
 
 						<hr>

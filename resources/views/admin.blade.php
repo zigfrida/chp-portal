@@ -1,36 +1,32 @@
-@extends('layouts.admin-master')
-
+@extends('layouts.admin-master') 
 @section('list-clients')
 <ul>
-        <h2 class="subtitle is-3">Class A</h2>
-        <div class="columns is-multiline">
-            @foreach ($clientsA as $cA)
-                <div class="column is-one-quarter">
-                    Name: {{ $cA->name  }} <br>
-                    Email: {{ $cA->email }} <br>
-                    <a href="/{{ $cA->id }}/portfolio">Portfolio</a>
-                    <hr>
-                </div>
-            @endforeach
+    <h2 class="subtitle is-3">Class A</h2>
+    <div class="columns is-multiline">
+        @foreach ($clientsA as $cA)
+        <div class="column is-one-quarter">
+            Name: {{ $cA->name }} <br> Email: {{ $cA->email }} <br>
+            <a href="/{{ $cA->id }}/portfolio">Portfolio</a>
+            <hr>
         </div>
-
-        <hr>
-        
-        <h2 class="subtitle is-3">Class B</h2>
-        <div class="columns is-multiline">
-            @foreach ($clientsB as $cB)
-            <div class="column is-one-quarter">
-                Name: {{ $cB->name  }} <br>
-                Email: {{ $cB->email }} <br>
-                <a href="/{{ $cB->id }}/portfolio">Portfolio</a>
-                <hr>
-            </div>
         @endforeach
+    </div>
+
+    <hr>
+
+    <h2 class="subtitle is-3">Class B</h2>
+    <div class="columns is-multiline">
+        @foreach ($clientsB as $cB)
+        <div class="column is-one-quarter">
+            Name: {{ $cB->name }} <br> Email: {{ $cB->email }} <br>
+            <a href="/{{ $cB->id }}/portfolio">Portfolio</a>
+            <hr>
         </div>
-    </ul>
+        @endforeach
+    </div>
+</ul>
 @endsection
-
-
+ 
 @section('new-client-ayy')
 
 <form action="/admin" method="post">
@@ -55,18 +51,18 @@
         <div class="field-label is-normal">
             <label class="label">Contact</label>
         </div>
-            <div class="field-body">
-                <div class="field is-expanded">
-                    <div class="field has-addons">
-                        <p class="control">
+        <div class="field-body">
+            <div class="field is-expanded">
+                <div class="field has-addons">
+                    <p class="control">
                         <a class="button is-static">
                             +1
                         </a>
-                        </p>
-                        <p class="control is-expanded">
+                    </p>
+                    <p class="control is-expanded">
                         <input class="input" name="telephone" type="tel" placeholder="778-555-5555">
-                        </p>
-                    </div>
+                    </p>
+                </div>
             </div>
 
             <div class="field">
@@ -105,7 +101,7 @@
             <div class="field is-narrow">
                 <div class="control">
                     <div class="select is-fullwidth">
-                    <select name="class">
+                        <select name="class">
                         <option>A</option>
                         <option>B</option>
                     </select>
@@ -116,18 +112,18 @@
     </div>
     <div class="field is-horizontal">
         <div class="field-label"><label class="label" style="padding-top:7px">Annual Income </label></div>
-            <div class="field-body">
-                <div class="field is-expanded">
-                    <div class="field has-addons">
-                        <p class="control">
+        <div class="field-body">
+            <div class="field is-expanded">
+                <div class="field has-addons">
+                    <p class="control">
                         <a class="button is-static">
                             $
                         </a>
-                        </p>
-                        <p class="control is-expanded">
+                    </p>
+                    <p class="control is-expanded">
                         <input class="input" name="salary" type="tel" placeholder="531999">
-                        </p>
-                    </div>
+                    </p>
+                </div>
                 <p class="help"></p>
             </div>
         </div>
@@ -139,12 +135,12 @@
         </div>
         <div class="field-body">
             <div class="field">
-            <div class="control">
-                <input class="input" name="SIN" type="text" placeholder="759 678 873">
-            </div>
-            <p class="help is-danger">
-                Don't mess this up
-            </p>
+                <div class="control">
+                    <input class="input" name="SIN" type="text" placeholder="759 678 873">
+                </div>
+                <p class="help is-danger">
+                    Don't mess this up
+                </p>
             </div>
         </div>
     </div>
@@ -154,8 +150,8 @@
             <!-- Left empty for spacing -->
         </div>
         <div class="field-body">
-            {{-- group might make you think it's more than one item but we need it to align btn right
-                 even though the 'group' consists of merely 1 --}}
+            {{-- group might make you think it's more than one item but we need it to align btn right even though the 'group' consists
+            of merely 1 --}}
             <div class="field is-grouped is-grouped-right">
                 <div class="control">
                     <button class="button is-warning">
@@ -168,18 +164,206 @@
         </div>
     </div>
 </form>
-    
+@endsection
+ 
+@section('upload-to-class')
+<div class="columns is-centered">
+
+    <div class="column is-narrow">
+        <form action="/fileupload" method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="field">
+                <div class="file is-warning has-name is-boxed">
+                    <label class="file-label">
+                        <input class="file-input" type="file" name="filelolol" id="file-upload">
+                        <span class="file-cta">
+                            <span class="file-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            </span>
+                            <span class="file-label">
+                            Upload Class A File
+                            </span>
+                        </span>
+                        <span class="file-name" id="filename">
+                            
+                        </span>
+                        </label>
+                </div>
+            </div>
+            <input type="hidden" name="user_id" value="1">
+            <input type="hidden" name="file_type" value="A">
+            <div class="has-text-centered" style="margin-top: 10px;">
+                <button type="submit" class="button is-warning">Submit</button>
+            </div>
+            <script>
+                var input = document.getElementById( 'file-upload' );
+                        var infoArea = document.getElementById( 'filename' );
+                        input.addEventListener( 'change', showFileName );
+                
+                        function showFileName( event ) {
+                            var input = event.srcElement;
+                            var fileName = input.files[0].name;
+                            infoArea.textContent = fileName;
+                        }
+            </script>
+
+        </form>
+    </div>
+
+
+
+
+    <br><br><br>
+
+    <div class="column is-narrow">
+        <form action="/fileupload" method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="field">
+                <div class="file is-warning has-name is-boxed">
+                    <label class="file-label">
+                        <input class="file-input" type="file" name="filelolol" id="file-upload2">
+                        <span class="file-cta">
+                            <span class="file-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            </span>
+                            <span class="file-label">
+                            Upload Class B File
+                            </span>
+                        </span>
+                        <span class="file-name" id="filename2">
+                            
+                        </span>
+                        </label>
+                </div>
+            </div>
+            <input type="hidden" name="user_id" value="1">
+            <input type="hidden" name="file_type" value="B">
+            <div class="has-text-centered" style="margin-top: 10px;">
+                <button type="submit" class="button is-warning">Submit</button>
+            </div>
+            <script>
+                var input2 = document.getElementById( 'file-upload2' );
+                var infoArea2 = document.getElementById( 'filename2' );
+                input2.addEventListener( 'change', showFileName2 );
+        
+                function showFileName2( event ) {
+                    var input2 = event.srcElement;
+                    var fileName2 = input2.files[0].name;
+                    infoArea2.textContent = fileName2;
+                }
+            </script>
+        </form>
+    </div>
+    <br><br><br>
+
+    <div class="column is-narrow">
+        <form action="/fileupload" method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="field">
+                <div class="file is-warning has-name is-boxed">
+                    <label class="file-label">
+                           <input class="file-input" type="file" name="filelolol" id="file-upload3">
+                        <span class="file-cta">
+                            <span class="file-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            </span>
+                            <span class="file-label">
+                            Upload by Both Class
+                            </span>
+                        </span>
+                        <span class="file-name" id="filename3">
+                            
+                        </span>
+                        </label>
+                </div>
+            </div>
+            <input type="hidden" name="user_id" value="1">
+            <input type="hidden" name="file_type" value="AB">
+            <div class="has-text-centered" style="margin-top: 10px;">
+                <button type="submit" class="button is-warning">Submit</button>
+            </div>
+            <script>
+                var input3 = document.getElementById( 'file-upload3' );
+                var infoArea3 = document.getElementById( 'filename3' );
+                input3.addEventListener( 'change', showFileName3 );
+        
+                function showFileName3( event ) {
+                    var input3 = event.srcElement;
+                    var fileName3 = input3.files[0].name;
+                    infoArea3.textContent = fileName3;
+                }
+            </script>
+
+    </div>
+</div>
+@endsection
+ 
+@section('show-files-uploaded')
+    <ul>
+        <h2 class="subtitle is-3">Class A</h2>
+        <div class="columns is-multiline">
+            @foreach ($classAFiles as $cA)
+            <div class="column is-one-quarter">
+                {{ $cA->filename }}
+
+                <div class="dropdown is-hoverable">
+                    <div class="dropdown-trigger">
+                        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                            
+                            <span class="icon is-small">
+                                <i class="fas fa-angle-down" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                        <div class="dropdown-content">
+                            <div class="dropdown-item">
+                                edit
+                            </div>
+                            <div class="dropdown-item">
+                                
+                                <form method="post" action="portfolio/0">
+                                    @csrf
+                                    @method('delete')
+                                    
+                                    <a href="#" onclick="$(this).closest('form').submit()">delete</a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            @endforeach
+        </div>
+
+        <hr>
+
+        <h2 class="subtitle is-3">Class B</h2>
+        <div class="columns is-multiline">
+            @foreach ($classBFiles as $cB)
+            <div class="column is-one-quarter">
+                Filename: {{ $cB->filename }}
+                <hr>
+            </div>
+            @endforeach
+        </div>
+
+        <h2 class="subtitle is-3">Class AB</h2>
+        <div class="columns is-multiline">
+            @foreach ($classABFiles as $cAB)
+            <div class="column is-one-quarter">
+                Filename: {{ $cAB->filename }}
+                <hr>
+            </div>
+            @endforeach
+        </div>
+    </ul>
+
 @endsection
 
 
-
-
-
-
-
-
-
-{{-- old one, keeping for legacy purposes (copy some code over in the future), but not using it --}}
+ {{-- old one, keeping for legacy purposes (copy some code over in the future), but not using it --}} 
 @section('new-client')
 
 <div class="container">
@@ -196,13 +380,11 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="invalid-feedback" role="alert">
+                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}"
+                                    required autofocus> @if ($errors->has('name'))
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
+                                    </span> @endif
                             </div>
                         </div>
 
@@ -210,13 +392,11 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
+                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}"
+                                    required> @if ($errors->has('email'))
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
+                                    </span> @endif
                             </div>
                         </div>
 
@@ -224,13 +404,11 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
+                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"
+                                    required> @if ($errors->has('password'))
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
+                                    </span> @endif
                             </div>
                         </div>
 
@@ -243,17 +421,17 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                        <div class="col-md-6 offset-md-4">
-                            <button type="submit" class="btn btn-primary">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
                                 {{-- {{ __('Register') }} --}}
                                 Register
                             </button>
-                        </div>
+                            </div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    </div>
+</div>
 @endsection

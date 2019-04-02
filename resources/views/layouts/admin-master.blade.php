@@ -73,169 +73,28 @@
                 @yield('new-client-ayy')
             </section>
         </div>
+        <hr>
+        <br>
 
-        <div class="container">
-            <form action="/fileupload" method="post" enctype="multipart/form-data">
-                @csrf
-                <div class="field">
-                    <div class="file is-warning has-name is-boxed">
-                        <label class="file-label">
-                            <input class="file-input" type="file" name="filelolol" id="file-upload">
-                            <span class="file-cta">
-                                <span class="file-icon">
-                                <i class="fas fa-cloud-upload-alt"></i>
-                                </span>
-                                <span class="file-label">
-                                Upload Class A File
-                                </span>
-                            </span>
-                            <span class="file-name" id="filename">
-                                
-                            </span>
-                            </label>
-                    </div>
-                </div>
-                <input type="hidden" name="user_id" value="1">
-                <input type="hidden" name="file_type" value="A">
-                <div class="columns is-centered" style="margin-top: 10px;">
-                    <button type="submit" class="button is-warning">Submit</button>
-                </div>
-                <script>
-                    var input = document.getElementById( 'file-upload' );
-                            var infoArea = document.getElementById( 'filename' );
-                            input.addEventListener( 'change', showFileName );
-                    
-                            function showFileName( event ) {
-                                var input = event.srcElement;
-                                var fileName = input.files[0].name;
-                                infoArea.textContent = fileName;
-                            }
-                </script>
+        <div class="container has-text-centered">
+            <h1 class="title"><span class="decor">Upload</span><span class="le-decor"> Files</span></h1>
+        </div>
+        <br><br>
+        @yield('upload-to-class')
 
-            </form>
-
-            <br><br><br>
-
-
-            <form action="/fileupload" method="post" enctype="multipart/form-data">
-                @csrf
-                <div class="field">
-                    <div class="file is-warning has-name is-boxed">
-                        <label class="file-label">
-                            <input class="file-input" type="file" name="filelolol" id="file-upload">
-                            <span class="file-cta">
-                                <span class="file-icon">
-                                <i class="fas fa-cloud-upload-alt"></i>
-                                </span>
-                                <span class="file-label">
-                                Upload Class B File
-                                </span>
-                            </span>
-                            <span class="file-name" id="filename">
-                                
-                            </span>
-                            </label>
-                    </div>
-                </div>
-                <input type="hidden" name="user_id" value="1">
-                <input type="hidden" name="file_type" value="B">
-                <div class="columns is-centered" style="margin-top: 10px;">
-                    <button type="submit" class="button is-warning">Submit</button>
-                </div>
-                <script>
-                    var input = document.getElementById( 'file-upload' );
-                            var infoArea = document.getElementById( 'filename' );
-                            input.addEventListener( 'change', showFileName );
-                    
-                            function showFileName( event ) {
-                                var input = event.srcElement;
-                                var fileName = input.files[0].name;
-                                infoArea.textContent = fileName;
-                            }
-                </script>
-
-            </form>
-            <br><br><br>
-            <form action="/fileupload" method="post" enctype="multipart/form-data">
-                @csrf
-                <div class="field">
-                    <div class="file is-warning has-name is-boxed">
-                        <label class="file-label">
-                            <input class="file-input" type="file" name="filelolol" id="file-upload">
-                            <span class="file-cta">
-                                <span class="file-icon">
-                                <i class="fas fa-cloud-upload-alt"></i>
-                                </span>
-                                <span class="file-label">
-                                Upload Classes A&B File
-                                </span>
-                            </span>
-                            <span class="file-name" id="filename">
-                                
-                            </span>
-                            </label>
-                    </div>
-                </div>
-                <input type="hidden" name="user_id" value="1">
-                <input type="hidden" name="file_type" value="AB">
-                <div class="columns is-centered" style="margin-top: 10px;">
-                    <button type="submit" class="button is-warning">Submit</button>
-                </div>
-                <script>
-                    var input = document.getElementById( 'file-upload' );
-                            var infoArea = document.getElementById( 'filename' );
-                            input.addEventListener( 'change', showFileName );
-                    
-                            function showFileName( event ) {
-                                var input = event.srcElement;
-                                var fileName = input.files[0].name;
-                                infoArea.textContent = fileName;
-                            }
-                </script>
-
-            </form>
-
-            <br><br><br><br><br>
-
-            <div class="has-text-centered">
-                <h1 class="title">
-                    Files Uploaded by Class
-                </h1>
-            </div>
-            <br>
-            <div class="columns is-multiline">
-                <h2 class="subtitle is-3">Class A and B</h2>
-                @foreach ($classABFiles as $cAB)
-                    <div class="column is-one-quarter">
-                        Filename: {{ $cAB->filename }} <br>
-                        <hr>
-                    </div>
-                @endforeach
-            </div>
-            <br>
-            <hr>
-            <div class="columns is-multiline">
-                <h2 class="subtitle is-3">Class A</h2>
-                @foreach ($classAFiles as $cA)
-                    <div class="column is-one-quarter">
-                        Filename: {{ $cA->filename }} <br>
-                        <hr>
-                    </div>
-                @endforeach
-            </div>
-            <br>
-            <hr>
-            <div class="columns is-multiline">
-                <h2 class="subtitle is-3">Class B</h2>
-                @foreach ($classBFiles as $cB)
-                    <div class="column is-one-quarter">
-                        Filename: {{ $cB->filename  }} <br>
-                        <hr>
-                    </div>
-                @endforeach
-            </div>
+        <hr>
+        <br>
+        <div class="container has-text-centered">
+            <h1 class="title"><span class="decor">View</span><span class="le-decor"> Files Uploaded</span></h1>
+        </div>
+        <div class="container content">
+            <h1 class="title is-2" style="margin-bottom: 0; margin-left:2.5%">All Clients</h1>
+            <section class="section">
+                @yield('show-files-uploaded')
+            </section>
         </div>
     </main>
+
     @include('layouts.partials.footer')
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
