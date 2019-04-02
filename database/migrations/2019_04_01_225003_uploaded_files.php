@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUploadedFilesTable extends Migration
+class UploadedFiles extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,11 @@ class CreateUploadedFilesTable extends Migration
             $table->increments('id');
 
             $table->integer('user_id')->unsigned();
+
             $table->string('filename');
+
+            $table->string('file_type')->default('I');
+
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->timestamps();

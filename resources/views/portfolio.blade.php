@@ -611,7 +611,7 @@
 		</div>
 	  </div>
 	  <input type="hidden" name="user_id" value="{{ $user[0]->id }}">
-	  
+	  <input type="hidden" name="file_type" value="I">
 	  <div class="columns is-centered" style="margin-top: 10px;">
 			<button type="submit" class="button is-warning">Submit</button>
 		</div>
