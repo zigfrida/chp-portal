@@ -95,3 +95,5 @@ Route::post('/{id}/portfolio/editLP', 'LPPerformanceController@insert');
 Route::post('/{id}/portfolio/editFI', 'FundInfoController@insert');
 
 Route::post('/{id}/portfolio/editEI', 'ExtraInfoController@update');
+
+Route::post('/{id}/portfolio/editFU', 'FormUserController@update');
