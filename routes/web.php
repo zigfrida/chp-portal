@@ -76,7 +76,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], functio
     });
 });
 
-Route::post('/{id}/portfolio', 'PortfolioController@update');
+Route::post('/{id}/portfolio/comment', 'PortfolioController@update');
 
 // for Alli to change the form
 Route::patch('/{id}/portfolio', 'UserController@update');
@@ -90,12 +90,11 @@ Route::post('/{id}/store', 'UserController@uploadFile');
 //     return Storage::download('A/easy.jpg');
 // });
 
-// Route::get('files/{file_name}', function ($file_name = null) {
-//     $path = storage_path().'/'.'app'.$file_name;
-//     if (file_exists($path)) {
-//         return Response::download($path);
-//     }
-// });
+Route::post('/{id}/portfolio/editLP', 'LPPerformanceController@insert');
+
+Route::get('/filetest', function () {
+    return Storage::download('A/easy.jpg');
+});
 
 // FILE STUFF
 Route::get('/{id}/portfolio/{type}/{filename}', function ($id, $type, $filename) {
@@ -142,6 +141,8 @@ Route::delete('/admin/files/{file_type}/{filename}', function ($file_type, $file
 
 Route::post('/{id}/portfolio', 'LPPerformanceController@insert');
 
-Route::post('/{id}/portfolio', 'FundInfoController@insert');
+Route::post('/{id}/portfolio/editFI', 'FundInfoController@insert');
 
-Route::post('/{id}/portfolio', 'ExtraInfoController@update');
+Route::post('/{id}/portfolio/editEI', 'ExtraInfoController@update');
+
+Route::post('/{id}/portfolio/editFU', 'FormUserController@update');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\PISummary;
+use App\form_user;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -102,9 +103,15 @@ class UserController extends Controller
         // \Invytr::invite($user);
 
         PISummary::create([
-            // 'user_id' => $user['id'],
-            'user_id' => 30,
+            'user_id' => $user['id'],
+            //'user_id' => 30,
         ]);
+
+        form_user::create([
+            'user_id' => $user['id'],
+        ]);
+
+
 
         return redirect('/admin')->with('success', 'User created!');
     }
