@@ -17,7 +17,7 @@ class CreateFormUsersTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('class')->default('potential_client');
-            $table->boolean('clientType')->default(0);
+            $table->string('clientType')->default('');
             $table->string('subscriber_name')->default('');
             $table->string('street')->default('');
             $table->string('city')->default('');
@@ -67,3 +67,4 @@ class CreateFormUsersTable extends Migration
         Schema::dropIfExists('form_users');
     }
 }
+
