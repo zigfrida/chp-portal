@@ -20,7 +20,7 @@ Route::get('/{id}/portfolio', function ($id) {
     if ($id != auth()->id() && \Auth::user()->role != 'admin') {
         abort(403);
     } else {
-        $user = DB::table('users')->where('id', $id)->get();
+        $user = DB::table('form_users')->where('id', $id)->get();
 
         $bothFiles = DB::table('uploaded_files')
                         ->where('file_type', 'AB');
