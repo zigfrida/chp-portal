@@ -21,19 +21,20 @@ Route::get('/{id}/portfolio', function ($id) {
         abort(403);
     } else {
         $user = DB::table('users')->where('id', $id)->get();
-        $files = DB::table('uploaded_files')->where('user_id', $id)->get();
+
+        $bothFiles = DB::table('uploaded_files')
+                        ->where('file_type', 'AB');
+
+        $classFiles = DB::table('uploaded_files')
+                        ->where('file_type', $user[0]->class);
+
+        $files = DB::table('uploaded_files')
+                        ->where('user_id', $id)
+                        ->union($bothFiles)
+                        ->union($classFiles)
+                        ->get();
 
         return view('portfolio', compact('user', 'files'));
-    }
-})->middleware('auth');
-
-Route::get('/{id}/portfolio/{filename}', function ($id, $filename) {
-    if ($id != auth()->id() && \Auth::user()->role != 'admin') {
-        abort(403);
-    } else {
-        $filepath = $id.'/'.$filename;
-
-        return Storage::download($filepath);
     }
 })->middleware('auth');
 
@@ -41,9 +42,16 @@ Auth::routes();
 
 Route::post('/admin', 'UserController@store');
 
+// for formstack
+Route::post('/{id}/portfolio/form1', 'UserController@storeFormstack')->middleware('auth');
+
 Route::post('/fileupload', 'UploadController@store');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('search', 'SearchController@search');
+
+Route::get('/{id}/givemepdf', 'PDFController@pdf');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], function () {
     Route::get('/', function () {
@@ -56,19 +64,89 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], functio
                         ->where('class', 'B')
                         ->get();
 
-        return view('admin', compact('clientsA', 'clientsB'));
+        $classABFiles = DB::table('uploaded_files')
+                        ->where('file_type', 'AB')
+                        ->get();
+
+        $classAFiles = DB::table('uploaded_files')
+                        ->where('file_type', 'A')
+                        ->get();
+
+        $classBFiles = DB::table('uploaded_files')
+                        ->where('file_type', 'B')
+                        ->get();
+
+        return view('admin', compact('clientsA', 'clientsB', 'classABFiles', 'classAFiles', 'classBFiles'));
     });
 });
 
-Route::post('/{id}/portfolio', 'PortfolioController@update');
+Route::post('/{id}/portfolio/comment', 'PortfolioController@update');
+
+// for Alli to change the form
+Route::patch('/{id}/portfolio', 'UserController@update');
 
 Route::view('/upload', 'upload');
 Route::view('/test', 'test');
 
 Route::post('/{id}/store', 'UserController@uploadFile');
-Route::get('files/{file_name}', function ($file_name = null) {
-    $path = storage_path().'/'.'app'.$file_name;
-    if (file_exists($path)) {
-        return Response::download($path);
-    }
+
+// Route::get('/filetest', function () {
+//     return Storage::download('A/easy.jpg');
+// });
+
+Route::post('/{id}/portfolio/editLP', 'LPPerformanceController@insert');
+
+Route::get('/filetest', function () {
+    return Storage::download('A/easy.jpg');
 });
+
+// FILE STUFF
+Route::get('/{id}/portfolio/{type}/{filename}', function ($id, $type, $filename) {
+    $filepath = ' ';
+    if ($id != auth()->id() && \Auth::user()->role != 'admin') {
+        abort(403);
+    }
+
+    if ($type == 'I') {
+        $filepath = $id.'/'.$filename;
+    } elseif ($type == 'AB') {
+        $filepath = 'AB'.'/'.$filename;
+    } elseif ($type = 'A') {
+        $filepath = 'A'.'/'.$filename;
+    } elseif ($type = 'B') {
+        $filepath = 'B'.'/'.$filename;
+    }
+
+    return Storage::download($filepath);
+})->middleware('auth');
+
+Route::delete('/{id}/portfolio/{filename}', function ($id, $filename) {
+    if (\Auth::user()->role != 'admin') {
+        abort(403);
+    } else {
+        Storage::disk('local')->delete("$id/$filename");
+        DB::table('uploaded_files')->where('user_id', $id)->where('filename', $filename)->delete();
+    }
+
+    return redirect('/admin');
+})->middleware('auth');
+
+// DELETE CLASS UPLOADS
+Route::delete('/admin/files/{file_type}/{filename}', function ($file_type, $filename) {
+    if (\Auth::user()->role != 'admin') {
+        abort(403);
+    } else {
+        Storage::disk('local')->delete("/$file_type/$filename");
+        DB::table('uploaded_files')->where('file_type', $file_type)->where('filename', $filename)->delete();
+    }
+
+    return redirect('/admin');
+})->middleware('auth');
+
+Route::post('/{id}/portfolio', 'LPPerformanceController@insert');
+
+Route::post('/{id}/portfolio/editFI', 'FundInfoController@insert');
+
+Route::post('/{id}/portfolio/editEI', 'ExtraInfoController@update');
+
+Route::post('/{id}/portfolio/editFU', 'FormUserController@update');

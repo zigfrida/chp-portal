@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\PISummary;
+use App\form_user;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use Storage;
 
 class UserController extends Controller
@@ -26,6 +28,49 @@ class UserController extends Controller
      */
     public function create()
     {
+    }
+
+    public function storeFormstack(Request $request, $id)
+    {
+        $request->validate([
+            'clientType' => 'bail|required',
+        ]);
+        if ($request->clientType == 'individual') { // user selected Individual
+            $request->validate([
+                'subscriber_name' => 'required',
+                'city' => 'required',
+                'street' => 'required',
+                'postal_code' => 'required',
+                'province' => 'required',
+                'country' => 'required',
+                'sin' => 'required',
+                'phone' => 'required',
+                'email' => 'required',
+            ]);
+        } elseif ($request->clientType == 'business') { // user selected Non-Individual
+            $request->validate([
+                'subscriber_name' => 'required',
+                'street' => 'required',
+                'city' => 'required',
+                'postal_code' => 'required',
+                'province' => 'required',
+                'country' => 'required',
+                'phone' => 'required',
+                'email' => 'required',
+                'business_number' => 'required',
+                'signatory_first_name' => 'required',
+                'signatory_last_name' => 'required',
+                'official_capacity_or_title_of_authorized_signatory' => 'required',
+            ]);
+        }
+
+        $redirectPath = '/'.$id.'/portfolio';
+        // $user = DB::table('users')->where('id', $id)->get();
+        DB::table('users')
+            ->where('id', $id)
+            ->update(['form_level' => 1]);
+
+        return redirect($redirectPath);
     }
 
     /**
@@ -59,7 +104,14 @@ class UserController extends Controller
 
         PISummary::create([
             'user_id' => $user['id'],
+            //'user_id' => 30,
         ]);
+
+        form_user::create([
+            'user_id' => $user['id'],
+        ]);
+
+
 
         return redirect('/admin')->with('success', 'User created!');
     }
@@ -96,6 +148,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        dd('hi');
     }
 
     /**

@@ -39,11 +39,12 @@ class UploadController extends Controller
         //     'filelolol.julian', $request->file('filelolol')
         // );
         if (!$request->user()->isAdmin() && $request->user()->id != $request->input('user_id')) {
-            return 'fuck u u aint hacking this lol';
+            abort(403);
         }
 
         $uploaded = $request->file('filelolol');
         $userID = $request->input('user_id');
+        $fileClassType = $request->input('file_type');
 
         $filename = $uploaded->getClientOriginalName();
 
@@ -51,7 +52,34 @@ class UploadController extends Controller
 
         $tableEntry->user_id = $userID;
         $tableEntry->filename = $uploaded->getClientOriginalName();
+        $tableEntry->file_type = $fileClassType;
         $tableEntry->save();
+
+        if ($fileClassType == 'A') {
+            Storage::disk('local')->putFileAs(
+                'A',
+                $uploaded,
+                $filename
+            );
+
+            return redirect('/admin');
+        } elseif ($fileClassType == 'B') {
+            Storage::disk('local')->putFileAs(
+                'B',
+                $uploaded,
+                $filename
+            );
+
+            return redirect('/admin');
+        } elseif ($fileClassType == 'AB') {
+            Storage::disk('local')->putFileAs(
+                'AB',
+                $uploaded,
+                $filename
+            );
+
+            return redirect('/admin');
+        }
 
         Storage::disk('local')->putFileAs(
             $userID,
@@ -59,7 +87,7 @@ class UploadController extends Controller
             $filename
         );
 
-        return redirect('/admin');
+        return redirect('/'.$userID.'/'.'portfolio');
     }
 
     /**

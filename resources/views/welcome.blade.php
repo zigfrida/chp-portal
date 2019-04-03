@@ -187,7 +187,7 @@
             </div>
         </div>
 
-        <div id="navMenubd-example" class="navbar-menu">
+        <div id="navMenubd-example" class="navbar-menu is-active">
             <div class="navbar-start">
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link  is-active" href="#">
@@ -291,9 +291,37 @@
                     </div>
                 </div>
                 <a class="navbar-item " href="#">
-                      <span class="bd-emoji">❤️</span> &nbsp;WhatToPutHere
-                    </a>
+                    <span class="bd-emoji">❤️</span> &nbsp;WhatToPutHere
+                </a>
+
             </div>
+            <div class="navbar-end">
+                    @if (auth()->user())
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <div class="navbar-link ">
+                            {{-- <img class="nav-profilepic" src="https://static.wixstatic.com/media/1bfda4_6f8ae00a346644a89245f331fc6c6b8e~mv2_d_3476_5214_s_4_2.jpeg?dn="> --}}
+                            <span>{{ auth()->user()->name }}</span>    
+                        </div>
+                        <div class="navbar-dropdown">
+                                @if (auth()->user()->isAdmin())
+                                    <a class="navbar-item" href="/admin">
+                                        Admin Page
+                                    </a>
+                                @else
+                                    <a class="navbar-item" href="/{{auth()->user()->id}}/portfolio">
+                                        My Portfolio
+                                    </a>
+                                @endif
+                                <hr class="navbar-divider">
+                                {{-- if I remove this href it doesn't seemingly affect the logout - what gives? --}}
+                                <a class="navbar-item" href="/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+                                <form id="logout-form" action="/logout" method="POST" style="display: none;">@csrf</form>
+                            @endif
+                        </div>
+                    </div>
+                </div>
         </div>
         </div>
         </div>
