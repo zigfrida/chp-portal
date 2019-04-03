@@ -12,10 +12,16 @@
 */
 //use Illuminate\Support\Facades\Gate;
 
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/', function () {
     return view('welcome');
 });
 
+/*
+    User's portfolio
+*/
 Route::get('/{id}/portfolio', function ($id) {
     if ($id != auth()->id() && \Auth::user()->role != 'admin') {
         abort(403);
@@ -56,20 +62,10 @@ Route::get('/{id}/portfolio', function ($id) {
     }
 })->middleware('auth');
 
-Auth::routes();
 
-Route::post('/admin', 'UserController@store');
-
-// for formstack
-Route::post('/{id}/portfolio/form1', 'FormUserController@storeFormstack')->middleware('auth');
-
-Route::post('/fileupload', 'UploadController@store');
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::post('search', 'SearchController@search');
-
-Route::get('/{id}/givemepdf', 'PDFController@pdf');
+/*
+    Admin Page
+*/
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], function () {
     Route::get('/', function () {
@@ -100,27 +96,28 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], functio
     });
 });
 
+Route::post('/admin', 'UserController@store');
+
+// for Alli to change the formstack details
+Route::patch('/{id}/portfolio', 'UserController@update');
+// for Alli to update portfolio's comments
 Route::post('/{id}/portfolio/comment', 'PortfolioController@update');
 
-// for Alli to change the form
-Route::patch('/{id}/portfolio', 'UserController@update');
 
-Route::view('/upload', 'upload');
-Route::view('/test', 'test');
 
-Route::post('/{id}/store', 'UserController@uploadFile');
+/*
+    Formstack forms
+*/
+Route::post('/{id}/portfolio/form1', 'FormUserController@storeFormstack')->middleware('auth');
 
-// Route::get('/filetest', function () {
-//     return Storage::download('A/easy.jpg');
-// });
 
-Route::post('/{id}/portfolio/editLP', 'LPPerformanceController@insert');
 
-Route::get('/filetest', function () {
-    return Storage::download('A/easy.jpg');
-});
 
-// FILE STUFF
+/*
+    File uploading
+*/
+Route::post('/fileupload', 'UploadController@store');
+
 Route::get('/{id}/portfolio/{type}/{filename}', function ($id, $type, $filename) {
     $filepath = ' ';
     if ($id != auth()->id() && \Auth::user()->role != 'admin') {
@@ -140,6 +137,11 @@ Route::get('/{id}/portfolio/{type}/{filename}', function ($id, $type, $filename)
     return Storage::download($filepath);
 })->middleware('auth');
 
+
+/*
+    File deleting
+*/
+// DELETE INDIVIDUAL FILES
 Route::delete('/{id}/portfolio/{filename}', function ($id, $filename) {
     if (\Auth::user()->role != 'admin') {
         abort(403);
@@ -163,6 +165,21 @@ Route::delete('/admin/files/{file_type}/{filename}', function ($file_type, $file
     return redirect('/admin');
 })->middleware('auth');
 
+
+
+
+
+
+
+
+
+
+
+/*
+    Amanda stuff
+*/
+Route::post('/{id}/portfolio/editLP', 'LPPerformanceController@insert');
+
 Route::post('/{id}/portfolio', 'LPPerformanceController@insert');
 
 Route::post('/{id}/portfolio/editFI', 'FundInfoController@insert');
@@ -170,3 +187,26 @@ Route::post('/{id}/portfolio/editFI', 'FundInfoController@insert');
 Route::post('/{id}/portfolio/editEI', 'ExtraInfoController@update');
 
 Route::post('/{id}/portfolio/editFU', 'FormUserController@update');
+
+
+
+
+/*
+    PDF stuff
+*/
+Route::get('/{id}/givemepdf', 'PDFController@pdf');
+
+/*
+    Search stuff
+*/
+Route::post('search', 'SearchController@search');
+
+
+
+
+/*
+    Not sure where this stuff came from
+*/
+Route::view('/upload', 'upload');
+
+Route::post('/{id}/store', 'UserController@uploadFile');
