@@ -97,7 +97,7 @@ class FormUserController extends Controller
 
         $redirectPath = '/'.$id.'/portfolio';
         // $user = DB::table('users')->where('id', $id)->get();
-        DB::table('users')
+        DB::table('form_users')
             ->where('id', $id)
             ->update(['form_level' => 1]);
 
