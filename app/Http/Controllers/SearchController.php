@@ -46,7 +46,7 @@ class SearchController extends Controller
 
                 $access_css = $client->access_level + $client->form_level;
 
-                $outputA .= '<div  class="column is-one-quarter access'. $access_css. '">'.
+                $outputB .= '<div  class="column is-one-quarter">'.
                              'Name: '. $client->name . '<br>'.
                              'Email: ' . $client->email .'<br>'.
                              '<a href="' . $client->id.'/portfolio" class="access'. $access_css. '">'.'Portfolio</a>'.

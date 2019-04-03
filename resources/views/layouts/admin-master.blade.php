@@ -139,6 +139,7 @@
                         success:function(data)
                         {
                             
+                            console.log(data.BProfile);
                             $('#A_portoflios').html(data.AProfile);
                             $('#B_portfolios').html(data.BProfile);
                                
