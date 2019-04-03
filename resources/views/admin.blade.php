@@ -1,30 +1,38 @@
 @extends('layouts.admin-master') 
 @section('list-clients')
 <ul>
-    <h2 class="subtitle is-3">Class A</h2>
-    <div class="columns is-multiline">
-        @foreach ($clientsA as $cA)
-        <div class="column is-one-quarter">
-            Name: {{ $cA->name }} <br> Email: {{ $cA->email }} <br>
-            <a href="/{{ $cA->id }}/portfolio">Portfolio</a>
-            <hr>
-        </div>
-        @endforeach
-    </div>
+        <h2 class="subtitle is-3">Class A</h2>
+        <div id="A_portoflios" class="columns is-multiline">
+            @foreach ($clientsA as $cA)
+            
+            <?php $access_css = $cA->access_level + $cA->form_level; ?>
 
-    <hr>
-
-    <h2 class="subtitle is-3">Class B</h2>
-    <div class="columns is-multiline">
-        @foreach ($clientsB as $cB)
-        <div class="column is-one-quarter">
-            Name: {{ $cB->name }} <br> Email: {{ $cB->email }} <br>
-            <a href="/{{ $cB->id }}/portfolio">Portfolio</a>
-            <hr>
+            <div class="column is-one-quarter">
+                    Name: {{ $cA->name  }} <br>
+                    Email: {{ $cA->email }} <br>
+                    <a href="/{{ $cA->id }}/portfolio" class="access<?php echo $access_css; ?>">Portfolio</a>
+                    <hr>
+                </div>
+            @endforeach
         </div>
+
+        <hr>
+        
+        <h2 class="subtitle is-3">Class B</h2>
+        <div id="B_portfolios" class="columns is-multiline">
+            @foreach ($clientsB as $cB)
+
+            <?php $access_css = $cB->access_level + $cB->form_level; ?>
+
+            <div class="column is-one-quarter">
+                Name: {{ $cB->name  }} <br>
+                Email: {{ $cB->email }} <br>
+                <a href="/{{ $cB->id }}/portfolio" class="access<?php echo $access_css; ?>">Portfolio</a>
+                <hr>
+            </div>
         @endforeach
-    </div>
-</ul>
+        </div>
+    </ul>
 @endsection
  
 @section('new-client-ayy')
@@ -305,7 +313,8 @@
         <div class="columns is-multiline">
             @foreach ($classAFiles as $cA)
             <div class="column is-one-quarter">
-                {{ $cA->filename }}
+                {{ $cA->filename }} <br>
+                <a href="portfolio/{{ $cA->file_type}}/{{ $cA->filename }}" class="button is-warning">Download</a>
 
                 <div class="dropdown is-hoverable">
                     <div class="dropdown-trigger">
@@ -351,7 +360,9 @@
         <div class="columns is-multiline">
             @foreach ($classBFiles as $cB)
             <div class="column is-one-quarter">
-                {{ $cB->filename }}
+                {{ $cB->filename }} <br>
+                <a href="portfolio/{{ $cB->file_type}}/{{ $cB->filename }}" class="button is-warning">Download</a>
+
                 <div class="dropdown is-hoverable">
                     <div class="dropdown-trigger">
                         <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
@@ -394,7 +405,8 @@
         <div class="columns is-multiline">
             @foreach ($classABFiles as $cAB)
             <div class="column is-one-quarter">
-                {{ $cAB->filename }}
+                {{ $cAB->filename }} <br>
+                <a href="portfolio/{{ $cAB->file_type}}/{{ $cAB->filename }}" class="button is-warning">Download</a>
                 <div class="dropdown is-hoverable">
                     <div class="dropdown-trigger">
                         <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">

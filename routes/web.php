@@ -49,6 +49,8 @@ Route::post('/fileupload', 'UploadController@store');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::post('search', 'SearchController@search');
+
 Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], function () {
     Route::get('/', function () {
         $clientsA = DB::table('users')
@@ -86,12 +88,9 @@ Route::view('/test', 'test');
 
 Route::post('/{id}/store', 'UserController@uploadFile');
 
-Route::get('files/{file_name}', function ($file_name = null) {
-    $path = storage_path().'/'.'app'.$file_name;
-    if (file_exists($path)) {
-        return Response::download($path);
-    }
-});
+// Route::get('/filetest', function () {
+//     return Storage::download('A/easy.jpg');
+// });
 
 Route::post('/{id}/portfolio/editLP', 'LPPerformanceController@insert');
 
@@ -100,14 +99,23 @@ Route::get('/filetest', function () {
 });
 
 // FILE STUFF
-Route::get('/{id}/portfolio/{filename}', function ($id, $filename) {
+Route::get('/{id}/portfolio/{type}/{filename}', function ($id, $type, $filename) {
+    $filepath = ' ';
     if ($id != auth()->id() && \Auth::user()->role != 'admin') {
         abort(403);
-    } else {
-        $filepath = $id.'/'.$filename;
-
-        return Storage::download($filepath);
     }
+
+    if ($type == 'I') {
+        $filepath = $id.'/'.$filename;
+    } elseif ($type == 'AB') {
+        $filepath = 'AB'.'/'.$filename;
+    } elseif ($type = 'A') {
+        $filepath = 'A'.'/'.$filename;
+    } elseif ($type = 'B') {
+        $filepath = 'B'.'/'.$filename;
+    }
+
+    return Storage::download($filepath);
 })->middleware('auth');
 
 Route::delete('/{id}/portfolio/{filename}', function ($id, $filename) {
