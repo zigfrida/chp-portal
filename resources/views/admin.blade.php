@@ -1,30 +1,38 @@
 @extends('layouts.admin-master') 
 @section('list-clients')
 <ul>
-    <h2 class="subtitle is-3">Class A</h2>
-    <div class="columns is-multiline">
-        @foreach ($clientsA as $cA)
-        <div class="column is-one-quarter">
-            Name: {{ $cA->name }} <br> Email: {{ $cA->email }} <br>
-            <a href="/{{ $cA->id }}/portfolio">Portfolio</a>
-            <hr>
-        </div>
-        @endforeach
-    </div>
+        <h2 class="subtitle is-3">Class A</h2>
+        <div id="A_portoflios" class="columns is-multiline">
+            @foreach ($clientsA as $cA)
+            
+            <?php $access_css = $cA->access_level + $cA->form_level; ?>
 
-    <hr>
-
-    <h2 class="subtitle is-3">Class B</h2>
-    <div class="columns is-multiline">
-        @foreach ($clientsB as $cB)
-        <div class="column is-one-quarter">
-            Name: {{ $cB->name }} <br> Email: {{ $cB->email }} <br>
-            <a href="/{{ $cB->id }}/portfolio">Portfolio</a>
-            <hr>
+            <div class="column is-one-quarter">
+                    Name: {{ $cA->name  }} <br>
+                    Email: {{ $cA->email }} <br>
+                    <a href="/{{ $cA->id }}/portfolio" class="access<?php echo $access_css; ?>">Portfolio</a>
+                    <hr>
+                </div>
+            @endforeach
         </div>
+
+        <hr>
+        
+        <h2 class="subtitle is-3">Class B</h2>
+        <div id="B_portfolios" class="columns is-multiline">
+            @foreach ($clientsB as $cB)
+
+            <?php $access_css = $cB->access_level + $cB->form_level; ?>
+
+            <div class="column is-one-quarter">
+                Name: {{ $cB->name  }} <br>
+                Email: {{ $cB->email }} <br>
+                <a href="/{{ $cB->id }}/portfolio" class="access<?php echo $access_css; ?>">Portfolio</a>
+                <hr>
+            </div>
         @endforeach
-    </div>
-</ul>
+        </div>
+    </ul>
 @endsection
  
 @section('new-client-ayy')
