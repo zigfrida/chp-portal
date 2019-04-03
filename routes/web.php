@@ -20,11 +20,12 @@ Route::get('/{id}/portfolio', function ($id) {
     if ($id != auth()->id() && \Auth::user()->role != 'admin') {
         abort(403);
     } else {
-        $user = DB::table('form_users')->where('id', $id)->get();
+       
+        $user = DB::table('form_users')->where('user_id', $id)->get();
 
         $bothFiles = DB::table('uploaded_files')
                         ->where('file_type', 'AB');
-
+                        
         $classFiles = DB::table('uploaded_files')
                         ->where('file_type', $user[0]->class);
 
@@ -34,7 +35,24 @@ Route::get('/{id}/portfolio', function ($id) {
                         ->union($classFiles)
                         ->get();
 
-        return view('portfolio', compact('user', 'files'));
+        $thisUser = DB::table('p_i_summaries')
+                        ->where('user_id', $id)
+                        ->get();
+
+        $years = DB::table('l_p_performances')->select('year')->distinct()
+                        ->where('class', 'LIKE', $user[0]->class)
+                        ->get();
+
+        $metrics = DB::table('metrics')->get();
+
+        $fundInfo = DB::table('fund_infos')
+                        ->where('class',$user[0]->class)
+                        ->get();
+
+        $extraInfo = DB::table('extra_infos')
+                        ->get();
+
+        return view('portfolio', compact('user', 'files','thisUser', 'years','metrics', 'fundInfo','extraInfo'));
     }
 })->middleware('auth');
 

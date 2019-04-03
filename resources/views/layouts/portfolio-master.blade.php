@@ -21,7 +21,7 @@
     <main class="">
         <div class="container">
             <div class="has-text-centered">
-                <h1 class="title"><span class="decor">Portfolio of</span> <span class="le-decor">{{ $user[0]->name }}</span></h1>
+                <h1 class="title"><span class="decor">Portfolio of</span> <span class="le-decor">{{ $user[0]->subscriber_name }}</span></h1>
             </div>
             <a href="givemepdf"> print pdf </a>
         </div>

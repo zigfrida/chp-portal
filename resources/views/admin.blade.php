@@ -10,7 +10,7 @@
             <div class="column is-one-quarter">
                     Name: {{ $cA->subscriber_name  }} <br>
                     Email: {{ $cA->email }} <br>
-                    <a href="/{{ $cA->id }}/portfolio" class="access<?php echo $access_css; ?>">Portfolio</a>
+                    <a href="/{{ $cA->user_id }}/portfolio" class="access<?php echo $access_css; ?>">Portfolio</a>
                     <hr>
                 </div>
             @endforeach
@@ -27,7 +27,7 @@
             <div class="column is-one-quarter">
                 Name: {{ $cB->subscriber_name  }} <br>
                 Email: {{ $cB->email }} <br>
-                <a href="/{{ $cB->id }}/portfolio" class="access<?php echo $access_css; ?>">Portfolio</a>
+                <a href="/{{ $cB->user_id }}/portfolio" class="access<?php echo $access_css; ?>">Portfolio</a>
                 <hr>
             </div>
         @endforeach
@@ -44,7 +44,7 @@
             <div class="column is-one-quarter">
                 Name: {{ $cPC->subscriber_name }} <br>
                 Email: {{ $cPC->email }} <br>
-                <a href="/{{ $cPC->id }}/portfolio" class="access<?php echo $access_css; ?>">Portfolio</a>
+                <a href="/{{ $cPC->user_id }}/portfolio" class="access<?php echo $access_css; ?>">Portfolio</a>
                 <hr>
             </div>
         @endforeach

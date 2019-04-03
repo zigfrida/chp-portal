@@ -100,6 +100,10 @@ class UserController extends Controller
             'subscriber_name' => $user['name'],
         ]);
 
+        PISummary::create([
+            'user_id' => $user['id'],
+        ]);
+
 
 
         return redirect('/admin')->with('success', 'User created!');

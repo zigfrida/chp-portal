@@ -30,8 +30,7 @@
 		</article>
 	</div>
 	<?php
-	$thisUser = DB::table('p_i_summaries')->where('user_id', $user[0]->id)->get();
-	//$thisUserName = DB::table('users')->where('id', $user[0]->id)->get();
+	//$thisUser = DB::table('p_i_summaries')->where('user_id', $user[0]->id)->get();
 	?>
 	<div class="tile is-parent">
 		<article class="tile is-child box">
@@ -85,9 +84,6 @@
 						<h1 class="title">LP Performance Data</h1>
 					</section>
 					<table>
-						<?php
-							$years = DB::table('l_p_performances')->select('year')->distinct()->where('class', 'LIKE', $user[0]->class)->get();
-						?>
 						<tr>
 							<td class="lptable"></td>
 							@for($i = 1; $i <= 4; $i++)
@@ -308,11 +304,6 @@
 	</div>
 </div>
 
-
-<?php
-	$metrics = DB::table('metrics')->get();
-?>
-
 <div class="tile is-ancestor">
 	<div class="tile is-parent">
 		<div class="tile">
@@ -390,10 +381,6 @@
 	</div>
 </div>
 
-<?php
-	$fundInfo = DB::table('fund_infos')
-				->where('class',$user[0]->class)->get();
-?>
 <div class="tile is-ancestor">
 	<div class="tile is-parent">
 		<div class="tile">
@@ -485,7 +472,6 @@
 			</article>
 		</div>
 	</div>
-	<?php $extraInfo = DB::table('extra_infos')->get();?>
 	<div class="tile is-parent is-vertical">
 		<div class="tile">
 			<article class="tile is-child box">
@@ -564,7 +550,7 @@
 <div class="container">
 	<div class="tile is-ancestor">
 		<div class="has-text-centered">
-			<h1 class="title"><span class="decor">Create comment for </span> <span class="le-decor">{{$user[0]->name}}</span></h1>
+			<h1 class="title"><span class="decor">Create comment for </span> <span class="le-decor">{{$user[0]->subscriber_name}}</span></h1>
 		<form method="post" action="/{{$user[0]->id}}/portfolio/comment">
 			@csrf
 				<div class="field">
