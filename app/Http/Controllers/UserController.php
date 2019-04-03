@@ -85,18 +85,12 @@ class UserController extends Controller
         $name = $request->input('name');
         $email = $request->input('email');
         // $password = $request->input('password');
-        $telephone = $request->input('telephone');
-        $address = $request->input('address');
-        $class = $request->input('class');
         $user = new User(); //same as App/User() but had to do it this way to resolve namespace conflicts
         $user->name = $name;
         //$user->password = Hash::make(str_random(16));
         $user->password = '111111';
         $user->password = Hash::make($user->password);
         $user->email = $email;
-        $user->telephone = $telephone;
-        $user->address = $address;
-        $user->class = $class;
         $user->role = 'standard';
         $user->save();
 

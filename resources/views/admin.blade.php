@@ -57,22 +57,9 @@
 
     <div class="field is-horizontal">
         <div class="field-label is-normal">
-            <label class="label">Contact</label>
+            <label class="label">Email</label>
         </div>
         <div class="field-body">
-            <div class="field is-expanded">
-                <div class="field has-addons">
-                    <p class="control">
-                        <a class="button is-static">
-                            +1
-                        </a>
-                    </p>
-                    <p class="control is-expanded">
-                        <input class="input" name="telephone" type="tel" placeholder="778-555-5555">
-                    </p>
-                </div>
-            </div>
-
             <div class="field">
                 <p class="control is-expanded has-icons-left has-icons-right">
                     <input class="input " name="email" type="email" placeholder="ameriichinose@yabai.jp">
@@ -84,71 +71,6 @@
                     </span>
                 </p>
                 <i><p class="help">confirmation email will be sent to the client's email</p></i>
-            </div>
-        </div>
-    </div>
-
-    <div class="field is-horizontal">
-        <div class="field-label is-normal">
-            <label class="label">Address </label>
-        </div>
-        <div class="field-body">
-            <div class="field">
-                <div class="control">
-                    <input class="input" name="address" type="text" placeholder="West 57th Street and, most likely, Henry Hudson Parkway, Manhattan, New New York, United States">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="field is-horizontal">
-        <div class="field-label is-normal">
-            <label class="label">Investor Class</label>
-        </div>
-        <div class="field-body">
-            <div class="field is-narrow">
-                <div class="control">
-                    <div class="select is-fullwidth">
-                        <select name="class">
-                        <option>A</option>
-                        <option>B</option>
-                    </select>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="field is-horizontal">
-        <div class="field-label"><label class="label" style="padding-top:7px">Annual Income </label></div>
-        <div class="field-body">
-            <div class="field is-expanded">
-                <div class="field has-addons">
-                    <p class="control">
-                        <a class="button is-static">
-                            $
-                        </a>
-                    </p>
-                    <p class="control is-expanded">
-                        <input class="input" name="salary" type="tel" placeholder="531999">
-                    </p>
-                </div>
-                <p class="help"></p>
-            </div>
-        </div>
-    </div>
-
-    <div class="field is-horizontal">
-        <div class="field-label is-normal">
-            <label class="label">SIN</label>
-        </div>
-        <div class="field-body">
-            <div class="field">
-                <div class="control">
-                    <input class="input" name="SIN" type="text" placeholder="759 678 873">
-                </div>
-                <p class="help is-danger">
-                    Don't mess this up
-                </p>
             </div>
         </div>
     </div>
