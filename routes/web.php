@@ -62,6 +62,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], functio
                         ->where('class', 'B')
                         ->get();
 
+        $clientsPC = DB::table('form_users')
+                        ->where('class', 'NOT LIKE','A')
+                        ->where('class', 'NOT LIKE','B')
+                        ->get();
         $classABFiles = DB::table('uploaded_files')
                         ->where('file_type', 'AB')
                         ->get();
@@ -74,7 +78,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], functio
                         ->where('file_type', 'B')
                         ->get();
 
-        return view('admin', compact('clientsA', 'clientsB', 'classABFiles', 'classAFiles', 'classBFiles'));
+        return view('admin', compact('clientsA', 'clientsB', 'clientsPC','classABFiles', 'classAFiles', 'classBFiles'));
     });
 });
 

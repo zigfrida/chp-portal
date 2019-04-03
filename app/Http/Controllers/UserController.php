@@ -95,13 +95,9 @@ class UserController extends Controller
 
         // \Invytr::invite($user);
 
-        PISummary::create([
-            'user_id' => $user['id'],
-            //'user_id' => 30,
-        ]);
-
         form_user::create([
             'user_id' => $user['id'],
+            'subscriber_name' => $user['name'],
         ]);
 
 

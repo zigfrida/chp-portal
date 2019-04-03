@@ -8,7 +8,7 @@
             <?php $access_css = $cA->access_level + $cA->form_level; ?>
 
             <div class="column is-one-quarter">
-                    Name: {{ $cA->name  }} <br>
+                    Name: {{ $cA->subscriber_name  }} <br>
                     Email: {{ $cA->email }} <br>
                     <a href="/{{ $cA->id }}/portfolio" class="access<?php echo $access_css; ?>">Portfolio</a>
                     <hr>
@@ -25,13 +25,32 @@
             <?php $access_css = $cB->access_level + $cB->form_level; ?>
 
             <div class="column is-one-quarter">
-                Name: {{ $cB->name  }} <br>
+                Name: {{ $cB->subscriber_name  }} <br>
                 Email: {{ $cB->email }} <br>
                 <a href="/{{ $cB->id }}/portfolio" class="access<?php echo $access_css; ?>">Portfolio</a>
                 <hr>
             </div>
         @endforeach
         </div>
+        
+        <hr>
+
+        <h2 class="subtitle is-3">Potential Clients</h2>
+        <div id="B_portfolios" class="columns is-multiline">
+            @foreach ($clientsPC as $cPC)
+
+            <?php $access_css = $cPC->access_level + $cPC->form_level; ?>
+
+            <div class="column is-one-quarter">
+                Name: {{ $cPC->subscriber_name }} <br>
+                Email: {{ $cPC->email }} <br>
+                <a href="/{{ $cPC->id }}/portfolio" class="access<?php echo $access_css; ?>">Portfolio</a>
+                <hr>
+            </div>
+        @endforeach
+        </div>
+
+
     </ul>
 @endsection
  
