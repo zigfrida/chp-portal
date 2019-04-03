@@ -23,7 +23,10 @@
             <div class="has-text-centered">
                 <h1 class="title"><span class="decor">Portfolio of</span> <span class="le-decor">{{ $user[0]->name }}</span></h1>
             </div>
+            <a href="givemepdf"> print pdf </a>
         </div>
+
+        
         <br>
         @if ($user[0]->access_level == 0 && $user[0]->form_level == 0)
             <link rel="stylesheet" type="text/css" href="{{ asset('css/random.css') }}">
