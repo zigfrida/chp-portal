@@ -63,6 +63,11 @@ class FormUserController extends Controller
     
     public function storeFormstack(Request $request, $id)
     {
+        $user_id = \DB::table('form_users')
+        ->select('user_id')
+        ->where('id', $id)
+        ->get();
+        
         $request->validate([
             'clientType' => 'bail|required',
         ]);
@@ -95,11 +100,32 @@ class FormUserController extends Controller
             ]);
         }
 
-        $redirectPath = '/'.$id.'/portfolio';
+
+
+
+        $redirectPath = '/'.$user_id[0]->user_id.'/portfolio';
         // $user = DB::table('users')->where('id', $id)->get();
-        DB::table('form_users')
+        dd($request->clientType);
+        \DB::table('form_users')
             ->where('id', $id)
             ->update(['form_level' => 1]);
+        if ($request->clientType == 'individual'){
+               
+                \DB::table('form_users')
+                ->where('id',$id)
+                ->update(['subscriber_name'=>$request->subscriber_name],['city'=>$request->city]
+                ,['province'=>$request->province],['street'=>$request->street],['postal_code'=>$request->postal_code]
+                ,['country'=>$request->country],['sin'=>$request->sin],['phone'=>$request->phone],['email'=>$request->email]);
+        }elseif ($request->clientType == 'business'){ 
+                \DB::table('form_users')
+                ->where('id',$id)
+                ->update(['subscriber_name'=>$request->subscriber_name],['province'=>$request->province],
+                ['street'=>$request->street],['postal_code'=>$request->postal_code],['country'=>$request->country],
+                ['sin'=>$request->sin],['phone'=>$request->phone],['email'=>$request->email],
+                ['business_number'=>$request->business_number],['signatory_first_name'=>$request->signatory_first_name],
+                ['official_capacity_or_title_of_authorized_signatory'=>$request->official_capacity_or_title_of_authorized_signatory],
+                ['signatory_last_name'=>$request->signatory_last_name]);
+            }
 
         return redirect($redirectPath);
     }
@@ -114,6 +140,7 @@ class FormUserController extends Controller
      */
     public function update(Request $request, form_user $form_user)
     {
+        
         $clientType = $request->input('clientType');
 
         $subscriber_name = $request->input('subscriber_input');
@@ -150,7 +177,7 @@ class FormUserController extends Controller
             $bus_ck8 = $request->input('bus_ck8');
             $bus_ck9 = $request->input('bus_ck9');
             $bus_ck10 = $request->input('bus_ck10');
-        
+           
         }
 
 

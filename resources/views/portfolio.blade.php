@@ -227,7 +227,7 @@
 				<div class="tile">
 					<article class="tile is-child box">
 						<section class="hero is-bold">
-							<h1 class="title"><span class="decor">Comments for</span><span class="le-decor"> {{$user[0]->name}}</span></h1>
+							<h1 class="title"><span class="decor">Comments for</span><span class="le-decor"> {{$user[0]->subscriber_name}}</span></h1>
 						</section>
 						<?php
 							$comment = "";
