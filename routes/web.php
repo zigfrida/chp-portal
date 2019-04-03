@@ -51,6 +51,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('search', 'SearchController@search');
 
+Route::get('/{id}/givemepdf', 'PDFController@pdf');
+
 Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], function () {
     Route::get('/', function () {
         $clientsA = DB::table('users')
