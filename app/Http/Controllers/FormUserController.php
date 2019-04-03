@@ -105,26 +105,26 @@ class FormUserController extends Controller
 
         $redirectPath = '/'.$user_id[0]->user_id.'/portfolio';
         // $user = DB::table('users')->where('id', $id)->get();
-        dd($request->clientType);
+        
         \DB::table('form_users')
             ->where('id', $id)
             ->update(['form_level' => 1]);
         if ($request->clientType == 'individual'){
-               
+          //  dd($request->clientType);
                 \DB::table('form_users')
                 ->where('id',$id)
-                ->update(['subscriber_name'=>$request->subscriber_name],['city'=>$request->city]
-                ,['province'=>$request->province],['street'=>$request->street],['postal_code'=>$request->postal_code]
-                ,['country'=>$request->country],['sin'=>$request->sin],['phone'=>$request->phone],['email'=>$request->email]);
+                ->update(['subscriber_name'=>$request->subscriber_name,'city'=>$request->city
+                ,'province'=>$request->province,'street'=>$request->street,'postal_code'=>$request->postal_code
+                ,'country'=>$request->country,'sin'=>$request->sin,'phone'=>$request->phone,'email'=>$request->email]);
         }elseif ($request->clientType == 'business'){ 
                 \DB::table('form_users')
                 ->where('id',$id)
-                ->update(['subscriber_name'=>$request->subscriber_name],['province'=>$request->province],
-                ['street'=>$request->street],['postal_code'=>$request->postal_code],['country'=>$request->country],
-                ['sin'=>$request->sin],['phone'=>$request->phone],['email'=>$request->email],
-                ['business_number'=>$request->business_number],['signatory_first_name'=>$request->signatory_first_name],
-                ['official_capacity_or_title_of_authorized_signatory'=>$request->official_capacity_or_title_of_authorized_signatory],
-                ['signatory_last_name'=>$request->signatory_last_name]);
+                ->update(['subscriber_name'=>$request->subscriber_name,'province'=>$request->province,
+                'street'=>$request->street,'postal_code'=>$request->postal_code,'country'=>$request->country,
+                'sin'=>$request->sin,'phone'=>$request->phone,'email'=>$request->email,
+                'business_number'=>$request->business_number,'signatory_first_name'=>$request->signatory_first_name,
+                'official_capacity_or_title_of_authorized_signatory'=>$request->official_capacity_or_title_of_authorized_signatory,
+                'signatory_last_name'=>$request->signatory_last_name]);
             }
 
         return redirect($redirectPath);
