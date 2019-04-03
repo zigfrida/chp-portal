@@ -30,48 +30,48 @@ class UserController extends Controller
     {
     }
 
-    public function storeFormstack(Request $request, $id)
-    {
-        $request->validate([
-            'clientType' => 'bail|required',
-        ]);
-        if ($request->clientType == 'individual') { // user selected Individual
-            $request->validate([
-                'subscriber_name' => 'required',
-                'city' => 'required',
-                'street' => 'required',
-                'postal_code' => 'required',
-                'province' => 'required',
-                'country' => 'required',
-                'sin' => 'required',
-                'phone' => 'required',
-                'email' => 'required',
-            ]);
-        } elseif ($request->clientType == 'business') { // user selected Non-Individual
-            $request->validate([
-                'subscriber_name' => 'required',
-                'street' => 'required',
-                'city' => 'required',
-                'postal_code' => 'required',
-                'province' => 'required',
-                'country' => 'required',
-                'phone' => 'required',
-                'email' => 'required',
-                'business_number' => 'required',
-                'signatory_first_name' => 'required',
-                'signatory_last_name' => 'required',
-                'official_capacity_or_title_of_authorized_signatory' => 'required',
-            ]);
-        }
+    // public function storeFormstack(Request $request, $id)
+    // {
+    //     $request->validate([
+    //         'clientType' => 'bail|required',
+    //     ]);
+    //     if ($request->clientType == 'individual') { // user selected Individual
+    //         $request->validate([
+    //             'subscriber_name' => 'required',
+    //             'city' => 'required',
+    //             'street' => 'required',
+    //             'postal_code' => 'required',
+    //             'province' => 'required',
+    //             'country' => 'required',
+    //             'sin' => 'required',
+    //             'phone' => 'required',
+    //             'email' => 'required',
+    //         ]);
+    //     } elseif ($request->clientType == 'business') { // user selected Non-Individual
+    //         $request->validate([
+    //             'subscriber_name' => 'required',
+    //             'street' => 'required',
+    //             'city' => 'required',
+    //             'postal_code' => 'required',
+    //             'province' => 'required',
+    //             'country' => 'required',
+    //             'phone' => 'required',
+    //             'email' => 'required',
+    //             'business_number' => 'required',
+    //             'signatory_first_name' => 'required',
+    //             'signatory_last_name' => 'required',
+    //             'official_capacity_or_title_of_authorized_signatory' => 'required',
+    //         ]);
+    //     }
 
-        $redirectPath = '/'.$id.'/portfolio';
-        // $user = DB::table('users')->where('id', $id)->get();
-        DB::table('users')
-            ->where('id', $id)
-            ->update(['form_level' => 1]);
+    //     $redirectPath = '/'.$id.'/portfolio';
+    //     // $user = DB::table('users')->where('id', $id)->get();
+    //     DB::table('users')
+    //         ->where('id', $id)
+    //         ->update(['form_level' => 1]);
 
-        return redirect($redirectPath);
-    }
+    //     return redirect($redirectPath);
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -84,10 +84,9 @@ class UserController extends Controller
     {
         $name = $request->input('name');
         $email = $request->input('email');
-        // $password = $request->input('password');
         $user = new User(); //same as App/User() but had to do it this way to resolve namespace conflicts
         $user->name = $name;
-        //$user->password = Hash::make(str_random(16));
+        // $user->password = Hash::make(str_random(16));
         $user->password = '111111';
         $user->password = Hash::make($user->password);
         $user->email = $email;

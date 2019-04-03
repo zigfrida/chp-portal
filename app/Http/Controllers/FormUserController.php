@@ -60,6 +60,51 @@ class FormUserController extends Controller
         //
     }
 
+    
+    public function storeFormstack(Request $request, $id)
+    {
+        $request->validate([
+            'clientType' => 'bail|required',
+        ]);
+        if ($request->clientType == 'individual') { // user selected Individual
+            $request->validate([
+                'subscriber_name' => 'required',
+                'city' => 'required',
+                'street' => 'required',
+                'postal_code' => 'required',
+                'province' => 'required',
+                'country' => 'required',
+                'sin' => 'required',
+                'phone' => 'required',
+                'email' => 'required',
+            ]);
+        } elseif ($request->clientType == 'business') { // user selected Non-Individual
+            $request->validate([
+                'subscriber_name' => 'required',
+                'street' => 'required',
+                'city' => 'required',
+                'postal_code' => 'required',
+                'province' => 'required',
+                'country' => 'required',
+                'phone' => 'required',
+                'email' => 'required',
+                'business_number' => 'required',
+                'signatory_first_name' => 'required',
+                'signatory_last_name' => 'required',
+                'official_capacity_or_title_of_authorized_signatory' => 'required',
+            ]);
+        }
+
+        $redirectPath = '/'.$id.'/portfolio';
+        // $user = DB::table('users')->where('id', $id)->get();
+        DB::table('users')
+            ->where('id', $id)
+            ->update(['form_level' => 1]);
+
+        return redirect($redirectPath);
+    }
+
+
     /**
      * Update the specified resource in storage.
      *
@@ -109,16 +154,16 @@ class FormUserController extends Controller
         }
 
 
-        form_user::updateOrInsert(
-            ['class' => $class],
-            ['inception_date' => $inception_date,
-             'min_investment' => $min_investment,
-             'distributions' => $distributions,
-             'preferred_return' => $preferred_return,
-             'performance_fee' => $performance_fee,
-             'redemption' => $redemption,
-             'subscription' => $subscription]
-        );   
+        // form_user::updateOrInsert(
+        //     ['class' => $class],
+        //     ['inception_date' => $inception_date,
+        //      'min_investment' => $min_investment,
+        //      'distributions' => $distributions,
+        //      'preferred_return' => $preferred_return,
+        //      'performance_fee' => $performance_fee,
+        //      'redemption' => $redemption,
+        //      'subscription' => $subscription]
+        // );   
     }
 
     /**
