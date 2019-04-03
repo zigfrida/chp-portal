@@ -16,6 +16,7 @@ class CreateFormUsersTable extends Migration
         Schema::create('form_users', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
+            $table->string('class')->default('potential_client');
             $table->boolean('clientType')->default(0);
             $table->string('subscriber_name')->default('');
             $table->string('street')->default('');
@@ -47,6 +48,8 @@ class CreateFormUsersTable extends Migration
             $table->boolean('bus_ck8')->nullable()->default(0);
             $table->boolean('bus_ck9')->nullable()->default(0);
             $table->boolean('bus_ck10')->nullable()->default(0);
+            $table->integer('access_level')->default(0);
+            $table->integer('form_level')->default(0);
 ;
             $table->timestamps();
 

@@ -43,7 +43,7 @@ Auth::routes();
 Route::post('/admin', 'UserController@store');
 
 // for formstack
-Route::post('/{id}/portfolio/form1', 'UserController@storeFormstack')->middleware('auth');
+Route::post('/{id}/portfolio/form1', 'FormUserController@storeFormstack')->middleware('auth');
 
 Route::post('/fileupload', 'UploadController@store');
 
@@ -55,12 +55,10 @@ Route::get('/{id}/givemepdf', 'PDFController@pdf');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], function () {
     Route::get('/', function () {
-        $clientsA = DB::table('users')
-                        ->where('role', 'standard')
+        $clientsA = DB::table('form_users')
                         ->where('class', 'A')
                         ->get();
-        $clientsB = DB::table('users')
-                        ->where('role', 'standard')
+        $clientsB = DB::table('form_users')
                         ->where('class', 'B')
                         ->get();
 
