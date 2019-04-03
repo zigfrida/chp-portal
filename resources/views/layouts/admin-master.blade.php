@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> {{-- I DON'T KNOW WHAT THE NEXT LINE OF CODE DOES EVEN THOUGH I HAVE GOOGLED IT SO MANY TIMES --}}
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <title>Cypress Hill Partners</title>
 
@@ -45,6 +46,26 @@
         .le-decor {
             font-weight: 200 !important;
         }
+
+        .access0{
+            color: rgba(76, 175, 80, 0.75);
+
+        }
+
+        .access1{
+            color: rgb(255, 153, 0)
+        }
+        .access2{
+            color: rgba(255, 255, 102, 0.9);
+        }        
+
+        .access3{
+            color: rgb(204, 204, 0);
+        }        
+        .access4{
+            
+        }        
+
     </style>
 </head>
 
@@ -60,6 +81,8 @@
 
         <div class="container content">
             <h1 class="title is-2" style="margin-bottom: 0; margin-left:2.5%">All Clients</h1>
+            <input type="text" name="search" id="search" placeholder="search for profile"/>
+			
             <section class="section">
                 @yield('list-clients')
             </section>
@@ -94,6 +117,41 @@
     </main>
 
     @include('layouts.partials.footer')
+
+    			
+			
+    <script>
+
+        $(document).ready(function(){
+
+
+            $('#search').on('keyup',function(){
+                var query = $(this).val();
+                console.log("query coming: "+query);
+
+                    var _token = $('input[name="_token"]').val();
+
+                    $.ajax({
+                        url: "{{ URL::to('search') }}",
+                        method: "POST",
+                        dataType :'json',                        
+                        data: {query : query, _token:_token},
+                        success:function(data)
+                        {
+                            
+                            $('#A_portoflios').html(data.AProfile);
+                            $('#B_portfolios').html(data.BProfile);
+                               
+                        }
+                        
+                    });
+                
+            })
+
+        });
+
+    </script>
+
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @include('sweet::alert')
