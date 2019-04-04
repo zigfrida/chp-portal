@@ -1,11 +1,11 @@
 
 <div class="container">
     <div class="notification">
-        <h1 class="has-text-centered">Hi admin, could you check if {{ $user[0]->subscriber_name }}'s details are in order?</h1>
+        <h1 class="has-text-centered">Could you check if {{ $user[0]->subscriber_name }}'s details are in order?</h1>
         <br>
         
     @if ($user[0]->clientType == "individual")
-        <form action="/{{ $user[0]->id }}/portfolio/" method="post">
+        <form action="/{{ $user[0]->user_id }}/portfolio/" method="post">
             @method('PATCH')
             @csrf
             <div class="field is-horizontal">
@@ -31,7 +31,7 @@
                 <div class="field-body">
                     <div class="field">
                         <p class="control is-expanded has-icons-left">
-                            <input class="input {{ $errors->has('subscriber_name') ? 'is-danger' : '' }}" type="text" name="subscriber_name" value="{{  $user[0]->subscriber_name }} ">
+                            <input class="input {{ $errors->has('subscriber_name') ? 'is-danger' : '' }}" type="text" name="subscriber_name" value="{{ $user[0]->subscriber_name }} ">
                             <span class="icon is-small is-left">
                             <i class="fas fa-user" ></i>
                         </span>
@@ -49,7 +49,7 @@
                     <div class="field is-expanded">
                         <div class="field">
                             <p class="control is-expanded">
-                                <input class="input {{ $errors->has('street') ? 'is-danger' : '' }}" name="street" type="tel" value="{{  $user[0]->street }}">
+                                <input class="input {{ $errors->has('street') ? 'is-danger' : '' }}" name="street" type="text" value="{{ $user[0]->street }}">
                             </p>
                         </div>
                         <i><p class="help">Street Name</p></i>
@@ -66,7 +66,7 @@
                 <div class="field-body">
                     <div class="field">
                         <p class="control is-expanded ">
-                            <input class="input {{ $errors->has('city') ? 'is-danger' : '' }}"name="city" type="text" value={{ $user[0]->city }}>
+                            <input class="input {{ $errors->has('city') ? 'is-danger' : '' }}" name="city" type="text" value="{{ $user[0]->city }}">
                         </p>
                         <i><p class="help">City</p></i>
                     </div>
