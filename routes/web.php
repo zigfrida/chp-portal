@@ -26,12 +26,11 @@ Route::get('/{id}/portfolio', function ($id) {
     if ($id != auth()->id() && \Auth::user()->role != 'admin') {
         abort(403);
     } else {
-       
         $user = DB::table('form_users')->where('user_id', $id)->get();
 
         $bothFiles = DB::table('uploaded_files')
                         ->where('file_type', 'AB');
-                        
+
         $classFiles = DB::table('uploaded_files')
                         ->where('file_type', $user[0]->class);
 
@@ -52,16 +51,15 @@ Route::get('/{id}/portfolio', function ($id) {
         $metrics = DB::table('metrics')->get();
 
         $fundInfo = DB::table('fund_infos')
-                        ->where('class',$user[0]->class)
+                        ->where('class', $user[0]->class)
                         ->get();
 
         $extraInfo = DB::table('extra_infos')
                         ->get();
 
-        return view('portfolio', compact('user', 'files','thisUser', 'years','metrics', 'fundInfo','extraInfo'));
+        return view('portfolio', compact('user', 'files', 'thisUser', 'years', 'metrics', 'fundInfo', 'extraInfo'));
     }
 })->middleware('auth');
-
 
 /*
     Admin Page
@@ -77,8 +75,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], functio
                         ->get();
 
         $clientsPC = DB::table('form_users')
-                        ->where('class', 'NOT LIKE','A')
-                        ->where('class', 'NOT LIKE','B')
+                        ->where('class', 'NOT LIKE', 'A')
+                        ->where('class', 'NOT LIKE', 'B')
                         ->get();
         $classABFiles = DB::table('uploaded_files')
                         ->where('file_type', 'AB')
@@ -92,26 +90,20 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], functio
                         ->where('file_type', 'B')
                         ->get();
 
-        return view('admin', compact('clientsA', 'clientsB', 'clientsPC','classABFiles', 'classAFiles', 'classBFiles'));
+        return view('admin', compact('clientsA', 'clientsB', 'clientsPC', 'classABFiles', 'classAFiles', 'classBFiles'));
     });
 });
 
 Route::post('/admin', 'UserController@store');
 
-// for Alli to change the formstack details
-Route::patch('/{id}/portfolio', 'UserController@update');
 // for Alli to update portfolio's comments
 Route::post('/{id}/portfolio/comment', 'PortfolioController@update');
-
-
 
 /*
     Formstack forms
 */
 Route::post('/{id}/portfolio/form1', 'FormUserController@storeFormstack')->middleware('auth');
-
-
-
+Route::patch('/{id}/portfolio', 'FormUserController@update');
 
 /*
     File uploading
@@ -136,7 +128,6 @@ Route::get('/{id}/portfolio/{type}/{filename}', function ($id, $type, $filename)
 
     return Storage::download($filepath);
 })->middleware('auth');
-
 
 /*
     File deleting
@@ -165,16 +156,6 @@ Route::delete('/admin/files/{file_type}/{filename}', function ($file_type, $file
     return redirect('/admin');
 })->middleware('auth');
 
-
-
-
-
-
-
-
-
-
-
 /*
     Amanda stuff
 */
@@ -196,9 +177,6 @@ Route::get('/{id}/givemepdf', 'PDFController@pdf');
     Search stuff
 */
 Route::post('search', 'SearchController@search');
-
-
-
 
 /*
     Not sure where this stuff came from

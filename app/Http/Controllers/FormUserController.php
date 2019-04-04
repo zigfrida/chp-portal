@@ -14,7 +14,6 @@ class FormUserController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
@@ -24,52 +23,49 @@ class FormUserController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\form_user  $form_user
+     * @param \App\form_user $form_user
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(form_user $form_user)
     {
-        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\form_user  $form_user
+     * @param \App\form_user $form_user
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit(form_user $form_user)
     {
-        //
     }
 
-    
     public function storeFormstack(Request $request, $id)
     {
-        //dd($request->input('ind_ck1') !== null);
 
         $user_id = \DB::table('form_users')
         ->select('user_id')
         ->where('id', $id)
         ->get();
-        
+
         $request->validate([
             'clientType' => 'bail|required',
         ]);
@@ -102,12 +98,9 @@ class FormUserController extends Controller
             ]);
         }
 
-
-
-
         $redirectPath = '/'.$user_id[0]->user_id.'/portfolio';
         // $user = DB::table('users')->where('id', $id)->get();
-        
+
         \DB::table('form_users')
             ->where('id', $id)
             ->update(['form_level' => 1]);
@@ -115,10 +108,16 @@ class FormUserController extends Controller
           //  dd($request->clientType);
                 \DB::table('form_users')
                 ->where('id',$id)
-                ->update(['subscriber_name'=>$request->subscriber_name,'city'=>$request->city,'province'=>$request->province,'street'=>$request->street,'postal_code'=>$request->postal_code,'country'=>$request->country,
+                ->update(['subscriber_name'=>$request->subscriber_name,
+                'client_type' => $request->client_type,
+                'city'=>$request->city,'province'=>$request->province,
+                'street'=>$request->street,
+                'postal_code'=>$request->postal_code,
+                'country'=>$request->country,
                 'sin'=>$request->sin,
                 'phone'=>$request->phone,
                 'email'=>$request->email,
+                'total_investment' => $request->total_investment,
                 'ind_ck1' => $request->input('ind_ck1') !== null,
                 'ind_ck2' => $request->input('ind_ck2') !== null,
                 'ind_ck3' => $request->input('ind_ck3') !== null,
@@ -129,12 +128,20 @@ class FormUserController extends Controller
         }elseif ($request->clientType == 'business'){ 
                 \DB::table('form_users')
                 ->where('id',$id)
-                ->update(['subscriber_name'=>$request->subscriber_name,'province'=>$request->province,
-                'street'=>$request->street,'postal_code'=>$request->postal_code,'country'=>$request->country,
-                'sin'=>$request->sin,'phone'=>$request->phone,'email'=>$request->email,
-                'business_number'=>$request->business_number,'signatory_first_name'=>$request->signatory_first_name,
+                ->update(['subscriber_name'=>$request->subscriber_name,
+                'client_type' => $request->client_type,
+                'province'=>$request->province,
+                'street'=>$request->street,
+                'postal_code'=>$request->postal_code,
+                'country'=>$request->country,
+                'sin'=>$request->sin,
+                'phone'=>$request->phone,
+                'email'=>$request->email,
+                'business_number'=>$request->business_number,
+                'signatory_first_name'=>$request->signatory_first_name,
                 'official_capacity_or_title_of_authorized_signatory'=>$request->official_capacity_or_title_of_authorized_signatory,
                 'signatory_last_name'=>$request->signatory_last_name,
+                'total_investment' => $request->total_investment,
                 'bus_ck1'=> $request->input('bus_ck1') !== null,
                 'bus_ck2'=> $request->input('bus_ck2') !== null,
                 'bus_ck3'=> $request->input('bus_ck3') !== null,
@@ -151,15 +158,15 @@ class FormUserController extends Controller
         return redirect($redirectPath);
     }
 
-
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\form_user  $form_user
+     * @param \Illuminate\Http\Request $request
+     * @param \App\form_user           $form_user
+     *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, form_user $form_user)
+    public function update(Request $request, form_user $form_user, $id)
     {
         //
     }
@@ -167,11 +174,11 @@ class FormUserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\form_user  $form_user
+     * @param \App\form_user $form_user
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(form_user $form_user)
     {
-        //
     }
 }
