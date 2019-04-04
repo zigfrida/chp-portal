@@ -104,8 +104,6 @@ class UserController extends Controller
             'user_id' => $user['id'],
         ]);
 
-
-
         return redirect('/admin')->with('success', 'User created!');
     }
 
@@ -141,7 +139,6 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        dd('hi');
     }
 
     /**

@@ -2,7 +2,8 @@
 <div class="container">
     <div class="notification">
         <h1 class="has-text-centered">Hi admin, could you check if {{ $user[0]->subscriber_name }}'s details are in order?</h1>
-        <br>    
+        <br>
+        
     @if ($user[0]->clientType == "individual")
         <form action="/{{ $user[0]->id }}/portfolio/" method="post">
             @method('PATCH')
@@ -11,6 +12,7 @@
                 <div class="field-label">
                     <label class="label">Type of Investor</label>
                 </div>
+                {{ dd($user[0]->clientType )}}
                 <div class="field-body">
                     <div class="field is-narrow">
                         <div class="control">
@@ -241,8 +243,8 @@
                 </div>
             </div>
         </form>
-    @elseif ($user[0]->clientType == "business") show only fields for businesses
-    <form action="/{{ $user[0]->id }}/portfolio/" method="post">
+    @elseif ($user[0]->clientType == "business")
+    <form action="/{{ $user[0]->user_id }}/portfolio/" method="post">
         @method('PATCH')
         @csrf
         <div class="field is-horizontal">
@@ -253,7 +255,7 @@
                 <div class="field is-narrow">
                     <div class="control">
                         <label class="radio">
-                        <input checked value="???" type="radio" name="clientType">
+                        <input checked value="business" type="radio" name="clientType">
                         Business
                     </label>
                     </div>
