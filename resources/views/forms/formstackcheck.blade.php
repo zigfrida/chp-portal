@@ -1,7 +1,7 @@
 
 <div class="container">
     <div class="notification">
-        <h1 class="has-text-centered">Hi admin, could you check if {{ $user[0]->name }}'s details are in order?</h1>
+        <h1 class="has-text-centered">Hi admin, could you check if {{ $user[0]->subscriber_name }}'s details are in order?</h1>
         <br>    
     {{-- @if ($user[0]->clientType == "individual") show only fields for individuals --}}
     <form action="/{{ $user[0]->id }}/portfolio/" method="post">
@@ -196,10 +196,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
 
         <hr>
 
