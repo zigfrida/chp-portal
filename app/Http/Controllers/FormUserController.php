@@ -138,6 +138,7 @@ class FormUserController extends Controller
             ->select('user_id')
             ->where('user_id', $id)
             ->get();
+
         $subscriber_name = $request->input('subscriber_input');
         $steet = $request->input('street');
         $city = $request->input('city');
@@ -148,7 +149,7 @@ class FormUserController extends Controller
 
         $total_investment = $request->input('total_investment');
 
-        if ($clientType == 'Individual') {
+        if ($clientType == 'individual') {
             $sin = $request->input('sin');
             $ind_ck1 = $request->input('ind_ck1');
             $ind_ck2 = $request->input('ind_ck2');
@@ -159,9 +160,13 @@ class FormUserController extends Controller
             \DB::table('form_users')
             ->where('user_id', $id)
             ->update(['subscriber_name' => $request->subscriber_name, 'clientType' => $request->clientType,
-             'city' => $request->city, 'province' => $request->province, 'street' => $request->street,
-              'postal_code' => $request->postal_code, 'country' => $request->country, 'sin' => $request->sin,
-               'phone' => $request->phone, 'email' => $request->email, 'total_investment' => $request->total_investment, ]);
+                'city' => $request->city, 'province' => $request->province, 'street' => $request->street,
+                'postal_code' => $request->postal_code, 'country' => $request->country, 'sin' => $request->sin,
+                'phone' => $request->phone, 'email' => $request->email, 'total_investment' => $request->total_investment, ]);
+
+            \DB::table('form_users')
+            ->where('user_id', $id)
+            ->update(['access_level' => 1]);
         } elseif ($clientType == 'business') {
             $signatory_first_name = $request->input('signatory_first_name');
             $signatory_last_name = $request->input('signatory_last_name');
