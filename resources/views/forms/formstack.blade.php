@@ -394,15 +394,16 @@
 
 
 
-            <div style="overflow-y: scroll; height: 400px;">
                 
-                <div class="tile is-ancestor">
-                    <div class="tile is-parent">
-                        <div class="tile">
-                            <article class="tile is-child box">
-                                <section class="hero is-dark is-bold">
-                                    <h1 class="title" style="text-align: center;">Acknowledgement</h1>
-                                </section>
+            <div class="tile is-ancestor">
+                <div class="tile is-parent">
+                    <div class="tile">
+                        <article class="tile is-child box">
+                            <section class="hero is-dark is-bold">
+                                <h1 class="title" style="text-align: center;">Acknowledgement</h1>
+                            </section>
+                            <div style="overflow-y: scroll; height: 400px;">
+
                                 <p>The undersigned (the “Subscriber”) hereby acknowledges that the Issuer is undertaking an offering
                                     of Class A limited partnership units (“Class A Units”) and Class B limited partnership units
                                     (“Class B Units”) at the NAV per Class A Unit and the NAV per Class B unit; and hereby tenders
@@ -964,12 +965,14 @@
                                         </ol>
 
                                 </div>
-                            </article>
-                        </div>
+
+
+                            </div>
+                        </article>
                     </div>
                 </div>
-
             </div>
+
             <div class="field is-horizontal">
                 <div class="field-label">
                     <!-- Left empty for spacing -->
