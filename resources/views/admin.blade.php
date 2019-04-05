@@ -1,54 +1,54 @@
 @extends('layouts.admin-master') 
 @section('list-clients')
 <ul>
-        <h2 class="subtitle is-3">Class A</h2>
-        <div id="A_portoflios" class="columns is-multiline">
-            @foreach ($clientsA as $cA)
-            
-            <?php $access_css = $cA->access_level + $cA->form_level; ?>
-
-            <div class="column is-one-quarter">
-                    Name: {{ $cA->subscriber_name  }} <br>
-                    Email: {{ $cA->email }} <br>
-                    <a href="/{{ $cA->user_id }}/portfolio" class="access<?php echo $access_css; ?>">Portfolio</a>
-                    <hr>
-                </div>
-            @endforeach
-        </div>
-
-        <hr>
+    <h2 class="subtitle is-3 has-text-weight-light">Class A</h2>
+    <div id="A_portoflios" class="columns is-multiline">
+        @foreach ($clientsA as $cA)
         
-        <h2 class="subtitle is-3">Class B</h2>
-        <div id="B_portfolios" class="columns is-multiline">
-            @foreach ($clientsB as $cB)
+        <?php $access_css = $cA->access_level + $cA->form_level; ?>
 
-            <?php $access_css = $cB->access_level + $cB->form_level; ?>
-
-            <div class="column is-one-quarter">
-                Name: {{ $cB->subscriber_name  }} <br>
-                Email: {{ $cB->email }} <br>
-                <a href="/{{ $cB->user_id }}/portfolio" class="access<?php echo $access_css; ?>">Portfolio</a>
+        <div class="column is-one-quarter">
+                <span class="has-text-weight-bold">Name:</span> {{ $cA->subscriber_name  }} <br>
+                <span class="has-text-weight-bold">Email:</span> {{ $cA->email }} <br>
+                <a href="/{{ $cA->user_id }}/portfolio">Portfolio</a>
                 <hr>
             </div>
         @endforeach
+    </div>
+
+    <hr>
+    
+    <h2 class="subtitle is-3 has-text-weight-light">Class B</h2>
+    <div id="B_portfolios" class="columns is-multiline">
+        @foreach ($clientsB as $cB)
+
+        <?php $access_css = $cB->access_level + $cB->form_level; ?>
+
+        <div class="column is-one-quarter">
+            <span class="has-text-weight-bold">Name:</span> {{ $cB->subscriber_name  }}<br>
+            <span class="has-text-weight-bold">Email:</span> {{ $cB->email }}<br>
+            <a href="/{{ $cB->user_id }}/portfolio" class="">Portfolio</a>
+            <hr>
         </div>
-        
-        <hr>
+    @endforeach
+    </div>
+    
+    <hr>
 
-        <h2 class="subtitle is-3">Potential Clients</h2>
-        <div id="B_portfolios" class="columns is-multiline">
-            @foreach ($clientsPC as $cPC)
+    <h2 class="subtitle is-3 has-text-weight-light">Potential Clients</h2>
+    <div id="B_portfolios" class="columns is-multiline">
+        @foreach ($clientsPC as $cPC)
 
-            <?php $access_css = $cPC->access_level + $cPC->form_level; ?>
+        <?php $access_css = $cPC->access_level + $cPC->form_level; ?>
 
-            <div class="column is-one-quarter">
-                Name: {{ $cPC->subscriber_name }} <br>
-                Email: {{ $cPC->email }} <br>
-                <a href="/{{ $cPC->user_id }}/portfolio" class="access<?php echo $access_css; ?>">Portfolio</a>
-                <hr>
-            </div>
-        @endforeach
+        <div class="column is-one-quarter">
+            <span class="has-text-weight-bold">Name:</span> {{ $cPC->subscriber_name }}lol <br>
+            <span class="has-text-weight-bold">Email:</span> {{ $cPC->email }} <br>
+            <a href="/{{ $cPC->user_id }}/portfolio" class="">Portfolio</a>
+            <hr>
         </div>
+    @endforeach
+    </div>
 
 
     </ul>
@@ -250,7 +250,7 @@
  
 @section('show-files-uploaded')
     <ul>
-        <h2 class="subtitle is-3">Class A</h2>
+        <h2 class="subtitle is-3 has-text-weight-light">Class A</h2>
         <div class="columns is-multiline">
             @foreach ($classAFiles as $cA)
             <div class="column is-one-quarter">
@@ -297,7 +297,7 @@
 
         <hr>
 
-        <h2 class="subtitle is-3">Class B</h2>
+        <h2 class="subtitle is-3 has-text-weight-light">Class B</h2>
         <div class="columns is-multiline">
             @foreach ($classBFiles as $cB)
             <div class="column is-one-quarter">
@@ -342,7 +342,7 @@
             @endforeach
         </div>
         <hr>
-        <h2 class="subtitle is-3">Class AB</h2>
+        <h2 class="subtitle is-3 has-text-weight-light">Class AB</h2>
         <div class="columns is-multiline">
             @foreach ($classABFiles as $cAB)
             <div class="column is-one-quarter">

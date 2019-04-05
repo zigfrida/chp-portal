@@ -98,7 +98,6 @@ class FormUserController extends Controller
         }
 
         $redirectPath = '/'.$user_id[0]->user_id.'/portfolio';
-        // $user = DB::table('users')->where('id', $id)->get();
 
         \DB::table('form_users')
             ->where('id', $id)
@@ -194,8 +193,10 @@ class FormUserController extends Controller
             $ind_ck6 = $request->input('ind_ck6');
             \DB::table('form_users')
             ->where('user_id', $id)
-            ->update(['subscriber_name' => $request->subscriber_name, 'clientType' => $request->clientType,
-                'city' => $request->city, 'province' => $request->province, 'street' => $request->street,
+            ->update(['subscriber_name' => $request->subscriber_name, 
+                'clientType' => $request->clientType,
+                'city' => $request->city, 
+                'province' => $request->province, 'street' => $request->street,
                 'postal_code' => $request->postal_code, 'country' => $request->country, 'sin' => $request->sin,
                 'phone' => $request->phone, 'email' => $request->email, 'total_investment' => $request->total_investment, ]);
 
@@ -234,19 +235,8 @@ class FormUserController extends Controller
             ->where('user_id', $id)
             ->update(['access_level' => 1]);
         }
-
-        return redirect('/'.$user_id[0]->user_id.'/portfolio');
-
-        // form_user::updateOrInsert(
-        //     ['class' => $class],
-        //     ['inception_date' => $inception_date,
-        //      'min_investment' => $min_investment,
-        //      'distributions' => $distributions,
-        //      'preferred_return' => $preferred_return,
-        //      'performance_fee' => $performance_fee,
-        //      'redemption' => $redemption,
-        //      'subscription' => $subscription]
-        // );
+        $redirectPath = '/'.$user_id[0]->user_id.'/portfolio';
+        return redirect($redirectPath);
     }
 
     /**
