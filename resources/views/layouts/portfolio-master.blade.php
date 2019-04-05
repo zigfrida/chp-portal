@@ -60,15 +60,13 @@
         </div>
         <div class="container">
             <div class="has-text-centered ">
-                <h1 class="title"><span class="decor">Documents For</span> <span class="le-decor"> {{ $user[0]->name }}</span></h1>
+                <h1 class="title"><span class="decor">Documents For</span> <span class="le-decor"> {{ $user[0]->subscriber_name }}</span></h1>
             </div>
             <br>
             <div class="columns is-centered">
                 @if (auth()->check())
                     @if (auth()->user()->isAdmin())
                         @yield('fileuploadbetter')
-                    @else
-                        hey {{ $user[0]->name }} NOT AN ADMIN
                     @endif        
                 @endif
             </div>

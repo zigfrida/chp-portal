@@ -662,13 +662,6 @@
 </div>
 @endsection
 
-
-@section('uploaded-file')
-	<h1>lol</h1>
-@endsection
-
-
-
 @section('fileupload')
 <div class="tile">
 	<article class="tile is-child box">
