@@ -74,13 +74,15 @@
 
     <main class="stick-bot">
         <div class="container has-text-centered">
-            <h1 class="title"><span class="decor">Admin</span> <span class="le-decor"> Panel</span></h1>
+            <h1 class="title is-1"><span class="decor">Admin</span> <span class="le-decor"> Panel</span></h1>
         </div>
 
         <hr class="hr" style="height: 3px;">
 
         <div class="container content">
-            <h1 class="title is-2" style="margin-bottom: 0; margin-left:2.5%">All Clients</h1>
+            <div class="container has-text-centered">
+                <h1 class="title"><span class="decor">All</span><span class="le-decor"> Clients</span></h1>
+            </div>
             <input type="text" name="search" id="search" placeholder="search for profile"/>
 			
             <section class="section">
@@ -91,7 +93,9 @@
         <hr>
 
         <div class="container shrinker">
-            <h1 class="title is-2">Register a New Client</h1>
+            <div class="container has-text-centered">
+                <h1 class="title"><span class="decor">Register</span><span class="le-decor"> New Client</span></h1>
+            </div>
             <section class="section">
                 @yield('new-client-ayy')
             </section>
