@@ -206,7 +206,7 @@
                                     An individual, who, either alone or with a spouse, has net assets of at least $5,000,000
                                 </label>
                                 <label class="checkbox">
-                                    <input type="checkbox "  name="ind_ck3" {{$user[0]->ind_ck3 === 1 ? "checked" : ""}}>
+                                    <input type="checkbox"  name="ind_ck3" {{$user[0]->ind_ck3 === 1 ? "checked" : ""}}>
                                     An individual who, either alone or with a spouse, beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $1,000,000
                                 </label>
                                 <label class="checkbox">
@@ -237,7 +237,7 @@
                     <div class="field is-grouped is-grouped-right">
                         <div class="control">
                             <button class="button is-warning">
-                                Edit
+                                They sure are!
                             </button>
                         </div>
                     </div>

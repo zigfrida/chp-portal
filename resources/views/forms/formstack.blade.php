@@ -46,7 +46,7 @@
                 <div class="field-body">
                     <div class="field">
                         <p class="control is-expanded has-icons-left">
-                            <input class="input {{ $errors->has('subscriber_name') ? 'is-danger' : '' }}" type="text" name="subscriber_name">
+                            <input class="input {{ $errors->has('subscriber_name') ? 'is-danger' : '' }}" type="text" name="subscriber_name" value="{{ old('subscriber_name') ? old('subscriber_name') : '' }}">
                             <span class="icon is-small is-left">
                             <i class="fas fa-user" ></i>
                         </span>
@@ -64,7 +64,7 @@
                     <div class="field is-expanded">
                         <div class="field">
                             <p class="control is-expanded">
-                                <input class="input {{ $errors->has('street') ? 'is-danger' : '' }}" name="street" type="tel">
+                                <input class="input {{ $errors->has('street') ? 'is-danger' : '' }}" name="street" type="tel" value="{{ old('street') ? old('street') : '' }}">
                             </p>
                         </div>
                         <i><p class="help">Street Name</p></i>
@@ -81,7 +81,7 @@
                 <div class="field-body">
                     <div class="field">
                         <p class="control is-expanded ">
-                            <input class="input {{ $errors->has('city') ? 'is-danger' : '' }}"name="city" type="text">
+                            <input class="input {{ $errors->has('city') ? 'is-danger' : '' }}"name="city" type="text" value="{{ old('city') ? old('city') : '' }}">
                         </p>
                         <i><p class="help">City</p></i>
                     </div>
@@ -111,7 +111,7 @@
 
                     <div class="field">
                         <p class="control ">
-                            <input class="input {{ $errors->has('postal_code') ? 'is-danger' : '' }}" name="postal_code" type="text">
+                            <input class="input {{  $errors->has('postal_code') ? 'is-danger' : '' }}" name="postal_code" type="text" value="{{ old('postal_code') ? old('postal_code') : '' }}">
                         </p>
                         <i><p class="help">Postal Code</p></i>
                     </div>
@@ -146,7 +146,7 @@
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <input class="input {{ $errors->has('phone') ? 'is-danger' : '' }}" name="phone" type="tel">
+                            <input class="input {{ $errors->has('phone') ? 'is-danger' : '' }}" name="phone" type="tel" value="{{ old('phone') ? old('phone') : '' }}">
                         </div>
                     </div>
                 </div>
@@ -159,11 +159,12 @@
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <input class="input {{ $errors->has('email') ? 'is-danger' : '' }}" name="email" type="email">
+                            <input class="input {{ $errors->has('email') ? 'is-danger' : '' }}" name="email" type="email" value="{{ old('email') ? old('email') : '' }}">
                         </div>
                     </div>
                 </div>
             </div>
+
 
         <fieldset disabled="disabled" id="people_fieldset">
             <div class="field is-horizontal" id="sin_num" style="margin-bottom: 4px;">
@@ -173,7 +174,7 @@
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <input class="input {{ $errors->has('sin') ? 'is-danger' : '' }}" name="sin" type="text">
+                            <input class="input {{ $errors->has('sin') ? 'is-danger' : '' }}" name="sin" type="text" value="{{ old('sin') ? old('sin') : '' }}">
                         </div>
                     </div>
                 </div>
@@ -188,7 +189,7 @@
                 <div class="field-body">
                     <div class="field">
                     <p class="control is-expanded has-icons-left">
-                        <input class="input {{ $errors->has('signatory_first_name') ? 'is-danger' : '' }}" type="text" name="signatory_first_name">
+                        <input class="input {{ $errors->has('signatory_first_name') ? 'is-danger' : '' }}" type="text" name="signatory_first_name" value="{{ old('signatory_first_name') ? old('signatory_first_name') : '' }}">
                         <span class="icon is-small is-left">
                         <i class="fas fa-user"></i>
                         </span>
@@ -197,7 +198,7 @@
                     </div>
                     <div class="field">
                     <p class="control is-expanded has-icons-left t">
-                        <input class="input {{ $errors->has('signatory_last_name') ? 'is-danger' : '' }}" type="text" name="signatory_last_name">
+                        <input class="input {{ $errors->has('signatory_last_name') ? 'is-danger' : '' }}" type="text" name="signatory_last_name" value="{{ old('signatory_last_name') ? old('signatory_last_name') : '' }}">
                         <span class="icon is-small is-left">
                             <i class="fas fa-user"></i>
                         </span>
@@ -215,7 +216,7 @@
                 <div class="field-body">
                     <div class="field">
                     <p class="control is-expanded has-icons-left">
-                        <input class="input {{ $errors->has('official_capacity_or_title_of_authorized_signatory') ? 'is-danger' : '' }}" type="text" name="official_capacity_or_title_of_authorized_signatory">
+                        <input class="input {{ $errors->has('official_capacity_or_title_of_authorized_signatory') ? 'is-danger' : '' }}" type="text" name="official_capacity_or_title_of_authorized_signatory" value="{{ old('official_capacity_or_title_of_authorized_signatory') ? old('official_capacity_or_title_of_authorized_signatory') : '' }}">
                         <span class="icon is-small is-left">
                         <i class="fas fa-user"></i>
                         </span>
@@ -231,7 +232,7 @@
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <input class="input {{ $errors->has('business_number') ? 'is-danger' : '' }}" name="business_number" type="text" placeholder="">
+                            <input class="input {{ $errors->has('business_number') ? 'is-danger' : '' }}" name="business_number" type="text" value="{{ old('business_number') ? old('business_number') : '' }}">
                         </div>
                     </div>
                 </div>
@@ -252,7 +253,7 @@
                                 </a>
                             </p>
                             <p class="control is-expanded">
-                                <input class="input is-large {{ $errors->has('official_capacity_or_title_of_authorized_signatory') ? 'is-danger' : '' }}" name="total_investment" type="tel">
+                                <input class="input is-large {{ $errors->has('total_investment') ? 'is-danger' : '' }}" name="total_investment" type="tel" value="{{ old('total_investment') ? old('total_investment') : '' }}">
                             </p>
                         </div>
                         <p class="help"></p>
@@ -282,7 +283,7 @@
                                     An individual, who, either alone or with a spouse, has net assets of at least $5,000,000
                                 </label>
                                 <label class="checkbox">
-                                    <input type="checkbox "  name="ind_ck3" >
+                                    <input type="checkbox"  name="ind_ck3" >
                                     An individual who, either alone or with a spouse, beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $1,000,000
                                 </label>
                                 <label class="checkbox">

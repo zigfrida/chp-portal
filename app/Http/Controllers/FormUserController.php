@@ -60,7 +60,6 @@ class FormUserController extends Controller
 
     public function storeFormstack(Request $request, $id)
     {
-
         $user_id = \DB::table('form_users')
         ->select('user_id')
         ->where('id', $id)
@@ -104,19 +103,19 @@ class FormUserController extends Controller
         \DB::table('form_users')
             ->where('id', $id)
             ->update(['form_level' => 1]);
-        if ($request->clientType == 'individual'){
-          //  dd($request->clientType);
-                \DB::table('form_users')
-                ->where('id',$id)
-                ->update(['subscriber_name'=>$request->subscriber_name,
-                'client_type' => $request->client_type,
-                'city'=>$request->city,'province'=>$request->province,
-                'street'=>$request->street,
-                'postal_code'=>$request->postal_code,
-                'country'=>$request->country,
-                'sin'=>$request->sin,
-                'phone'=>$request->phone,
-                'email'=>$request->email,
+        if ($request->clientType == 'individual') {
+            \DB::table('form_users')
+                ->where('id', $id)
+                ->update(['subscriber_name' => $request->subscriber_name,
+                'clientType' => $request->clientType,
+                'city' => $request->city,
+                'province' => $request->province,
+                'street' => $request->street,
+                'postal_code' => $request->postal_code,
+                'country' => $request->country,
+                'sin' => $request->sin,
+                'phone' => $request->phone,
+                'email' => $request->email,
                 'total_investment' => $request->total_investment,
                 'ind_ck1' => $request->input('ind_ck1') !== null,
                 'ind_ck2' => $request->input('ind_ck2') !== null,
@@ -125,35 +124,35 @@ class FormUserController extends Controller
                 'ind_ck5' => $request->input('ind_ck5') !== null,
                 'ind_ck6' => $request->input('ind_ck6') !== null,
                 ]);
-        }elseif ($request->clientType == 'business'){ 
-                \DB::table('form_users')
-                ->where('id',$id)
-                ->update(['subscriber_name'=>$request->subscriber_name,
-                'client_type' => $request->client_type,
-                'province'=>$request->province,
-                'street'=>$request->street,
-                'postal_code'=>$request->postal_code,
-                'country'=>$request->country,
-                'sin'=>$request->sin,
-                'phone'=>$request->phone,
-                'email'=>$request->email,
-                'business_number'=>$request->business_number,
-                'signatory_first_name'=>$request->signatory_first_name,
-                'official_capacity_or_title_of_authorized_signatory'=>$request->official_capacity_or_title_of_authorized_signatory,
-                'signatory_last_name'=>$request->signatory_last_name,
+        } elseif ($request->clientType == 'business') {
+            \DB::table('form_users')
+                ->where('id', $id)
+                ->update(['subscriber_name' => $request->subscriber_name,
+                'clientType' => $request->clientType,
+                'province' => $request->province,
+                'street' => $request->street,
+                'postal_code' => $request->postal_code,
+                'country' => $request->country,
+                'sin' => $request->sin,
+                'phone' => $request->phone,
+                'email' => $request->email,
+                'business_number' => $request->business_number,
+                'signatory_first_name' => $request->signatory_first_name,
+                'official_capacity_or_title_of_authorized_signatory' => $request->official_capacity_or_title_of_authorized_signatory,
+                'signatory_last_name' => $request->signatory_last_name,
                 'total_investment' => $request->total_investment,
-                'bus_ck1'=> $request->input('bus_ck1') !== null,
-                'bus_ck2'=> $request->input('bus_ck2') !== null,
-                'bus_ck3'=> $request->input('bus_ck3') !== null,
-                'bus_ck4'=> $request->input('bus_ck4') !== null,
-                'bus_ck5'=> $request->input('bus_ck5') !== null,
-                'bus_ck6'=> $request->input('bus_ck6') !== null,
-                'bus_ck7'=> $request->input('bus_ck7') !== null,
-                'bus_ck8'=> $request->input('bus_ck8') !== null,
-                'bus_ck9'=> $request->input('bus_ck9') !== null,
-                'bus_ck10'=> $request->input('bus_ck10') !== null,
+                'bus_ck1' => $request->input('bus_ck1') !== null,
+                'bus_ck2' => $request->input('bus_ck2') !== null,
+                'bus_ck3' => $request->input('bus_ck3') !== null,
+                'bus_ck4' => $request->input('bus_ck4') !== null,
+                'bus_ck5' => $request->input('bus_ck5') !== null,
+                'bus_ck6' => $request->input('bus_ck6') !== null,
+                'bus_ck7' => $request->input('bus_ck7') !== null,
+                'bus_ck8' => $request->input('bus_ck8') !== null,
+                'bus_ck9' => $request->input('bus_ck9') !== null,
+                'bus_ck10' => $request->input('bus_ck10') !== null,
                 ]);
-            }
+        }
 
         return redirect($redirectPath);
     }
@@ -236,7 +235,7 @@ class FormUserController extends Controller
             ->update(['access_level' => 1]);
         }
 
-        return redirect('/');
+        return redirect('/'.$user_id[0]->user_id.'/portfolio');
 
         // form_user::updateOrInsert(
         //     ['class' => $class],
