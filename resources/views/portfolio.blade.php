@@ -208,7 +208,7 @@
 										<div class="control">
 											<input class="input is-warning" type="text" name="value" placeholder="LP Data value as decimal" required>
 										<input type="hidden" name="class" value="{{$user[0]->class}}" required>
-										<input type="hidden" name="id" value="{{$user[0]->id}}" required>
+										<input type="hidden" name="id" value="{{$user[0]->user_id}}" required>
 										</div>
 									</div>
 								</div>
@@ -425,7 +425,7 @@
 						<button class="button is-warning" type="submit">Save</button>
 						<button class="button is-light" type="reset">Cancel</button>
 						<input type="hidden" name="class" value="{{$user[0]->class}}">
-						<input type="hidden" name="id" value="{{$user[0]->id}}">
+						<input type="hidden" name="id" value="{{$user[0]->user_id}}">
 						@else
 							<table>
 								<tr>
@@ -596,7 +596,7 @@
 			</label>
 		</div>
 	  </div>
-	  <input type="hidden" name="user_id" value="{{ $user[0]->id }}">
+	  <input type="hidden" name="user_id" value="{{ $user[0]->user_id }}">
 	  <input type="hidden" name="file_type" value="I">
 	  <div class="columns is-centered" style="margin-top: 10px;">
 			<button type="submit" class="button is-warning">Submit</button>
