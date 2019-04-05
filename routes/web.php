@@ -161,8 +161,6 @@ Route::delete('/admin/files/{file_type}/{filename}', function ($file_type, $file
 */
 Route::post('/{id}/portfolio/editLP', 'LPPerformanceController@insert');
 
-Route::post('/{id}/portfolio', 'LPPerformanceController@insert');
-
 Route::post('/{id}/portfolio/editFI', 'FundInfoController@insert');
 
 Route::post('/{id}/portfolio/editEI', 'ExtraInfoController@update');
