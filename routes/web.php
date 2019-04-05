@@ -171,7 +171,12 @@ Route::post('/{id}/portfolio/editEI', 'ExtraInfoController@update');
 /*
     PDF stuff
 */
-Route::get('/{id}/givemepdf', 'PDFController@pdf');
+Route::get('/subform', 'PDFController@subform');
+
+Route::get('test', function(){
+    return view('pdf.test');
+
+});
 
 /*
     Search stuff

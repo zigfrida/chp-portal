@@ -23,7 +23,9 @@
             <div class="has-text-centered">
                 <h1 class="title"><span class="decor">Portfolio of</span> <span class="le-decor">{{ $user[0]->subscriber_name }}</span></h1>
             </div>
-            <a href="givemepdf"> print pdf </a>
+            <a href="{{url('form')}}"> print sign up form </a>
+            <a href="{{url('subform-html')}}"> print acknoledgement </a>
+            
         </div>
 
         
