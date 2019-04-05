@@ -120,9 +120,9 @@ Route::get('/{id}/portfolio/{type}/{filename}', function ($id, $type, $filename)
         $filepath = $id.'/'.$filename;
     } elseif ($type == 'AB') {
         $filepath = 'AB'.'/'.$filename;
-    } elseif ($type = 'A') {
+    } elseif ($type == 'A') {
         $filepath = 'A'.'/'.$filename;
-    } elseif ($type = 'B') {
+    } elseif ($type == 'B') {
         $filepath = 'B'.'/'.$filename;
     }
 
@@ -165,15 +165,13 @@ Route::post('/{id}/portfolio/editFI', 'FundInfoController@insert');
 
 Route::post('/{id}/portfolio/editEI', 'ExtraInfoController@update');
 
-
 /*
     PDF stuff
 */
 Route::get('/subform', 'PDFController@subform');
 
-Route::get('test', function(){
+Route::get('test', function () {
     return view('pdf.test');
-
 });
 
 /*

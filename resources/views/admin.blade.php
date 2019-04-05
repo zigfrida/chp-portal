@@ -42,7 +42,7 @@
         <?php $access_css = $cPC->access_level + $cPC->form_level; ?>
 
         <div class="column is-one-quarter">
-            <span class="has-text-weight-bold">Name:</span> {{ $cPC->subscriber_name }}lol <br>
+            <span class="has-text-weight-bold">Name:</span> {{ $cPC->subscriber_name }} <br>
             <span class="has-text-weight-bold">Email:</span> {{ $cPC->email }} <br>
             <a href="/{{ $cPC->user_id }}/portfolio" class="">Portfolio</a>
             <hr>
@@ -256,7 +256,7 @@
             <div class="column is-one-quarter">
                 {{ $cA->filename }} <br>
                 <a href="portfolio/{{ $cA->file_type}}/{{ $cA->filename }}" class="button is-warning">Download</a>
-
+                
                 <div class="dropdown is-hoverable">
                     <div class="dropdown-trigger">
                         <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
@@ -302,8 +302,7 @@
             @foreach ($classBFiles as $cB)
             <div class="column is-one-quarter">
                 {{ $cB->filename }} <br>
-                <a href="portfolio/{{ $cB->file_type}}/{{ $cB->filename }}" class="button is-warning">Download</a>
-
+                <a href="/1/portfolio/{{ $cB->file_type }}/{{ $cB->filename }}" class="button is-warning">Download</a>
                 <div class="dropdown is-hoverable">
                     <div class="dropdown-trigger">
                         <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
