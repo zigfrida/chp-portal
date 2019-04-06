@@ -114,7 +114,43 @@
     </div>
 </form>
 @endsection
- 
+
+@section('management-comment')
+<div class="columns is-centered is-mobile">
+    <div class="column">
+        <form action="/" method="post" enctype="">
+            @csrf
+            <div class="columns is-mobile">
+                <div class="column">
+                    <div class="field">
+                        <h1 class="title"><span class="le-decor"> Class A</span></h1>
+                        <div class="control">
+                            <textarea class="textarea is-warning is-medium" rows="4" placeholder="New comment for class A from management"></textarea>
+                        </div>
+                    </div>  
+                </div>
+                <div class="column">
+                    <div class="field">
+                        <h1 class="title"><span class="le-decor">Class B</span></h1>
+                        <div class="control">
+                            <textarea class="textarea is-warning is-medium" rows="4" placeholder="New comment for class B from management"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" name="user_id" value="1">
+            <input type="hidden" name="file_type" value="A">
+            <div class="has-text-centered" style="margin-top: 10px;">
+                <button type="reset" class="button">Cancel</button>
+                <button type="submit" class="button is-warning">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@endsection
+
 @section('upload-to-class')
 <div class="columns is-centered">
 
@@ -331,7 +367,7 @@
                                             </span>
                                         </button>
                                     </div                                    
-                                </form>
+                                </form> 
                             </div>
                         </div>
                     </div>

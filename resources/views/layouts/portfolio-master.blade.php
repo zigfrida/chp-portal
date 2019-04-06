@@ -54,13 +54,25 @@
                 @yield('client-portfolio')
             </div>
         </div>
-        <div class="container">
-            <div class="has-text-centered">
-                @if(auth()->user()->userType() == 'admin')
-                    @yield('client-comment')
-                @endif
+        <br><br>
+
+        <div class="columns is-centered is-mobile">
+            <div class="column">
+                <div class="has-text-centered">
+                    <h1 class="title"><span class="decor">Create comment for</span> <span class="le-decor"> {{ $user[0]->subscriber_name }}</span></h1>
+                </div>
+                <br>
+                <div class="columns is-centered is-mobile">
+                    <div class="column is-half">
+                        @if(auth()->user()->userType() == 'admin')
+                            @yield('client-comment')
+                        @endif
+                    </div>
+                </div>
             </div>
         </div>
+        <br>
+        
         <div class="container">
             <div class="has-text-centered ">
                 <h1 class="title"><span class="decor">Documents For</span> <span class="le-decor"> {{ $user[0]->subscriber_name }}</span></h1>
