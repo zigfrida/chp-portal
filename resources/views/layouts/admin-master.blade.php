@@ -101,7 +101,16 @@
             </section>
         </div>
         <hr>
-        <br>
+
+        <div class="container shrinker">
+            <div class="container has-text-centered">
+                <h1 class="title"><span class="decor">Management</span><span class="le-decor"> Comment</span></h1>
+            </div>
+            <section class="section">
+                @yield('management-comment')
+            </section>
+        </div>
+        <hr>
 
         <div class="container has-text-centered">
             <h1 class="title"><span class="decor">Upload</span><span class="le-decor"> Files</span></h1>

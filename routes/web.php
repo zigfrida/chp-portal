@@ -104,6 +104,7 @@ Route::post('/{id}/portfolio/comment', 'PortfolioController@update');
 */
 Route::post('/{id}/portfolio/form1', 'FormUserController@storeFormstack')->middleware('auth');
 Route::patch('/{id}/portfolio', 'FormUserController@update');
+Route::post('/{id}/portfolio/form2', 'FormUserController@storeSubAgreement')->middleware('auth');
 
 /*
     File uploading
@@ -120,9 +121,9 @@ Route::get('/{id}/portfolio/{type}/{filename}', function ($id, $type, $filename)
         $filepath = $id.'/'.$filename;
     } elseif ($type == 'AB') {
         $filepath = 'AB'.'/'.$filename;
-    } elseif ($type = 'A') {
+    } elseif ($type == 'A') {
         $filepath = 'A'.'/'.$filename;
-    } elseif ($type = 'B') {
+    } elseif ($type == 'B') {
         $filepath = 'B'.'/'.$filename;
     }
 
@@ -161,16 +162,14 @@ Route::delete('/admin/files/{file_type}/{filename}', function ($file_type, $file
 */
 Route::post('/{id}/portfolio/editLP', 'LPPerformanceController@insert');
 
-Route::post('/{id}/portfolio', 'LPPerformanceController@insert');
-
 Route::post('/{id}/portfolio/editFI', 'FundInfoController@insert');
 
 Route::post('/{id}/portfolio/editEI', 'ExtraInfoController@update');
 
-
 /*
     PDF stuff
 
+<<<<<<< HEAD
     will combine later.
 
     
@@ -179,6 +178,11 @@ Route::get('/form', 'PDFController@form');
 Route::get('/subform-html', 'PDFController@subform');
 Route::get('formtest', 'PDFController@test');
 Route::get('/filledform', 'PDFController@filledform');
+=======
+Route::get('test', function () {
+    return view('pdf.test');
+});
+>>>>>>> 063933efb3c130f79294cddca6cde2cbe62e87e3
 
 /*
     Search stuff

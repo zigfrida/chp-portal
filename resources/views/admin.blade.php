@@ -42,7 +42,7 @@
         <?php $access_css = $cPC->access_level + $cPC->form_level; ?>
 
         <div class="column is-one-quarter">
-            <span class="has-text-weight-bold">Name:</span> {{ $cPC->subscriber_name }}lol <br>
+            <span class="has-text-weight-bold">Name:</span> {{ $cPC->subscriber_name }} <br>
             <span class="has-text-weight-bold">Email:</span> {{ $cPC->email }} <br>
             <a href="/{{ $cPC->user_id }}/portfolio" class="">Portfolio</a>
             <hr>
@@ -114,7 +114,43 @@
     </div>
 </form>
 @endsection
- 
+
+@section('management-comment')
+<div class="columns is-centered is-mobile">
+    <div class="column">
+        <form action="/" method="post" enctype="">
+            @csrf
+            <div class="columns is-mobile">
+                <div class="column">
+                    <div class="field">
+                        <h1 class="title"><span class="le-decor"> Class A</span></h1>
+                        <div class="control">
+                            <textarea class="textarea is-warning is-medium" rows="4" placeholder="New comment for class A from management"></textarea>
+                        </div>
+                    </div>  
+                </div>
+                <div class="column">
+                    <div class="field">
+                        <h1 class="title"><span class="le-decor">Class B</span></h1>
+                        <div class="control">
+                            <textarea class="textarea is-warning is-medium" rows="4" placeholder="New comment for class B from management"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" name="user_id" value="1">
+            <input type="hidden" name="file_type" value="A">
+            <div class="has-text-centered" style="margin-top: 10px;">
+                <button type="reset" class="button">Cancel</button>
+                <button type="submit" class="button is-warning">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@endsection
+
 @section('upload-to-class')
 <div class="columns is-centered">
 
@@ -256,7 +292,7 @@
             <div class="column is-one-quarter">
                 {{ $cA->filename }} <br>
                 <a href="portfolio/{{ $cA->file_type}}/{{ $cA->filename }}" class="button is-warning">Download</a>
-
+                
                 <div class="dropdown is-hoverable">
                     <div class="dropdown-trigger">
                         <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
@@ -302,8 +338,7 @@
             @foreach ($classBFiles as $cB)
             <div class="column is-one-quarter">
                 {{ $cB->filename }} <br>
-                <a href="portfolio/{{ $cB->file_type}}/{{ $cB->filename }}" class="button is-warning">Download</a>
-
+                <a href="/1/portfolio/{{ $cB->file_type }}/{{ $cB->filename }}" class="button is-warning">Download</a>
                 <div class="dropdown is-hoverable">
                     <div class="dropdown-trigger">
                         <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
@@ -332,7 +367,7 @@
                                             </span>
                                         </button>
                                     </div                                    
-                                </form>
+                                </form> 
                             </div>
                         </div>
                     </div>
