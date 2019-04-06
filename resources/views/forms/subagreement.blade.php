@@ -12,6 +12,12 @@
                 e.preventDefault();
             }
         }
+        function allowNumbersOnly3(e) {
+            var code = (e.which) ? e.which : e.keyCode;
+            if (code > 31 && (code < 48 || code > 57)) {
+                e.preventDefault();
+            }
+        }
     </script>
 <div class="container">
     <div class="container greeting_msg" style="width: 70%" id="greeting_msg">
@@ -69,8 +75,8 @@
                 @endif
                 <br>
             </div>
-            <span class="has-text-weight-bold">DATED</span> this <input style="border:2px solid #FF4136;" type="text" data-form="theForm" name="signed_day" id="onlyNumbers" onkeypress="allowNumbersOnly(event)">th day of <input style="border:2px solid #FF4136" type="text" data-form="theForm" name="signed">, {{ now()->year }} 
-            <input name="signed_date" type="hidden" value="{{ now()->year }}">
+            <span class="has-text-weight-bold">DATED</span> this <input style="border:2px solid #FF4136;" type="text" data-form="theForm" name="signed_day" id="onlyNumbers" onkeypress="allowNumbersOnly(event)">th day of <input style="border:2px solid #FF4136" type="text" data-form="theForm" name="signed_month">, {{ now()->year }} 
+            <input name="signed_year" type="hidden" value="{{ now()->year }}">
             <br><br>
             <div class="columns is-multiline">
                 <div class="column is-half">
@@ -99,7 +105,7 @@
 
         <br><br><br>
         <div class="box has-background-white-bis has-text-centered" style="margin-left: 10%; margin-right: 10%;">
-            <span class="has-text-weight-bold">This subscription is accepted by the Issuer this</span> this <input style="border:2px solid #FF4136;" type="text" data-form="theForm" name="signed_day2" id="onlyNumbers2" onkeypress="allowNumbersOnly2(event)">th day of <input style="border:2px solid #FF4136" type="text" data-form="theForm" name="signed_month">, {{ now()->year }}
+            <span class="has-text-weight-bold">This subscription is accepted by the Issuer this</span> this <input style="border:2px solid #FF4136;" type="text" data-form="theForm" name="signed_day2" id="onlyNumbers2" onkeypress="allowNumbersOnly2(event)">th day of <input style="border:2px solid #FF4136" type="text" data-form="theForm" name="signed_month2">, {{ now()->year }}
             <p>CHP Master I Limited Partnership</p>
             {{-- Don't know if authorized signatory is only for Businesses. Wait for Alli to reply  TODO --}}
             {{-- Authorized Signatory: {{ $user[0]->???? }} --}}
@@ -770,6 +776,170 @@
                     <br>
                 </ol>
             </div>
+            <hr>
+            <div class="content">
+                <div class="has-text-centered">
+                    <h3 class="is-uppercase has-text-weight-bold title is-3">Appendix I</h1>
+                    <br>
+                    <h1 class="is-uppercase has-text-weight-bold has-text-link">ACCREDITED INVESTOR CERTIFICATE</h1>
+                    <h6 class="title is-6">(National Instrument 45-106andSecurities Act(Ontario))</h6>
+                </div>
+                Capitalized terms not specifically defined in this certificate have the meaning ascribed to them in the Agreement to which this certificate is attached.
+                <br>
+                In connection with the execution of the Agreement to which this appendix is attached, the Subscriber represents, warrants and certifies to the Issuer that <span class="has-text-weight-bold">(please initial the applicable categories)</span> the Subscriber is:
+                <br>
+                <span class="has-text-weight-bold">(Categories Applicable to Individuals Only)</span>
+                <br>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>a)</td>
+                            <td>_____</td>
+                            <td>an individual whose net income before taxes exceeded $200,000 in each of the two most recentcalendar years or whose net income before taxes combined with that of a spouse exceeded $300,000 in each of the two most recent calendar years and who, in either case, reasonably expects to exceed that net income level in the current calendar year. [Note: subscribers who qualify under this category must also complete Appendix IA.]</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>b)</td>
+                            <td>_____</td>
+                            <td>an individual, who, either alone or with a spouse, has net assets of at least $5,000,000. [Note: subscribers who qualify under this category must also complete Appendix IA.]</td>
+                        </tr>
+
+                        <tr>
+                            <td>c)</td>
+                            <td>_____</td>
+                            <td>an individual who, either alone or with a spouse, beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $1,000,000. [Note: subscribers who qualify under this category must also complete Appendix IA.]</td>
+                        </tr>
+
+                        <tr>
+                            <td>d)</td>
+                            <td>_____</td>
+                            <td>an individual who beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $5,000,000.</td>
+                        </tr>
+
+                        <tr>
+                            <td>e)</td>
+                            <td>_____</td>
+                            <td>an individual registered under the securities legislation of a jurisdiction of Canada, as a representative of a person registered under the securities legislation of a jurisdiction of Canada as an adviser or dealer.</td>
+                        </tr>
+
+                        <tr>
+                            <td>f)</td>
+                            <td>_____</td>
+                            <td>an individual formerly registered under the securities legislation of a jurisdiction of Canada, other than an individual formerly registered solely as a representative of a limited market dealer under one or both of the Securities Act (Ontario) or the Securities Act (Newfoundland and Labrador),</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <span class="has-text-weight-bold">(Categories Applicable to Individuals and Non-Individuals)</span>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>a)</td>
+                            <td>_____</td>
+                            <td>except in Ontario, a Person registered under the securities legislation of a jurisdiction of Canada as an adviser or dealer.</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>b)</td>
+                            <td>_____</td>
+                            <td>except in Ontario, a pension fund that is regulated by either the Office of the Superintendent of Financial Institutions (Canada) or a pension commission or similar regulatory authority of a jurisdiction of Canada.</td>
+                        </tr>
+
+                        <tr>
+                            <td>c)</td>
+                            <td>_____</td>
+                            <td>a Person, other than an individual or investment fund, that has net assets of at least $5,000,000 as shown on its most recently prepared financial statements.</td>
+                        </tr>
+
+                        <tr>
+                            <td>d)</td>
+                            <td>_____</td>
+                            <td>an investment fund that distributes or has distributed securities under a prospectus in a jurisdiction of Canada for which the regulator or, in Québec, the securities regulatory authority, has issued a receipt.</td>
+                        </tr>
+
+                        <tr>
+                            <td>e)</td>
+                            <td>_____</td>
+                            <td>a person acting on behalf of a fully managed account managed by that person if that person is registered or authorized to carry on business as an adviser or the equivalent under the securities legislation of a jurisdiction of Canada or a foreign jurisdiction.</td>
+                        </tr>
+
+                        <tr>
+                            <td>f)</td>
+                            <td>_____</td>
+                            <td>a registered charity under the Income Tax Act (Canada) that, in regard to the trade, has obtained advice from an eligibility adviser or an adviser registered under the securities legislation of the jurisdiction of the registered charity to provide advice on the securities being traded.</td>
+                        </tr>
+
+                        <tr>
+                            <td>g)</td>
+                            <td>_____</td>
+                            <td>a person in respect of which all of the owners of interests, direct, indirect, or beneficial, except the voting securities required by law to be owned by directors, are persons that are accredited investors.</td>
+                        </tr>
+
+                        <tr>
+                            <td>h)</td>
+                            <td>_____</td>
+                            <td>an investment fund that is advised by a person registered as an adviser or a person that is exempt from registration as an adviser.</td>
+                        </tr>
+
+                        <tr>
+                            <td>i)</td>
+                            <td>_____</td>
+                            <td>a person that is recognized or designated by the securities regulatory authority or, except in Ontario and Québec, the regulator as an accredited investor.</td>
+                        </tr>
+
+                        <tr>
+                            <td>j)</td>
+                            <td>_____</td>
+                            <td>a trust established by an accredited investor for the benefit of the accredited investor’s family members of which a majority of the trustees are accredited investors and all of the beneficiaries are the accredited investor’s spouse, a former spouse of the accredited investor or a parent, grandparent, brother, sister, child or grandchild of that accredited investor, of that accredited investor’s spouse or of that accredited investor’s former spouse.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <p class="is-uppercase">Definitions</p>
+                For the purposes of this certificate, the following definitions apply:
+
+
+                <span class="has-text-weight-bold">“financial assets”</span> means cash, securities, or a contract of insurance, a deposit or an evidence of a deposit that is not a security for the purposes of securities legislation;
+                <br>
+                <span class="class="has-text-weight-bold">"investment fund”</span> has the same meaning as in National Instrument 81-106;
+                <br>
+                <span class="class="has-text-weight-bold">“person”</span> includes (i) an individual (ii) a corporation (iii) a partnership, trust, fund, association, syndicate, organization or other organized group of persons, whether incorporated or not, and (iv) an individual or other person in that person’s capacity as a trustee, executor, administrator or personal or other legal representative;
+                <br>
+                <span class="class="has-text-weight-bold">“related liabilities”</span> means (i) liabilities incurred or assumed for the purpose of financing the acquisition or ownership of financial assets, or (ii) liabilities that are secured by financial assets;
+                <br>
+
+                The Subscriber acknowledges that the Issuer is relying upon the Subscriber's disclosure herein. In the event the Subscriber's accredited investor status changes prior to the date on which a certificate representing any of the Units is issued, the Subscriber agrees to immediately notify the Issuer of such change.
+                <br>
+                <br>
+                <span class="is-uppercase has-text-weight-bold">IN WITNESS WHEREOF</span>, the undersigned has executed this certificate as of the <input style="border:2px solid #FF4136;" type="text" data-form="theForm" name="signed_day3" id="onlyNumbers3" onkeypress="allowNumbersOnly3(event)">th day of <input style="border:2px solid #FF4136" type="text" data-form="theForm" name="signed_month3">, {{ now()->year }} 
+
+                @if ($user[0]->clientType == "business")
+                    Name of Entity: <input type="text"> put something here
+                    <br>
+                    Type of Entity: <input type="text"> put something here 
+                    <br>
+                    Signature of Person Signing
+                @elseif ($user[0]->clientType == "individual")
+                    Signature: put signature picture here
+                    <br>
+                    Type Name: input box here
+                @endif
+            </div>
+
         </div>
 
     </section>
