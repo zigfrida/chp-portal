@@ -104,6 +104,7 @@ Route::post('/{id}/portfolio/comment', 'PortfolioController@update');
 */
 Route::post('/{id}/portfolio/form1', 'FormUserController@storeFormstack')->middleware('auth');
 Route::patch('/{id}/portfolio', 'FormUserController@update');
+Route::post('/{id}/portfolio/form2', 'FormUserController@storeSubAgreement')->middleware('auth');
 
 /*
     File uploading

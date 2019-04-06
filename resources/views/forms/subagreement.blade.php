@@ -93,8 +93,6 @@
                     {{ $user[0]->city }}, {{ $user[0]->province }}, {{ $user[0]->postal_code }}, {{ $user[0]->country }}
                 </div>
 
-
-
                 <div class="column is-half">
                     <span class="has-text-weight-bold">Authorized signature</span>: (some img link here)
                 </div>
@@ -216,24 +214,9 @@
 
 
         
-            <div class="field is-horizontal">
-                <div class="field-label">
-                    <!-- Left empty for spacing -->
-                </div>
-                <div class="field-body">
-                    {{-- group might make you think it's more than one item but we need it to align btn right even though the 'group' consists
-                    of merely 1 --}}
-                    <div class="field is-grouped is-grouped-right">
-                        <div class="control">
-                            <button class="button is-warning">
-                                Submit
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </form>
-        <div class="content">
+        <div class="content" style="overflow-y: scroll; height: 600px;">
             <ol type="1">
                 <li><b>Interpretation</b></li>
                 <ol class="is-upper-roman">
@@ -926,22 +909,249 @@
                 <br>
                 <br>
                 <span class="is-uppercase has-text-weight-bold">IN WITNESS WHEREOF</span>, the undersigned has executed this certificate as of the <input style="border:2px solid #FF4136;" type="text" data-form="theForm" name="signed_day3" id="onlyNumbers3" onkeypress="allowNumbersOnly3(event)">th day of <input style="border:2px solid #FF4136" type="text" data-form="theForm" name="signed_month3">, {{ now()->year }} 
+            </div>
+            @if ($user[0]->clientType == "business" )
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">For Corporations, Partnerships, or Other Entity: </label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control is-expanded has-icons-left">
+                                <input class="input" type="text" name="" data-form="theForm">
+                                <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                                </span>
+                            </p>
+                            <i><p class="help">Name of Entity</p></i>
+                        </div>
+                        <div class="field">
+                        <p class="control is-expanded has-icons-left t">
+                            <input class="input" type="text" name="" value="" data-form="theForm">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </p>
+                        <i><p class="help">Type of Entity</p></i>
+                        </div>
+                        <div class="field">
+                            <p class="control is-expanded has-icons-left t">
+                                <input class="input" type="text" name="" value="" data-form="theForm">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                            </p>
+                            <i><p class="help">Signature of Person Signing</p></i>
+                        </div>
+                    </div>
+                </div>
+            @elseif ($user[0]->clientType = "individual")
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">For Individuals: </label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                        <p class="control is-expanded has-icons-left">
+                            <input class="input" type="text" name="signature" data-form="theForm" value=""> {{-- GET THIS FROM DB PICTURE --}}
+                            <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                            </span>
+                        </p>
+                        <i><p class="help">Signature</p></i>
+                        </div>
+                        <div class="field">
+                        <p class="control is-expanded has-icons-left t">
+                            <input class="input" type="text" name="print_or_type_name" data-form="theForm">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </p>
+                        <i><p class="help">Print or Type Name</p></i>
+                        </div>
+                    </div>
+                </div>            
+            @endif
+        </div>
+        
+        <br>
+        <hr>
+        <br>
 
-                @if ($user[0]->clientType == "business")
-                    Name of Entity: <input type="text"> put something here
-                    <br>
-                    Type of Entity: <input type="text"> put something here 
-                    <br>
-                    Signature of Person Signing
-                @elseif ($user[0]->clientType == "individual")
-                    Signature: put signature picture here
-                    <br>
-                    Type Name: input box here
-                @endif
+        <div class="content">
+            <div class="has-text-centered">
+                <p class="title is-3 is-spaced">Appendix IA</p>
+                <p class="subtitle is-5">Form 45-106F9</p>
+            
+                <br>
+                <h3 class="subtitle is-3">FORM FOR INDIVIDUAL ACCREDITED INVESTORS</h3>
+                <br>
+                <h6 class="subtitle is-6">This investment is risky. Don't invest unless you can afford to lose all the money you pay for this investment</h6>            
             </div>
 
+            <table class="table is-bordered">
+                <thead>
+                    <tr>
+                        SECTION 1 TO BE COMPLETED BY THE ISSUER OR SELLING SECURITY HOLDER
+                    </tr>
+                    <br>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. About your investment</td>
+                    </tr>
+                    <tr>
+                        <td>Type of securities: Class A and B Limited Partnership Units</td>
+                        <td>Issuer: CHP Master I Limited Partnership</td>
+                    </tr>
+                    <tr>
+                        <td>Purchased from: The Issuer</td>
+                    </tr>
+                    <tr>
+                        <td>SECTIONS 2 TO 4 TO BE COMPLETED BY THE PURCHASER</td>
+                    </tr>
+                    <tr>
+                        <div class="has-text-grey-lighter">
+                            <td>2. Risk acknowledgement</td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <td>This is risky. Initial that you understand that: </td>
+                        <td>Your initials</td>
+                    </tr>
+                    <tr>
+                        <td>Risk of loss - You could lose your entire investment of ${{ $user[0]->total_investment }} </td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Liquidity risk – You may not be able to sell your investment quickly – or at all.</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Lack of information – You may receive little or no information about your investment.</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Lack of advice – You will not receive advice from the salesperson about whether this investment is suitable for you unless the salesperson is registered. The salesperson is the person who meets with, or provides information to, you about making this investment. To check whether the salesperson is registered, go to www.aretheyregistered.ca.</td>
+                        <td><input type="text"></td>
+                    </tr>
+
+
+                    <tr>
+                        <div class="has-text-grey-lighter">
+                            <td>3. Accredited investor status</td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <td>Your net income before taxes was more than $200,000 in each of the 2 most recent calendar years, and you expect it to be more than $200,000 in the current calendar year. (You can find your net income before taxes on your personal income tax return.)</td>
+                        <td>Your initials</td>
+                    </tr>
+                    <tr>
+                        <td>Your net income before taxes combined with your spouse’s was more than $300,000 in each of the 2 most recent calendar years, and you expect your combined net income before taxes to be more than $300,000 in the current calendar year.</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Either alone or with your spouse, you own more than $1 million in cash and securities, after subtracting any debt related to the cash and securities.</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Either alone or with your spouse, you have net assets worth more than $5 million. (Your net assets are your total assets (including real estate) minus your total debt.)</td>
+                        <td><input type="text"></td>
+                    </tr>
+
+                    <tr>
+                        <div class="has-text-grey-lighter">
+                            <td>4. Your name and signature</td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <td>By signing this form, you confirm that you have read this form and you understand the risks of making this investment as identified in this form.</td>
+                        <td>First and last name: {{ $user[0]->subscriber_name }} </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Signature: (put signature in)
+                        </td>
+                        <td>
+                            Date: {{ now()->day }}, {{ now()->month }}, {{ now()->year }}
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+            <br>
+            <div class="has-background-white-bis">
+                <p>6. For more information about this investment</p>
+                <br>
+                CHP Master I Limited Partnership <br>
+                409 - 1080 Mainland St., Vancouver, BC. V6B 2T4 Attention: Kelly Klatik <br>
+                (604) 687-0755 <br> 
+                kelly@klatik.com <br>
+                <br>
+                <h6 class="subtitle is-6">For more information about prospectus exemptions, contact your local securities regulator. You can find contact information at www.securities-administrators.ca.</h6>
+            </div>
+        </div>
+            <br>
+
+        <p class="has-text-weight-bold">Form instructions:</p>
+        <p>1. This form does not mandate the use of a specific font size or style but the font must be legible.</p>
+        <p>2. The information in sections 1, 5 and 6 must be completed before the purchaser completes and signs the form.</p>
+        <p>3. The purchaser must sign this form. Each of the purchaser and the issuer or selling security holder must receive a copy of this form signed by the purchaser. The issuer or selling security holder is required to keep a copy of this form for 8 years after the distribution.</p>
+
+
+        <br><br><br>
+        <hr>
+
+        <div class="has-text-centered">
+            <h3 class="subtitle is-3">APPENDIX II</h3>
+            <br>
+            <h3 class="subtitle is-3">BANK WIRE TRANSFER INSTRUCTIONS</h3>
         </div>
 
+        <br>
+        <h4 class="subtitle is-4">For Canadian Funds:</h3>
+        <p>Bank Address:</p>
+        <p>Bank of Montreal</p>
+        <p>595 Burrard Street</p>
+        <p>Vancouver, B.C. V7X 1L7</p>
+        <p>Transit #: 00040</p>
+        <p>Institution #: 001</p>
+        <p>Account #: 1883997 - CDN</p>
+        
+        <br>
+
+        <p class="has-text-weight-bold">Account Name: Cypress Hills Finance Corp.</p>
+        <p>Swiftcode: BOFMCAM2</p>
+
+        <br>
+
+        <p class="has-text-weight-bold">Beneficiary Address:</p>
+        <p>212 – 1080 Mainland Street,</p>
+        <p>Vancouver, BC</p>
+        <p>V6B 2T4</p>
+
+        <br>
+
+        <p>Reference: <span class="has-text-danger">CHP Master I Limited Partnership</span> </p>
+
+
+
+        <div class="field is-horizontal">
+            <div class="field-label">
+                <!-- Left empty for spacing -->
+            </div>
+            <div class="field-body">
+                {{-- group might make you think it's more than one item but we need it to align btn right even though the 'group' consists
+                of merely 1 --}}
+                <div class="field is-grouped is-grouped-right">
+                    <div class="control">
+                        <button class="button is-warning" type="submit" form="theForm">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 </div>
 </div>
