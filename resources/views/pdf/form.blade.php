@@ -1,6 +1,9 @@
 <?php $user = DB::table('form_users')->where('user_id', 2)->get();?>
 
 <style>
+* {
+  box-sizing: border-box;
+}
 
 
 /* Create two equal columns that floats next to each other */
@@ -38,7 +41,7 @@
 
 </style>
 <div class="container">
-<section class="section">
+
         @if ($errors->any())
             <div class="notification is-warning">
                 <ul>
@@ -51,23 +54,38 @@
        
 
         {{-- Added --}}
-<section class="hero">
-        <h1 class="title" style="text-align: center;">Cypress Hills Partners Subscription Form</h1>
-</section>
+
+    <img src="https://www.cypresshillspartners.com/uploads/5/9/5/6/59561431/cypresshills-black-yellow.png" >
+
+    <fieldset disabled="disabled" id="people_fieldset">
+            <div class="field is-horizontal" id="sin_num" style="margin-bottom: 4px;">
+                <div class="field-label is-normal">
+                    <label class="label">Social Insurance Number</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input {{ $errors->has('sin') ? 'is-danger' : '' }}" name="sin" type="text" value="{{ old('sin') ? old('sin') : '' }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
       <form action="/{{ $user[0]->id }}/portfolio/form1" method="post">
             @csrf
+
             {{-- <div class="field is-horizontal"> --}}
                 {{-- <div class="field-label"> --}}
                     <div class="row">
                         <div class="column">
-                    <label class="label">Type of Investor</label>
+                            <label class="label">Type of Investor</label>
                         </div>
                     
                 {{-- </div> --}}
                 {{-- <div class="field-body"> --}}
                     {{-- <div class="field is-narrow">
                         <div class="control"> --}}
-                            <div class="column2">
+                        <div class="column2">
                             <label class="radio">
                             <input value="individual" type="radio" name="clientType" onclick="individualOnly()">
                             Individual
@@ -90,9 +108,13 @@
                         <div class="column">
                               <label class="label">Name of Subscriber</label>
                         </div> 
-                        <div class="column2">
+                        <div>
+                            <div class="column2">
                             
+                            </div>
+
                         </div>
+                            
                     </div>
                 {{-- </div> --}}
                 {{-- <div class="field-body">
@@ -108,11 +130,22 @@
                 </div> --}}
             </div>
 
-            <div class="field is-horizontal">
+            {{-- <div class="field is-horizontal">
                 <div class="field-label is-normal">
                     <label class="label">Address</label>
+                </div> --}}
+                <div class="row">
+                    <div class="column">
+                          <label class="label">Address</label>
+                    </div> 
+                    <div class="column2">
+                        
+                    </div>
+                    <i>Street name</i>
                 </div>
-                <div class="field-body">
+
+
+                {{-- <div class="field-body">
                     <div class="field is-expanded">
                         <div class="field">
                             <p class="control is-expanded">
@@ -122,7 +155,7 @@
                         <i><p class="help">Street Name</p></i>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
 
 
@@ -218,20 +251,7 @@
             </div>
 
 
-        <fieldset disabled="disabled" id="people_fieldset">
-            <div class="field is-horizontal" id="sin_num" style="margin-bottom: 4px;">
-                <div class="field-label is-normal">
-                    <label class="label">Social Insurance Number</label>
-                </div>
-                <div class="field-body">
-                    <div class="field">
-                        <div class="control">
-                            <input class="input {{ $errors->has('sin') ? 'is-danger' : '' }}" name="sin" type="text" value="{{ old('sin') ? old('sin') : '' }}">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </fieldset>
+
 
         <fieldset disabled="disabled" id="business_fieldset">
             <div class="field is-horizontal" id="name_of_authorized_signatory">

@@ -23,8 +23,12 @@
             <div class="has-text-centered">
                 <h1 class="title"><span class="decor">Portfolio of</span> <span class="le-decor">{{ $user[0]->subscriber_name }}</span></h1>
             </div>
-            <a href="{{url('form')}}"> print sign up form </a>
-            <a href="{{url('subform-html')}}"> print acknoledgement </a>
+            <a href="{{url('form')}}"> form </a> <br>
+            <a href="{{url('subform-html')}}">subform</a><br>
+
+            <a href="{{url('filledform')}}"> filledform </a><br>
+            <a href="{{url('formtest')}}"> formtest </a>
+
             
         </div>
 
