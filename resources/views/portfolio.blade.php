@@ -233,7 +233,7 @@
 							if(isset($thisUser[0]->comment)){
 								$comment = $thisUser[0]->comment;
 							} ?>
-						<p>{{$comment}}</p>
+						<p class="subtitle">{{$comment}}</p>
 					</article>
 				</div>
 			@endif
@@ -548,7 +548,6 @@
 @section('client-comment')
 <form method="post" action="/{{$user[0]->id}}/portfolio/comment">
 	@csrf
-	{{-- <div class="column is-mobile is-full"> --}}
 		<div class="field">
 			<div class="control">
 				<?php
@@ -565,7 +564,6 @@
 				<button class="button is-light" type="reset">Cancel</button>
 			</div>
 		</div>
-	{{-- </div> --}}
 </form>
 @endsection
 

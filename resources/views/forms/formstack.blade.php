@@ -17,7 +17,7 @@
                 </ul>
             </div>
         @endif
-        <form action="/{{ $user[0]->id }}/portfolio/form1" method="post">
+        <form action="/{{ $user[0]->user_id }}/portfolio/form1" method="post">
             @csrf
             <div class="field is-horizontal">
                 <div class="field-label">

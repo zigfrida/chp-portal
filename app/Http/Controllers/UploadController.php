@@ -86,7 +86,7 @@ class UploadController extends Controller
             $uploaded,
             $filename
         );
-        
+
         return redirect('/'.$userID.'/'.'portfolio');
     }
 
