@@ -28,7 +28,6 @@
             
         </div>
 
-        
         <br>
         @if ($user[0]->access_level == 0 && $user[0]->form_level == 0)
             <link rel="stylesheet" type="text/css" href="{{ asset('css/random.css') }}">
