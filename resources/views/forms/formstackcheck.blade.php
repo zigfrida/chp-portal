@@ -246,6 +246,10 @@
                 </div>
             </div>
 
+            <div>
+                <img src="{{$signature[0]->form_signature}}" alt="Form signature" height="500" width="500">
+            </div>
+
 
 
             <div class="field is-horizontal">
@@ -577,7 +581,7 @@
                 <div class="field is-grouped is-grouped-right">
                     <div class="control">
                         <button class="button is-warning">
-                            Edit
+                            They sure are!
                         </button>
                     </div>
                 </div>

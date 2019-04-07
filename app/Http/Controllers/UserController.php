@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\PISummary;
 use App\form_user;
+use App\Signature;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -101,6 +102,10 @@ class UserController extends Controller
         ]);
 
         PISummary::create([
+            'user_id' => $user['id'],
+        ]);
+
+        Signature::create([
             'user_id' => $user['id'],
         ]);
 

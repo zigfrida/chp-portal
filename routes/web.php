@@ -65,7 +65,11 @@ Route::get('/{id}/portfolio', function ($id) {
                         ->where('class', 'B')
                         ->get();
 
-        return view('portfolio', compact('user', 'files', 'thisUser', 'years', 'metrics', 'fundInfo', 'extraInfo','classAPA','classBPA'));
+        $signature = DB::table('signatures')
+                        ->where('user_id', $id)
+                        ->get();
+
+        return view('portfolio', compact('user', 'files', 'thisUser', 'years', 'metrics', 'fundInfo', 'extraInfo','classAPA','classBPA','signature'));
     }
 })->middleware('auth');
 

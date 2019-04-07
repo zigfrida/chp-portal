@@ -27,6 +27,17 @@
             <p><i>The 'Registration' & 'Delivery Instructions' sections are <strong>optional!</strong></i> Please contact CHP if you are unclear as to whether it should be filled out.</p>
         </div>
     </div>
+
+    @if ($errors->any())
+        <div class="notification is-warning">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>*{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    
     <section class="section">
         <div class="container has-background-white-bis">
             <div class="has-text-centered">
@@ -152,15 +163,7 @@
             <p>This section is optional. Please contact us if you do not know whether or not to fill it out.</p>
             <br>
         </div>
-        @if ($errors->any())
-            <div class="notification is-warning">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>*{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+
         <form action="/{{ $user[0]->user_id }}/portfolio/form2" method="post" id="theForm">
             @csrf
 
@@ -803,222 +806,226 @@
                 <br>
                 In connection with the execution of the Agreement to which this appendix is attached, the Subscriber represents, warrants and certifies to the Issuer that <span class="has-text-weight-bold">(please initial the applicable categories)</span> the Subscriber is:
                 <br><br>
-                <span class="has-text-weight-bold">(Categories Applicable to Individuals Only)</span>
-                <br>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>&nbsp;</th>
-                            <th>&nbsp;</th>
-                            <th>&nbsp;</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>a)</td>
-                            <td>
-                                @if ($user[0]->ind_ck1 == 1)
-                                    X
-                                @else
-                                    _____
-                                @endif
-                            </td>
-                            <td>an individual whose net income before taxes exceeded $200,000 in each of the two most recentcalendar years or whose net income before taxes combined with that of a spouse exceeded $300,000 in each of the two most recent calendar years and who, in either case, reasonably expects to exceed that net income level in the current calendar year. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
-                        </tr>
-                        
-                        <tr>
-                            <td>b)</td>
-                            <td>
-                                @if ($user[0]->ind_ck2 == 1)
-                                    X
-                                @else
-                                    _____
-                                @endif
-                            </td>
-                            <td>an individual, who, either alone or with a spouse, has net assets of at least $5,000,000. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
-                        </tr>
 
-                        <tr>
-                            <td>c)</td>
-                            <td>
-                                @if ($user[0]->ind_ck3 == 1)
-                                    X
-                                @else
-                                    _____
-                                @endif
-                            </td>
-                            <td>an individual who, either alone or with a spouse, beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $1,000,000. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
-                        </tr>
+                @if ($user[0]->clientType == "individual")
+                    <span class="has-text-weight-bold">(Categories Applicable to Individuals Only)</span>
+                    <br>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>a)</td>
+                                <td>
+                                    @if ($user[0]->ind_ck1 == 1)
+                                        X
+                                    @else
+                                        _____
+                                    @endif
+                                </td>
+                                <td>an individual whose net income before taxes exceeded $200,000 in each of the two most recentcalendar years or whose net income before taxes combined with that of a spouse exceeded $300,000 in each of the two most recent calendar years and who, in either case, reasonably expects to exceed that net income level in the current calendar year. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>b)</td>
+                                <td>
+                                    @if ($user[0]->ind_ck2 == 1)
+                                        X
+                                    @else
+                                        _____
+                                    @endif
+                                </td>
+                                <td>an individual, who, either alone or with a spouse, has net assets of at least $5,000,000. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
+                            </tr>
 
-                        <tr>
-                            <td>d)</td>
-                            <td>
-                                @if ($user[0]->ind_ck4 == 1)
-                                    X
-                                @else
-                                    _____
-                                @endif
-                            </td>
-                            <td>an individual who beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $5,000,000.</td>
-                        </tr>
+                            <tr>
+                                <td>c)</td>
+                                <td>
+                                    @if ($user[0]->ind_ck3 == 1)
+                                        X
+                                    @else
+                                        _____
+                                    @endif
+                                </td>
+                                <td>an individual who, either alone or with a spouse, beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $1,000,000. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
+                            </tr>
 
-                        <tr>
-                            <td>e)</td>
-                            <td>
-                                @if ($user[0]->ind_ck5 == 1)
-                                    X
-                                @else
-                                    _____
-                                @endif
-                            </td>
-                            <td>an individual registered under the securities legislation of a jurisdiction of Canada, as a representative of a person registered under the securities legislation of a jurisdiction of Canada as an adviser or dealer.</td>
-                        </tr>
+                            <tr>
+                                <td>d)</td>
+                                <td>
+                                    @if ($user[0]->ind_ck4 == 1)
+                                        X
+                                    @else
+                                        _____
+                                    @endif
+                                </td>
+                                <td>an individual who beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $5,000,000.</td>
+                            </tr>
 
-                        <tr>
-                            <td>f)</td>
-                            <td>
-                                @if ($user[0]->ind_ck6 == 1)
-                                    X
-                                @else
-                                    _____
-                                @endif
-                            </td>
-                            <td>an individual formerly registered under the securities legislation of a jurisdiction of Canada, other than an individual formerly registered solely as a representative of a limited market dealer under one or both of the Securities Act (Ontario) or the Securities Act (Newfoundland and Labrador),</td>
-                        </tr>
-                    </tbody>
-                </table>
+                            <tr>
+                                <td>e)</td>
+                                <td>
+                                    @if ($user[0]->ind_ck5 == 1)
+                                        X
+                                    @else
+                                        _____
+                                    @endif
+                                </td>
+                                <td>an individual registered under the securities legislation of a jurisdiction of Canada, as a representative of a person registered under the securities legislation of a jurisdiction of Canada as an adviser or dealer.</td>
+                            </tr>
 
-                <span class="has-text-weight-bold">(Categories Applicable to Individuals and Non-Individuals)</span>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>&nbsp;</th>
-                            <th>&nbsp;</th>
-                            <th>&nbsp;</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>a)</td>
-                            <td>
-                                @if ($user[0]->bus_ck1 == 1)
-                                    X
-                                @else
-                                    _____
-                                @endif
-                            </td>
-                            <td>except in Ontario, a Person registered under the securities legislation of a jurisdiction of Canada as an adviser or dealer.</td>
-                        </tr>
-                        
-                        <tr>
-                            <td>b)</td>
-                            <td>
-                                @if ($user[0]->bus_ck2 == 1)
-                                    X
-                                @else
-                                    _____
-                                @endif
-                            </td>                            
-                            <td>except in Ontario, a pension fund that is regulated by either the Office of the Superintendent of Financial Institutions (Canada) or a pension commission or similar regulatory authority of a jurisdiction of Canada.</td>
-                        </tr>
+                            <tr>
+                                <td>f)</td>
+                                <td>
+                                    @if ($user[0]->ind_ck6 == 1)
+                                        X
+                                    @else
+                                        _____
+                                    @endif
+                                </td>
+                                <td>an individual formerly registered under the securities legislation of a jurisdiction of Canada, other than an individual formerly registered solely as a representative of a limited market dealer under one or both of the Securities Act (Ontario) or the Securities Act (Newfoundland and Labrador),</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                @elseif ($user[0]->clientType == "business")
 
-                        <tr>
-                            <td>c)</td>
-                            <td>                            
-                                @if ($user[0]->bus_ck3 == 1)
-                                    X
-                                @else
-                                    _____
-                                @endif
-                            </td>
-                            <td>a Person, other than an individual or investment fund, that has net assets of at least $5,000,000 as shown on its most recently prepared financial statements.</td>
-                        </tr>
+                    <span class="has-text-weight-bold">(Categories Applicable to Individuals and Non-Individuals)</span>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>a)</td>
+                                <td>
+                                    @if ($user[0]->bus_ck1 == 1)
+                                        X
+                                    @else
+                                        _____
+                                    @endif
+                                </td>
+                                <td>except in Ontario, a Person registered under the securities legislation of a jurisdiction of Canada as an adviser or dealer.</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>b)</td>
+                                <td>
+                                    @if ($user[0]->bus_ck2 == 1)
+                                        X
+                                    @else
+                                        _____
+                                    @endif
+                                </td>                            
+                                <td>except in Ontario, a pension fund that is regulated by either the Office of the Superintendent of Financial Institutions (Canada) or a pension commission or similar regulatory authority of a jurisdiction of Canada.</td>
+                            </tr>
 
-                        <tr>
-                            <td>d)</td>
-                            <td>
-                                @if ($user[0]->bus_ck4 == 1)
-                                    X
-                                @else
-                                    _____
-                                @endif
-                            </td>
-                            <td>an investment fund that distributes or has distributed securities under a prospectus in a jurisdiction of Canada for which the regulator or, in Québec, the securities regulatory authority, has issued a receipt.</td>
-                        </tr>
+                            <tr>
+                                <td>c)</td>
+                                <td>                            
+                                    @if ($user[0]->bus_ck3 == 1)
+                                        X
+                                    @else
+                                        _____
+                                    @endif
+                                </td>
+                                <td>a Person, other than an individual or investment fund, that has net assets of at least $5,000,000 as shown on its most recently prepared financial statements.</td>
+                            </tr>
 
-                        <tr>
-                            <td>e)</td>
-                            <td>
-                                @if ($user[0]->bus_ck5 == 1)
-                                    X
-                                @else
-                                    _____
-                                @endif
-                            </td>
-                            <td>a person acting on behalf of a fully managed account managed by that person if that person is registered or authorized to carry on business as an adviser or the equivalent under the securities legislation of a jurisdiction of Canada or a foreign jurisdiction.</td>
-                        </tr>
+                            <tr>
+                                <td>d)</td>
+                                <td>
+                                    @if ($user[0]->bus_ck4 == 1)
+                                        X
+                                    @else
+                                        _____
+                                    @endif
+                                </td>
+                                <td>an investment fund that distributes or has distributed securities under a prospectus in a jurisdiction of Canada for which the regulator or, in Québec, the securities regulatory authority, has issued a receipt.</td>
+                            </tr>
 
-                        <tr>
-                            <td>f)</td>
-                            <td>
-                                @if ($user[0]->bus_ck6 == 1)
-                                    X
-                                @else
-                                    _____
-                                @endif
-                            </td>
-                            <td>a registered charity under the Income Tax Act (Canada) that, in regard to the trade, has obtained advice from an eligibility adviser or an adviser registered under the securities legislation of the jurisdiction of the registered charity to provide advice on the securities being traded.</td>
-                        </tr>
+                            <tr>
+                                <td>e)</td>
+                                <td>
+                                    @if ($user[0]->bus_ck5 == 1)
+                                        X
+                                    @else
+                                        _____
+                                    @endif
+                                </td>
+                                <td>a person acting on behalf of a fully managed account managed by that person if that person is registered or authorized to carry on business as an adviser or the equivalent under the securities legislation of a jurisdiction of Canada or a foreign jurisdiction.</td>
+                            </tr>
 
-                        <tr>
-                            <td>g)</td>
-                            <td>
-                                @if ($user[0]->bus_ck7 == 1)
-                                    X
-                                @else
-                                    _____
-                                @endif
-                            </td>
-                            <td>a person in respect of which all of the owners of interests, direct, indirect, or beneficial, except the voting securities required by law to be owned by directors, are persons that are accredited investors.</td>
-                        </tr>
+                            <tr>
+                                <td>f)</td>
+                                <td>
+                                    @if ($user[0]->bus_ck6 == 1)
+                                        X
+                                    @else
+                                        _____
+                                    @endif
+                                </td>
+                                <td>a registered charity under the Income Tax Act (Canada) that, in regard to the trade, has obtained advice from an eligibility adviser or an adviser registered under the securities legislation of the jurisdiction of the registered charity to provide advice on the securities being traded.</td>
+                            </tr>
 
-                        <tr>
-                            <td>h)</td>
-                            <td>
-                                @if ($user[0]->bus_ck8 == 1)
-                                    X
-                                @else
-                                    _____
-                                @endif
-                            </td>
-                            <td>an investment fund that is advised by a person registered as an adviser or a person that is exempt from registration as an adviser.</td>
-                        </tr>
+                            <tr>
+                                <td>g)</td>
+                                <td>
+                                    @if ($user[0]->bus_ck7 == 1)
+                                        X
+                                    @else
+                                        _____
+                                    @endif
+                                </td>
+                                <td>a person in respect of which all of the owners of interests, direct, indirect, or beneficial, except the voting securities required by law to be owned by directors, are persons that are accredited investors.</td>
+                            </tr>
 
-                        <tr>
-                            <td>i)</td>
-                            <td>
-                                @if ($user[0]->bus_ck9 == 1)
-                                    X
-                                @else
-                                    _____
-                                @endif
-                            </td>
-                            <td>a person that is recognized or designated by the securities regulatory authority or, except in Ontario and Québec, the regulator as an accredited investor.</td>
-                        </tr>
+                            <tr>
+                                <td>h)</td>
+                                <td>
+                                    @if ($user[0]->bus_ck8 == 1)
+                                        X
+                                    @else
+                                        _____
+                                    @endif
+                                </td>
+                                <td>an investment fund that is advised by a person registered as an adviser or a person that is exempt from registration as an adviser.</td>
+                            </tr>
 
-                        <tr>
-                            <td>j)</td>
-                            <td>
-                                @if ($user[0]->bus_ck10 == 1)
-                                    X
-                                @else
-                                    _____
-                                @endif
-                            </td>
-                            <td>a trust established by an accredited investor for the benefit of the accredited investor’s family members of which a majority of the trustees are accredited investors and all of the beneficiaries are the accredited investor’s spouse, a former spouse of the accredited investor or a parent, grandparent, brother, sister, child or grandchild of that accredited investor, of that accredited investor’s spouse or of that accredited investor’s former spouse.</td>
-                        </tr>
-                    </tbody>
-                </table>
+                            <tr>
+                                <td>i)</td>
+                                <td>
+                                    @if ($user[0]->bus_ck9 == 1)
+                                        X
+                                    @else
+                                        _____
+                                    @endif
+                                </td>
+                                <td>a person that is recognized or designated by the securities regulatory authority or, except in Ontario and Québec, the regulator as an accredited investor.</td>
+                            </tr>
+
+                            <tr>
+                                <td>j)</td>
+                                <td>
+                                    @if ($user[0]->bus_ck10 == 1)
+                                        X
+                                    @else
+                                        _____
+                                    @endif
+                                </td>
+                                <td>a trust established by an accredited investor for the benefit of the accredited investor’s family members of which a majority of the trustees are accredited investors and all of the beneficiaries are the accredited investor’s spouse, a former spouse of the accredited investor or a parent, grandparent, brother, sister, child or grandchild of that accredited investor, of that accredited investor’s spouse or of that accredited investor’s former spouse.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                @endif
                 <br>
                 <p class="is-uppercase">Definitions</p>
                 For the purposes of this certificate, the following definitions apply:
@@ -1036,8 +1043,24 @@
                 The Subscriber acknowledges that the Issuer is relying upon the Subscriber's disclosure herein. In the event the Subscriber's accredited investor status changes prior to the date on which a certificate representing any of the Units is issued, the Subscriber agrees to immediately notify the Issuer of such change.
                 <br>
                 <br>
-                <span class="is-uppercase has-text-weight-bold">IN WITNESS WHEREOF</span>, the undersigned has executed this certificate as of the <input style="border:2px solid #FF4136;" type="text" form="theForm" name="signed_day3" id="onlyNumbers3" onkeypress="allowNumbersOnly3(event)">th day of <input style="border:2px solid #FF4136" type="text" form="theForm" name="signed_month3">, {{ now()->year }} 
+                <span class="has-text-weight-bold">IN WITHNESS WHEREOF</span>, the undersigned has executed this certificate as of the  <input style="border:2px solid #FF4136;" type="text" form="theForm" name="signed_day3" id="onlyNumbers3" onkeypress="allowNumbersOnly(event)" value="{{ now()->day }}">th day of
+                <select name="signed_month3" form="theForm">
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+                </select>
+                <input style="border:2px solid #FF4136" type="text" form="theForm" name="signed_year3" value="{{ now()->year }}">
             </div>
+
             @if ($user[0]->clientType == "business" )
                 <div class="field is-horizontal">
                     <div class="field-label is-normal">

@@ -24,10 +24,17 @@
                 <h1 class="title"><span class="decor">Portfolio of</span> <span class="le-decor">{{ $user[0]->subscriber_name }}</span></h1>
             </div>
 
+<<<<<<< HEAD
             (here for testing purposes. )
             <a href="{{url($user[0]->user_id.'/filledform')}}"> filledform </a><br>
             <a href="{{url($user[0]->user_id.'/formtest')}}"> testhtml </a><br>
 
+=======
+
+            (should only works access level 1 form level 2)<br>
+            <a href="{{url($user[0]->id.'/filledform')}}"> filledform </a><br>
+            <a href="/1/formtest"> testhtml </a><br>
+>>>>>>> 309feb1226c03a2cf1097419751bbc9ae7fdea17
 
             
         </div>
@@ -47,8 +54,18 @@
             <link rel="stylesheet" type="text/css" href="{{ asset('css/random.css') }}">
             @include('forms.subagreement')
         @elseif ($user[0]->access_level == 1 && $user[0]->form_level == 2)
-        <a href="{{url($user[0]->id.'/filledform')}}"> filledform </a><br>
-            <h1>Wait for Alli to confirm subagreement</h1>
+
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/random.css') }}">
+        
+            <a href="{{url($user[0]->id.'/filledform')}}"> filledform </a><br>
+        
+
+            @if(auth()->user()->userType() == 'admin')
+                @include('forms.subagreementcheck')
+            @else 
+                @include('forms.subagreementdone')
+            @endif
+            
         @elseif ($user[0]->access_level == 2 && $user[0]->form_level == 2)
         
         <link rel="stylesheet" type="text/css" href="{{ asset('css/portfolio.css') }}">

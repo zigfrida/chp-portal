@@ -117,6 +117,11 @@ class FormUserController extends Controller
                 'ind_ck5' => $request->input('ind_ck5') !== null,
                 'ind_ck6' => $request->input('ind_ck6') !== null,
                 ]);
+            \DB::table('signatures')
+                ->where('user_id', $id)
+                ->update([
+                    'form_signature' => $request->input('form_signature'),
+                ]);
         } elseif ($request->clientType == 'business') {
             \DB::table('form_users')
                 ->where('user_id', $id)
@@ -249,18 +254,12 @@ class FormUserController extends Controller
 
     public function storeSubAgreement(Request $request, $id)
     {
-        // get the current user
-        $currentUser = \DB::table('form_users')
-        ->select('*')
-        ->where('user_id', $id)
-        ->get();
-
         $signed_day1 = $request->signed_day1;
         $signed_month1 = $request->signed_month1;
         $signed_year1 = $request->signed_year1;
 
         $signed_day2 = $request->signed_day2;
-        $signed_month2 = $request->signed_month2; // note: not getting signed_day/month for 3
+        $signed_month2 = $request->signed_month2; // note: not getting signed_day/month for 3, 2 isn't really needed
 
         $registration_name = $request->registration_name ?? '';
         $registration_account_reference = $request->registration_account_reference ?? '';
@@ -280,13 +279,13 @@ class FormUserController extends Controller
         $risk_ck7 = $request->risk_ck7;
 
         $request->validate([
-            'risk_ck1' => 'required|same:chk7|same:chk2|same:chk3|same:chk4|same:chk5|same:chk6',
-            'risk_ck2' => 'required|same:chk1|same:chk7|same:chk3|same:chk4|same:chk5|same:chk6',
-            'risk_ck3' => 'required|same:chk1|same:chk2|same:chk7|same:chk4|same:chk5|same:chk6',
-            'risk_ck4' => 'required|same:chk1|same:chk2|same:chk3|same:chk7|same:chk5|same:chk6',
-            'risk_ck5' => 'required|same:chk1|same:chk2|same:chk3|same:chk4|same:chk7|same:chk6',
-            'risk_ck6' => 'required|same:chk1|same:chk2|same:chk3|same:chk4|same:chk5|same:chk7',
-            'risk_ck7' => 'required|same:chk1|same:chk2|same:chk3|same:chk4|same:chk5|same:chk6',
+            'risk_ck1' => 'required',
+            'risk_ck2' => 'required',
+            'risk_ck3' => 'required',
+            'risk_ck4' => 'required',
+            'risk_ck5' => 'required',
+            'risk_ck6' => 'required',
+            'risk_ck7' => 'required',
         ]);
 
         // print_or_type_name missing. so is the picture img thingy. put that shit in!
@@ -317,6 +316,7 @@ class FormUserController extends Controller
         \DB::table('form_users')
             ->where('user_id', $id)
             ->update(['form_level' => 2]);
+
         $redirectPath = '/'.$id.'/'.'portfolio';
 
         return redirect($redirectPath);
