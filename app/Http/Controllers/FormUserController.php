@@ -189,24 +189,24 @@ class FormUserController extends Controller
             $sin = $request->input('sin');
             \DB::table('form_users')
             ->where('user_id', $id)
-            ->update(['subscriber_name' => $request->subscriber_name, 
+            ->update(['subscriber_name' => $request->subscriber_name,
                 'clientType' => $request->clientType,
                 'class' => $request->class,
-                'city' => $request->city, 
-                'province' => $request->province, 
+                'city' => $request->city,
+                'province' => $request->province,
                 'street' => $request->street,
-                'postal_code' => $request->postal_code, 
-                'country' => $request->country, 
+                'postal_code' => $request->postal_code,
+                'country' => $request->country,
                 'sin' => $request->sin,
-                'phone' => $request->phone, 
-                'email' => $request->email, 
+                'phone' => $request->phone,
+                'email' => $request->email,
                 'total_investment' => $request->total_investment,
                 'ind_ck1' => $request->input('ind_ck1') !== null,
                 'ind_ck2' => $request->input('ind_ck2') !== null,
                 'ind_ck3' => $request->input('ind_ck3') !== null,
                 'ind_ck4' => $request->input('ind_ck4') !== null,
                 'ind_ck5' => $request->input('ind_ck5') !== null,
-                'ind_ck6' => $request->input('ind_ck6') !== null, 
+                'ind_ck6' => $request->input('ind_ck6') !== null,
                 ]);
 
             \DB::table('form_users')
@@ -219,31 +219,31 @@ class FormUserController extends Controller
             $business_number = $request->input('business_number');
             \DB::table('form_users')
                 ->where('user_id', $id)
-                ->update(['subscriber_name' => $request->subscriber_name, 
-                'clientType' => $request->clientType, 
+                ->update(['subscriber_name' => $request->subscriber_name,
+                'clientType' => $request->clientType,
                 'class' => $request->class,
                 'province' => $request->province,
-                'street' => $request->street, 
-                'postal_code' => $request->postal_code, 
+                'street' => $request->street,
+                'postal_code' => $request->postal_code,
                 'country' => $request->country,
-                'sin' => $request->sin, 
-                'phone' => $request->phone, 
+                'sin' => $request->sin,
+                'phone' => $request->phone,
                 'email' => $request->email,
-                'business_number' => $request->business_number, 
+                'business_number' => $request->business_number,
                 'signatory_first_name' => $request->signatory_first_name,
                 'official_capacity_or_title_of_authorized_signatory' => $request->official_capacity_or_title_of_authorized_signatory,
-                'signatory_last_name' => $request->signatory_last_name, 
-                'total_investment' => $request->total_investment, 
-                'bus_ck1'=> $request->input('bus_ck1') !== null,
-                'bus_ck2'=> $request->input('bus_ck2') !== null,
-                'bus_ck3'=> $request->input('bus_ck3') !== null,
-                'bus_ck4'=> $request->input('bus_ck4') !== null,
-                'bus_ck5'=> $request->input('bus_ck5') !== null,
-                'bus_ck6'=> $request->input('bus_ck6') !== null,
-                'bus_ck7'=> $request->input('bus_ck7') !== null,
-                'bus_ck8'=> $request->input('bus_ck8') !== null,
-                'bus_ck9'=> $request->input('bus_ck9') !== null,
-                'bus_ck10' >= $request->input('bus_ck10') !== null,]);
+                'signatory_last_name' => $request->signatory_last_name,
+                'total_investment' => $request->total_investment,
+                'bus_ck1' => $request->input('bus_ck1') !== null,
+                'bus_ck2' => $request->input('bus_ck2') !== null,
+                'bus_ck3' => $request->input('bus_ck3') !== null,
+                'bus_ck4' => $request->input('bus_ck4') !== null,
+                'bus_ck5' => $request->input('bus_ck5') !== null,
+                'bus_ck6' => $request->input('bus_ck6') !== null,
+                'bus_ck7' => $request->input('bus_ck7') !== null,
+                'bus_ck8' => $request->input('bus_ck8') !== null,
+                'bus_ck9' => $request->input('bus_ck9') !== null,
+                'bus_ck10' >= $request->input('bus_ck10') !== null, ]);
 
                 \DB::table('form_users')
                 ->where('user_id', $id)
@@ -254,6 +254,10 @@ class FormUserController extends Controller
         $testPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';    
         return Redirect::away($testPath);
         
+    }
+
+    public function storeSubAgreement(Request $request, $id)
+    {
     }
 
     /**

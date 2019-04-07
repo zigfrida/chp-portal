@@ -88,7 +88,6 @@
 							<td class="lptable"></td>
 							@for($i = 1; $i <= 4; $i++)
 								<th class="lptable">{{"Q" . $i}}</th>
-								{{-- <th>{{date('F', mktime(0,0,0,$i,1))}}</th> --}}
 							@endfor
 							<th class="lptable">YTD</th>
 						</tr>
@@ -234,7 +233,7 @@
 							if(isset($thisUser[0]->comment)){
 								$comment = $thisUser[0]->comment;
 							} ?>
-							<p>{{$comment}}</p>
+						<p>{{$comment}}</p>
 					</article>
 				</div>
 			@endif
@@ -547,32 +546,27 @@
 
 
 @section('client-comment')
-<div class="container">
-	<div class="tile is-ancestor">
-		<div class="has-text-centered">
-			<h1 class="title"><span class="decor">Create comment for </span> <span class="le-decor">{{$user[0]->subscriber_name}}</span></h1>
-		<form method="post" action="/{{$user[0]->id}}/portfolio/comment">
-			@csrf
-				<div class="field">
-					<div class="control">
-						<?php
-						$comment = "";
-						if(isset($thisUser[0]->comment)){
-							$comment = $thisUser[0]->comment;
-						}
-						?>
-						<textarea class="textarea is-warning" name="comment">{{$comment}}</textarea>
-					</div>
-					<br>
-					<div class="control">
-						<button class="button is-warning" type="submit">Save</button>
-						<button class="button is-light" type="reset">Cancel</button>
-					</div>
-				</div>
+<form method="post" action="/{{$user[0]->id}}/portfolio/comment">
+	@csrf
+	{{-- <div class="column is-mobile is-full"> --}}
+		<div class="field">
+			<div class="control">
+				<?php
+				$comment = "New comment";
+				if(isset($thisUser[0]->comment)){
+					$comment = $thisUser[0]->comment;
+				}
+				?>
+				<textarea class="textarea is-warning is-medium" name="comment">{{$comment}}</textarea>
 			</div>
-		</form>
-	</div>
-</div>
+			<br>
+			<div class="columns is-centered is-8" style="margin-top: 10px;">
+				<button class="button is-warning" type="submit">Save</button>
+				<button class="button is-light" type="reset">Cancel</button>
+			</div>
+		</div>
+	{{-- </div> --}}
+</form>
 @endsection
 
 @section('fileuploadbetter')
@@ -590,29 +584,26 @@
 				Choose File..
 				</span>
 			</span>
-			<span class="file-name" id="filename">
-				
-			</span>
+			<span class="file-name" id="filename"></span>
 			</label>
 		</div>
-	  </div>
-	  <input type="hidden" name="user_id" value="{{ $user[0]->user_id }}">
-	  <input type="hidden" name="file_type" value="I">
-	  <div class="columns is-centered" style="margin-top: 10px;">
-			<button type="submit" class="button is-warning">Submit</button>
-		</div>
-		<script>
-			var input = document.getElementById( 'file-upload' );
-			var infoArea = document.getElementById( 'filename' );
-			input.addEventListener( 'change', showFileName );
-	
-			function showFileName( event ) {
-				 var input = event.srcElement;
-					var fileName = input.files[0].name;
-					infoArea.textContent = fileName;
-			}
-			</script>
-	
+	</div>
+	<input type="hidden" name="user_id" value="{{ $user[0]->user_id }}">
+	<input type="hidden" name="file_type" value="I">
+	<div class="columns is-centered" style="margin-top: 10px;">
+		<button type="submit" class="button is-warning">Submit</button>
+	</div>
+	<script>
+		var input = document.getElementById( 'file-upload' );
+		var infoArea = document.getElementById( 'filename' );
+		input.addEventListener( 'change', showFileName );
+
+		function showFileName( event ) {
+				var input = event.srcElement;
+				var fileName = input.files[0].name;
+				infoArea.textContent = fileName;
+		}
+	</script>
 </form>
 @endsection
 
