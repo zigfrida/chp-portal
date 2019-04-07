@@ -8,8 +8,6 @@ class CreateFormUsersTable extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
@@ -50,7 +48,33 @@ class CreateFormUsersTable extends Migration
             $table->boolean('bus_ck10')->nullable()->default(0);
             $table->integer('access_level')->default(0);
             $table->integer('form_level')->default(0);
-;
+
+            // For the purposes of the sub-agreement form
+            $table->string('signed_day1')->default('');
+            $table->string('signed_month1')->default('');
+            $table->string('signed_year1')->default('');
+
+            $table->string('signed_day2')->default('');
+            $table->string('signed_month2')->default('');
+
+            $table->string('registration_name')->default('');
+            $table->string('registration_account_reference')->default('');
+            $table->string('registration_address')->default('');
+
+            $table->string('delivery_contact')->default('');
+            $table->string('delivery_telephone')->default('');
+            $table->string('delivery_account_reference')->default('');
+            $table->string('delivery_address')->default('');
+
+            $table->boolean('risk_ck1')->nullable()->default(0);
+            $table->boolean('risk_ck2')->nullable()->default(0);
+            $table->boolean('risk_ck3')->nullable()->default(0);
+            $table->boolean('risk_ck4')->nullable()->default(0);
+
+            $table->boolean('risk_ck5')->nullable()->default(0);
+            $table->boolean('risk_ck6')->nullable()->default(0);
+            $table->boolean('risk_ck7')->nullable()->default(0);
+
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
@@ -59,12 +83,9 @@ class CreateFormUsersTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {
         Schema::dropIfExists('form_users');
     }
 }
-

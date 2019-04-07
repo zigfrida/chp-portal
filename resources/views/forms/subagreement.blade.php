@@ -75,27 +75,26 @@
                 @endif
                 <br>
             </div>
-            <span class="has-text-weight-bold">DATED</span> this <input style="border:2px solid #FF4136;" type="text" form="theForm" name="signed_day" id="onlyNumbers" onkeypress="allowNumbersOnly(event)" value="{{ now()->day }}">th day of
+            <span class="has-text-weight-bold">DATED</span> this <input style="border:2px solid #FF4136;" type="text" form="theForm" name="signed_day1" id="onlyNumbers" onkeypress="allowNumbersOnly(event)" value="{{ now()->day }}">th day of
             
             <select name="signed_month1" form="theForm" dat>
-                    <option value="January">January</option>
-                    <option value="February">February</option>
-                    <option value="March">March</option>
-                    <option value="April">April</option>
-                    <option value="May">May</option>
-                    <option value="June">June</option>
-                    <option value="July">July</option>
-                    <option value="August">August</option>
-                    <option value="September">September</option>
-                    <option value="October">October</option>
-                    <option value="November">November</option>
-                    <option value="December">December</option>
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
             </select> 
 
             , 
-            <input style="border:2px solid #FF4136" type="text" form="theForm" name="signed_year1">
+            <input style="border:2px solid #FF4136" type="text" form="theForm" name="signed_year1" value="{{ now()->year }}">
 
-            <input name="signed_year" type="hidden" value="{{ now()->year }}">
             <br><br>
             <div class="columns is-multiline">
                 <div class="column is-half">
@@ -113,7 +112,7 @@
                 </div>
 
                 <div class="column is-half">
-                    <span class="has-text-weight-bold">Authorized signature</span>: (some img link here)
+                    <span class="has-text-weight-bold">Authorized signature</span>: <strong>(some img link here)</strong>
                 </div>
                 <div class="column is-half">
                     <span class="has-text-weight-bold">Email address</span>: {{ $user[0]->email }}
@@ -204,7 +203,7 @@
                     </div>
                     <div class="field">
                         <p class="control is-expanded ">
-                            <input class="input " name="delivery_" type="text" value="">
+                            <input class="input " name="delivery_sccount_reference" type="text" value="">
                         </p>
                         <i><p class="help">Account reference, if applicable</p></i>
                     </div>
@@ -218,23 +217,17 @@
                 <div class="field-body">
                     <div class="field">
                         <p class="control is-expanded ">
-                            <input class="input " name="city" type="text" value="">
+                            <input class="input " name="delivery_address" type="text" value="">
                         </p>
                         <i><p class="help">Address</p></i>
                     </div>
                 </div>
             </div>
 
-
-
-            <hr>
-            
-
-
-
-        
-
         </form>
+
+        <hr>
+
         <div class="content" style="overflow-y: scroll; height: 600px;">
             <ol type="1">
                 <li><b>Interpretation</b></li>
@@ -1137,19 +1130,19 @@
                     </tr>
                     <tr>
                         <td><span class="has-text-weight-bold">Risk of loss</span> - You could lose your entire investment of ${{ $user[0]->total_investment }} </td>
-                        <td><input type="text"></td>
+                        <td><input type="text" name="risk_ck1"></td>
                     </tr>
                     <tr>
                         <td><span class="has-text-weight-bold">Liquidity risk</span> – You may not be able to sell your investment quickly – or at all.</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" name="risk_ck2"></td>
                     </tr>
                     <tr>
                         <td><span class="has-text-weight-bold">Lack of information</span> – You may receive little or no information about your investment.</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" name="risk_ck3"></td>
                     </tr>
                     <tr>
                         <td></span class="has-text-weight-bold">Lack of advice</span> – You will not receive advice from the salesperson about whether this investment is suitable for you unless the salesperson is registered. The salesperson is the person who meets with, or provides information to, you about making this investment. To check whether the salesperson is registered, go to www.aretheyregistered.ca.</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" name="risk_ck4"></td>
                     </tr>
 
 
@@ -1164,15 +1157,15 @@
                     </tr>
                     <tr>
                         <td>Your net income before taxes combined with your spouse’s was more than $300,000 in each of the 2 most recent calendar years, and you expect your combined net income before taxes to be more than $300,000 in the current calendar year.</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" name="risk_ck5"></td>
                     </tr>
                     <tr>
                         <td>Either alone or with your spouse, you own more than $1 million in cash and securities, after subtracting any debt related to the cash and securities.</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" name="risk_ck6"></td>
                     </tr>
                     <tr>
                         <td>Either alone or with your spouse, you have net assets worth more than $5 million. (Your net assets are your total assets (including real estate) minus your total debt.)</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" name="risk_ck7"></td>
                     </tr>
 
                     <tr>
