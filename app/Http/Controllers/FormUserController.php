@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\form_user;
+use Redirect;
 use Illuminate\Http\Request;
 
 class FormUserController extends Controller
@@ -173,7 +174,7 @@ class FormUserController extends Controller
             ->where('user_id', $id)
             ->get();
 
-        $subscriber_name = $request->input('subscriber_input');
+        $subscriber_name = $request->input('subscriber_name');
         $steet = $request->input('street');
         $city = $request->input('city');
         $province = $request->input('province');
@@ -182,6 +183,7 @@ class FormUserController extends Controller
         $phone = $request->input('phone');
         $total_investment = $request->input('total_investment');
         $class = $request->input('class');
+
 
         if ($clientType == 'individual') {
             $sin = $request->input('sin');
@@ -243,12 +245,15 @@ class FormUserController extends Controller
                 'bus_ck9'=> $request->input('bus_ck9') !== null,
                 'bus_ck10' >= $request->input('bus_ck10') !== null,]);
 
-            \DB::table('form_users')
-            ->where('user_id', $id)
-            ->update(['access_level' => 1]);
+                \DB::table('form_users')
+                ->where('user_id', $id)
+                ->update(['access_level' => 1]);
+
         }
         $redirectPath = '/'.$user_id[0]->user_id.'/portfolio';
-        return redirect($redirectPath);
+        $testPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';    
+        return Redirect::away($testPath);
+        
     }
 
     /**
