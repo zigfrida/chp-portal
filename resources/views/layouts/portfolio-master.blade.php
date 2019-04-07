@@ -24,10 +24,10 @@
                 <h1 class="title"><span class="decor">Portfolio of</span> <span class="le-decor">{{ $user[0]->subscriber_name }}</span></h1>
             </div>
 
-
-            (should only works access level 1 form level 2)<br>
+            (here for testing purposes. )
             <a href="{{url($user[0]->user_id.'/filledform')}}"> filledform </a><br>
-            <a href="/1/formtest"> testhtml </a><br>
+            <a href="{{url($user[0]->user_id.'/formtest')}}"> testhtml </a><br>
+
 
             
         </div>
@@ -52,6 +52,10 @@
         @elseif ($user[0]->access_level == 2 && $user[0]->form_level == 2)
         
         <link rel="stylesheet" type="text/css" href="{{ asset('css/portfolio.css') }}">
+        
+        
+        <a href="{{url($user[0]->user_id.'/filledform')}}"> subscription form pdf </a><br>
+        <a href="{{url($user[0]->user_id.'/formtest')}}"> quick html version </a><br>
 
         <div class="container">
             <div class="has-text-centered">
