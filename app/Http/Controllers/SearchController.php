@@ -16,17 +16,19 @@ class SearchController extends Controller
 
         //if search bar is empty, list out all portfolios.
         if(empty($query)){
-            $AClients = DB::table('users')->select('id', 'name', 'email', 'access_level', 'form_level')->where('role', 'standard')->where('class' ,'A')->get();
-            $BClients = DB::table('users')->select('id', 'name', 'email' ,'access_level', 'form_level')->where('role', 'standard')->where('class' ,'B')->get();
+            $AClients = DB::table('users')->select('users.id', 'subscriber_name', 'users.email', 'access_level', 'form_level')
+                                          ->join('form_users', 'users.id', '=', 'form_users.user_id')->where('role', 'standard')->where('class' ,'A')->get();
+            $BClients = DB::table('users')->select('users.id', 'subscriber_name', 'users.email', 'access_level', 'form_level')
+                                          ->join('form_users', 'users.id', '=', 'form_users.user_id')->where('role', 'standard')->where('class' ,'B')->get();
         }else{ //else find name closest to query
         
-            $AClients = DB::table('users')->select('id', 'name', 'email','access_level', 'form_level')->where('name', 'LIKE', '%'. $query.'%')
-                                                                      ->where('role', 'standard')
-                                                                      ->where('class' ,'A')->get();
+            $AClients = DB::table('users')->select('users.id', 'subscriber_name', 'users.email', 'access_level', 'form_level')
+                                            ->join('form_users', 'users.id', '=', 'form_users.user_id')->where('role', 'standard')->where('subscriber_name', 'LIKE', '%'. $query.'%')
+                                            ->where('class' ,'A')->get();
           
-            $BClients = DB::table('users')->select('id', 'name', 'email','access_level', 'form_level')->where('name', 'LIKE', '%'. $query.'%')
-                                                                        ->where('role', 'standard')
-                                                                        ->where('class' ,'B')->get();
+            $BClients = DB::table('users')->select('users.id', 'subscriber_name', 'users.email', 'access_level', 'form_level')
+                                        ->join('form_users', 'users.id', '=', 'form_users.user_id')->where('role', 'standard')->where('subscriber_name', 'LIKE', '%'. $query.'%')
+                                        ->where('class' ,'B')->get();
         }
    
         $outputA = ''; 
@@ -36,7 +38,7 @@ class SearchController extends Controller
             $access_css = $client->access_level + $client->form_level;
 
             $outputA .= '<div  class="column is-one-quarter">'.
-                            'Name: '. $client->name . '<br>'.
+                            'Name: '. $client->subscriber_name . '<br>'.
                             'Email: ' . $client->email .'<br>'.
                              '<a href="' . $client->id.'/portfolio" class="access'. $access_css. '">'.'Portfolio</a>'.
                              '<hr>'.
@@ -47,7 +49,7 @@ class SearchController extends Controller
                 $access_css = $client->access_level + $client->form_level;
 
                 $outputB .= '<div  class="column is-one-quarter">'.
-                             'Name: '. $client->name . '<br>'.
+                             'Name: '. $client->subscriber_name . '<br>'.
                              'Email: ' . $client->email .'<br>'.
                              '<a href="' . $client->id.'/portfolio" class="access'. $access_css. '">'.'Portfolio</a>'.
                              '<hr>'.

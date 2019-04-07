@@ -1189,6 +1189,7 @@
 
             </table>
             <br>
+
             <div class="has-background-white-bis">
                 <p class="has-text-weight-bold">6. For more information about this investment</p>
                 <br>
