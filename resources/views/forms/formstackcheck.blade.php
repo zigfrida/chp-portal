@@ -577,7 +577,7 @@
                 <div class="field is-grouped is-grouped-right">
                     <div class="control">
                         <button class="button is-warning">
-                            Edit
+                            They sure are!
                         </button>
                     </div>
                 </div>

@@ -47,8 +47,18 @@
             <link rel="stylesheet" type="text/css" href="{{ asset('css/random.css') }}">
             @include('forms.subagreement')
         @elseif ($user[0]->access_level == 1 && $user[0]->form_level == 2)
-        <a href="{{url($user[0]->id.'/filledform')}}"> filledform </a><br>
-            <h1>Wait for Alli to confirm subagreement</h1>
+
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/random.css') }}">
+        
+            <a href="{{url($user[0]->id.'/filledform')}}"> filledform </a><br>
+        
+
+            @if(auth()->user()->userType() == 'admin')
+                @include('forms.subagreementcheck')
+            @else 
+                @include('forms.subagreementdone')
+            @endif
+            
         @elseif ($user[0]->access_level == 2 && $user[0]->form_level == 2)
         
         <link rel="stylesheet" type="text/css" href="{{ asset('css/portfolio.css') }}">
