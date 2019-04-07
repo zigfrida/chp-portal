@@ -169,7 +169,6 @@ Route::post('/{id}/portfolio/editEI', 'ExtraInfoController@update');
 /*
     PDF stuff
 
-<<<<<<< HEAD
     will combine later.
 
     
@@ -178,11 +177,8 @@ Route::get('/form', 'PDFController@form');
 Route::get('/subform-html', 'PDFController@subform');
 Route::get('formtest', 'PDFController@test');
 Route::get('/filledform', 'PDFController@filledform');
-=======
-Route::get('test', function () {
-    return view('pdf.test');
-});
->>>>>>> 063933efb3c130f79294cddca6cde2cbe62e87e3
+
+
 
 /*
     Search stuff

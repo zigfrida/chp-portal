@@ -5,8 +5,68 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
 
     
-<link href="{{ URL::asset('css/subfilled.css') }}" rel="stylesheet" type="text/css" >
+<style type="text/css" media="all">
+    * {
+        box-sizing: border-box;
+        
+    }
+
+   .black-border {
+       border: 2px black solid;
+       margin: 20px 40px 25px 40px;
+       padding-top : 15px;
+       padding-bottom : 15px;
+   }
+
+   .column-row {
+	    margin-left : 18px;
+        margin-bottom : 25px;
+        margin-top : -35px;
     
+
+    }
+
+
+
+ .telephone{
+	position: relative;
+    top : -145px;
+
+} 
+.signinput{
+	font-size:13px;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 400px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row-form:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.row-form{
+    position: relative;
+    top : -15px;
+}
+
+.user-data{
+    position:relative;
+    left:75px;
+    top : 20px;
+}
+
+    
+    
+
+</style>
 
     
 <div class="container">
@@ -20,7 +80,7 @@
         <section class="section">
             <div class="container has-background-white-bis">
                 <div class="has-text-centered">
-
+                    
                 
                     <h5 class="title is-5 is-uppercase is-bold">These securities will not be registered under the United States Securities Act of 1933, as amended, and may not be resold in the United States or to a U.S. person</h5>
                     <br><br><br>
@@ -34,7 +94,8 @@
                     <h5 class="title is-6 is-uppercase is-bold" style="text-decoration: underline;">Instructions</h5>
                 </div>
                 <br>
-                <h6 class="title is-6">To All Subscribers:</h6>
+                <h6 class="title is-6">To All Subscribers: </h6>
+                
                 <div class="content">
                     <ol type="1">
                         <li>Complete and sign pages 1 and 2 of the Subscription Agreement.</li>
@@ -56,6 +117,7 @@
                 <div class="has-text-centered">
                     <h4 class="title is-4 is-uppercase">Subscription Agreement</h4>
                 </div>
+                
                 <p>To:&nbsp;&nbsp;&nbsp;CHP Master I Limited Partnership (the "Issuer")</p>
                 <p>The undersigned (the "Subscriber") hereby acknowledges that the Issuer is undertaking an offering of Class
                     A limited partnership units ("Class A Units") and Class B limited partnership units ("Class B Units") at the
@@ -78,56 +140,66 @@
 <div class="row-form">
   <div class="column">
   
-        <span class="user-data">Mark nguyen </span>
+        
   		<div class="column-row">
+                <div class="user-data">Mark nguyen </div>
         	______________________________
             <div><i class="signinput">name</i></div>
             
         </div>
     
-        <span class="user-data">Capital signature </span>
+        
         <div class="column-row">
+                <div class="user-data">Mark nguyen </div>
         	by:____________________________
             <div><i class="signinput">signature</i></div>
         </div>
-        <span class="user-data">Capital signature </span>
+        
+        
         <div class="column-row">
+                <div class="user-data">Mark nguyen </div>
         	______________________________
 			<div><i class="signinput">name</i></div>
         </div>
-        <span class="user-data">Capital signature </span>
+        
         <div class="column-row">
+                <div class="user-data">Mark nguyen </div>
         	______________________________
 			<div><i class="signinput">name</i></div>
         </div>
   
   </div>
   <div class="column">
-        <span class="user-data">Capital signature </span>
+        
    		<div class="column-row">
+                <div class="user-data">Mark nguyen </div>
   	     	______________________________
 			<div><i class="signinput">name</i></div>
         </div>
 
-        <span class="user-data">Capital signature </span>
+        
         <div class="column-row">
+                <div class="user-data">Mark nguyen </div>
         	______________________________
 			<div><i class="signinput">name</i></div>
         </div>
 
-        <span class="user-data">Capital signature </span>
+        
         <div class="column-row">
+                <div class="user-data">Mark nguyen </div>
         	______________________________
 			<div><i class="signinput">name</i></div>
         </div>
 
-        <span class="user-data">Capital signature </span>
+        
         <div class="column-row">        
+                <div class="user-data">Mark nguyen </div>
         	______________________________
 			<div><i class="signinput">name</i></div>
         </div>
-        <span class="user-data telephone">Capital </span>
+        
         <div class="column-row telephone">
+                <div class="user-data">Mark nguyen </div>
         	______________________________
 			<div><i class="signinput">name</i></div>
         </div>
