@@ -1,11 +1,3 @@
-<?php
-
-$user = DB::table('form_users')->where('form_users.user_id', 2)->join('users', 'form_users.user_id', '=' , 'users.id')
-														  ->join('p_i_summaries', 'form_users.user_id', '=', 'p_i_summaries.user_id')->get();
-                                    
-                                                          
-                                                          ?>
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
 
     
@@ -173,7 +165,7 @@ $user = DB::table('form_users')->where('form_users.user_id', 2)->join('users', '
   
         
   		<div class="column-row">
-                <div class="user-data">{{$user[0]->id}} </div>
+                <div class="user-data">{{$user[0]->subscriber_name}} </div>
         	______________________________
             <div><i class="signinput">Name of Subscriber</i></div>
             
@@ -245,7 +237,7 @@ $user = DB::table('form_users')->where('form_users.user_id', 2)->join('users', '
             <h3><u> Registration Instructions </u></h3>
           
             <div class="column-row">
-                  <div class="user-data">Mark nguyen </div>
+                  <div class="user-data">{{$user[0]->name }}</div>
               ______________________________
               <div><i class="signinput">Name</i></div>
               
@@ -253,20 +245,20 @@ $user = DB::table('form_users')->where('form_users.user_id', 2)->join('users', '
       
           
           <div class="column-row">
-                  <div class="user-data">Mark nguyen </div>
+                  <div class="user-data">tmp </div>
               by:____________________________
               <div><i class="signinput">Account reference, if applicable</i></div>
           </div>
           
           
           <div class="column-row">
-                  <div class="user-data">Mark nguyen </div>
+                  <div class="user-data">if empty do something </div>
               ______________________________
               <div><i class="signinput">Address</i></div>
           </div>
           
           <div class="column-row">
-                  <div class="user-data">sometjing </div>
+                  <div class="user-data">if empty do something</div>
               ______________________________
               <div><i class="signinput">something</i></div>
           </div>
@@ -297,7 +289,7 @@ $user = DB::table('form_users')->where('form_users.user_id', 2)->join('users', '
   
           
           <div class="column-row">        
-                  <div class="user-data">test signature </div>
+                  <div class="user-data">if empty do something </div>
               ______________________________
               <div><i class="signinput">Telephone Number</i></div>
           </div>
@@ -311,8 +303,8 @@ $user = DB::table('form_users')->where('form_users.user_id', 2)->join('users', '
         <p >CHP Master I Limited Partnership</p>
 
         <div class="signature">
-            <div class="signature-image">Mark nguyen </div>
-            ______________________________
+            <div class="signature-image">(image or whatever) </div>
+            ________________________________________________________________
             <div><i class="signinput">Authorized Signature</i></div>
         </div>
 
