@@ -57,7 +57,15 @@ Route::get('/{id}/portfolio', function ($id) {
         $extraInfo = DB::table('extra_infos')
                         ->get();
 
-        return view('portfolio', compact('user', 'files', 'thisUser', 'years', 'metrics', 'fundInfo', 'extraInfo'));
+        $classAPA = DB::table('p_analyses')
+                        ->where('class', 'A')
+                        ->get();
+
+        $classBPA = DB::table('p_analyses')
+                        ->where('class', 'B')
+                        ->get();
+
+        return view('portfolio', compact('user', 'files', 'thisUser', 'years', 'metrics', 'fundInfo', 'extraInfo','classAPA','classBPA'));
     }
 })->middleware('auth');
 

@@ -71,7 +71,8 @@
                 </div>
             </div>
         </div>
-        <br>
+
+        <hr>
         
         <div class="container">
             <div class="has-text-centered ">
