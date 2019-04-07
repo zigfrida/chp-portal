@@ -47,7 +47,6 @@
             <link rel="stylesheet" type="text/css" href="{{ asset('css/random.css') }}">
             @include('forms.subagreement')
         @elseif ($user[0]->access_level == 1 && $user[0]->form_level == 2)
-        <a href="{{url($user[0]->id.'/filledform')}}"> filledform </a><br>
             <h1>Wait for Alli to confirm subagreement</h1>
         @elseif ($user[0]->access_level == 2 && $user[0]->form_level == 2)
         
