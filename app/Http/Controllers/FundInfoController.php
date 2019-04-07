@@ -34,4 +34,25 @@ class FundInfoController extends Controller
 
         return redirect('/'.$id .'/portfolio');
     }
+
+    public function managementComment(Request $request){
+
+        //dd($request->input('management_comment_A'));
+        $management_comment_A = $request->input('management_comment_A');
+
+        $management_comment_B = $request->input('management_comment_B');
+
+        \DB::table('fund_infos')
+            ->where('class','LIKE','A')
+            ->update(['management_comment' => $management_comment_A,
+        ]);
+
+        \DB::table('fund_infos')
+            ->where('class','LIKE','B')
+            ->update(['management_comment' => $management_comment_B,
+        ]);
+
+        return redirect('/admin');
+    }
+
 }

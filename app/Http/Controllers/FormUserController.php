@@ -225,6 +225,7 @@ class FormUserController extends Controller
                 'class' => $request->class,
                 'province' => $request->province,
                 'street' => $request->street,
+                'city' => $request->city,
                 'postal_code' => $request->postal_code,
                 'country' => $request->country,
                 'sin' => $request->sin,

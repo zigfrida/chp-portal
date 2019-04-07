@@ -118,14 +118,14 @@
 @section('management-comment')
 <div class="columns is-centered is-mobile">
     <div class="column">
-        <form action="/" method="post" enctype="">
+        <form action="/admin/editMC" method="post">
             @csrf
             <div class="columns is-mobile">
                 <div class="column">
                     <div class="field">
                         <h1 class="title"><span class="le-decor"> Class A</span></h1>
                         <div class="control">
-                            <textarea class="textarea is-warning is-medium" rows="4" placeholder="New comment for class A from management"></textarea>
+                            <textarea class="textarea is-warning is-medium" name="management_comment_A" rows="4" placeholder="New comment for class A from management">{{$fundInfoA[0]->management_comment}}</textarea>
                         </div>
                     </div>  
                 </div>
@@ -133,7 +133,7 @@
                     <div class="field">
                         <h1 class="title"><span class="le-decor">Class B</span></h1>
                         <div class="control">
-                            <textarea class="textarea is-warning is-medium" rows="4" placeholder="New comment for class B from management"></textarea>
+                            <textarea class="textarea is-warning is-medium" name="management_comment_B" rows="4" placeholder="New comment for class B from management">{{$fundInfoB[0]->management_comment}}</textarea>
                         </div>
                     </div>
                 </div>
