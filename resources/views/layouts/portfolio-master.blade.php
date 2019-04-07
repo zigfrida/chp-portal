@@ -24,17 +24,10 @@
                 <h1 class="title"><span class="decor">Portfolio of</span> <span class="le-decor">{{ $user[0]->subscriber_name }}</span></h1>
             </div>
 
-<<<<<<< HEAD
             (here for testing purposes. )
             <a href="{{url($user[0]->user_id.'/filledform')}}"> filledform </a><br>
             <a href="{{url($user[0]->user_id.'/formtest')}}"> testhtml </a><br>
 
-=======
-
-            (should only works access level 1 form level 2)<br>
-            <a href="{{url($user[0]->id.'/filledform')}}"> filledform </a><br>
-            <a href="/1/formtest"> testhtml </a><br>
->>>>>>> 309feb1226c03a2cf1097419751bbc9ae7fdea17
 
             
         </div>
