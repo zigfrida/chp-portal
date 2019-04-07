@@ -77,7 +77,7 @@
             </div>
             <span class="has-text-weight-bold">DATED</span> this <input style="border:2px solid #FF4136;" type="text" form="theForm" name="signed_day1" id="onlyNumbers" onkeypress="allowNumbersOnly(event)" value="{{ now()->day }}">th day of
             
-            <select name="signed_month1" form="theForm" dat>
+            <select name="signed_month1" form="theForm">
                 <option value="January">January</option>
                 <option value="February">February</option>
                 <option value="March">March</option>
@@ -121,7 +121,27 @@
 
         <br><br><br>
         <div class="box has-background-white-bis has-text-centered" style="margin-left: 10%; margin-right: 10%;">
-            <span class="has-text-weight-bold">This subscription is accepted by the Issuer this</span> this <input style="border:2px solid #FF4136;" type="text" form="theForm" name="signed_day2" id="onlyNumbers2" onkeypress="allowNumbersOnly2(event)">th day of <input style="border:2px solid #FF4136" type="text" form="theForm" name="signed_month2">, {{ now()->year }}
+            <span class="has-text-weight-bold">This subscription is accepted by the Issuer this</span> this <input style="border:2px solid #FF4136;" value="{{ now()->day }}" type="text" form="theForm" name="signed_day2" id="onlyNumbers2" onkeypress="allowNumbersOnly2(event)">th day of 
+            
+            <select name="signed_month2" form="theForm">
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+            </select> 
+            , <input style="border:2px solid #FF4136" type="text" form="theForm" name="signed_year2" value="{{ now()->year }}">
+
+            
+            
+            
             <p>CHP Master I Limited Partnership</p>
             {{-- Don't know if authorized signatory is only for Businesses. Wait for Alli to reply  TODO --}}
             {{-- Authorized Signatory: {{ $user[0]->???? }} --}}
@@ -1130,19 +1150,19 @@
                     </tr>
                     <tr>
                         <td><span class="has-text-weight-bold">Risk of loss</span> - You could lose your entire investment of ${{ $user[0]->total_investment }} </td>
-                        <td><input type="text" name="risk_ck1"></td>
+                        <td><input type="text" name="risk_ck1" form="theForm"></td>
                     </tr>
                     <tr>
                         <td><span class="has-text-weight-bold">Liquidity risk</span> – You may not be able to sell your investment quickly – or at all.</td>
-                        <td><input type="text" name="risk_ck2"></td>
+                        <td><input type="text" name="risk_ck2" form="theForm"></td>
                     </tr>
                     <tr>
                         <td><span class="has-text-weight-bold">Lack of information</span> – You may receive little or no information about your investment.</td>
-                        <td><input type="text" name="risk_ck3"></td>
+                        <td><input type="text" name="risk_ck3" form="theForm"></td>
                     </tr>
                     <tr>
                         <td></span class="has-text-weight-bold">Lack of advice</span> – You will not receive advice from the salesperson about whether this investment is suitable for you unless the salesperson is registered. The salesperson is the person who meets with, or provides information to, you about making this investment. To check whether the salesperson is registered, go to www.aretheyregistered.ca.</td>
-                        <td><input type="text" name="risk_ck4"></td>
+                        <td><input type="text" name="risk_ck4" form="theForm"></td>
                     </tr>
 
 
@@ -1157,15 +1177,15 @@
                     </tr>
                     <tr>
                         <td>Your net income before taxes combined with your spouse’s was more than $300,000 in each of the 2 most recent calendar years, and you expect your combined net income before taxes to be more than $300,000 in the current calendar year.</td>
-                        <td><input type="text" name="risk_ck5"></td>
+                        <td><input type="text" name="risk_ck5" form="theForm"></td>
                     </tr>
                     <tr>
                         <td>Either alone or with your spouse, you own more than $1 million in cash and securities, after subtracting any debt related to the cash and securities.</td>
-                        <td><input type="text" name="risk_ck6"></td>
+                        <td><input type="text" name="risk_ck6" form="theForm"></td>
                     </tr>
                     <tr>
                         <td>Either alone or with your spouse, you have net assets worth more than $5 million. (Your net assets are your total assets (including real estate) minus your total debt.)</td>
-                        <td><input type="text" name="risk_ck7"></td>
+                        <td><input type="text" name="risk_ck7" form="theForm"></td>
                     </tr>
 
                     <tr>

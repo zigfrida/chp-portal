@@ -66,14 +66,14 @@ class CreateFormUsersTable extends Migration
             $table->string('delivery_account_reference')->default('');
             $table->string('delivery_address')->default('');
 
-            $table->boolean('risk_ck1')->nullable()->default(0);
-            $table->boolean('risk_ck2')->nullable()->default(0);
-            $table->boolean('risk_ck3')->nullable()->default(0);
-            $table->boolean('risk_ck4')->nullable()->default(0);
+            $table->string('risk_ck1')->default('');
+            $table->string('risk_ck2')->default('');
+            $table->string('risk_ck3')->default('');
+            $table->string('risk_ck4')->default('');
 
-            $table->boolean('risk_ck5')->nullable()->default(0);
-            $table->boolean('risk_ck6')->nullable()->default(0);
-            $table->boolean('risk_ck7')->nullable()->default(0);
+            $table->string('risk_ck5')->default('');
+            $table->string('risk_ck6')->default('');
+            $table->string('risk_ck7')->default('');
 
             $table->timestamps();
 
