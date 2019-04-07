@@ -173,10 +173,10 @@ Route::post('/{id}/portfolio/editEI', 'ExtraInfoController@update');
 
     
 */
-Route::get('/form', 'PDFController@form');
-Route::get('/subform-html', 'PDFController@subform');
-Route::get('formtest', 'PDFController@test');
-Route::get('/filledform', 'PDFController@filledform');
+
+Route::get('{id}/filledform', 'PDFController@filledform');
+
+Route::get('1/formtest', "PDFController@test");
 
 
 
