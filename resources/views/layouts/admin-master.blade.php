@@ -56,7 +56,7 @@
             color: rgb(255, 153, 0)
         }
         .access2{
-            color: rgba(255, 255, 102, 0.9);
+            color: rgba(255, 100, 102, 0.9);
         }        
 
         .access3{

@@ -1,0 +1,57 @@
+    * {
+        box-sizing: border-box;
+        
+    }
+
+   .black-border {
+       border: 2px black solid;
+       margin: 20px 40px 25px 40px;
+       padding-top : 15px;
+       padding-bottom : 15px;
+   }
+
+   .column-row {
+	    margin-left : 18px;
+        margin-bottom : 20px;
+    
+
+    }
+
+
+
+.telephone{
+	position: relative;
+    top : -225px;
+
+
+}
+.signinput{
+	font-size:13px;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 400px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row-form:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.row-form{
+    position: relative;
+    top : -25px;
+}
+
+.user-data {
+       position: relative;
+       top : 50px;
+   }
+    
+    

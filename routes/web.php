@@ -168,12 +168,17 @@ Route::post('/{id}/portfolio/editEI', 'ExtraInfoController@update');
 
 /*
     PDF stuff
-*/
-Route::get('/subform', 'PDFController@subform');
 
-Route::get('test', function () {
-    return view('pdf.test');
-});
+    will combine later.
+
+    
+*/
+
+Route::get('{id}/filledform', 'PDFController@filledform');
+
+Route::get('1/formtest', "PDFController@test");
+
+
 
 /*
     Search stuff
