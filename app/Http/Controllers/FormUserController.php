@@ -61,11 +61,6 @@ class FormUserController extends Controller
 
     public function storeFormstack(Request $request, $id)
     {
-        $user_id = \DB::table('form_users')
-        ->select('user_id')
-        ->where('id', $id)
-        ->get();
-
         $request->validate([
             'clientType' => 'bail|required',
         ]);
@@ -96,18 +91,14 @@ class FormUserController extends Controller
                 'signatory_first_name' => 'required',
                 'signatory_last_name' => 'required',
                 'official_capacity_or_title_of_authorized_signatory' => 'required',
-                'required',
             ]);
         }
 
-        $redirectPath = '/'.$user_id[0]->user_id.'/portfolio';
+        $redirectPath = '/'.$id.'/portfolio';
 
-        \DB::table('form_users')
-            ->where('id', $id)
-            ->update(['form_level' => 1]);
         if ($request->clientType == 'individual') {
             \DB::table('form_users')
-                ->where('id', $id)
+                ->where('user_id', $id)
                 ->update(['subscriber_name' => $request->subscriber_name,
                 'clientType' => $request->clientType,
                 'city' => $request->city,
@@ -128,7 +119,7 @@ class FormUserController extends Controller
                 ]);
         } elseif ($request->clientType == 'business') {
             \DB::table('form_users')
-                ->where('id', $id)
+                ->where('user_id', $id)
                 ->update(['subscriber_name' => $request->subscriber_name,
                 'clientType' => $request->clientType,
                 'province' => $request->province,
@@ -156,6 +147,11 @@ class FormUserController extends Controller
                 ]);
         }
 
+        // finished the first form
+        \DB::table('form_users')
+            ->where('user_id', $id)
+            ->update(['form_level' => 1]);
+
         return redirect($redirectPath);
     }
 
@@ -171,11 +167,6 @@ class FormUserController extends Controller
     {
         $clientType = $request->input('clientType');
 
-        $user_id = \DB::table('form_users')
-            ->select('user_id')
-            ->where('user_id', $id)
-            ->get();
-
         $subscriber_name = $request->input('subscriber_name');
         $steet = $request->input('street');
         $city = $request->input('city');
@@ -187,10 +178,10 @@ class FormUserController extends Controller
         $class = $request->input('class');
 
         if ($clientType == 'individual') {
-            $sin = $request->input('sin');
             \DB::table('form_users')
             ->where('user_id', $id)
-            ->update(['subscriber_name' => $request->subscriber_name,
+            ->update([
+                'subscriber_name' => $subscriber_name,
                 'clientType' => $request->clientType,
                 'class' => $request->class,
                 'city' => $request->city,
@@ -209,48 +200,48 @@ class FormUserController extends Controller
                 'ind_ck5' => $request->input('ind_ck5') !== null,
                 'ind_ck6' => $request->input('ind_ck6') !== null,
                 ]);
-
-            \DB::table('form_users')
-            ->where('user_id', $id)
-            ->update(['access_level' => 1]);
-        } elseif ($clientType == 'business') {
-            $signatory_first_name = $request->input('signatory_first_name');
-            $signatory_last_name = $request->input('signatory_last_name');
-            $official_capacity_or_title_of_authorized_signatory = $request->input('official_capacity_or_title_of_authorized_signatory');
-            $business_number = $request->input('business_number');
             \DB::table('form_users')
                 ->where('user_id', $id)
-                ->update(['subscriber_name' => $request->subscriber_name,
-                'clientType' => $request->clientType,
-                'class' => $request->class,
-                'province' => $request->province,
-                'street' => $request->street,
-                'postal_code' => $request->postal_code,
-                'country' => $request->country,
-                'sin' => $request->sin,
-                'phone' => $request->phone,
-                'email' => $request->email,
-                'business_number' => $request->business_number,
-                'signatory_first_name' => $request->signatory_first_name,
-                'official_capacity_or_title_of_authorized_signatory' => $request->official_capacity_or_title_of_authorized_signatory,
-                'signatory_last_name' => $request->signatory_last_name,
-                'total_investment' => $request->total_investment,
-                'bus_ck1' => $request->input('bus_ck1') !== null,
-                'bus_ck2' => $request->input('bus_ck2') !== null,
-                'bus_ck3' => $request->input('bus_ck3') !== null,
-                'bus_ck4' => $request->input('bus_ck4') !== null,
-                'bus_ck5' => $request->input('bus_ck5') !== null,
-                'bus_ck6' => $request->input('bus_ck6') !== null,
-                'bus_ck7' => $request->input('bus_ck7') !== null,
-                'bus_ck8' => $request->input('bus_ck8') !== null,
-                'bus_ck9' => $request->input('bus_ck9') !== null,
-                'bus_ck10' >= $request->input('bus_ck10') !== null, ]);
-
+                ->update(['access_level' => 1]);
+        } elseif ($clientType == 'business') {
+            \DB::table('form_users')
+                ->where('user_id', $id)
+                ->update([
+                    'subscriber_name' => $subscriber_name,
+                    'clientType' => $request->clientType,
+                    'class' => $request->class,
+                    'province' => $request->province,
+                    'street' => $request->street,
+                    'postal_code' => $request->postal_code,
+                    'country' => $request->country,
+                    'sin' => $request->sin,
+                    'phone' => $request->phone,
+                    'email' => $request->email,
+                    'business_number' => $request->business_number,
+                    'signatory_first_name' => $request->signatory_first_name,
+                    'official_capacity_or_title_of_authorized_signatory' => $request->official_capacity_or_title_of_authorized_signatory,
+                    'signatory_last_name' => $request->signatory_last_name,
+                    'total_investment' => $request->total_investment,
+                    'bus_ck1' => $request->input('bus_ck1') !== null,
+                    'bus_ck2' => $request->input('bus_ck2') !== null,
+                    'bus_ck3' => $request->input('bus_ck3') !== null,
+                    'bus_ck4' => $request->input('bus_ck4') !== null,
+                    'bus_ck5' => $request->input('bus_ck5') !== null,
+                    'bus_ck6' => $request->input('bus_ck6') !== null,
+                    'bus_ck7' => $request->input('bus_ck7') !== null,
+                    'bus_ck8' => $request->input('bus_ck8') !== null,
+                    'bus_ck9' => $request->input('bus_ck9') !== null,
+                    'bus_ck10' => $request->input('bus_ck10') !== null,
+                ]);
             \DB::table('form_users')
                 ->where('user_id', $id)
                 ->update(['access_level' => 1]);
         }
-        $redirectPath = '/'.$user_id[0]->user_id.'/portfolio';
+        \DB::table('form_users')
+            ->where('user_id', $id)
+            ->update(['access_level' => 1]);
+
+        $redirectPath = '/'.$id.'/portfolio';
         $testPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
 
         return Redirect::away($testPath);
@@ -288,7 +279,15 @@ class FormUserController extends Controller
         $risk_ck6 = $request->risk_ck6;
         $risk_ck7 = $request->risk_ck7;
 
-        // regardless whether or not they are an individual or a business, these fields get in
+        $request->validate([
+            'risk_ck1' => 'required|same:chk7|same:chk2|same:chk3|same:chk4|same:chk5|same:chk6',
+            'risk_ck2' => 'required|same:chk1|same:chk7|same:chk3|same:chk4|same:chk5|same:chk6',
+            'risk_ck3' => 'required|same:chk1|same:chk2|same:chk7|same:chk4|same:chk5|same:chk6',
+            'risk_ck4' => 'required|same:chk1|same:chk2|same:chk3|same:chk7|same:chk5|same:chk6',
+            'risk_ck5' => 'required|same:chk1|same:chk2|same:chk3|same:chk4|same:chk7|same:chk6',
+            'risk_ck6' => 'required|same:chk1|same:chk2|same:chk3|same:chk4|same:chk5|same:chk7',
+            'risk_ck7' => 'required|same:chk1|same:chk2|same:chk3|same:chk4|same:chk5|same:chk6',
+        ]);
 
         // print_or_type_name missing. so is the picture img thingy. put that shit in!
         \DB::table('form_users')
@@ -315,6 +314,9 @@ class FormUserController extends Controller
                 'risk_ck7' => $risk_ck7,
             ]);
 
+        \DB::table('form_users')
+            ->where('user_id', $id)
+            ->update(['form_level' => 2]);
         $redirectPath = '/'.$id.'/'.'portfolio';
 
         return redirect($redirectPath);

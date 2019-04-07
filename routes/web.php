@@ -171,14 +171,12 @@ Route::post('/{id}/portfolio/editEI', 'ExtraInfoController@update');
 
     will combine later.
 
-    
+
 */
 
 Route::get('{id}/filledform', 'PDFController@filledform');
 
-Route::get('1/formtest', "PDFController@test");
-
-
+Route::get('1/formtest', 'PDFController@test');
 
 /*
     Search stuff
