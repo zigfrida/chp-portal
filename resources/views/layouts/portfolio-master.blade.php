@@ -23,12 +23,15 @@
             <div class="has-text-centered">
                 <h1 class="title"><span class="decor">Portfolio of</span> <span class="le-decor">{{ $user[0]->subscriber_name }}</span></h1>
             </div>
-            <a href="{{url('form')}}"> print sign up form </a>
-            <a href="{{url('subform-html')}}"> print acknoledgement </a>
+
+
+            (should only works access level 1 form level 2)<br>
+            <a href="{{url($user[0]->id.'/filledform')}}"> filledform </a><br>
+            <a href="/1/formtest"> testhtml </a><br>
+
             
         </div>
 
-        
         <br>
         @if ($user[0]->access_level == 0 && $user[0]->form_level == 0)
             <link rel="stylesheet" type="text/css" href="{{ asset('css/random.css') }}">
@@ -44,6 +47,7 @@
             <link rel="stylesheet" type="text/css" href="{{ asset('css/random.css') }}">
             @include('forms.subagreement')
         @elseif ($user[0]->access_level == 1 && $user[0]->form_level == 2)
+        <a href="{{url($user[0]->id.'/filledform')}}"> filledform </a><br>
             <h1>Wait for Alli to confirm subagreement</h1>
         @elseif ($user[0]->access_level == 2 && $user[0]->form_level == 2)
         
@@ -64,7 +68,7 @@
                 <br>
                 <div class="columns is-centered is-mobile">
                     <div class="column is-half">
-                        @if(auth()->user()->userType() == 'admin')
+                     @if(auth()->user()->userType() == 'admin')
                             @yield('client-comment')
                         @endif
                     </div>

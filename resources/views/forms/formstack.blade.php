@@ -253,7 +253,7 @@
                                 </a>
                             </p>
                             <p class="control is-expanded">
-                                <input class="input is-large {{ $errors->has('total_investment') ? 'is-danger' : '' }}" name="total_investment" type="tel" value="{{ old('total_investment') ? old('total_investment') : '' }}">
+                                <input class="input is-large {{ $errors->has('total_investment') ? 'is-danger' : '' }}" name="total_investment" type="text" value="{{ old('total_investment') ? old('total_investment') : '' }}">
                             </p>
                         </div>
                         <p class="help"></p>

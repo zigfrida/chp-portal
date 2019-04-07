@@ -112,6 +112,7 @@ Route::post('/{id}/portfolio/comment', 'PortfolioController@update');
 */
 Route::post('/{id}/portfolio/form1', 'FormUserController@storeFormstack')->middleware('auth');
 Route::patch('/{id}/portfolio', 'FormUserController@update');
+Route::post('/{id}/portfolio/form2', 'FormUserController@storeSubAgreement')->middleware('auth');
 
 /*
     File uploading
@@ -175,12 +176,17 @@ Route::post('/{id}/portfolio/editEI', 'ExtraInfoController@update');
 
 /*
     PDF stuff
-*/
-Route::get('/subform', 'PDFController@subform');
 
-Route::get('test', function () {
-    return view('pdf.test');
-});
+    will combine later.
+
+    
+*/
+
+Route::get('{id}/filledform', 'PDFController@filledform');
+
+Route::get('1/formtest', "PDFController@test");
+
+
 
 /*
     Search stuff

@@ -1,17 +1,35 @@
 <br>
+<script defer>
+        function allowNumbersOnly(e) {
+            var code = (e.which) ? e.which : e.keyCode;
+            if (code > 31 && (code < 48 || code > 57)) {
+                e.preventDefault();
+            }
+        }
+        function allowNumbersOnly2(e) {
+            var code = (e.which) ? e.which : e.keyCode;
+            if (code > 31 && (code < 48 || code > 57)) {
+                e.preventDefault();
+            }
+        }
+        function allowNumbersOnly3(e) {
+            var code = (e.which) ? e.which : e.keyCode;
+            if (code > 31 && (code < 48 || code > 57)) {
+                e.preventDefault();
+            }
+        }
+    </script>
 <div class="container">
     <div class="container greeting_msg" style="width: 70%" id="greeting_msg">
         <div class="box has-background-white-bis has-text-centered">
             <h3 class="subtitle is-3">You're almost there!</h3>
             <p class="subtitle is-5">These are the final set of forms. Please read them carefully!</p>
-            <p><i>Make sure to fill out the details <strong>correctly!</strong></i></p>
+            <p><i>The 'Registration' & 'Delivery Instructions' sections are <strong>optional!</strong></i> Please contact CHP if you are unclear as to whether it should be filled out.</p>
         </div>
     </div>
     <section class="section">
         <div class="container has-background-white-bis">
             <div class="has-text-centered">
-
-            
                 <h5 class="title is-5 is-uppercase is-bold">These securities will not be registered under the United States Securities Act of 1933, as amended, and may not be resold in the United States or to a U.S. person</h5>
                 <br><br><br>
                 <h2 class="title is-2 has-text-success is-uppercase is-bold">CHP Master I <br> Limited Partnership</h2>
@@ -28,8 +46,8 @@
             <div class="content">
                 <ol type="1">
                     <li>Complete and sign pages 1 and 2 of the Subscription Agreement.</li>
-                    <li>Complete, date and sign the <span class="is-bold">NI 45-106 Accredited Investor Certificate - Appendix I</span> and, if indicated in the category selected in Appendix I, the <span class="is-bold">Form 45-106F9 for Individual Accredited Investorys (Risk Acknowledgement Form).</span></li>
-                    <li>Return a completed Subscription Agreement, Appendix I, together with the subscription proceeds (by way of certified cheque, bank draft or wire transfer (see <span class="is-bold">Appendix II</span> for the Partnership's wire transfer details).</li>
+                    <li>Complete, date and sign the <span class="has-text-weight-bold">NI 45-106 Accredited Investor Certificate - Appendix I</span> and, if indicated in the category selected in Appendix I, the <span class="has-text-weight-bold">Form 45-106F9 for Individual Accredited Investorys (Risk Acknowledgement Form).</span></li>
+                    <li>Return a completed Subscription Agreement, Appendix I, together with the subscription proceeds (by way of certified cheque, bank draft or wire transfer (see <span class="has-text-weight-bold">Appendix II</span> for the Partnership's wire transfer details).</li>
                 </ol>
             </div>
 
@@ -50,32 +68,187 @@
                 Units set out below on the terms and subject to the conditions set out in this Agreement.
             </p>
             <div class="has-text-centered">
-                Class A Capital Contribution, at the NAV per unit = $____________
-                <br>
-                Class B Capital Contribution, at the NAV per unit = $____________
+                @if ($user[0]->class == 'A')
+                    <span class="has-text-weight-bold">Class A Capital Contribution, at the NAV per unit</span> = ${{ $user[0]->total_investment }}
+                @elseif ($user[0]->class == 'B')
+                    <span class="has-text-weight-bold">Class B Capital Contribution, at the NAV per unit</span> = ${{ $user[0]->total_investment }}
+                @endif
                 <br>
             </div>
-            DATED this ______ day of _____________, 2019
+            <span class="has-text-weight-bold">DATED</span> this <input style="border:2px solid #FF4136;" type="text" form="theForm" name="signed_day1" id="onlyNumbers" onkeypress="allowNumbersOnly(event)" value="{{ now()->day }}">th day of
+            
+            <select name="signed_month1" form="theForm">
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+            </select> 
+
+            , 
+            <input style="border:2px solid #FF4136" type="text" form="theForm" name="signed_year1" value="{{ now()->year }}">
+
             <br><br>
             <div class="columns is-multiline">
                 <div class="column is-half">
-                    Name of Subscriber: {{ $user[0]->subscriber_name }}
+                    <span class="has-text-weight-bold">Name of Subscriber</span>: {{ $user[0]->subscriber_name }}
                 </div>
                 <div class="column is-half">
-                    Subscriber's Address: {{ $user[0]->street }}
+                    <span class="has-text-weight-bold">Subscriber's Address</span>: 
                 </div>           
                 
                 <div class="column is-half">
-                    by (Official Capacity or Title): {{ $user[0]->official_capacity_or_title_of_authorized_signatory }}
+                    <span class="has-text-weight-bold">by (Official Capacity or Title)</span>: {{ $user[0]->official_capacity_or_title_of_authorized_signatory }}
                 </div>
                 <div class="column is-half">
-                    {{ $user[0]->city }}, {{ $user[0]->province }}, {{ $user[0]->postal_code }}, {{ $user[0]->country }}
+                    {{ $user[0]->street }}, {{ $user[0]->city }}, {{ $user[0]->province }}, {{ $user[0]->postal_code }}, {{ $user[0]->country }}
+                </div>
+
+                <div class="column is-half">
+                    <span class="has-text-weight-bold">Authorized signature</span>: <strong>(some img link here)</strong>
+                </div>
+                <div class="column is-half">
+                    <span class="has-text-weight-bold">Email address</span>: {{ $user[0]->email }}
                 </div>
             </div>
 
         <br><br><br>
+        <div class="box has-background-white-bis has-text-centered" style="margin-left: 10%; margin-right: 10%;">
+            <span class="has-text-weight-bold">This subscription is accepted by the Issuer this</span> this <input style="border:2px solid #FF4136;" value="{{ now()->day }}" type="text" form="theForm" name="signed_day2" id="onlyNumbers2" onkeypress="allowNumbersOnly2(event)">th day of 
+            
+            <select name="signed_month2" form="theForm">
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+            </select> 
+            , <input style="border:2px solid #FF4136" type="text" form="theForm" name="signed_year2" value="{{ now()->year }}">
 
-        <div class="content">
+            
+            
+            
+            <p>CHP Master I Limited Partnership</p>
+            {{-- Don't know if authorized signatory is only for Businesses. Wait for Alli to reply  TODO --}}
+            {{-- Authorized Signatory: {{ $user[0]->???? }} --}}
+        </div>
+        <br>
+        <br>
+        <div class="has-text-centered">
+            <p>This section is optional. Please contact us if you do not know whether or not to fill it out.</p>
+            <br>
+        </div>
+        @if ($errors->any())
+            <div class="notification is-warning">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>*{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        <form action="/{{ $user[0]->user_id }}/portfolio/form2" method="post" id="theForm">
+            @csrf
+
+            <div class="field is-horizontal" id="name_of_authorized_signatory">
+                <div class="field-label is-normal">
+                    <label class="label">Registration Instructions</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                    <p class="control is-expanded has-icons-left">
+                        <input class="input" type="text" name="registration_name" value="">
+                        <span class="icon is-small is-left">
+                        <i class="fas fa-user"></i>
+                        </span>
+                    </p>
+                    <i><p class="help">Name</p></i>
+                    </div>
+                    <div class="field">
+                    <p class="control is-expanded has-icons-left t">
+                        <input class="input" type="text" name="registration_account_reference" value="">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                    </p>
+                    <i><p class="help">Account reference, if applicable</p></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">&nbsp;</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control is-expanded ">
+                            <input class="input"name="registration_address" type="text" value="">
+                        </p>
+                        <i><p class="help">Address</p></i>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Delivery Instructions</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control is-expanded ">
+                            <input class="input" name="delivery_contact" type="text" value="">
+                        </p>
+                        <i><p class="help">Contact name</p></i>
+                    </div>
+                    <div class="field">
+                        <p class="control">
+                            <input class="input" name="delivery_telephone" type="tel" value="">
+                        </p>
+                        <i><p class="help">Telephone Number</p></i>
+                    </div>
+                    <div class="field">
+                        <p class="control is-expanded ">
+                            <input class="input " name="delivery_sccount_reference" type="text" value="">
+                        </p>
+                        <i><p class="help">Account reference, if applicable</p></i>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">&nbsp;</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control is-expanded ">
+                            <input class="input " name="delivery_address" type="text" value="">
+                        </p>
+                        <i><p class="help">Address</p></i>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+        <hr>
+
+        <div class="content" style="overflow-y: scroll; height: 600px;">
             <ol type="1">
                 <li><b>Interpretation</b></li>
                 <ol class="is-upper-roman">
@@ -618,8 +791,497 @@
                     <br>
                 </ol>
             </div>
+            <hr>
+            <div class="content">
+                <div class="has-text-centered">
+                    <h3 class="is-uppercase has-text-weight-bold title is-3">Appendix I</h1>
+                    <br>
+                    <h1 class="is-uppercase has-text-weight-bold has-text-link">ACCREDITED INVESTOR CERTIFICATE</h1>
+                    <h6 class="title is-6">(National Instrument 45-106andSecurities Act(Ontario))</h6>
+                </div>
+                Capitalized terms not specifically defined in this certificate have the meaning ascribed to them in the Agreement to which this certificate is attached.
+                <br>
+                In connection with the execution of the Agreement to which this appendix is attached, the Subscriber represents, warrants and certifies to the Issuer that <span class="has-text-weight-bold">(please initial the applicable categories)</span> the Subscriber is:
+                <br><br>
+                <span class="has-text-weight-bold">(Categories Applicable to Individuals Only)</span>
+                <br>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>a)</td>
+                            <td>
+                                @if ($user[0]->ind_ck1 == 1)
+                                    X
+                                @else
+                                    _____
+                                @endif
+                            </td>
+                            <td>an individual whose net income before taxes exceeded $200,000 in each of the two most recentcalendar years or whose net income before taxes combined with that of a spouse exceeded $300,000 in each of the two most recent calendar years and who, in either case, reasonably expects to exceed that net income level in the current calendar year. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
+                        </tr>
+                        
+                        <tr>
+                            <td>b)</td>
+                            <td>
+                                @if ($user[0]->ind_ck2 == 1)
+                                    X
+                                @else
+                                    _____
+                                @endif
+                            </td>
+                            <td>an individual, who, either alone or with a spouse, has net assets of at least $5,000,000. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
+                        </tr>
+
+                        <tr>
+                            <td>c)</td>
+                            <td>
+                                @if ($user[0]->ind_ck3 == 1)
+                                    X
+                                @else
+                                    _____
+                                @endif
+                            </td>
+                            <td>an individual who, either alone or with a spouse, beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $1,000,000. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
+                        </tr>
+
+                        <tr>
+                            <td>d)</td>
+                            <td>
+                                @if ($user[0]->ind_ck4 == 1)
+                                    X
+                                @else
+                                    _____
+                                @endif
+                            </td>
+                            <td>an individual who beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $5,000,000.</td>
+                        </tr>
+
+                        <tr>
+                            <td>e)</td>
+                            <td>
+                                @if ($user[0]->ind_ck5 == 1)
+                                    X
+                                @else
+                                    _____
+                                @endif
+                            </td>
+                            <td>an individual registered under the securities legislation of a jurisdiction of Canada, as a representative of a person registered under the securities legislation of a jurisdiction of Canada as an adviser or dealer.</td>
+                        </tr>
+
+                        <tr>
+                            <td>f)</td>
+                            <td>
+                                @if ($user[0]->ind_ck6 == 1)
+                                    X
+                                @else
+                                    _____
+                                @endif
+                            </td>
+                            <td>an individual formerly registered under the securities legislation of a jurisdiction of Canada, other than an individual formerly registered solely as a representative of a limited market dealer under one or both of the Securities Act (Ontario) or the Securities Act (Newfoundland and Labrador),</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <span class="has-text-weight-bold">(Categories Applicable to Individuals and Non-Individuals)</span>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>a)</td>
+                            <td>
+                                @if ($user[0]->bus_ck1 == 1)
+                                    X
+                                @else
+                                    _____
+                                @endif
+                            </td>
+                            <td>except in Ontario, a Person registered under the securities legislation of a jurisdiction of Canada as an adviser or dealer.</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>b)</td>
+                            <td>
+                                @if ($user[0]->bus_ck2 == 1)
+                                    X
+                                @else
+                                    _____
+                                @endif
+                            </td>                            
+                            <td>except in Ontario, a pension fund that is regulated by either the Office of the Superintendent of Financial Institutions (Canada) or a pension commission or similar regulatory authority of a jurisdiction of Canada.</td>
+                        </tr>
+
+                        <tr>
+                            <td>c)</td>
+                            <td>                            
+                                @if ($user[0]->bus_ck3 == 1)
+                                    X
+                                @else
+                                    _____
+                                @endif
+                            </td>
+                            <td>a Person, other than an individual or investment fund, that has net assets of at least $5,000,000 as shown on its most recently prepared financial statements.</td>
+                        </tr>
+
+                        <tr>
+                            <td>d)</td>
+                            <td>
+                                @if ($user[0]->bus_ck4 == 1)
+                                    X
+                                @else
+                                    _____
+                                @endif
+                            </td>
+                            <td>an investment fund that distributes or has distributed securities under a prospectus in a jurisdiction of Canada for which the regulator or, in Québec, the securities regulatory authority, has issued a receipt.</td>
+                        </tr>
+
+                        <tr>
+                            <td>e)</td>
+                            <td>
+                                @if ($user[0]->bus_ck5 == 1)
+                                    X
+                                @else
+                                    _____
+                                @endif
+                            </td>
+                            <td>a person acting on behalf of a fully managed account managed by that person if that person is registered or authorized to carry on business as an adviser or the equivalent under the securities legislation of a jurisdiction of Canada or a foreign jurisdiction.</td>
+                        </tr>
+
+                        <tr>
+                            <td>f)</td>
+                            <td>
+                                @if ($user[0]->bus_ck6 == 1)
+                                    X
+                                @else
+                                    _____
+                                @endif
+                            </td>
+                            <td>a registered charity under the Income Tax Act (Canada) that, in regard to the trade, has obtained advice from an eligibility adviser or an adviser registered under the securities legislation of the jurisdiction of the registered charity to provide advice on the securities being traded.</td>
+                        </tr>
+
+                        <tr>
+                            <td>g)</td>
+                            <td>
+                                @if ($user[0]->bus_ck7 == 1)
+                                    X
+                                @else
+                                    _____
+                                @endif
+                            </td>
+                            <td>a person in respect of which all of the owners of interests, direct, indirect, or beneficial, except the voting securities required by law to be owned by directors, are persons that are accredited investors.</td>
+                        </tr>
+
+                        <tr>
+                            <td>h)</td>
+                            <td>
+                                @if ($user[0]->bus_ck8 == 1)
+                                    X
+                                @else
+                                    _____
+                                @endif
+                            </td>
+                            <td>an investment fund that is advised by a person registered as an adviser or a person that is exempt from registration as an adviser.</td>
+                        </tr>
+
+                        <tr>
+                            <td>i)</td>
+                            <td>
+                                @if ($user[0]->bus_ck9 == 1)
+                                    X
+                                @else
+                                    _____
+                                @endif
+                            </td>
+                            <td>a person that is recognized or designated by the securities regulatory authority or, except in Ontario and Québec, the regulator as an accredited investor.</td>
+                        </tr>
+
+                        <tr>
+                            <td>j)</td>
+                            <td>
+                                @if ($user[0]->bus_ck10 == 1)
+                                    X
+                                @else
+                                    _____
+                                @endif
+                            </td>
+                            <td>a trust established by an accredited investor for the benefit of the accredited investor’s family members of which a majority of the trustees are accredited investors and all of the beneficiaries are the accredited investor’s spouse, a former spouse of the accredited investor or a parent, grandparent, brother, sister, child or grandchild of that accredited investor, of that accredited investor’s spouse or of that accredited investor’s former spouse.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <p class="is-uppercase">Definitions</p>
+                For the purposes of this certificate, the following definitions apply:
+
+
+                <span class="has-text-weight-bold">“financial assets”</span> means cash, securities, or a contract of insurance, a deposit or an evidence of a deposit that is not a security for the purposes of securities legislation;
+                <br>
+                <span class="class="has-text-weight-bold">"investment fund”</span> has the same meaning as in National Instrument 81-106;
+                <br>
+                <span class="class="has-text-weight-bold">“person”</span> includes (i) an individual (ii) a corporation (iii) a partnership, trust, fund, association, syndicate, organization or other organized group of persons, whether incorporated or not, and (iv) an individual or other person in that person’s capacity as a trustee, executor, administrator or personal or other legal representative;
+                <br>
+                <span class="class="has-text-weight-bold">“related liabilities”</span> means (i) liabilities incurred or assumed for the purpose of financing the acquisition or ownership of financial assets, or (ii) liabilities that are secured by financial assets;
+                <br>
+
+                The Subscriber acknowledges that the Issuer is relying upon the Subscriber's disclosure herein. In the event the Subscriber's accredited investor status changes prior to the date on which a certificate representing any of the Units is issued, the Subscriber agrees to immediately notify the Issuer of such change.
+                <br>
+                <br>
+                <span class="is-uppercase has-text-weight-bold">IN WITNESS WHEREOF</span>, the undersigned has executed this certificate as of the <input style="border:2px solid #FF4136;" type="text" form="theForm" name="signed_day3" id="onlyNumbers3" onkeypress="allowNumbersOnly3(event)">th day of <input style="border:2px solid #FF4136" type="text" form="theForm" name="signed_month3">, {{ now()->year }} 
+            </div>
+            @if ($user[0]->clientType == "business" )
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">For Corporations, Partnerships, or Other Entity: </label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control is-expanded has-icons-left">
+                                <input class="input" type="text" name="" form="theForm">
+                                <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                                </span>
+                            </p>
+                            <i><p class="help">Name of Entity</p></i>
+                        </div>
+                        <div class="field">
+                        <p class="control is-expanded has-icons-left t">
+                            <input class="input" type="text" name="" value="" form="theForm">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </p>
+                        <i><p class="help">Type of Entity</p></i>
+                        </div>
+                        <div class="field">
+                            <p class="control is-expanded has-icons-left t">
+                                <input class="input" type="text" name="" value="" form="theForm">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                            </p>
+                            <i><p class="help">Signature of Person Signing</p></i>
+                        </div>
+                    </div>
+                </div>
+            @elseif ($user[0]->clientType = "individual")
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">For Individuals: </label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                        <p class="control is-expanded has-icons-left">
+                            <input class="input" type="text" name="signature" form="theForm" value=""> {{-- GET THIS FROM DB PICTURE --}}
+                            <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                            </span>
+                        </p>
+                        <i><p class="help">Signature</p></i>
+                        </div>
+                        <div class="field">
+                        <p class="control is-expanded has-icons-left t">
+                            <input class="input" type="text" name="print_or_type_name" form="theForm">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </p>
+                        <i><p class="help">Print or Type Name</p></i>
+                        </div>
+                    </div>
+                </div>            
+            @endif
+        </div>
+        
+        <br>
+        <hr>
+        <br>
+
+        <div class="content">
+            <div class="has-text-centered">
+                <p class="title is-3 is-spaced">Appendix IA</p>
+                <p class="subtitle is-5">Form 45-106F9</p>
+            
+                <br>
+                <h3 class="subtitle is-3">FORM FOR INDIVIDUAL ACCREDITED INVESTORS</h3>
+                <br>
+                <h5 class="subtitle is-5 has-text-weight-bold">WARNING!</h5>
+                <h6 class="subtitle is-6 has-text-weight-bold">This investment is risky. Don't invest unless you can afford to lose all the money you pay for this investment</h6>            
+            </div>
+
+            <table class="table is-bordered">
+                <thead>
+                    <tr>
+                        <span class="has-text-weight-bold">SECTION 1 TO BE COMPLETED BY THE ISSUER OR SELLING SECURITY HOLDER</span>
+                    </tr>
+                    <br>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="has-text-weight-bold">1. About your investment</span></td>
+                    </tr>
+                    <tr>
+                        <td>Type of securities: <span class="has-text-weight-bold">Class A and B Limited Partnership Units</span></td>
+                        <td>Issuer: <span class="has-text-weight-bold">CHP Master I Limited Partnership</span></td>
+                    </tr>
+                    <tr>
+                        <td></span class="has-text-weight-bold">Purchased from: The Issuer</span></td>
+                    </tr>
+                    <tr>
+                        <td>SECTIONS 2 TO 4 TO BE COMPLETED BY THE PURCHASER</td>
+                    </tr>
+                    <tr>
+                        <div class="has-text-grey-lighter">
+                            <td><span class="has-text-weight-bold">2. Risk acknowledgement</span></td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <td>This is risky. Initial that you understand that: </td>
+                        <td><span class="has-text-weight-bold">Your initials</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="has-text-weight-bold">Risk of loss</span> - You could lose your entire investment of ${{ $user[0]->total_investment }} </td>
+                        <td><input type="text" name="risk_ck1" form="theForm"></td>
+                    </tr>
+                    <tr>
+                        <td><span class="has-text-weight-bold">Liquidity risk</span> – You may not be able to sell your investment quickly – or at all.</td>
+                        <td><input type="text" name="risk_ck2" form="theForm"></td>
+                    </tr>
+                    <tr>
+                        <td><span class="has-text-weight-bold">Lack of information</span> – You may receive little or no information about your investment.</td>
+                        <td><input type="text" name="risk_ck3" form="theForm"></td>
+                    </tr>
+                    <tr>
+                        <td></span class="has-text-weight-bold">Lack of advice</span> – You will not receive advice from the salesperson about whether this investment is suitable for you unless the salesperson is registered. The salesperson is the person who meets with, or provides information to, you about making this investment. To check whether the salesperson is registered, go to www.aretheyregistered.ca.</td>
+                        <td><input type="text" name="risk_ck4" form="theForm"></td>
+                    </tr>
+
+
+                    <tr>
+                        <div class="has-text-grey-lighter">
+                            <td><span class="has-text-weight-bold">3. Accredited investor status</span></td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <td>Your net income before taxes was more than $200,000 in each of the 2 most recent calendar years, and you expect it to be more than $200,000 in the current calendar year. (You can find your net income before taxes on your personal income tax return.)</td>
+                        <td><span class="has-text-weight-bold">Your initials</span></td>
+                    </tr>
+                    <tr>
+                        <td>Your net income before taxes combined with your spouse’s was more than $300,000 in each of the 2 most recent calendar years, and you expect your combined net income before taxes to be more than $300,000 in the current calendar year.</td>
+                        <td><input type="text" name="risk_ck5" form="theForm"></td>
+                    </tr>
+                    <tr>
+                        <td>Either alone or with your spouse, you own more than $1 million in cash and securities, after subtracting any debt related to the cash and securities.</td>
+                        <td><input type="text" name="risk_ck6" form="theForm"></td>
+                    </tr>
+                    <tr>
+                        <td>Either alone or with your spouse, you have net assets worth more than $5 million. (Your net assets are your total assets (including real estate) minus your total debt.)</td>
+                        <td><input type="text" name="risk_ck7" form="theForm"></td>
+                    </tr>
+
+                    <tr>
+                        <div class="has-text-grey-lighter">
+                            <td><span>4. Your name and signature</span></td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <td>By signing this form, you confirm that you have read this form and you understand the risks of making this investment as identified in this form.</td>
+                        <td>First and last name: {{ $user[0]->subscriber_name }} </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Signature: (put signature in)
+                        </td>
+                        <td>
+                            Date: {{ now()->day }}, {{ now()->month }}, {{ now()->year }}
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+            <br>
+
+            <div class="has-background-white-bis">
+                <p class="has-text-weight-bold">6. For more information about this investment</p>
+                <br>
+                CHP Master I Limited Partnership <br>
+                409 - 1080 Mainland St., Vancouver, BC. V6B 2T4 Attention: Kelly Klatik <br>
+                (604) 687-0755 <br> 
+                kelly@klatik.com <br>
+                <br>
+                <h6 class="subtitle is-6">For more information about prospectus exemptions, contact your local securities regulator. You can find contact information at www.securities-administrators.ca.</h6>
+            </div>
+        </div>
+            <br>
+
+        <p class="has-text-weight-bold">Form instructions:</p>
+        <p>1. This form does not mandate the use of a specific font size or style but the font must be legible.</p>
+        <p>2. The information in sections 1, 5 and 6 must be completed before the purchaser completes and signs the form.</p>
+        <p>3. The purchaser must sign this form. Each of the purchaser and the issuer or selling security holder must receive a copy of this form signed by the purchaser. The issuer or selling security holder is required to keep a copy of this form for 8 years after the distribution.</p>
+
+
+        <br><br><br>
+        <hr>
+
+        <div class="has-text-centered">
+            <h3 class="subtitle is-3">APPENDIX II</h3>
+            <br>
+            <h3 class="subtitle is-3">BANK WIRE TRANSFER INSTRUCTIONS</h3>
         </div>
 
+        <br>
+        <h4 class="subtitle is-4">For Canadian Funds:</h3>
+        <p>Bank Address:</p>
+        <p>Bank of Montreal</p>
+        <p>595 Burrard Street</p>
+        <p>Vancouver, B.C. V7X 1L7</p>
+        <p>Transit #: 00040</p>
+        <p>Institution #: 001</p>
+        <p>Account #: 1883997 - CDN</p>
+        
+        <br>
+
+        <p class="has-text-weight-bold">Account Name: Cypress Hills Finance Corp.</p>
+        <p>Swiftcode: BOFMCAM2</p>
+
+        <br>
+
+        <p class="has-text-weight-bold">Beneficiary Address:</p>
+        <p>212 – 1080 Mainland Street,</p>
+        <p>Vancouver, BC</p>
+        <p>V6B 2T4</p>
+
+        <br>
+
+        <p>Reference: <span class="has-text-danger">CHP Master I Limited Partnership</span> </p>
+
+
+
+        <div class="field is-horizontal">
+            <div class="field-label">
+                <!-- Left empty for spacing -->
+            </div>
+            <div class="field-body">
+                {{-- group might make you think it's more than one item but we need it to align btn right even though the 'group' consists
+                of merely 1 --}}
+                <div class="field is-grouped is-grouped-right">
+                    <div class="control">
+                        <button class="button is-warning" type="submit" form="theForm">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 </div>
 </div>

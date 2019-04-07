@@ -36,7 +36,7 @@
     <hr>
 
     <h2 class="subtitle is-3 has-text-weight-light">Potential Clients</h2>
-    <div id="B_portfolios" class="columns is-multiline">
+    <div id="PC_portfolios" class="columns is-multiline">
         @foreach ($clientsPC as $cPC)
 
         <?php $access_css = $cPC->access_level + $cPC->form_level; ?>
