@@ -40,8 +40,11 @@ class PDFController extends Controller
 	}
 public function filledform($id){
 
-	$user = DB::table('form_users')->where('form_users.user_id', $id)->join('users', 'form_users.user_id', '=' , 'users.id')
-														  ->join('p_i_summaries', 'form_users.user_id', '=', 'p_i_summaries.user_id')->get();
+	$user = DB::table('form_users')->join('users', 'form_users.user_id', '=' , 'users.id')
+															->join('p_i_summaries', 'form_users.user_id', '=', 'p_i_summaries.user_id')
+															->where('form_users.user_id', $id)->get();
+															
+
 														  
 
 	$htmlstring = view('pdf.subscription-filled', compact('user'))->render();
