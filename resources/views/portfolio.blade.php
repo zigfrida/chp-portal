@@ -48,23 +48,23 @@
 				</tr>
 				<tr>
 					<th>NAV Per Unit</th>
-					<td>{{$thisUser[0]->NAVPerUnit}}</td>
+					<td>${{$thisUser[0]->NAVPerUnit}}</td>
 				</tr>
 				<tr>
 					<th>Net Asset Value</th>
-					<td>{{$thisUser[0]->NAV}}</td>
+					<td>${{$thisUser[0]->NAV}}</td>
 				</tr>
 				<tr>
 					<th>Cost Base</th>
-					<td>{{$thisUser[0]->cost}}</td>
+					<td>${{$thisUser[0]->cost}}</td>
 				</tr>
 				<tr>
 					<th>Cumulative Pref<br>Distribution</th>
-					<td>{{$thisUser[0]->cumulative_pref_distribution}}</td>
+					<td>${{$thisUser[0]->cumulative_pref_distribution}}</td>
 				</tr>
 				<tr>
 					<th>{{$thisUser[0]->month_distribution}}<br>Distribution</th>
-					<td>{{$thisUser[0]->amount_distribution}}</td>
+					<td>${{$thisUser[0]->amount_distribution}}</td>
 				</tr>
 				<tr>
 					<th>Year Profit Share</th>
@@ -233,7 +233,7 @@
 							if(isset($thisUser[0]->comment)){
 								$comment = $thisUser[0]->comment;
 							} ?>
-						<p>{{$comment}}</p>
+						<p class="subtitle">{{$comment}}</p>
 					</article>
 				</div>
 			@endif
@@ -262,15 +262,15 @@
 				</tr>
 				<tr>
 					<td># of Months</td>
-					<td></td>
+					<td>{{$classAPA[0]->n_of_months}}</td>
 				</tr>
 				<tr>
 					<td>Last 12 Months</td>
-					<td></td>
+					<td>{{number_format($classAPA[0]->ltm * 100,2). "%"}}</td>
 				</tr>
 				<tr>
 					<td>Total Return since Inception</td>
-					<td></td>
+					<td>{{number_format($classAPA[0]->overall * 100,2). "%"}}</td>
 				</tr>
 			</table>
 		</article>
@@ -283,15 +283,15 @@
 				</tr>
 				<tr>
 					<td>Sharpe Ratio</td>
-					<td></td>
+					<td>{{number_format($classAPA[0]->sharpe_ratio,2)}}</td>
 				</tr>
 				<tr>
 					<td># of Negative Months</td>
-					<td></td>
+					<td>{{$classAPA[0]->wml}}</td>
 				</tr>
 				<tr>
 					<td>Standard Deviation</td>
-					<td></td>
+					<td>{{number_format($classAPA[0]->st_deviation* 100,2). "%"}}</td>
 				</tr>
 			</table>
 		</article>
@@ -338,8 +338,8 @@
 					<td>{{number_format($metrics[0]->number_of_loans,2)}}</td>
 				</tr>
 				<tr>
-					<td>Weighted Average <br> Interest Rate of Portfolio</td>
-					<td>{{number_format($metrics[0]->int_rate,2)}}
+					<td>Weighted Average Interest Rate of Portfolio</td>
+					<td>{{number_format($metrics[0]->int_rate* 100,2). "%"}}
 					</td>
 				</tr>
 			</table>
@@ -361,7 +361,7 @@
 				</tr>
 				<tr>
 					<td>Weighted Avg Interest Rate of Portfolio</td>
-					<td>{{number_format($metrics[0]->int_rate_a,2)}}</td>
+					<td>{{number_format($metrics[0]->int_rate_a * 100,2)."%"}}</td>
 				</tr>
 			</table>
 		</article>
@@ -548,7 +548,6 @@
 @section('client-comment')
 <form method="post" action="/{{$user[0]->id}}/portfolio/comment">
 	@csrf
-	{{-- <div class="column is-mobile is-full"> --}}
 		<div class="field">
 			<div class="control">
 				<?php
@@ -565,7 +564,6 @@
 				<button class="button is-light" type="reset">Cancel</button>
 			</div>
 		</div>
-	{{-- </div> --}}
 </form>
 @endsection
 

@@ -60,22 +60,43 @@
         </div>
         <br><br>
 
-        <div class="columns is-centered is-mobile">
-            <div class="column">
-                <div class="has-text-centered">
-                    <h1 class="title"><span class="decor">Create comment for</span> <span class="le-decor"> {{ $user[0]->subscriber_name }}</span></h1>
-                </div>
-                <br>
-                <div class="columns is-centered is-mobile">
-                    <div class="column is-half">
-                     @if(auth()->user()->userType() == 'admin')
-                            @yield('client-comment')
-                        @endif
+        @if(auth()->user()->userType() == 'admin')
+            <div class="columns is-centered is-mobile">
+                <div class="column">
+                    <div class="has-text-centered">
+                        <h1 class="title"><span class="decor">Create comment for</span> <span class="le-decor"> {{ $user[0]->subscriber_name }}</span></h1>
+                    </div>
+                    <br>
+                    <div class="columns is-centered is-mobile">
+                        <div class="column is-half">
+                                @yield('client-comment')
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <br>
+        @else 
+            <div class="columns is-centered is-mobile">
+                <div class="column">
+                    <div class="has-text-centered">
+                        <h1 class="title"><span class="decor">Management</span> <span class="le-decor"> Comment</span></h1>
+                    </div>
+                    <br>
+                    <div class="columns is-centered is-mobile">
+                        <div class="column is-half">
+                            <div class="tile is-ancestor">
+                                <div class="tile is-parent">
+                                    <article class="tile is-child box">
+                                    <p class="subtitle">{{$fundInfo[0]->management_comment}}</p>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+
+        <hr>
         
         <div class="container">
             <div class="has-text-centered ">

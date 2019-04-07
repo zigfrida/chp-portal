@@ -23,6 +23,7 @@ class CreateFundInfosTable extends Migration
             $table->string('performance_fee');
             $table->string('redemption');
             $table->string('subscription');
+            $table->longText('management_comment')->nullable();
             $table->timestamps();
         });
     }

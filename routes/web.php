@@ -57,7 +57,15 @@ Route::get('/{id}/portfolio', function ($id) {
         $extraInfo = DB::table('extra_infos')
                         ->get();
 
-        return view('portfolio', compact('user', 'files', 'thisUser', 'years', 'metrics', 'fundInfo', 'extraInfo'));
+        $classAPA = DB::table('p_analyses')
+                        ->where('class', 'A')
+                        ->get();
+
+        $classBPA = DB::table('p_analyses')
+                        ->where('class', 'B')
+                        ->get();
+
+        return view('portfolio', compact('user', 'files', 'thisUser', 'years', 'metrics', 'fundInfo', 'extraInfo','classAPA','classBPA'));
     }
 })->middleware('auth');
 
@@ -89,8 +97,17 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], functio
         $classBFiles = DB::table('uploaded_files')
                         ->where('file_type', 'B')
                         ->get();
+        
+        $fundInfoA = DB::table('fund_infos')
+                ->where('class', 'A')
+                ->get();
 
-        return view('admin', compact('clientsA', 'clientsB', 'clientsPC', 'classABFiles', 'classAFiles', 'classBFiles'));
+        $fundInfoB = DB::table('fund_infos')
+                ->where('class', 'B')
+                ->get();
+
+        return view('admin', compact('clientsA', 'clientsB', 'clientsPC', 'classABFiles', 'classAFiles', 'classBFiles',
+        'fundInfoA', 'fundInfoB'));
     });
 });
 
@@ -165,6 +182,8 @@ Route::post('/{id}/portfolio/editLP', 'LPPerformanceController@insert');
 Route::post('/{id}/portfolio/editFI', 'FundInfoController@insert');
 
 Route::post('/{id}/portfolio/editEI', 'ExtraInfoController@update');
+
+Route::post('/admin/editMC', 'FundInfoController@managementComment');
 
 /*
     PDF stuff

@@ -11,5 +11,6 @@ class FundInfo extends Model
     protected $fillable = [
         'class','inception_date','min_investment','distributions',
         'preferred_return','performance_fee','redemption','subscription',
+        'management_comment',
     ];
 }
