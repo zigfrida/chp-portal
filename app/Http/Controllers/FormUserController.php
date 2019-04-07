@@ -117,6 +117,11 @@ class FormUserController extends Controller
                 'ind_ck5' => $request->input('ind_ck5') !== null,
                 'ind_ck6' => $request->input('ind_ck6') !== null,
                 ]);
+            \DB::table('signatures')
+                ->where('user_id', $id)
+                ->update([
+                    'form_signature' => $request->input('form_signature'),
+                ]);
         } elseif ($request->clientType == 'business') {
             \DB::table('form_users')
                 ->where('user_id', $id)
