@@ -258,9 +258,6 @@ class FormUserController extends Controller
         $signed_month1 = $request->signed_month1;
         $signed_year1 = $request->signed_year1;
 
-        $signed_day2 = $request->signed_day2;
-        $signed_month2 = $request->signed_month2; // note: not getting signed_day/month for 3, 2 isn't really needed
-
         $registration_name = $request->registration_name ?? '';
         $registration_account_reference = $request->registration_account_reference ?? '';
         $registration_address = $request->registration_adress ?? '';
@@ -313,7 +310,7 @@ class FormUserController extends Controller
                 'risk_ck5' => $risk_ck5,
                 'risk_ck6' => $risk_ck6,
                 'risk_ck7' => $risk_ck7,
-                'risk_chk8' => $risk_ck8,
+                'risk_chk8' => $risk_chk8,
             ]);
 
         \DB::table('form_users')

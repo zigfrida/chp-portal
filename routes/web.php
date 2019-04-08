@@ -167,6 +167,8 @@ Route::get('/portfolio/{type}/{filename}', function ($type, $filename) {
         $filepath = 'B'.'/'.$filename;
     }
 
+    dd($filepath);
+
     return Storage::download($filepath);
 })->middleware('auth');
 
@@ -183,6 +185,7 @@ Route::delete('/{id}/portfolio/{filename}', function ($id, $filename) {
     }
 
     $redirectPath = '/'.$id.'/portfolio';
+
     return redirect($redirectPath);
 })->middleware('auth');
 
