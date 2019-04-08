@@ -90,9 +90,9 @@
             </div>
 
             <div class="field is-horizontal">
-            <div class="field-label is-normal is-large">
-                <label class="label is-large">Investor Class</label>
-            </div>
+                <div class="field-label is-normal is-large">
+                    <label class="label is-large">Investor Class</label>
+                </div>
                 <div class="field-body">
                     <div class="field is-narrow">
                         <div class="control">

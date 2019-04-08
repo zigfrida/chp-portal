@@ -180,6 +180,7 @@ class FormUserController extends Controller
         $country = $request->input('country');
         $phone = $request->input('phone');
         $total_investment = $request->input('total_investment');
+        $class = $request->input('class');
 
         if ($clientType == 'individual') {
             \DB::table('form_users')
@@ -187,6 +188,7 @@ class FormUserController extends Controller
             ->update([
                 'subscriber_name' => $subscriber_name,
                 'clientType' => $request->clientType,
+                'class' => $request->class,
                 'city' => $request->city,
                 'province' => $request->province,
                 'street' => $request->street,
@@ -212,6 +214,7 @@ class FormUserController extends Controller
                 ->update([
                     'subscriber_name' => $subscriber_name,
                     'clientType' => $request->clientType,
+                    'class' => $request->class,
                     'province' => $request->province,
                     'street' => $request->street,
                     'postal_code' => $request->postal_code,
@@ -290,6 +293,7 @@ class FormUserController extends Controller
             ->update([
                 'signed_day1' => $signed_day1,
                 'signed_month1' => $signed_month1,
+                'signed_year1' => $signed_year1,
                 'registration_name' => $registration_name,
                 'registration_account_reference' => $registration_account_reference,
                 'registration_address' => $registration_address,

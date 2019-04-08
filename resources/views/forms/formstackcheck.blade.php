@@ -252,7 +252,6 @@
                     onmousedown="return false;">
                 <img src="{{$signature[0]->form_signature}}" alt="Form signature" height="500" width="500">
             </div>
-
             <div class="field is-horizontal">
                 <div class="field-label">
                     <!-- Left empty for spacing -->
@@ -552,7 +551,7 @@
             </div>
         </div>
 
-        {{-- <div class="field is-horizontal">
+        <div class="field is-horizontal">
             <div class="field-label is-normal is-large">
                 <label class="label is-large">Investor Class</label>
             </div>
@@ -569,7 +568,7 @@
                     </div>
                 </div>
             </div>
-        </div> --}}
+        </div>
 
 
         <div class="field is-horizontal">
