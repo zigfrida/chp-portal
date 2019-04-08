@@ -167,8 +167,6 @@ Route::get('/portfolio/{type}/{filename}', function ($type, $filename) {
         $filepath = 'B'.'/'.$filename;
     }
 
-    dd($filepath);
-
     return Storage::download($filepath);
 })->middleware('auth');
 
