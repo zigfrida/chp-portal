@@ -152,6 +152,24 @@ Route::get('/{id}/portfolio/{type}/{filename}', function ($id, $type, $filename)
     return Storage::download($filepath);
 })->middleware('auth');
 
+Route::get('/portfolio/{type}/{filename}', function ($type, $filename) {
+    $filepath = '';
+    if (\Auth::user()->role != 'admin') {
+        abort(403);
+    }
+    if ($type == 'I') {
+        $filepath = '/'.$filename;
+    } elseif ($type == 'AB') {
+        $filepath = 'AB'.'/'.$filename;
+    } elseif ($type == 'A') {
+        $filepath = 'A'.'/'.$filename;
+    } elseif ($type == 'B') {
+        $filepath = 'B'.'/'.$filename;
+    }
+
+    return Storage::download($filepath);
+})->middleware('auth');
+
 /*
     File deleting
 */
@@ -164,7 +182,8 @@ Route::delete('/{id}/portfolio/{filename}', function ($id, $filename) {
         DB::table('uploaded_files')->where('user_id', $id)->where('filename', $filename)->delete();
     }
 
-    return redirect('/admin');
+    $redirectPath = '/'.$id.'/portfolio';
+    return redirect($redirectPath);
 })->middleware('auth');
 
 // DELETE CLASS UPLOADS
