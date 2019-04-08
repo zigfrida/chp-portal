@@ -546,7 +546,7 @@
 
 
 @section('client-comment')
-<form method="post" action="/{{$user[0]->id}}/portfolio/comment">
+<form method="post" action="/{{$user[0]->user_id}}/portfolio/comment">
 	@csrf
 		<div class="field">
 			<div class="control">
