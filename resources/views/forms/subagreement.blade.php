@@ -123,14 +123,18 @@
                 </div>
 
                 <div class="column is-half">
-                    <span class="has-text-weight-bold">Authorized signature</span>: <strong>(some img link here)</strong>
+                    <span class="has-text-weight-bold">Authorized signature</span>:
+                        <div style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" 
+                            unselectable="on"
+                            onselectstart="return false;" 
+                            onmousedown="return false;">
+                        <img src="{{$signature[0]->form_signature}}" alt="Form signature" height="300" width="300">
+                    </div>
                 </div>
                 <div class="column is-half">
                     <span class="has-text-weight-bold">Email address</span>: {{ $user[0]->email }}
                 </div>
             </div>
-
-        <br><br><br>
         <div class="box has-background-white-bis has-text-centered" style="margin-left: 10%; margin-right: 10%;">
             <span class="has-text-weight-bold">This subscription is accepted by the Issuer this</span> this <input style="border:2px solid #FF4136;" value="{{ now()->day }}" type="text" form="theForm" name="signed_day2" id="onlyNumbers2" onkeypress="allowNumbersOnly2(event)">th day of 
             
@@ -1086,12 +1090,12 @@
                         <i><p class="help">Type of Entity</p></i>
                         </div>
                         <div class="field">
-                            <p class="control is-expanded has-icons-left t">
-                                <input class="input" type="text" name="" value="" form="theForm">
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-user"></i>
-                                </span>
-                            </p>
+                            <div style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" 
+                                    unselectable="on"
+                                    onselectstart="return false;" 
+                                    onmousedown="return false;">
+                                <img src="{{$signature[0]->form_signature}}" alt="Form signature" height="200" width="200">
+                            </div>
                             <i><p class="help">Signature of Person Signing</p></i>
                         </div>
                     </div>
@@ -1104,16 +1108,19 @@
                     <div class="field-body">
                         <div class="field">
                         <p class="control is-expanded has-icons-left">
-                            <input class="input" type="text" name="signature" form="theForm" value=""> {{-- GET THIS FROM DB PICTURE --}}
-                            <span class="icon is-small is-left">
-                            <i class="fas fa-user"></i>
+                            <div style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" 
+                                        unselectable="on"
+                                        onselectstart="return false;" 
+                                        onmousedown="return false;">
+                                    <img src="{{$signature[0]->form_signature}}" alt="Form signature" height="200" width="200">
+                            </div>
                             </span>
                         </p>
                         <i><p class="help">Signature</p></i>
                         </div>
                         <div class="field">
                         <p class="control is-expanded has-icons-left t">
-                            <input class="input" type="text" name="print_or_type_name" form="theForm">
+                            <input class="input is-large" type="text" name="print_or_type_name" form="theForm">
                             <span class="icon is-small is-left">
                                 <i class="fas fa-user"></i>
                             </span>
@@ -1215,7 +1222,7 @@
 
                     <tr>
                         <div class="has-text-grey-lighter">
-                            <td><span>4. Your name and signature</span></td>
+                            <td><span class="has-text-weight-bold">4. Your name and signature</span></td>
                         </div>
                     </tr>
                     <tr>
@@ -1224,7 +1231,12 @@
                     </tr>
                     <tr>
                         <td>
-                            Signature: (put signature in)
+                            <div style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" 
+                                unselectable="on"
+                                onselectstart="return false;" 
+                                onmousedown="return false;">
+                                <img src="{{$signature[0]->form_signature}}" alt="Form signature" height="350" width="350">
+                            </div>
                         </td>
                         <td>
                             Date: {{ now()->day }}, {{ now()->month }}, {{ now()->year }}

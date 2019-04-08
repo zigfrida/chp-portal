@@ -375,6 +375,11 @@
 				<section class="hero is-dark is-bold">
 					<h1 class="title">Comparative Performance Analysis</h1>
 				</section>
+				@if($user[0]->class == 'A')
+					<img src="/images/ClassAGraph.PNG" alt="Graph image">
+				@elseif($user[0]->class == 'B')
+					<img src="/images/ClassBGraph.PNG" alt="Graph image">
+				@endif
 			</article>
 		</div>
 	</div>
