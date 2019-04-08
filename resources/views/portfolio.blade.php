@@ -632,6 +632,8 @@
 									edit
 								</div>
 								<div class="dropdown-item">
+									@if ($file->user_id != 1)
+											
 									
 									<form method="post" action="portfolio/{{$file->filename}}">
 										@csrf
@@ -639,6 +641,7 @@
 										
 										<a href="#" onclick="$(this).closest('form').submit()">delete</a>
 									</form>
+									@endif
  								</div>
 							</div>
 						</div>
