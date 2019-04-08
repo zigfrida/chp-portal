@@ -24,7 +24,7 @@
                 <h1 class="title"><span class="decor">Portfolio of</span> <span class="le-decor">{{ $user[0]->subscriber_name }}</span></h1>
             </div>
 
-            (here for testing purposes. )
+            (here for testing purposes. )<br>
             <a href="{{url($user[0]->user_id.'/filledform')}}"> filledform </a><br>
             <a href="{{url($user[0]->user_id.'/formtest')}}"> testhtml </a><br>
 
@@ -50,7 +50,6 @@
 
             <link rel="stylesheet" type="text/css" href="{{ asset('css/random.css') }}">
         
-            <a href="{{url($user[0]->id.'/filledform')}}"> filledform </a><br>
         
 
             @if(auth()->user()->userType() == 'admin')
