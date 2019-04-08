@@ -45,7 +45,7 @@ class UploadController extends Controller
         $uploaded = $request->file('filelolol');
         $userID = $request->input('user_id');
         $fileClassType = $request->input('file_type');
-
+        $graphType = $request->get('selection');
         $filename = $uploaded->getClientOriginalName();
 
         $tableEntry = new UploadedFiles();
@@ -79,8 +79,31 @@ class UploadController extends Controller
             );
 
             return redirect('/admin');
+        } elseif($fileClassType == 'Graph'&& $graphType == 'A'){
+            $files = Storage::allFiles('public/Graph/A');
+       
+            foreach($files as $file){
+                Storage::delete($file);
+            }
+            Storage::disk('public')->putFileAs(
+                'public/Graph/A',
+                $uploaded,
+                $filename
+            );
+            return redirect('/admin');
+        } elseif($fileClassType == 'Graph'&& $graphType == 'B'){
+            $files = Storage::allFiles('public/Graph/B');
+       
+            foreach($files as $file){
+                Storage::delete($file);
+            }
+            Storage::disk('public')->putFileAs(
+                'Graph/B',
+                $uploaded,
+                $filename
+            );
+            return redirect('/admin');
         }
-
         Storage::disk('local')->putFileAs(
             $userID,
             $uploaded,
