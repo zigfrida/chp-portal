@@ -46,26 +46,7 @@
 
         .le-decor {
             font-weight: 200 !important;
-        }
-
-        .access0{
-            color: rgba(76, 175, 80, 0.75);
-
-        }
-
-        .access1{
-            color: rgb(255, 153, 0)
-        }
-        .access2{
-            color: rgba(255, 100, 102, 0.9);
-        }        
-
-        .access3{
-            color: rgb(204, 204, 0);
-        }        
-        .access4{
-            
-        }        
+        }   
 
     </style>
 </head>
