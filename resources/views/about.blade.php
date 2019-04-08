@@ -53,7 +53,9 @@
 
 <body class="Site">
     @include('layouts.partials.header')
-        
+    <div class="container has-text-centered">
+        <div class="paragraph" style="text-align:left;"><span>&#8203;&#8203;Cypress Hills Partners is a boutique alternative merchant banking firm based out of Vancouver.<br> The company specializes in the origination of private equity, specialty private debt, and other uniquely structured products. The firm was founded by Kelly Klatik and Dean Linden and is currently dedicated to the fast growing specialty lending and origination marketplace on a global basis.</span><br /><br /><span>Cypress Hills is adept in leveraging technology and financial structuring experience to accelerate the growth of specialty lending platforms and service providers creating a differentiated market advantage.</span><br /><br /><span>Direct privately negotiated investments may include consumer loans, small and medium sized enterprise (SME) loans, advances against corporate trade receivables, senior secured loans, regulatory capital, and mezzanine debt.</span><br /><br /><span>Indirect investments may include investments in platforms through the provision of credit facilities, equity or other instruments.</span></div>
+    </div>
     @include('sweet::alert')
 </body>
 

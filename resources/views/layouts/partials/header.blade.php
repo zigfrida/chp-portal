@@ -16,7 +16,7 @@
 
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
-                    <a class="navbar-item">Who We Are</a>
+                    <a class="navbar-item" href="/about">Who We Are</a>
                     <a class="navbar-item">Facts</a>
 
                     <div class="navbar-item has-dropdown is-hoverable">
