@@ -19,11 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about', function () {
-    return view('about');
-});
-
-
 /*
     User's portfolio
 */
@@ -86,10 +81,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], functio
     Route::get('/', function () {
         $clientsA = DB::table('form_users')
                         ->where('class', 'A')
-                        ->get();
+                        ->where(function($q){
+                            $q->where('clientType', 'individual')
+                             ->orwhere('clientType', 'business');
+                          })->get();
         $clientsB = DB::table('form_users')
                         ->where('class', 'B')
-                        ->get();
+                        ->where(function($q){
+                            $q->where('clientType', 'individual')
+                             ->orwhere('clientType', 'business');
+                          })->get();
 
         $clientsPC = DB::table('form_users')
                         ->where('class', 'NOT LIKE', 'A')
@@ -157,24 +158,6 @@ Route::get('/{id}/portfolio/{type}/{filename}', function ($id, $type, $filename)
     return Storage::download($filepath);
 })->middleware('auth');
 
-Route::get('/portfolio/{type}/{filename}', function ($type, $filename) {
-    $filepath = '';
-    if (\Auth::user()->role != 'admin') {
-        abort(403);
-    }
-    if ($type == 'I') {
-        $filepath = '/'.$filename;
-    } elseif ($type == 'AB') {
-        $filepath = 'AB'.'/'.$filename;
-    } elseif ($type == 'A') {
-        $filepath = 'A'.'/'.$filename;
-    } elseif ($type == 'B') {
-        $filepath = 'B'.'/'.$filename;
-    }
-
-    return Storage::download($filepath);
-})->middleware('auth');
-
 /*
     File deleting
 */
@@ -187,9 +170,7 @@ Route::delete('/{id}/portfolio/{filename}', function ($id, $filename) {
         DB::table('uploaded_files')->where('user_id', $id)->where('filename', $filename)->delete();
     }
 
-    $redirectPath = '/'.$id.'/portfolio';
-
-    return redirect($redirectPath);
+    return redirect('/admin');
 })->middleware('auth');
 
 // DELETE CLASS UPLOADS
