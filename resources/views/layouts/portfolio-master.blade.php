@@ -123,14 +123,16 @@
  
     </main>
 
+    <a class="button is-light" href="{{url($user[0]->user_id.'/filledform')}}" style="padding:10px"> subscription form pdf download </a><br>
+    <a class="button is-light" href="{{url($user[0]->user_id.'/formtest')}}" style="padding:10px"> quick html version </a><br>
+    
+
     @endif
 
 
     <br>
 
-    <a class="button is-light" href="{{url($user[0]->user_id.'/filledform')}}"> subscription form pdf download </a><br>
-    <a class="button is-light" href="{{url($user[0]->user_id.'/formtest')}}"> quick html version </a><br>
-    
+
     @include('layouts.partials.footer')
 </body>
 </html>
