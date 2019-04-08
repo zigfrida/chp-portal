@@ -35,13 +35,10 @@ class SearchController extends Controller
         $outputB = '';                                           
         foreach($AClients as $key => $client){
 
-            //$access_css = $client->access_level + $client->form_level;
-            $access_css = 5;
-
             $outputA .= '<div  class="column is-one-quarter">'.
                             'Name: '. $client->subscriber_name . '<br>'.
                             'Email: ' . $client->email .'<br>'.
-                             '<a href="' . $client->user_id.'/portfolio" class="access'. $access_css. '">'.'Portfolio</a>'.
+                             '<a href="' . $client->user_id.'/portfolio">'.'Portfolio</a>'.
                              '<hr>'.
                          '</div>';
             }
@@ -52,7 +49,7 @@ class SearchController extends Controller
                 $outputB .= '<div  class="column is-one-quarter">'.
                              'Name: '. $client->subscriber_name . '<br>'.
                              'Email: ' . $client->email .'<br>'.
-                             '<a href="' . $client->user_id.'/portfolio" class="access'. $access_css. '">'.'Portfolio</a>'.
+                             '<a href="' . $client->user_id.'/portfolio">'.'Portfolio</a>'.
                              '<hr>'.
                          '</div>';
             }
