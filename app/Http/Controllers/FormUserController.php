@@ -180,7 +180,6 @@ class FormUserController extends Controller
         $country = $request->input('country');
         $phone = $request->input('phone');
         $total_investment = $request->input('total_investment');
-        $class = $request->input('class');
 
         if ($clientType == 'individual') {
             \DB::table('form_users')
@@ -188,7 +187,6 @@ class FormUserController extends Controller
             ->update([
                 'subscriber_name' => $subscriber_name,
                 'clientType' => $request->clientType,
-                'class' => $request->class,
                 'city' => $request->city,
                 'province' => $request->province,
                 'street' => $request->street,
@@ -214,7 +212,6 @@ class FormUserController extends Controller
                 ->update([
                     'subscriber_name' => $subscriber_name,
                     'clientType' => $request->clientType,
-                    'class' => $request->class,
                     'province' => $request->province,
                     'street' => $request->street,
                     'postal_code' => $request->postal_code,
@@ -247,9 +244,9 @@ class FormUserController extends Controller
             ->update(['access_level' => 1]);
 
         $redirectPath = '/'.$id.'/portfolio';
-        $testPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
+        // $testPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
 
-        return Redirect::away($testPath);
+        return Redirect::away($redirectPath);
     }
 
     public function storeSubAgreement(Request $request, $id)
@@ -322,6 +319,12 @@ class FormUserController extends Controller
 
     public function updateSubAgreement(Request $request, $id)
     {
+        $name = \DB::table('form_users')
+                ->where('user_id', $id)
+                ->get();
+
+        $subscriber_name = $name[0]->subscriber_name;
+
         $signed_day1 = $request->signed_day1;
         $signed_month1 = $request->signed_month1;
         $signed_year1 = $request->signed_year1;
@@ -355,8 +358,9 @@ class FormUserController extends Controller
             ->update(['access_level' => 2]);
 
         $redirectPath = '/'.$id.'/'.'portfolio';
+        $testPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
 
-        return redirect($redirectPath);
+        return redirect($testPath);
     }
 
     /**

@@ -227,7 +227,7 @@
                 </div>
             </div>
 
-            <div class="field is-horizontal">
+            {{-- <div class="field is-horizontal">
                 <div class="field-label is-normal is-large">
                     <label class="label is-large">Investor Class</label>
                 </div>
@@ -244,7 +244,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <div style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" 
                     unselectable="on"
@@ -551,7 +551,7 @@
             </div>
         </div>
 
-        <div class="field is-horizontal">
+        {{-- <div class="field is-horizontal">
             <div class="field-label is-normal is-large">
                 <label class="label is-large">Investor Class</label>
             </div>
@@ -568,7 +568,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
 
         <div class="field is-horizontal">
