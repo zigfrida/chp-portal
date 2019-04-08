@@ -71,7 +71,7 @@
             <span class="has-text-weight-bold">Email:</span> {{ $cPC->email }} <br>
             <a href="/{{ $cPC->user_id }}/portfolio" class="">Portfolio</a>
                 <span class="icon has-text-warning">
-                    <i class="fas fa-exclamation-triangle"></i>
+                    <i class="{{$icon_class}}"></i>
                   </span>
             <hr>
         </div>
