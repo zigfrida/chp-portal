@@ -192,15 +192,10 @@ Route::post('/admin/editMC', 'FundInfoController@managementComment');
 
 /*
     PDF stuff
-
-    will combine later.
-
-
 */
 
 Route::get('{id}/filledform', 'PDFController@filledform');
-
-Route::get('1/formtest', 'PDFController@test');
+Route::get('{id}/formtest', 'PDFController@test');
 
 /*
     Search stuff

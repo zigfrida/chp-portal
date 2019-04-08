@@ -83,8 +83,13 @@
             <div class="container has-text-centered">
                 <h1 class="title"><span class="decor">All</span><span class="le-decor"> Clients</span></h1>
             </div>
-            <input type="text" name="search" id="search" placeholder="search for profile"/>
-			
+
+
+                <input type="text" style="max-width:30%; position:relative; top:35px;" class="input is-pulled-right" name="search" id="search" placeholder="search for portfolio"/>
+            
+
+            
+                  
             <section class="section">
                 @yield('list-clients')
             </section>
