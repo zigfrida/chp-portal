@@ -17,18 +17,35 @@ class SearchController extends Controller
         //if search bar is empty, list out all portfolios.
         if(empty($query)){
             $AClients = DB::table('form_users')->select('user_id', 'subscriber_name', 'email', 'access_level', 'form_level')
-                                          ->where('class' ,'A')->get();
+                                          ->where('class' ,'A')
+                                          ->where(function($q){
+                                              $q->where('clientType', 'individual')
+                                              ->orwhere('clientType', 'business');
+                                          })->get();
+                                          
             $BClients = DB::table('form_users')->select('user_id','subscriber_name', 'email', 'access_level', 'form_level')
-                                          ->where('class' ,'B')->get();
+                                               ->where('class' ,'B')
+                                              ->where(function($q){
+                                                 $q->where('clientType', 'individual')
+                                                  ->orwhere('clientType', 'business');
+                                               })->get();
         }else{ //else find name closest to query
         
             $AClients = DB::table('form_users')->select('user_id','subscriber_name', 'email', 'access_level', 'form_level')
-                                            ->where('subscriber_name', 'LIKE', '%'. $query.'%')
-                                            ->where('class' ,'A')->get();
+                                             ->where('subscriber_name', 'LIKE', '%'. $query.'%')
+                                             ->where('class' ,'A')
+                                             ->where(function($q){
+                                                $q->where('clientType', 'individual')
+                                                ->orwhere('clientType', 'business');
+                                            })->get();
           
             $BClients = DB::table('form_users')->select('user_id', 'subscriber_name', 'email', 'access_level', 'form_level')
                                         ->where('subscriber_name', 'LIKE', '%'. $query.'%')
-                                        ->where('class' ,'B')->get();
+                                        ->where('class' ,'B')
+                                        ->where(function($q){
+                                            $q->where('clientType', 'individual')
+                                            ->orwhere('clientType', 'business');
+                                        })->get();
         }
    
         $outputA = ''; 

@@ -40,7 +40,7 @@
   float: left;
   width: 50%;
   padding: 10px;
-  height: 215px; /* Should be removed. Only for demonstration */
+  height: 215px; /* Should be find better way */
 }
 
 /* Clear floats after the columns */
