@@ -121,10 +121,15 @@
             @yield('show-files')
         </div>
  
+        <br>
+        <div class="columns is-centered">
+            <a class="button is-light" href="{{url($user[0]->user_id.'/filledform')}}" style="padding:10px">Download Subscription Agreement (PDF)</a><br>
+            <a class="button is-light" href="{{url($user[0]->user_id.'/formtest')}}" style="padding:10px">>> Web Version</a><br>
+        </div>
     </main>
 
-    <a class="button is-light" href="{{url($user[0]->user_id.'/filledform')}}" style="padding:10px"> subscription form pdf download </a>(May take a few seconds)<br>
-    <a class="button is-light" href="{{url($user[0]->user_id.'/formtest')}}" style="padding:10px"> quick html version </a><br>
+
+
     
 
     @endif

@@ -13,14 +13,14 @@ class CreatePISummariesTable extends Migration
     {
         Schema::create('p_i_summaries', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->decimal('units',15,3)->default(0);
-            $table->decimal('NAVPerUnit',15,3)->default(0);
-            $table->integer('NAV')->default(0);
-            $table->integer('cost')->default(0);
-            $table->integer('cumulative_pref_distribution')->default(0);
+            $table->string('user_id')->unsigned();
+            $table->string('units')->default('');
+            $table->string('NAVPerUnit')->default('');
+            $table->string('NAV')->default('');
+            $table->string('cost')->default('');
+            $table->string('cumulative_pref_distribution')->default('');
             $table->string('month_distribution')->default('');
-            $table->integer('amount_distribution')->default(0);
+            $table->string('amount_distribution')->default('');
             $table->string('year_profit_share')->default('');
             $table->longText('comment')->nullable();
             $table->timestamps();
