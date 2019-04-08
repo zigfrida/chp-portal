@@ -29,9 +29,6 @@
 			</ul>
 		</article>
 	</div>
-	<?php
-	//$thisUser = DB::table('p_i_summaries')->where('user_id', $user[0]->id)->get();
-	?>
 	<div class="tile is-parent">
 		<article class="tile is-child box">
 			<section class="hero is-dark is-bold">
@@ -149,7 +146,7 @@
 						<section class="hero is-bold">
 							<h1 class="title"><span class="decor">New LP Data for</span><span class="le-decor"> Class {{$user[0]->class}}</span></h1>
 						</section>
-						<form id="newLP" method="POST" action="/{{$user[0]->id}}/portfolio/editLP">
+						<form id="newLP" method="POST" action="/{{$user[0]->user_id}}/portfolio/editLP">
 							@csrf
 							<div class="lpInputContainer">
 								<div>
@@ -375,6 +372,11 @@
 				<section class="hero is-dark is-bold">
 					<h1 class="title">Comparative Performance Analysis</h1>
 				</section>
+				@if($user[0]->class == 'A')
+					<img src="/images/ClassAGraph.PNG" alt="Graph image">
+				@elseif($user[0]->class == 'B')
+					<img src="/images/ClassBGraph.PNG" alt="Graph image">
+				@endif
 			</article>
 		</div>
 	</div>
@@ -387,7 +389,7 @@
 				<section class="hero is-dark is-bold">
 					<h1 class="title">Fund Information</h1>
 				</section>
-				<form method="POST" action="/{{$user[0]->id}}/portfolio/editFI">
+				<form method="POST" action="/{{$user[0]->user_id}}/portfolio/editFI">
 					@csrf
 					@if(auth()->user()->userType() == 'admin')
 						<table>
@@ -477,7 +479,7 @@
 				<section class="hero is-dark is-bold">
 					<h1 class="title">Service Providers</h1>
 				</section>
-				<form method="POST" action="/{{$user[0]->id}}/portfolio/editEI">
+				<form method="POST" action="/{{$user[0]->user_id}}/portfolio/editEI">
 					@csrf
 					@if(auth()->user()->userType() == 'admin')
 						<table>
@@ -654,56 +656,5 @@
 </div>
 @endsection
 
-@section('fileupload')
-<div class="tile">
-	<article class="tile is-child box">
-		<p class="title"> Files</p>
-		<?php
-			 $files = Storage::files('/upload/'.$user[0]->id);
 
-			// $files = Storage::disk('public')->files('upload/'.$user[0]->id);
-		?>
-		<ul>
-			@foreach($files as $file)
-			<li><a href="{{asset($file)}}" download>{{basename($file)}}</a></li>
-			@endforeach	
-		</ul>		
-	</article>
-</div>
-<form action="<?php echo e(URL::to($user[0]->id.'/store')); ?>" enctype="multipart/form-data" method="post">
-	@csrf
-	<div class="file has-name is-fullwidth">
-		<label class="file-label">
-		  	<input class="file-input" id="file-upload" type="file" name="image">
-		  	<span class="file-cta">
-				<span class="file-icon"><i class="fas fa-upload"></i></span>
-				<span class="file-label">Choose a file…</span>
-		  	</span>
-		  	<div style="width:90%">
-		  		<span class="file-name" id="file-upload-filename">Nothing Choose</span>
-		  	</div>
-		 	<input type="hi	en" name="_token" value="<?php echo e(csrf_token()); ?>">
-		  	<button type="submit" name="button" class="button is-link">Upload File</button>
-		</label>
-	</div>
-
-	<script>
-		var input = document.getElementById( 'file-upload' );
-		var infoArea = document.getElementById( 'file-upload-filename' );
-		input.addEventListener( 'change', showFileName );
-
-		function showFileName( event ) {
- 			var input = event.srcElement;
-  			var fileName = input.files[0].name;
-  			infoArea.textContent = fileName;
-		}
-    </script>
-	
-</form>
-
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<!-- Include this after the sweet alert js file -->
-@include('sweet::alert')
-
-@endsection
 

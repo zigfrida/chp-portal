@@ -872,6 +872,7 @@
                 <br>
                 In connection with the execution of the Agreement to which this appendix is attached, the Subscriber represents, warrants and certifies to the Issuer that <span class="has-text-weight-bold">(please initial the applicable categories)</span> the Subscriber is:
                 <br><br>
+                <div style="page-break-after: always;"></div>
                 <span class="has-text-weight-bold">(Categories Applicable to Individuals Only)</span>
                 <br>
                 <table class="table">
@@ -1153,7 +1154,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                 <br><br>
               
                  <div class="column-row">
-                   <div class="user-data">&nbsp;&nbsp;$user[0]-></div>
+                   <div class="user-data">&nbsp;&nbsp;$user[0]</div>
                      ______________________________
                   <div><i class="signinput">Signature</i></div>
               </div>

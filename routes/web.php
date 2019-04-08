@@ -182,7 +182,8 @@ Route::delete('/{id}/portfolio/{filename}', function ($id, $filename) {
         DB::table('uploaded_files')->where('user_id', $id)->where('filename', $filename)->delete();
     }
 
-    return redirect('/admin');
+    $redirectPath = '/'.$id.'/portfolio';
+    return redirect($redirectPath);
 })->middleware('auth');
 
 // DELETE CLASS UPLOADS
