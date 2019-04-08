@@ -69,7 +69,7 @@ Route::get('/{id}/portfolio', function ($id) {
                         ->where('user_id', $id)
                         ->get();
 
-        return view('portfolio', compact('user', 'files', 'thisUser', 'years', 'metrics', 'fundInfo', 'extraInfo','classAPA','classBPA','signature'));
+        return view('portfolio', compact('user', 'files', 'thisUser', 'years', 'metrics', 'fundInfo', 'extraInfo', 'classAPA', 'classBPA', 'signature'));
     }
 })->middleware('auth');
 
@@ -101,7 +101,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], functio
         $classBFiles = DB::table('uploaded_files')
                         ->where('file_type', 'B')
                         ->get();
-        
+
         $fundInfoA = DB::table('fund_infos')
                 ->where('class', 'A')
                 ->get();
@@ -126,6 +126,7 @@ Route::post('/{id}/portfolio/comment', 'PortfolioController@update');
 Route::post('/{id}/portfolio/form1', 'FormUserController@storeFormstack')->middleware('auth');
 Route::patch('/{id}/portfolio', 'FormUserController@update');
 Route::post('/{id}/portfolio/form2', 'FormUserController@storeSubAgreement')->middleware('auth');
+Route::patch('/{id}/portfolio/form2', 'FormUserController@updateSubAgreement')->middleware('auth');
 
 /*
     File uploading

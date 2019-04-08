@@ -1196,19 +1196,21 @@
                     </tr>
                     <tr>
                         <td>Your net income before taxes was more than $200,000 in each of the 2 most recent calendar years, and you expect it to be more than $200,000 in the current calendar year. (You can find your net income before taxes on your personal income tax return.)</td>
-                        <td><span class="has-text-weight-bold">Your initials</span></td>
+                        <td><input type="text" name="risk_ck5" form="theForm"></td>
+
+                        
                     </tr>
                     <tr>
                         <td>Your net income before taxes combined with your spouse’s was more than $300,000 in each of the 2 most recent calendar years, and you expect your combined net income before taxes to be more than $300,000 in the current calendar year.</td>
-                        <td><input type="text" name="risk_ck5" form="theForm"></td>
-                    </tr>
-                    <tr>
-                        <td>Either alone or with your spouse, you own more than $1 million in cash and securities, after subtracting any debt related to the cash and securities.</td>
                         <td><input type="text" name="risk_ck6" form="theForm"></td>
                     </tr>
                     <tr>
-                        <td>Either alone or with your spouse, you have net assets worth more than $5 million. (Your net assets are your total assets (including real estate) minus your total debt.)</td>
+                        <td>Either alone or with your spouse, you own more than $1 million in cash and securities, after subtracting any debt related to the cash and securities.</td>
                         <td><input type="text" name="risk_ck7" form="theForm"></td>
+                    </tr>
+                    <tr>
+                        <td>Either alone or with your spouse, you have net assets worth more than $5 million. (Your net assets are your total assets (including real estate) minus your total debt.)</td>
+                        <td><input type="text" name="risk_ck8" form="theForm"></td>
                     </tr>
 
                     <tr>
