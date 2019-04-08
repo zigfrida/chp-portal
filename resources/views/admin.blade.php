@@ -43,25 +43,37 @@
     <div id="PC_portfolios" class="columns is-multiline">
         @foreach ($clientsPC as $cPC)
 
-        <?php $access_css = $cPC->access_level + $cPC->form_level;
+        <?php 
+        $access_css = $cPC->access_level + $cPC->form_level;
                 //php injection help
+                $span_class = '';
                 $icon_class = '';
+ 
  
                 switch($access_css){
                     case  0:
+                        $span_class = '';
                         $icon_class = '';
+                        
                         break;
                     case  1:
-                        $icon_class = 'fas fa-exclamation-triangle';
+                        $span_class = 'icon has-text-info';
+                        $icon_class = 'fas fa-info-circle';
+                        
                         break;
                     case  2:
+                        $span_class = '';
                         $icon_class = '';
                         break;
                     case  3:
+                        $span_class = 'icon has-text-success';
                         $icon_class = 'fas fa-exclamation-triangle';
+                        
                         break;
                     default:
+                        $span_class = '';
                         $icon_class = '';        
+                        
                 }
  
         ?>
@@ -70,7 +82,7 @@
             <span class="has-text-weight-bold">Name:</span> {{ $cPC->subscriber_name }} <br>
             <span class="has-text-weight-bold">Email:</span> {{ $cPC->email }} <br>
             <a href="/{{ $cPC->user_id }}/portfolio" class="">Portfolio</a>
-                <span class="icon has-text-warning">
+                <span class="{{$span_class}}">
                     <i class="{{$icon_class}}"></i>
                   </span>
             <hr>
