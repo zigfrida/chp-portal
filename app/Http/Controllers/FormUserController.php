@@ -294,8 +294,6 @@ class FormUserController extends Controller
                 'signed_day1' => $signed_day1,
                 'signed_month1' => $signed_month1,
                 'signed_year1' => $signed_year1,
-                'signed_day2' => $signed_day2,
-                'signed_month2' => $signed_month2,
                 'registration_name' => $registration_name,
                 'registration_account_reference' => $registration_account_reference,
                 'registration_address' => $registration_address,
@@ -336,11 +334,13 @@ class FormUserController extends Controller
         $delivery_telephone = $request->delivery_telephone ?? '';
         $delivery_account_reference = $request->delivery_account_reference ?? '';
         $delivery_address = $request->delivery_address ?? '';
+        $class = $request->class ?? '';
 
         // print_or_type_name missing. so is the picture img thingy. put that shit in!
         \DB::table('form_users')
             ->where('user_id', $id)
             ->update([
+                'class' => $class,
                 'registration_name' => $registration_name,
                 'registration_account_reference' => $registration_account_reference,
                 'registration_address' => $registration_address,
