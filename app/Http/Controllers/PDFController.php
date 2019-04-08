@@ -23,6 +23,12 @@ class PDFController extends Controller
 
 		public function filledform($id){
 
+			
+
+		if ($id != auth()->id() && \Auth::user()->role != 'admin') {
+        abort(403);
+    } else {
+
 				$user = DB::table('form_users')->join('users', 'form_users.user_id', '=' , 'users.id')
 																			 ->join('p_i_summaries', 'form_users.user_id', '=', 'p_i_summaries.user_id')
 																			 ->join('signatures' , 'form_users.user_id', '=', 'signatures.user_id')
@@ -46,8 +52,15 @@ class PDFController extends Controller
 
 				return $pdf->stream();
 
+		}
+
 	  }
 		public function test($id){
+			if ($id != auth()->id() && \Auth::user()->role != 'admin') {
+        abort(403);
+    } else {
+
+
 				$user = DB::table('form_users')->join('users', 'form_users.user_id', '=' , 'users.id')
 																			->join('p_i_summaries', 'form_users.user_id', '=', 'p_i_summaries.user_id')
 																			->join('signatures' , 'form_users.user_id', '=', 'signatures.user_id')
@@ -55,5 +68,6 @@ class PDFController extends Controller
 				
 				return view('pdf.subscription-filled', compact('user'))->render();
 		}
+	}
     
 }
