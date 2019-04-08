@@ -552,7 +552,7 @@
             </div>
         </div>
 
-        <div class="field is-horizontal">
+        {{-- <div class="field is-horizontal">
             <div class="field-label is-normal is-large">
                 <label class="label is-large">Investor Class</label>
             </div>
@@ -569,7 +569,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
 
         <div class="field is-horizontal">

@@ -89,6 +89,25 @@
                 </div>
             </div>
 
+            <div class="field is-horizontal">
+            <div class="field-label is-normal is-large">
+                <label class="label is-large">Investor Class</label>
+            </div>
+                <div class="field-body">
+                    <div class="field is-narrow">
+                        <div class="control">
+                            <div class="select is-fullwidth is-large is-warning">
+                                <select name="class">
+                                    <option>A</option>
+                                    <option>B</option>
+                                </select>
+                            </div>
+                            <i><p class="help">Class</p></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
             <div class="field is-horizontal">
                 <div class="field-label">
