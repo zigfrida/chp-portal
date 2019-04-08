@@ -22,14 +22,7 @@
         <div class="container">
             <div class="has-text-centered">
                 <h1 class="title"><span class="decor">Portfolio of</span> <span class="le-decor">{{ $user[0]->subscriber_name }}</span></h1>
-            </div>
-
-            (here for testing purposes. )<br>
-            <a href="{{url($user[0]->user_id.'/filledform')}}"> filledform </a><br>
-            <a href="{{url($user[0]->user_id.'/formtest')}}"> testhtml </a><br>
-
-
-            
+            </div>            
         </div>
 
         <br>
@@ -63,8 +56,6 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/portfolio.css') }}">
         
         
-        <a href="{{url($user[0]->user_id.'/filledform')}}"> subscription form pdf </a><br>
-        <a href="{{url($user[0]->user_id.'/formtest')}}"> quick html version </a><br>
 
         <div class="container">
             <div class="has-text-centered">
@@ -132,7 +123,13 @@
     </main>
 
     @endif
+
+
     <br>
+
+    <a class="button is-light" href="{{url($user[0]->user_id.'/filledform')}}"> subscription form pdf download </a><br>
+    <a class="button is-light" href="{{url($user[0]->user_id.'/formtest')}}"> quick html version </a><br>
+    
     @include('layouts.partials.footer')
 </body>
 </html>
