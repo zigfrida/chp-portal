@@ -179,7 +179,7 @@
         
         
         <div class="column-row">
-            <div class="user-data">&nbsp;&nbsp;(image)</div>
+            <div class="user-data">&nbsp;&nbsp;<img src="{{$user[0]->form_signature}}" alt="Form signature" height="50" width="90"> </div>
         	______________________________
 			<div><i class="signinput">Authorized Signature</i></div>
         </div>
@@ -872,7 +872,7 @@
                 <br>
                 In connection with the execution of the Agreement to which this appendix is attached, the Subscriber represents, warrants and certifies to the Issuer that <span class="has-text-weight-bold">(please initial the applicable categories)</span> the Subscriber is:
                 <br><br>
-                <div style="page-break-after: always;"></div>
+                
                 <span class="has-text-weight-bold">(Categories Applicable to Individuals Only)</span>
                 <br>
                 <table class="table">
@@ -1119,7 +1119,9 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                     the day of <u>_____{{$user[0]->signed_day1}}___</u>,  {{ now()->year }} 
 </div>
 
+<!-- dirty php . change later -->
 
+@if($user[0]->clientType == 'Business')
 <div class="row-form">
         <div class="column">
             <b> If a Corporation, Partnership or Other Entity: </b> 
@@ -1142,7 +1144,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
               
               
               <div class="column-row">
-                  <div class="user-data">&nbsp;&nbsp;</div>
+                  <div class="user-data">&nbsp;&nbsp;<img src="{{$user[0]->form_signature}}" alt="Form signature" height="60" width="90"> </div>
                   ______________________________
                   <div><i class="signinput">Signature of Person Signing</i></div>
               </div>
@@ -1154,14 +1156,14 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                 <br><br>
               
                  <div class="column-row">
-                   <div class="user-data">&nbsp;&nbsp;$user[0]</div>
+                   <div class="user-data">&nbsp;&nbsp;--------------<div>
                      ______________________________
                   <div><i class="signinput">Signature</i></div>
               </div>
       
               
               <div class="column-row">
-                  <div class="user-data">&nbsp;&nbsp;$user[0]-> </div>
+                  <div class="user-data">&nbsp;&nbsp;-------------- </div>
                   ______________________________
                   <div><i class="signinput">Print or Type Name</i></div>
               </div>
@@ -1171,14 +1173,64 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
             </div>
     </div>
 
-<br><br>
-<br><br>
-<br><br>
-<br><br>
-<br><br>
-<br><br>
-<br><br>
-<br><br>
+@else
+
+<div class="row-form">
+        <div class="column">
+            <b> If a Corporation, Partnership or Other Entity: </b> 
+            <br><br>
+        
+              
+                <div class="column-row">
+                  <div class="user-data">&nbsp;&nbsp;--------------- </div>
+                  ______________________________
+                  <div><i class="signinput">Name of Entity</i></div>
+                  
+              </div>
+          
+              
+              <div class="column-row">
+                  <div class="user-data">&nbsp;&nbsp;--------------- </div>
+                  by:____________________________
+                  <div><i class="signinput">Type of Entity</i></div>
+              </div>
+              
+              
+              <div class="column-row">
+                  <div class="user-data">&nbsp;&nbsp;----------------- </div>
+                  ______________________________
+                  <div><i class="signinput">Signature of Person Signing</i></div>
+              </div>
+
+        
+        </div>
+        <div class="column">
+            <b>If an Individual </b>
+                <br><br>
+              
+                 <div class="column-row">
+                   <div class="user-data">&nbsp;&nbsp;<img src="{{$user[0]->form_signature}}" alt="Form signature" height="30" width="90"></div>
+                     ______________________________
+                  <div><i class="signinput">Signature</i></div>
+              </div>
+      
+              
+              <div class="column-row">
+                  <div class="user-data">&nbsp;&nbsp;{{$user[0]->name}} </div>
+                  ______________________________
+                  <div><i class="signinput">Print or Type Name</i></div>
+              </div>
+      
+
+        
+            </div>
+    </div>
+
+
+@endif
+
+
+<div style="page-break-after: always;"></div>
 <div class="has-text-centered">
         <p class="title is-3 is-spaced">Appendix IA</p>
         <p class="subtitle is-5">Form 45-106F9</p>
@@ -1283,7 +1335,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                         </tr>
                         <tr>
                               <td>
-                                   Signature: (put signature in)
+                                   Signature: <img src="{{$user[0]->form_signature}}" alt="Form signature" height="50" width="80"> 
                                </td>
                                <td>
                                     Date: {{ now()->day }}, {{ now()->month }}, {{ now()->year }}
