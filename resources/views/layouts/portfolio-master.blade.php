@@ -24,10 +24,10 @@
                 <h1 class="title"><span class="decor">Portfolio of</span> <span class="le-decor">{{ $user[0]->subscriber_name }}</span></h1>
             </div>
 
+            (here for testing purposes. )<br>
+            <a href="{{url($user[0]->user_id.'/filledform')}}"> filledform </a><br>
+            <a href="{{url($user[0]->user_id.'/formtest')}}"> testhtml </a><br>
 
-            (should only works access level 1 form level 2)<br>
-            <a href="{{url($user[0]->id.'/filledform')}}"> filledform </a><br>
-            <a href="/1/formtest"> testhtml </a><br>
 
             
         </div>
@@ -50,7 +50,6 @@
 
             <link rel="stylesheet" type="text/css" href="{{ asset('css/random.css') }}">
         
-            <a href="{{url($user[0]->id.'/filledform')}}"> filledform </a><br>
         
 
             @if(auth()->user()->userType() == 'admin')
@@ -62,6 +61,10 @@
         @elseif ($user[0]->access_level == 2 && $user[0]->form_level == 2)
         
         <link rel="stylesheet" type="text/css" href="{{ asset('css/portfolio.css') }}">
+        
+        
+        <a href="{{url($user[0]->user_id.'/filledform')}}"> subscription form pdf </a><br>
+        <a href="{{url($user[0]->user_id.'/formtest')}}"> quick html version </a><br>
 
         <div class="container">
             <div class="has-text-centered">

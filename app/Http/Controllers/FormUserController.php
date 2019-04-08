@@ -277,6 +277,7 @@ class FormUserController extends Controller
         $risk_ck5 = $request->risk_ck5;
         $risk_ck6 = $request->risk_ck6;
         $risk_ck7 = $request->risk_ck7;
+        $risk_chk8 = $request->risk_chk8;
 
         $request->validate([
             'risk_ck1' => 'required',
@@ -286,6 +287,7 @@ class FormUserController extends Controller
             'risk_ck5' => 'required',
             'risk_ck6' => 'required',
             'risk_ck7' => 'required',
+            'risk_chk8' => 'required',
         ]);
 
         // print_or_type_name missing. so is the picture img thingy. put that shit in!
@@ -311,11 +313,49 @@ class FormUserController extends Controller
                 'risk_ck5' => $risk_ck5,
                 'risk_ck6' => $risk_ck6,
                 'risk_ck7' => $risk_ck7,
+                'risk_chk8' => $risk_ck8,
             ]);
 
         \DB::table('form_users')
             ->where('user_id', $id)
             ->update(['form_level' => 2]);
+
+        $redirectPath = '/'.$id.'/'.'portfolio';
+
+        return redirect($redirectPath);
+    }
+
+    public function updateSubAgreement(Request $request, $id)
+    {
+        $signed_day1 = $request->signed_day1;
+        $signed_month1 = $request->signed_month1;
+        $signed_year1 = $request->signed_year1;
+
+        $registration_name = $request->registration_name ?? '';
+        $registration_account_reference = $request->registration_account_reference ?? '';
+        $registration_address = $request->registration_adress ?? '';
+
+        $delivery_contact = $request->delivery_contact ?? '';
+        $delivery_telephone = $request->delivery_telephone ?? '';
+        $delivery_account_reference = $request->delivery_account_reference ?? '';
+        $delivery_address = $request->delivery_address ?? '';
+
+        // print_or_type_name missing. so is the picture img thingy. put that shit in!
+        \DB::table('form_users')
+            ->where('user_id', $id)
+            ->update([
+                'registration_name' => $registration_name,
+                'registration_account_reference' => $registration_account_reference,
+                'registration_address' => $registration_address,
+                'delivery_contact' => $delivery_contact,
+                'delivery_telephone' => $delivery_telephone,
+                'delivery_account_reference' => $delivery_account_reference,
+                'delivery_address' => $delivery_address,
+            ]);
+
+        \DB::table('form_users')
+            ->where('user_id', $id)
+            ->update(['access_level' => 2]);
 
         $redirectPath = '/'.$id.'/'.'portfolio';
 
