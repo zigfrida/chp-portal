@@ -290,9 +290,6 @@ class FormUserController extends Controller
             ->update([
                 'signed_day1' => $signed_day1,
                 'signed_month1' => $signed_month1,
-                'signed_year1' => $signed_year1,
-                'signed_day2' => $signed_day2,
-                'signed_month2' => $signed_month2,
                 'registration_name' => $registration_name,
                 'registration_account_reference' => $registration_account_reference,
                 'registration_address' => $registration_address,
