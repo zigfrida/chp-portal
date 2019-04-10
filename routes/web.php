@@ -156,7 +156,7 @@ Route::get('/{id}/portfolio/{type}/{filename}', function ($id, $type, $filename)
     }
 
     // return Storage::download($filepath);
-    return response()->download($pathToFile);
+    return response()->download($filepath);
 })->middleware('auth');
 
 /*
