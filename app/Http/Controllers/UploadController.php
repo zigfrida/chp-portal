@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\UploadedFiles;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use File;
 
 class UploadController extends Controller
 {
@@ -80,28 +81,29 @@ class UploadController extends Controller
 
             return redirect('/admin');
         } elseif($fileClassType == 'Graph'&& $graphType == 'A'){
-            $files = Storage::allFiles('public/Graph/A');
-       
-            foreach($files as $file){
-                Storage::delete($file);
+            
+            $destinationPath = 'upload/Graph/A';
+            $files = File::files($destinationPath);
+            if ($files !== false) {
+                foreach($files as $file){
+                    unlink($file);
+                }
             }
-            Storage::disk('public')->putFileAs(
-                'public/Graph/A',
-                $uploaded,
-                $filename
-            );
+            
+            $originalFile = $uploaded->getClientOriginalName();
+            $uploaded->move($destinationPath, $originalFile);
+
             return redirect('/admin');
         } elseif($fileClassType == 'Graph'&& $graphType == 'B'){
-            $files = Storage::allFiles('public/Graph/B');
-       
-            foreach($files as $file){
-                Storage::delete($file);
+            $destinationPath = 'upload/Graph/B';
+            $files = File::files($destinationPath);
+            if ($files !== false) {
+                foreach($files as $file){
+                    unlink($file);
+                }
             }
-            Storage::disk('public')->putFileAs(
-                'Graph/B',
-                $uploaded,
-                $filename
-            );
+            $originalFile = $uploaded->getClientOriginalName();
+            $uploaded->move($destinationPath, $originalFile);
             return redirect('/admin');
         }
         Storage::disk('local')->putFileAs(
