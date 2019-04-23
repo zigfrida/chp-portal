@@ -117,6 +117,11 @@ class FormUserController extends Controller
                 'ind_ck5' => $request->input('ind_ck5') !== null,
                 'ind_ck6' => $request->input('ind_ck6') !== null,
                 ]);
+            \DB::table('signatures')
+                ->where('user_id', $id)
+                ->update([
+                    'form_signature' => $request->input('form_signature'),
+                ]);
         } elseif ($request->clientType == 'business') {
             \DB::table('form_users')
                 ->where('user_id', $id)
@@ -175,7 +180,6 @@ class FormUserController extends Controller
         $country = $request->input('country');
         $phone = $request->input('phone');
         $total_investment = $request->input('total_investment');
-        $class = $request->input('class');
 
         if ($clientType == 'individual') {
             \DB::table('form_users')
@@ -183,7 +187,6 @@ class FormUserController extends Controller
             ->update([
                 'subscriber_name' => $subscriber_name,
                 'clientType' => $request->clientType,
-                'class' => $request->class,
                 'city' => $request->city,
                 'province' => $request->province,
                 'street' => $request->street,
@@ -209,7 +212,6 @@ class FormUserController extends Controller
                 ->update([
                     'subscriber_name' => $subscriber_name,
                     'clientType' => $request->clientType,
-                    'class' => $request->class,
                     'province' => $request->province,
                     'street' => $request->street,
                     'postal_code' => $request->postal_code,
@@ -242,25 +244,16 @@ class FormUserController extends Controller
             ->update(['access_level' => 1]);
 
         $redirectPath = '/'.$id.'/portfolio';
-        $testPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
+        // $testPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
 
-        return Redirect::away($testPath);
+        return Redirect::away($redirectPath);
     }
 
     public function storeSubAgreement(Request $request, $id)
     {
-        // get the current user
-        $currentUser = \DB::table('form_users')
-        ->select('*')
-        ->where('user_id', $id)
-        ->get();
-
         $signed_day1 = $request->signed_day1;
         $signed_month1 = $request->signed_month1;
         $signed_year1 = $request->signed_year1;
-
-        $signed_day2 = $request->signed_day2;
-        $signed_month2 = $request->signed_month2; // note: not getting signed_day/month for 3
 
         $registration_name = $request->registration_name ?? '';
         $registration_account_reference = $request->registration_account_reference ?? '';
@@ -278,15 +271,17 @@ class FormUserController extends Controller
         $risk_ck5 = $request->risk_ck5;
         $risk_ck6 = $request->risk_ck6;
         $risk_ck7 = $request->risk_ck7;
+        $risk_chk8 = $request->risk_chk8;
 
         $request->validate([
-            'risk_ck1' => 'required|same:chk7|same:chk2|same:chk3|same:chk4|same:chk5|same:chk6',
-            'risk_ck2' => 'required|same:chk1|same:chk7|same:chk3|same:chk4|same:chk5|same:chk6',
-            'risk_ck3' => 'required|same:chk1|same:chk2|same:chk7|same:chk4|same:chk5|same:chk6',
-            'risk_ck4' => 'required|same:chk1|same:chk2|same:chk3|same:chk7|same:chk5|same:chk6',
-            'risk_ck5' => 'required|same:chk1|same:chk2|same:chk3|same:chk4|same:chk7|same:chk6',
-            'risk_ck6' => 'required|same:chk1|same:chk2|same:chk3|same:chk4|same:chk5|same:chk7',
-            'risk_ck7' => 'required|same:chk1|same:chk2|same:chk3|same:chk4|same:chk5|same:chk6',
+            'risk_ck1' => 'required',
+            'risk_ck2' => 'required',
+            'risk_ck3' => 'required',
+            'risk_ck4' => 'required',
+            'risk_ck5' => 'required',
+            'risk_ck6' => 'required',
+            'risk_ck7' => 'required',
+            'risk_chk8' => 'required',
         ]);
 
         // print_or_type_name missing. so is the picture img thingy. put that shit in!
@@ -296,8 +291,6 @@ class FormUserController extends Controller
                 'signed_day1' => $signed_day1,
                 'signed_month1' => $signed_month1,
                 'signed_year1' => $signed_year1,
-                'signed_day2' => $signed_day2,
-                'signed_month2' => $signed_month2,
                 'registration_name' => $registration_name,
                 'registration_account_reference' => $registration_account_reference,
                 'registration_address' => $registration_address,
@@ -312,14 +305,62 @@ class FormUserController extends Controller
                 'risk_ck5' => $risk_ck5,
                 'risk_ck6' => $risk_ck6,
                 'risk_ck7' => $risk_ck7,
+                'risk_chk8' => $risk_chk8,
             ]);
 
         \DB::table('form_users')
             ->where('user_id', $id)
             ->update(['form_level' => 2]);
+
         $redirectPath = '/'.$id.'/'.'portfolio';
 
         return redirect($redirectPath);
+    }
+
+    public function updateSubAgreement(Request $request, $id)
+    {
+        $name = \DB::table('form_users')
+                ->where('user_id', $id)
+                ->get();
+
+        $subscriber_name = $name[0]->subscriber_name;
+
+        $signed_day1 = $request->signed_day1;
+        $signed_month1 = $request->signed_month1;
+        $signed_year1 = $request->signed_year1;
+
+        $registration_name = $request->registration_name ?? '';
+        $registration_account_reference = $request->registration_account_reference ?? '';
+        $registration_address = $request->registration_adress ?? '';
+
+        $delivery_contact = $request->delivery_contact ?? '';
+        $delivery_telephone = $request->delivery_telephone ?? '';
+        $delivery_account_reference = $request->delivery_account_reference ?? '';
+        $delivery_address = $request->delivery_address ?? '';
+        $class = $request->class ?? '';
+
+        // print_or_type_name missing. so is the picture img thingy. put that shit in!
+        \DB::table('form_users')
+            ->where('user_id', $id)
+            ->update([
+                'class' => $class,
+                'registration_name' => $registration_name,
+                'registration_account_reference' => $registration_account_reference,
+                'registration_address' => $registration_address,
+                'delivery_contact' => $delivery_contact,
+                'delivery_telephone' => $delivery_telephone,
+                'delivery_account_reference' => $delivery_account_reference,
+                'delivery_address' => $delivery_address,
+            ]);
+
+        \DB::table('form_users')
+            ->where('user_id', $id)
+            ->update(['access_level' => 2]);
+
+        $redirectPath = '/'.$id.'/'.'portfolio';
+        $testPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
+
+        return redirect($testPath);
     }
 
     /**

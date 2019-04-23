@@ -17,31 +17,45 @@ class SearchController extends Controller
         //if search bar is empty, list out all portfolios.
         if(empty($query)){
             $AClients = DB::table('form_users')->select('user_id', 'subscriber_name', 'email', 'access_level', 'form_level')
-                                          ->where('class' ,'A')->get();
+                                          ->where('class' ,'A')
+                                          ->where(function($q){
+                                              $q->where('clientType', 'individual')
+                                              ->orwhere('clientType', 'business');
+                                          })->get();
+                                          
             $BClients = DB::table('form_users')->select('user_id','subscriber_name', 'email', 'access_level', 'form_level')
-                                          ->where('class' ,'B')->get();
+                                               ->where('class' ,'B')
+                                              ->where(function($q){
+                                                 $q->where('clientType', 'individual')
+                                                  ->orwhere('clientType', 'business');
+                                               })->get();
         }else{ //else find name closest to query
         
             $AClients = DB::table('form_users')->select('user_id','subscriber_name', 'email', 'access_level', 'form_level')
-                                            ->where('subscriber_name', 'LIKE', '%'. $query.'%')
-                                            ->where('class' ,'A')->get();
+                                             ->where('subscriber_name', 'LIKE', '%'. $query.'%')
+                                             ->where('class' ,'A')
+                                             ->where(function($q){
+                                                $q->where('clientType', 'individual')
+                                                ->orwhere('clientType', 'business');
+                                            })->get();
           
             $BClients = DB::table('form_users')->select('user_id', 'subscriber_name', 'email', 'access_level', 'form_level')
                                         ->where('subscriber_name', 'LIKE', '%'. $query.'%')
-                                        ->where('class' ,'B')->get();
+                                        ->where('class' ,'B')
+                                        ->where(function($q){
+                                            $q->where('clientType', 'individual')
+                                            ->orwhere('clientType', 'business');
+                                        })->get();
         }
    
         $outputA = ''; 
         $outputB = '';                                           
         foreach($AClients as $key => $client){
 
-            //$access_css = $client->access_level + $client->form_level;
-            $access_css = 5;
-
             $outputA .= '<div  class="column is-one-quarter">'.
                             'Name: '. $client->subscriber_name . '<br>'.
                             'Email: ' . $client->email .'<br>'.
-                             '<a href="' . $client->user_id.'/portfolio" class="access'. $access_css. '">'.'Portfolio</a>'.
+                             '<a href="' . $client->user_id.'/portfolio">'.'Portfolio</a>'.
                              '<hr>'.
                          '</div>';
             }
@@ -52,7 +66,7 @@ class SearchController extends Controller
                 $outputB .= '<div  class="column is-one-quarter">'.
                              'Name: '. $client->subscriber_name . '<br>'.
                              'Email: ' . $client->email .'<br>'.
-                             '<a href="' . $client->user_id.'/portfolio" class="access'. $access_css. '">'.'Portfolio</a>'.
+                             '<a href="' . $client->user_id.'/portfolio">'.'Portfolio</a>'.
                              '<hr>'.
                          '</div>';
             }

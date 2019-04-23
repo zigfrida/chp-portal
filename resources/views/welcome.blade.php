@@ -191,18 +191,18 @@
             <div class="navbar-start">
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link  is-active" href="#">
-                        Stuff?
+                        Structure
                       </a>
                     <div class="navbar-dropdown ">
                         <a class="navbar-item " href="#">
-                          Some stuff
+                          Visionary Structure
                         </a>
 
                         <hr class="navbar-divider">
                         <div class="navbar-item">
                             <div>
                                 <p class="is-size-6-desktop">
-                                    <strong class="has-text-info">Ha.Ha.Ha</strong>
+                                    <strong class="has-text-info">0.7.4</strong>
                                 </p>
 
                                 <small>
@@ -227,7 +227,7 @@
                                             <p>
                                                 <small class="has-text-info">Jan 1 2019</small>
                                             </p>
-                                            <p>We did some stuffs</p>
+                                            <p>Beginning the Month</p>
                                         </div>
                                     </a>
                                     <a class="navbar-item" href="#">
@@ -235,7 +235,7 @@
                                             <p>
                                                 <small class="has-text-info">Jan 15 2019</small>
                                             </p>
-                                            <p>We did some more stuffs</p>
+                                            <p>Middle of the Month</p>
                                         </div>
                                     </a>
                                     <a class="navbar-item" href="#">
@@ -243,7 +243,7 @@
                                             <p>
                                                 <small class="has-text-info">Jan 30 2019</small>
                                             </p>
-                                            <p>We topped it off with many many stuffs</p>
+                                            <p>Ending the Month</p>
                                         </div>
                                     </a>
                                 </div>
@@ -291,7 +291,7 @@
                     </div>
                 </div>
                 <a class="navbar-item " href="#">
-                    <span class="bd-emoji">❤️</span> &nbsp;WhatToPutHere
+                    <span class="bd-emoji">❤️</span> &nbsp;Made With Love
                 </a>
 
             </div>
@@ -433,21 +433,21 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-3 is-offset-2">
-                    <h2><strong>Blah blah blah</strong></h2>
+                    <h2><strong>LinkedIn</strong></h2>
                     <ul>
-                        <li><a href="#">La la la</a></li>
+                        <li><a href="https://www.linkedin.com/company/cypress-hills-partners/about/">Here</a></li>
                     </ul>
                 </div>
                 <div class="column is-3">
-                    <h2><strong>Blah blah blah</strong></h2>
+                    <h2><strong>Our Headquarters</strong></h2>
                     <ul>
-                        <li><a href="#">La la la</a></li>
+                        <li><a href="https://www.google.com/maps/place/1080+Mainland+St,+Vancouver,+BC+V6B+2T4/@49.2756006,-123.1225802,17z/data=!3m1!4b1!4m5!3m4!1s0x548673d65a82a923:0x19c1da5918a84be7!8m2!3d49.2755971!4d-123.1203915">Visit Us</a></li>
                     </ul>
                 </div>
                 <div class="column is-4">
-                    <h2><strong>Blah blah blah</strong></h2>
+                    <h2><strong>More Info</strong></h2>
                     <ul>
-                        <li><a href="#">La la la</a></li>
+                        <li><a href="/about">Click here</a></li>
                     </ul>
                 </div>
             </div>

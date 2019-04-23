@@ -17,7 +17,7 @@
                 </ul>
             </div>
         @endif
-        <form action="/{{ $user[0]->user_id }}/portfolio/form1" method="post">
+        <form onsubmit="saveSignature()" action="/{{ $user[0]->user_id }}/portfolio/form1" method="post">
             @csrf
             <div class="field is-horizontal">
                 <div class="field-label">
@@ -349,8 +349,19 @@
                             <h4 class="title is-4">The Subscriber acknowledges that the Issuer is relying upon the Subscriber's disclosure herein. In the event the Subscriber's accredited investor status changes prior to the date on which a certificate representing any of the Units is issued, the Subscriber agrees to immediately notify the Issuer of such change.</h2>
                             <br>
                             <h5 class="subtitle is-5">Initial (put in the writing box afterwards)</h5>
-                            <br><br>
+                            <canvas id="myCanvas" width="500" height="250" style="border:1px solid #000000;"></canvas>
+                            <input type="button" onclick="signaturePad.clear()" value="Clear">
+                            <input type="hidden" id="form_signature" name="form_signature" value="">
+                            <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+                            <script>
+                                var myCanvas = document.getElementById("myCanvas");
+                                var signaturePad = new SignaturePad(myCanvas);
 
+                                function saveSignature(){
+                                    var input = document.getElementById("form_signature").value = signaturePad.toDataURL();
+                                }
+                            </script>
+                            <br><br>
                         </article>
                     </div>
                 </div>

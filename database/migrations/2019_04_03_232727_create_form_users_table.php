@@ -74,6 +74,7 @@ class CreateFormUsersTable extends Migration
             $table->string('risk_ck5')->default('');
             $table->string('risk_ck6')->default('');
             $table->string('risk_ck7')->default('');
+            $table->string('risk_chk8')->default('');
 
             $table->timestamps();
 

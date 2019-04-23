@@ -65,7 +65,11 @@ Route::get('/{id}/portfolio', function ($id) {
                         ->where('class', 'B')
                         ->get();
 
-        return view('portfolio', compact('user', 'files', 'thisUser', 'years', 'metrics', 'fundInfo', 'extraInfo','classAPA','classBPA'));
+        $signature = DB::table('signatures')
+                        ->where('user_id', $id)
+                        ->get();
+
+        return view('portfolio', compact('user', 'files', 'thisUser', 'years', 'metrics', 'fundInfo', 'extraInfo', 'classAPA', 'classBPA', 'signature'));
     }
 })->middleware('auth');
 
@@ -77,10 +81,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], functio
     Route::get('/', function () {
         $clientsA = DB::table('form_users')
                         ->where('class', 'A')
-                        ->get();
+                        ->where(function ($q) {
+                            $q->where('clientType', 'individual')
+                             ->orwhere('clientType', 'business');
+                        })->get();
         $clientsB = DB::table('form_users')
                         ->where('class', 'B')
-                        ->get();
+                        ->where(function ($q) {
+                            $q->where('clientType', 'individual')
+                             ->orwhere('clientType', 'business');
+                        })->get();
 
         $clientsPC = DB::table('form_users')
                         ->where('class', 'NOT LIKE', 'A')
@@ -97,7 +107,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], functio
         $classBFiles = DB::table('uploaded_files')
                         ->where('file_type', 'B')
                         ->get();
-        
+
         $fundInfoA = DB::table('fund_infos')
                 ->where('class', 'A')
                 ->get();
@@ -122,6 +132,7 @@ Route::post('/{id}/portfolio/comment', 'PortfolioController@update');
 Route::post('/{id}/portfolio/form1', 'FormUserController@storeFormstack')->middleware('auth');
 Route::patch('/{id}/portfolio', 'FormUserController@update');
 Route::post('/{id}/portfolio/form2', 'FormUserController@storeSubAgreement')->middleware('auth');
+Route::patch('/{id}/portfolio/form2', 'FormUserController@updateSubAgreement')->middleware('auth');
 
 /*
     File uploading
@@ -144,7 +155,8 @@ Route::get('/{id}/portfolio/{type}/{filename}', function ($id, $type, $filename)
         $filepath = 'B'.'/'.$filename;
     }
 
-    return Storage::download($filepath);
+    // return Storage::download($filepath);
+    return response()->download($filepath);
 })->middleware('auth');
 
 /*
@@ -187,15 +199,10 @@ Route::post('/admin/editMC', 'FundInfoController@managementComment');
 
 /*
     PDF stuff
-
-    will combine later.
-
-
 */
 
 Route::get('{id}/filledform', 'PDFController@filledform');
-
-Route::get('1/formtest', 'PDFController@test');
+Route::get('{id}/formtest', 'PDFController@test');
 
 /*
     Search stuff

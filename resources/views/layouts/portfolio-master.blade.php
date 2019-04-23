@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <link rel="shortcut icon" href="/images/favicon.ico">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Portfolio</title>
@@ -22,14 +23,7 @@
         <div class="container">
             <div class="has-text-centered">
                 <h1 class="title"><span class="decor">Portfolio of</span> <span class="le-decor">{{ $user[0]->subscriber_name }}</span></h1>
-            </div>
-
-
-            (should only works access level 1 form level 2)<br>
-            <a href="{{url($user[0]->user_id.'/filledform')}}"> filledform </a><br>
-            <a href="/1/formtest"> testhtml </a><br>
-
-            
+            </div>            
         </div>
 
         <br>
@@ -47,11 +41,22 @@
             <link rel="stylesheet" type="text/css" href="{{ asset('css/random.css') }}">
             @include('forms.subagreement')
         @elseif ($user[0]->access_level == 1 && $user[0]->form_level == 2)
-        <a href="{{url($user[0]->id.'/filledform')}}"> filledform </a><br>
-            <h1>Wait for Alli to confirm subagreement</h1>
+
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/random.css') }}">
+        
+        
+
+            @if(auth()->user()->userType() == 'admin')
+                @include('forms.subagreementcheck')
+            @else 
+                @include('forms.subagreementdone')
+            @endif
+            
         @elseif ($user[0]->access_level == 2 && $user[0]->form_level == 2)
         
         <link rel="stylesheet" type="text/css" href="{{ asset('css/portfolio.css') }}">
+        
+        
 
         <div class="container">
             <div class="has-text-centered">
@@ -116,10 +121,23 @@
             @yield('show-files')
         </div>
  
+        <br>
+        <div class="columns is-centered">
+            <a class="button is-light" href="{{url($user[0]->user_id.'/filledform')}}" style="padding:10px">Download Subscription Agreement (PDF)</a><br>
+            <a class="button is-light" href="{{url($user[0]->user_id.'/formtest')}}" style="padding:10px">>> Web Version</a><br>
+        </div>
     </main>
 
+
+
+    
+
     @endif
+
+
     <br>
+
+
     @include('layouts.partials.footer')
 </body>
 </html>

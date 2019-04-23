@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> {{-- I DON'T KNOW WHAT THE NEXT LINE OF CODE DOES EVEN THOUGH I HAVE GOOGLED IT SO MANY TIMES --}}
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <link rel="shortcut icon" href="/images/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <title>Cypress Hill Partners</title>
@@ -45,26 +46,7 @@
 
         .le-decor {
             font-weight: 200 !important;
-        }
-
-        .access0{
-            color: rgba(76, 175, 80, 0.75);
-
-        }
-
-        .access1{
-            color: rgb(255, 153, 0)
-        }
-        .access2{
-            color: rgba(255, 100, 102, 0.9);
-        }        
-
-        .access3{
-            color: rgb(204, 204, 0);
-        }        
-        .access4{
-            
-        }        
+        }   
 
     </style>
 </head>
@@ -83,8 +65,13 @@
             <div class="container has-text-centered">
                 <h1 class="title"><span class="decor">All</span><span class="le-decor"> Clients</span></h1>
             </div>
-            <input type="text" name="search" id="search" placeholder="search for profile"/>
-			
+
+
+                <input type="text" style="max-width:30%; position:relative; top:35px;" class="input is-pulled-right" name="search" id="search" placeholder="search for portfolio"/>
+            
+
+            
+                  
             <section class="section">
                 @yield('list-clients')
             </section>
