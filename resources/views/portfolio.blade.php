@@ -111,26 +111,20 @@
 							@endfor
 							
 							{{-- Displaying YTD on LPPerformace table --}}
-							<?php 	
+							<?php
 							$countMonths = DB::table('l_p_performances')
 									->where('year','=', $year->year)
+									->where('month','!=', 0)
 									->where('class','LIKE', $user[0]->class)->count();
-							
-							if ($countMonths >= 12){
+
+							if ($countMonths % 3 == 0){
 								$ytdValues = DB::table('l_p_performances')
 								->where('month', '!=', 0)
 								->where('year','=', $year->year)
 								->where('class','LIKE', $user[0]->class)->sum('value'); 
 								$ytd = $ytdValues * 100 . "%";
 							}else{
-								$ytdValues = DB::table('l_p_performances')->select('value')
-								->where('month','=',0)
-								->where('year','=', $year->year)
-								->where('class','LIKE', $user[0]->class)->get(); 
-								if(isset($ytdValues[0]->value))
-									$ytd = $ytdValues[0]->value * 100 . "%";
-								else
-									$ytd = "";
+								$ytd = "";
 							}?>
 							<td>{{$ytd}}</td>
 							</tr>
@@ -369,19 +363,10 @@
 	<div class="tile is-parent">
 		<div class="tile">
 			<article class="tile is-child box">
-				<section class="hero is-dark is-bold">
-					<h1 class="title">Comparative Performance Analysis</h1>
-					@if($user[0]->class == 'A')
-						<img src="C:\Users\darre\Desktop\cypress-hill-partners\storage\app\Graph\A\ClassAGraph.PNG" alt="Class A graph image">
-						{{-- C:\Users\darre\Desktop\cypress-hill-partners\storage\app\Graph\A\ClassAGraph.PNG --}}
-					@elseif($user[0]->class == 'B')
-						<img src="C:\Users\darre\Desktop\cypress-hill-partners\storage\app\Graph\B\ClassBGraph.PNG" alt="Class B graph image">
-					@endif
-				</section>
 				@if($user[0]->class == 'A')
-					<img src="/images/ClassAGraph.PNG" alt="Graph image">
+					<img src="/upload/Graph/A/ClassAGraph.PNG" alt="Graph image">
 				@elseif($user[0]->class == 'B')
-					<img src="/images/ClassBGraph.PNG" alt="Graph image">
+					<img src="/upload/Graph/B/ClassBGraph.PNG" alt="Graph image">
 				@endif
 			</article>
 		</div>

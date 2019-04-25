@@ -89,8 +89,8 @@ class UploadController extends Controller
                     unlink($file);
                 }
             }
-            
-            $originalFile = $uploaded->getClientOriginalName();
+            $originalFile = "ClassAGraph." . $uploaded->getClientOriginalExtension();
+            //$originalFile = $uploaded->getClientOriginalName();
             $uploaded->move($destinationPath, $originalFile);
 
             return redirect('/admin');
@@ -102,7 +102,8 @@ class UploadController extends Controller
                     unlink($file);
                 }
             }
-            $originalFile = $uploaded->getClientOriginalName();
+            $originalFile = "ClassBGraph." . $uploaded->getClientOriginalExtension();
+            //$originalFile = $uploaded->getClientOriginalName();
             $uploaded->move($destinationPath, $originalFile);
             return redirect('/admin');
         }
