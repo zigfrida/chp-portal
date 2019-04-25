@@ -81,16 +81,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], functio
     Route::get('/', function () {
         $clientsA = DB::table('form_users')
                         ->where('class', 'A')
-                        ->where(function($q){
+                        ->where(function ($q) {
                             $q->where('clientType', 'individual')
                              ->orwhere('clientType', 'business');
-                          })->get();
+                        })->get();
         $clientsB = DB::table('form_users')
                         ->where('class', 'B')
-                        ->where(function($q){
+                        ->where(function ($q) {
                             $q->where('clientType', 'individual')
                              ->orwhere('clientType', 'business');
-                          })->get();
+                        })->get();
 
         $clientsPC = DB::table('form_users')
                         ->where('class', 'NOT LIKE', 'A')
@@ -155,7 +155,8 @@ Route::get('/{id}/portfolio/{type}/{filename}', function ($id, $type, $filename)
         $filepath = 'B'.'/'.$filename;
     }
 
-    return Storage::download($filepath);
+    // return Storage::download($filepath);
+    return response()->download($filepath);
 })->middleware('auth');
 
 /*

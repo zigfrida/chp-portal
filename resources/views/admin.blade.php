@@ -321,6 +321,50 @@
         </form>
 
     </div>
+    <br><br><br>
+
+
+    <div class="column is-narrow">
+        <form action="/fileupload" method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="field">
+                <div class="file is-warning has-name is-boxed">
+                    <label class="file-label">
+                        <input class="file-input" type="file" name="filelolol" id="file-upload4">
+                        <span class="file-cta">
+                            <span class="file-label">
+                                Upload Graph
+                            </span>
+                            <select name="selection">
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                            </select>
+                        </span>
+                        <span class="file-name" id="filename4">
+                            
+                        </span>
+                        </label>
+                </div>
+            </div>
+            <input type="hidden" name="user_id" value="1">
+            <input type="hidden" name="file_type" value="Graph">
+            <div class="has-text-centered" style="margin-top: 10px;">
+                <button type="submit" class="button is-warning">Submit</button>
+            </div>
+            <script>
+                var input4 = document.getElementById( 'file-upload4' );
+                var infoArea4 = document.getElementById( 'filename4' );
+                input4.addEventListener( 'change', showFileName4 );
+        
+                function showFileName4( event ) {
+                    var input4 = event.srcElement;
+                    var fileName4 = input4.files[0].name;
+                    infoArea4.textContent = fileName4;
+                }
+            </script>
+        </form>
+    </div>
+
 </div>
 @endsection
  

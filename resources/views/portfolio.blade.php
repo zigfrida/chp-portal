@@ -371,6 +371,12 @@
 			<article class="tile is-child box">
 				<section class="hero is-dark is-bold">
 					<h1 class="title">Comparative Performance Analysis</h1>
+					@if($user[0]->class == 'A')
+						<img src="C:\Users\darre\Desktop\cypress-hill-partners\storage\app\Graph\A\ClassAGraph.PNG" alt="Class A graph image">
+						{{-- C:\Users\darre\Desktop\cypress-hill-partners\storage\app\Graph\A\ClassAGraph.PNG --}}
+					@elseif($user[0]->class == 'B')
+						<img src="C:\Users\darre\Desktop\cypress-hill-partners\storage\app\Graph\B\ClassBGraph.PNG" alt="Class B graph image">
+					@endif
 				</section>
 				@if($user[0]->class == 'A')
 					<img src="/images/ClassAGraph.PNG" alt="Graph image">

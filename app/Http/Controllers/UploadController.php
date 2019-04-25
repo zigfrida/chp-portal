@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\UploadedFiles;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use File;
 
 class UploadController extends Controller
 {
@@ -45,7 +46,7 @@ class UploadController extends Controller
         $uploaded = $request->file('filelolol');
         $userID = $request->input('user_id');
         $fileClassType = $request->input('file_type');
-
+        $graphType = $request->get('selection');
         $filename = $uploaded->getClientOriginalName();
 
         $tableEntry = new UploadedFiles();
@@ -79,8 +80,32 @@ class UploadController extends Controller
             );
 
             return redirect('/admin');
-        }
+        } elseif($fileClassType == 'Graph'&& $graphType == 'A'){
+            
+            $destinationPath = 'upload/Graph/A';
+            $files = File::files($destinationPath);
+            if ($files !== false) {
+                foreach($files as $file){
+                    unlink($file);
+                }
+            }
+            
+            $originalFile = $uploaded->getClientOriginalName();
+            $uploaded->move($destinationPath, $originalFile);
 
+            return redirect('/admin');
+        } elseif($fileClassType == 'Graph'&& $graphType == 'B'){
+            $destinationPath = 'upload/Graph/B';
+            $files = File::files($destinationPath);
+            if ($files !== false) {
+                foreach($files as $file){
+                    unlink($file);
+                }
+            }
+            $originalFile = $uploaded->getClientOriginalName();
+            $uploaded->move($destinationPath, $originalFile);
+            return redirect('/admin');
+        }
         Storage::disk('local')->putFileAs(
             $userID,
             $uploaded,
