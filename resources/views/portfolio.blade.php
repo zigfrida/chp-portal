@@ -344,7 +344,7 @@
 	</div>
 	<div class="tile is-parent">
 		<article class="tile is-child box">
-			<table>
+			<table style="height: 100%;">
 				<tr>
 					<th class="tableName" colspan = "2">SME Portfolio Metrics</th>
 				</tr>
