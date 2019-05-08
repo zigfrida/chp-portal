@@ -155,6 +155,208 @@
 </form>
 @endsection
 
+
+@section('existing-client')
+
+<form action="/adminTwo" method="post">
+    @csrf
+    <div class="field is-horizontal">
+        <div class="field-label is-normal">
+            <label class="label">Full Name</label>
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <p class="control is-expanded has-icons-left">
+                    <input class="input" type="text" name="subscriber_name" placeholder="Full Name" required>
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-user"></i>
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="field is-horizontal">
+        <div class="field-label is-normal">
+            <label class="label">Email</label>
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <p class="control is-expanded has-icons-left has-icons-right">
+                    <input class="input " name="email" type="email" placeholder="example@email.com" required>
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                        <i class="fas fa-check"></i>
+                    </span>
+                </p>
+                <i><p class="help">confirmation email will be sent to the client's email</p></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="field is-horizontal">
+        <div class="field-label is-normal">
+            <label class="label">Contact</label>
+        </div>
+        <div class="field-body">
+            <div class="field is-expanded">
+                <div class="field has-addons">
+                    <p class="control">
+                        <a class="button is-static">
+                            +1
+                        </a>
+                    </p>
+                    <p class="control is-expanded">
+                        <input class="input" name="phone" type="tel" placeholder="778-555-5555" required>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="field is-horizontal">
+        <div class="field-label is-normal">
+            <label class="label">Address</label>
+        </div>
+        <div class="field-body">
+            <div class="field is-expanded">
+                <div class="field">
+                    <p class="control is-expanded">
+                        <input class="input" name="street" placeholder="Street Name" required>
+                    </p>
+                </div>
+                <i><p class="help">Street Name</p></i>
+            </div>
+        </div>
+    </div>
+    <div class="field is-horizontal">
+        <div class="field-label is-normal">
+            <label class="label">&nbsp;</label>
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <p class="control is-expanded ">
+                    <input class="input" name="city" placeholder="City" required>
+                </p>
+                <i><p class="help">City</p></i>
+            </div>
+            <div class="field is-narrow">
+                <div class="control">
+                    <div class="select is-fullwidth">
+                        <select name="province">
+                            <option>British Columbia</option>
+                            <option>Alberta</option>
+                            <option>Ontario</option>
+                            <option>Manitoba</option>
+                            <option>New Brunswick</option>
+                            <option>Ontario</option>
+                            <option>Newfoundland and Labrador</option>
+                            <option>Northwest Territories</option>
+                            <option>Nova Scotia</option>
+                            <option>Nunavut</option>
+                            <option>Prince Edward Island</option>
+                            <option>Quebec</option>
+                            <option>Saskatchewan</option>
+                            <option>Yukon</option>
+                        </select>
+                    </div>
+                    <i><p class="help">Province</p></i>
+                </div>
+            </div>
+            <div class="field">
+                <p class="control">
+                    <input class="input" name="postal_code" placeholder="Postal Code" required>
+                </p>
+                <i><p class="help">Postal Code</p></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="field is-horizontal">
+        <div class="field-label is-normal">
+            <label class="label">&nbsp;</label>
+        </div>
+        <div class="field-body">
+            <div class="field is-narrow">
+                <div class="control is-expanded">
+                    <div class="select is-fullwidth">
+                        <p class="control has-icons-left">
+                            <span class="select">
+                                <select name="country">
+                                    <option value="Canada">Canada</option>
+                                    <option value="United States">United States</option>
+                                </select>
+                            </span>
+                            <span class="icon is-small is-left">
+                                    <i class="fas fa-globe"></i>
+                            </span>
+                        </p>
+                    </div>
+                    <i><p class="help">Country</p></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="field is-horizontal">
+        <div class="field-label is-normal">
+            <label class="label">Client Type</label>
+        </div>
+
+        <div class="field-body">
+
+            <div class="field">
+                <div class="control">
+                    <div class="select is-fullwidth">
+                        <select name="clientType">
+                            <option>Individual</option>
+                            <option>Business</option>
+                        </select>
+                    </div>
+                    <i><p class="help">Client Type</p></i>
+                </div>
+            </div>
+
+            <div class="field-label is-normal">
+                <label class="label">Client Class</label>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <div class="select is-fullwidth">
+                        <select name="class">
+                            <option>A</option>
+                            <option>B</option>
+                        </select>
+                    </div>
+                    <i><p class="help">Client Class</p></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="field is-horizontal">
+        <div class="field-label">
+            <!-- Left empty for spacing -->
+        </div>
+        <div class="field-body">
+            <div class="field is-grouped is-grouped-right">
+                <div class="control">
+                    <button class="button is-warning">
+                        <span class="icon is-medium">
+                            <i class="fas fa-user-plus"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+@endsection
+
 @section('management-comment')
 <div class="columns is-centered is-mobile">
     <div class="column">

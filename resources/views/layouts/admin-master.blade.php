@@ -91,6 +91,16 @@
 
         <div class="container shrinker">
             <div class="container has-text-centered">
+                <h1 class="title"><span class="decor">Register</span><span class="le-decor"> Existing Client</span></h1>
+            </div>
+            <section class="section">
+                @yield('existing-client')
+            </section>
+        </div>
+        <hr>
+
+        <div class="container shrinker">
+            <div class="container has-text-centered">
                 <h1 class="title"><span class="decor">Management</span><span class="le-decor"> Comment</span></h1>
             </div>
             <section class="section">

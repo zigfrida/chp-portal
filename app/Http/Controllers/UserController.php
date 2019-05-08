@@ -112,6 +112,55 @@ class UserController extends Controller
         return redirect('/admin')->with('success', 'User created!');
     }
 
+    public function storeExisting(Request $request){
+        $name = $request->input('subscriber_name');
+        $email = $request->input('email');
+        $phone = $request->input('phone');
+        $street = $request->input('street');
+        $city = $request->input('city');
+        $province = $request->input('province');
+        $postal_code = $request->input('postal_code');
+        $country = $request->input('country');
+
+        $clientType = $request->input('clientType');
+        $class = $request->input('class');
+
+        $user = new User();
+        $user->name = $name;
+        // $user->password = Hash::make(str_random(16));
+        $user->password = '111111';
+        $user->password = Hash::make($user->password);
+        $user->email = $email;
+        $user->role = 'standard';
+        $user->save();
+
+        // \Invytr::invite($user);
+
+        form_user::create([
+            'user_id' => $user['id'],
+            'subscriber_name' => $name,
+            'class' => $class,
+            'clientType' => $clientType,
+            'street' => $street,
+            'city' => $city,
+            'province' => $province,
+            'postal_code' => $postal_code,
+            'country' => $country,
+            'phone' => $phone,
+            'email' => $email,
+            'access_level' => 2,
+            'form_level' => 2,
+        ]);
+
+        PISummary::create([
+            'user_id' => $user['id'],
+        ]);
+
+        return redirect('/admin')->with('success', 'User created!');
+
+
+    }
+
     /**
      * Display the specified resource.
      *

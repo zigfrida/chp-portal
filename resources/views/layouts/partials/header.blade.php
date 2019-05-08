@@ -41,9 +41,17 @@
                             <a class="navbar-item" href="/admin">
                                 Admin Page
                             </a>
+                            @if(isset($user[0]->user_id))
+                                <a class="navbar-item" href="/{{$user[0]->user_id}}/edit_profile">
+                                    Edit Account Info
+                                </a>
+                            @endif
                         @else
                             <a class="navbar-item" href="/{{auth()->user()->id}}/portfolio">
                                 My Portfolio
+                            </a>
+                            <a class="navbar-item" href="/{{auth()->user()->id}}/edit_profile">
+                                Edit Account Info
                             </a>
                         @endif
                         <hr class="navbar-divider">

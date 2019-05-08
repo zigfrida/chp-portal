@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\form_user;
+use App\User;
 use Redirect;
 use Illuminate\Http\Request;
 
@@ -215,6 +216,7 @@ class FormUserController extends Controller
                     'province' => $request->province,
                     'street' => $request->street,
                     'postal_code' => $request->postal_code,
+                    'city' => $request->city,       //Missing?
                     'country' => $request->country,
                     'sin' => $request->sin,
                     'phone' => $request->phone,
@@ -361,6 +363,53 @@ class FormUserController extends Controller
         $testPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
 
         return redirect($testPath);
+    }
+
+
+    public function updateProfile(Request $request, $id){
+
+        $subscriber_name = $request->input('subscriber_name');
+        $email = $request->input('email');
+        $steet = $request->input('street');
+        $city = $request->input('city');
+        $province = $request->input('province');
+        $postal_code = $request->input('postal_code');
+        $country = $request->input('country');
+        $phone = $request->input('phone');
+
+        $class = \DB::table('form_users')
+            ->select('class')
+            ->where('user_id', $id)
+            ->get();
+
+        \DB::table('form_users')
+            ->where('user_id', $id)
+            ->update([
+                'subscriber_name' => $subscriber_name,
+                'email' => $request->email,
+                'street' => $request->street,
+                'city' => $request->city,
+                'province' => $request->province,
+                'postal_code' => $request->postal_code,
+                'country' => $request->country,
+                'phone' => $request->phone,
+            ]);
+
+        \DB::table('users')
+            ->where('id', $id)
+            ->update([
+                'name' => $subscriber_name,
+                'email' => $request->email,
+            ]);
+
+        $newPath;
+        if(auth()->user()->isAdmin()){
+            $newPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class[0]->class.'&method=updateSpreadUserName';
+        }else{
+            $newPath = '/'.$id.'/edit_profile';
+        }
+
+        return redirect($newPath);
     }
 
     /**

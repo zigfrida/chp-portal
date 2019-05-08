@@ -73,6 +73,16 @@ Route::get('/{id}/portfolio', function ($id) {
     }
 })->middleware('auth');
 
+Route::get('/{id}/edit_profile', function ($id){
+    if ($id != auth()->id() && \Auth::user()->role != 'admin') 
+        abort(403);
+    else
+        $user = DB::table('form_users')->where('user_id', $id)->get();
+        return view('edit_profile', compact('user'));
+})->middleware('auth');
+
+Route::patch('/{id}/edit_profile', 'FormUserController@updateProfile')->middleware('auth');
+
 /*
     Admin Page
 */
@@ -122,6 +132,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], functio
 });
 
 Route::post('/admin', 'UserController@store');
+
+Route::post('/adminTwo', 'UserController@storeExisting');
 
 // for Alli to update portfolio's comments
 Route::post('/{id}/portfolio/comment', 'PortfolioController@update');

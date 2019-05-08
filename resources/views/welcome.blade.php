@@ -311,6 +311,9 @@
                                     <a class="navbar-item" href="/{{auth()->user()->id}}/portfolio">
                                         My Portfolio
                                     </a>
+                                    <a class="navbar-item" href="/{{auth()->user()->id}}/edit_profile">
+                                        Edit Account Info
+                                    </a>
                                 @endif
                                 <hr class="navbar-divider">
                                 {{-- if I remove this href it doesn't seemingly affect the logout - what gives? --}}
