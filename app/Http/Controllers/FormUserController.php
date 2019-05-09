@@ -399,17 +399,21 @@ class FormUserController extends Controller
             ->where('id', $id)
             ->update([
                 'name' => $subscriber_name,
-                'email' => $request->email,
+                'email' => $email,
             ]);
+
+        
 
         $newPath;
         if(auth()->user()->isAdmin()){
             $newPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class[0]->class.'&method=updateSpreadUserName';
+
         }else{
             $newPath = '/'.$id.'/edit_profile';
         }
-
+            
         return redirect($newPath);
+        
     }
 
     /**
