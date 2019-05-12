@@ -2,72 +2,50 @@
 
 namespace App\Http\Controllers;
 
-
-use Config;
 use DB;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
-use Illuminate\Http\Request;
-
-/*
-
-documentation. need security
-https://github.com/dompdf/dompdf/wiki/Usage
-
-*/
-
 class PDFController extends Controller
 {
-  
+    public function filledform($id)
+    {
+        if ($id != auth()->id() && \Auth::user()->role != 'admin') {
+            abort(403);
+        } else {
+            $user = DB::table('form_users')
+                ->join('users', 'form_users.user_id', '=', 'users.id')
+                ->join('p_i_summaries', 'form_users.user_id', '=', 'p_i_summaries.user_id')
+                ->join('signatures', 'form_users.user_id', '=', 'signatures.user_id')
+                ->where('form_users.user_id', $id)->get();
 
-		public function filledform($id){
+            $htmlstring = view('pdf.subscription-filled', compact('user'))->render();
+            $options = new Options();
+            $options->set('defaultFont', 'Arial');
 
-			
+            $pdf = new Dompdf($options);
 
-		if ($id != auth()->id() && \Auth::user()->role != 'admin') {
-        abort(403);
-    } else {
+            $pdf->loadHtml($htmlstring);
 
-				$user = DB::table('form_users')->join('users', 'form_users.user_id', '=' , 'users.id')
-																			 ->join('p_i_summaries', 'form_users.user_id', '=', 'p_i_summaries.user_id')
-																			 ->join('signatures' , 'form_users.user_id', '=', 'signatures.user_id')
-																		  	->where('form_users.user_id', $id)->get();
-															
+            $pdf->setPaper('A4', 'Portrait');
+            $pdf->render();
 
-														  
+            return $pdf->stream();
+        }
+    }
 
-				$htmlstring = view('pdf.subscription-filled', compact('user'))->render();
-				$options = new Options();
-				$options->set('defaultFont', 'Arial');
+    public function test($id)
+    {
+        if ($id != auth()->id() && \Auth::user()->role != 'admin') {
+            abort(403);
+        } else {
+            $user = DB::table('form_users')
+                ->join('users', 'form_users.user_id', '=', 'users.id')
+                ->join('p_i_summaries', 'form_users.user_id', '=', 'p_i_summaries.user_id')
+                ->join('signatures', 'form_users.user_id', '=', 'signatures.user_id')
+                ->where('form_users.user_id', $id)->get();
 
-	
-				$pdf = new Dompdf($options);
-	
-				$pdf->loadHtml($htmlstring);
-
-
-				$pdf->setPaper('A4', 'Portrait');
-				$pdf->render();
-
-				return $pdf->stream();
-
-		}
-
-	  }
-		public function test($id){
-			if ($id != auth()->id() && \Auth::user()->role != 'admin') {
-        abort(403);
-    } else {
-
-
-				$user = DB::table('form_users')->join('users', 'form_users.user_id', '=' , 'users.id')
-																			->join('p_i_summaries', 'form_users.user_id', '=', 'p_i_summaries.user_id')
-																			->join('signatures' , 'form_users.user_id', '=', 'signatures.user_id')
-																			->where('form_users.user_id', $id)->get();
-				
-				return view('pdf.subscription-filled', compact('user'))->render();
-		}
-	}
-    
+            return view('pdf.subscription-filled', compact('user'))->render();
+        }
+    }
 }
