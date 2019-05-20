@@ -577,7 +577,7 @@
             @foreach ($classAFiles as $cA)
             <div class="column is-one-quarter">
                 {{ $cA->filename }} <br>
-                <a href="portfolio/{{ $cA->file_type}}/{{ $cA->filename }}" class="button is-warning">Download</a>
+                <a href="/1/portfolio/{{ $cA->file_type}}/{{ $cA->filename }}" class="button is-warning">Download</a>
                 
                 <div class="dropdown is-hoverable">
                     <div class="dropdown-trigger">
@@ -668,7 +668,7 @@
             @foreach ($classABFiles as $cAB)
             <div class="column is-one-quarter">
                 {{ $cAB->filename }} <br>
-                <a href="portfolio/{{ $cAB->file_type}}/{{ $cAB->filename }}" class="button is-warning">Download</a>
+                <a href="/1/portfolio/{{ $cAB->file_type}}/{{ $cAB->filename }}" class="button is-warning">Download</a>
                 <div class="dropdown is-hoverable">
                     <div class="dropdown-trigger">
                         <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">

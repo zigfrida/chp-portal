@@ -157,6 +157,9 @@ Route::patch('/{id}/portfolio/form2', 'FormUserController@updateSubAgreement')->
 */
 Route::post('/fileupload', 'UploadController@store');
 
+/*
+    File downloading
+*/
 Route::get('/{id}/portfolio/{type}/{filename}', function ($id, $type, $filename) {
     $filepath = ' ';
     if ($id != auth()->id() && \Auth::user()->role != 'admin') {
@@ -173,8 +176,8 @@ Route::get('/{id}/portfolio/{type}/{filename}', function ($id, $type, $filename)
         $filepath = 'B'.'/'.$filename;
     }
 
-    // return Storage::download($filepath);
-    return response()->download($filepath);
+    return Storage::download($filepath);
+    // return response()->download('2/test_file1.txt');
 })->middleware('auth');
 
 /*

@@ -606,7 +606,7 @@
 				<div class="column is-one-quarter">
 						{{ $file->filename  }} <br>
 						{{ $file->created_at }} <br>
-					<a href="portfolio/{{ $file->file_type}}/{{ $file->filename }}" class="button is-warning">Download</a>
+					<a href="/{{ $user[0]->user_id }}/portfolio/{{ $file->file_type}}/{{ $file->filename }}" class="button is-warning">Download</a>
 					  
       @if (auth()->user()->isAdmin())
             
