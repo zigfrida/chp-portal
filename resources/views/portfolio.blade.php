@@ -622,17 +622,11 @@
 						<div class="dropdown-menu" id="dropdown-menu4" role="menu">
 							<div class="dropdown-content">
 								<div class="dropdown-item">
-									edit
-								</div>
-								<div class="dropdown-item">
 									@if ($file->user_id != 1)
-											
-									
-									<form method="post" action="portfolio/{{$file->filename}}">
+									<form method="post" action="/{{ $user[0]->user_id }}/portfolio/{{$file->filename}}">
 										@csrf
-										@method('delete')
-										
-										<a href="#" onclick="$(this).closest('form').submit()">delete</a>
+										@method('delete')		
+										<a onclick="$(this).closest('form').submit()">delete</a>
 									</form>
 									@endif
  								</div>
