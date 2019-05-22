@@ -1,99 +1,97 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
 
-    
 <style type="text/css" media="all">
- * {
-     box-sizing: border-box;
-     
- }
-.black-border {
-    border: 1.5px black solid;
-    margin: 20px 40px 25px 40px;
-    padding-top : 15px;
-    padding-bottom : 15px;
-}
-.subscription-date{
-    border: 1.5px black solid;
-    margin: 20px 25px 25px 25px;
-    padding-top : 15px;
-    padding-bottom : 15px;
-    text-align :center;
-}
-.column-row {
-  margin-left : 18px;
-     margin-bottom : 25px;
-     margin-top : -35px;
- 
- }
- 
- /*.telephone{
-	position: relative;
-    top : -145px;
 
-}  */
-.signinput{
-	font-size:12px;
-}
+    * {
+        box-sizing: border-box;
+    }
 
-/* Create three equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 50%;
-  padding: 10px;
-  height: 215px; /* Should be find better way */
-}
+    .black-border {
+        border: 1.5px black solid;
+        margin: 20px 40px 25px 40px;
+        padding-top : 15px;
+        padding-bottom : 15px;
+    }
 
-/* Clear floats after the columns */
-.row-form:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+    .subscription-date {
+        border: 1.5px black solid;
+        margin: 20px 25px 25px 25px;
+        padding-top : 15px;
+        padding-bottom : 15px;
+        text-align :center;
+    }
 
-.row-form{
-    position: relative;
-    top : -15px;
-}
-
-.user-data{
-    position:relative;
-    left:21px;
-    top : 26px;
+    .column-row {
+        margin-left : 18px;
+        margin-bottom : 25px;
+        margin-top : -35px;
     
-}
+    }
 
-.indent{
-    position: relative;
-    left:30px;
-}
+    .signinput {
+        font-size:12px;
+    }
 
-.page-break {
-    page-break-after: always;
-}
+    /* Create three equal columns that floats next to each other */
+    .column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 215px; /* Should be find better way */
+    }
 
-.darkenrow{
-    background-color:darkgrey;
-    color:white;
-}
-    
-.signature-image{
-    position: relative;
-    top: 75px;
-    
-    
-}
+    /* Clear floats after the columns */
+    .row-form:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
 
+    .row-form {
+        position: relative;
+        top : -15px;
+    }
 
+    .user-data {
+        position:relative;
+        left:21px;
+        top : 26px;
+    }
+
+    .indent {
+        position: relative;
+        left:30px;
+    }
+
+    /* .page-break {
+        page-break-after: always;
+    } */
+
+    .darkenrow {
+        background-color:darkgrey;
+        color:white;
+    }
+        
+    .signature-image{
+        position: relative;
+        top: 75px;
+    }
+
+    /* My turn! */
+    .page-break {
+        page-break-after: always;
+    }
+    .underline {
+        border-bottom: 1px solid black;
+    }
 </style>
 
-    
+{{-- TODO: make .signinput into something more readable --}}
 <div class="container">
 
-        <section class="section">
-            <div class="container has-background-white-bis">
+    <section class="section">
+        <div class="container has-text-black">
                 <div class="has-text-centered">
-                    
-                
                     <h5 class="title is-5 is-uppercase is-bold">These securities will not be registered under the United States Securities Act of 1933, as amended, and may not be resold in the United States or to a U.S. person</h5>
                     <br><br><br>
                     <h2 class="title is-2 has-text-success is-uppercase is-bold">CHP Master I <br> Limited Partnership</h2>
@@ -115,202 +113,148 @@
                         <li>Return a completed Subscription Agreement, Appendix I, together with the subscription proceeds (by way of certified cheque, bank draft or wire transfer (see <span class="has-text-weight-bold">Appendix II</span> for the Partnership's wire transfer details).</li>
                     </ol>
                 </div>
-    
-             {{-- new page --}}
-    
-                <br><br>
-                <br><br>
-                <br><br>
-                <br><br>
-                <br><br>
-                <br><br>
-                <hr>
-    
-                <div class="has-text-centered">
-                    <h4 class="title is-4 is-uppercase">Subscription Agreement</h4>
-                </div>
-                
-                <p>To:&nbsp;&nbsp;&nbsp;CHP Master I Limited Partnership (the "Issuer")</p>
-                <p>The undersigned (the "Subscriber") hereby acknowledges that the Issuer is undertaking an offering of Class
-                    A limited partnership units ("Class A Units") and Class B limited partnership units ("Class B Units") at the
-                    NAV per Class A Unit and the NAV per Class B unit; and hereby tenders to the Issuer this subscription
-                    offer which, upon acceptance by the Issuer, will constitute an agreement of the Subscriber to subscribe for,
-                    take up, purchase and pay for and, on the part of the Issuer, to issue and sell to the Subscriber the number of 
-                    Units set out below on the terms and subject to the conditions set out in this Agreement.
-                </p>
-                @if($user[0]->class == 'A')
-                    <div class="has-text-centered black-border">
-                        <span class="has-text-weight-bold">Class A Capital Contribution, at the NAV per unit</span> = $<u>____{{$user[0]->total_investment}}_____</u>
-                        <br>
-                        <span class="has-text-weight-bold">Class B Capital Contribution, at the NAV per unit</span> = $_______________
-                        <br>
-                    </div>
-                @else
+
+            {{-- new page --}}
+            <div class="page-break"></div>
+
+            <div class="has-text-centered">
+                <h4 class="title is-4 is-uppercase">Subscription Agreement</h4>
+            </div>
+            
+            <p>To:&nbsp;&nbsp;&nbsp;<span class="has-text-weight-bold">CHP Master I Limited Partnership</span> (the "Issuer")</p>
+            <p>The undersigned (the "Subscriber") hereby acknowledges that the Issuer is undertaking an offering of Class
+                A limited partnership units ("Class A Units") and Class B limited partnership units ("Class B Units") at the
+                NAV per Class A Unit and the NAV per Class B unit; and hereby tenders to the Issuer this subscription
+                offer which, upon acceptance by the Issuer, will constitute an agreement of the Subscriber to subscribe for,
+                take up, purchase and pay for and, on the part of the Issuer, to issue and sell to the Subscriber the number of 
+                Units set out below on the terms and subject to the conditions set out in this Agreement.
+            </p>
+            @if($user[0]->clientType === 'individual')
                 <div class="has-text-centered black-border">
-                    <span class="has-text-weight-bold">Class A Capital Contribution, at the NAV per unit</span> = $_______________
-                    <br>
-                    <span class="has-text-weight-bold">Class B Capital Contribution, at the NAV per unit</span> = $<u>____{{$user[0]->total_investment}}_____</u>
+                    <span class="">Class A Capital Contribution, at the NAV per unit</span> = $<u>{{ $user[0]->total_investment }}</u>
+                </div>
+            @elseif($user[0]->clientType === 'business')
+                <div class="has-text-centered black-border">
+                    <span class="has-text-weight-bold">Class B Capital Contribution, at the NAV per unit</span> = $<u>{{ $user[0]->total_investment }}</u>
                     <br>
                 </div>
-                @endif
+            @endif
 
-
-
-                <span class="has-text-weight-bold">DATED</span> this <u>__{{$user[0]->signed_day1}}____</u> day of <u>____{{$user[0]->signed_month1}}_____</u>, 2019
-                <br><br>
+            <span class="has-text-weight-bold">DATED</span> this <u>{{ $user[0]->signed_day1 }}</u> day of <u>{{ $user[0]->signed_month1 }}</u>, {{ $user[0]->signed_year1 }}.
+            <br><br><br>
 
 <div class="row-form">
-  <div class="column">
-  
+    <div class="column">
         
   		<div class="column-row">
-           <div class="user-data">&nbsp;&nbsp;{{$user[0]->subscriber_name}} </div>
-        	______________________________
-            <div><i class="signinput">(Name of Subscriber)</i></div>
-            
+            <div class="underline">&nbsp;&nbsp;{{ $user[0]->subscriber_name }}</div>
+            <div><i class="signinput">(Name of Subscriber - please print)</i></div>
         </div>
-    
-        
+        <br>
         <div class="column-row">
-            <div class="user-data">&nbsp;&nbsp;{{$user[0]->official_capacity_or_title_of_authorized_signatory}} </div>
-        	by:____________________________
-            <div><i class="signinput">(Official Capacity or Title)</i></div>
+            <div class="underline">&nbsp;&nbsp;by:{{ $user[0]->official_capacity_or_title_of_authorized_signatory }}</div>
+            <div><i class="signinput">(Official Capacity or Title - please print)</i></div>
         </div>
-        
-        
+        <br>
         <div class="column-row">
-            <div class="user-data">&nbsp;&nbsp;<img src="{{$user[0]->form_signature}}" alt="Form signature" height="50" width="90"> </div>
-        	______________________________
+            <div class="underline">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="50" width="87"></div>
 			<div><i class="signinput">Authorized Signature</i></div>
         </div>
-        
+        <br>
         <div class="column-row">
-             <div class="user-data">&nbsp;&nbsp;{{$user[0]->name}} </div>
-        	______________________________
-			<div><i class="signinput">Name</i></div>
+             <div class="underline">&nbsp;&nbsp;{{ $user[0]->name }}</div>
+			<div><i class="">Name</i></div>
         </div>
   
-  </div>
-  <div class="column">
-        
-   		<div class="column-row">
-             <div class="user-data">&nbsp;&nbsp;{{$user[0]->street}}</div>
-  	     	______________________________
-			<div><i class="signinput">Subscriber's Address</i></div>
-        </div>
-
-        
-        <div class="column-row">
-            <div class="user-data">&nbsp;&nbsp; </div>
-        	______________________________
-			<div><i class="signinput"></i></div>
-        </div>
-
-        <div class="column-row">        
-            <div class="user-data">&nbsp;&nbsp;{{ $user[0]->email }} </div>
-            ______________________________
-            <div><i class="signinput">(Email)</i></div>
-        </div>
-
-        <div class="column-row">
-            <div class="user-data">&nbsp;&nbsp; </div>
-        	______________________________
-			<div><i class="signinput">(Facsimile Number)</i></div>
-        </div>
-
-        
-
-        
-        <div class="column-row telephone">
-            <div class="user-data">&nbsp;&nbsp;{{$user[0]->phone}} </div>
-        	______________________________
-			<div><i class="signinput">Telephone</i></div>
-        </div>  
+    </div>
+<div class="column">
+    <div class="column-row">
+          <div class="underline">&nbsp;&nbsp;{{ $user[0]->street }}</div>
+          <div><i class="signinput">Subscriber's Address</i></div>
+    </div>
+    <br>
+    <div class="column-row">        
+        <div class="underline">&nbsp;&nbsp;{{ $user[0]->email }}</div>
+        <div><i class="signinput">(Email)</i></div>
+    </div>
+    <br><br>
+    <div class="column-row">
+        <div class="underline">&nbsp;&nbsp; </div>
+        <div><i class="signinput">(Facsimile Number)</i></div>
+    </div>
+    <br>
+    <div class="column-row telephone">
+        <div class="underline">&nbsp;&nbsp;{{ $user[0]->phone }}</div>
+        <div><i class="signinput">Telephone</i></div>
+    </div>  
 
   
   </div>
 </div>
-<hr>
+
+<br>
 
 <div class="row-form">
     <div class="column">
-            <h3><u> Registration Instructions </u></h3>
-          
-            <div class="column-row">
-              <div class="user-data">&nbsp;&nbsp;{{$user[0]->registration_name }}</div>
-              ______________________________
-              <div><i class="signinput">Name</i></div>
-              
-          </div>
-      
-          
-          <div class="column-row">
-              <div class="user-data">&nbsp;&nbsp;{{$user[0]->registration_account_reference}} </div>
-              by:____________________________
-              <div><i class="signinput">Account reference, if applicable</i></div>
-          </div>
-          
-          
-          <div class="column-row">
-              <div class="user-data">&nbsp;&nbsp;{{$user[0]->registration_address}}</div>
-              ______________________________
-              <div><i class="signinput">Address</i></div>
-          </div>
-          
-          <div class="column-row">
-              <div class="user-data">&nbsp;&nbsp;</div>
-              ______________________________
-              <div><i class="signinput"></i></div>
-          </div>
-    
+        <h3><u> Registration Instructions </u></h3>
+        <br><br>
+        <div class="column-row">
+            <div class="underline">&nbsp;&nbsp;{{ $user[0]->registration_name }}</div>
+            <div><i class="signinput">Name</i></div>
+        </div>
+        <br>
+        <div class="column-row">
+            <div class="underline">&nbsp;&nbsp;by: {{ $user[0]->registration_account_reference }} </div>
+            
+            <div><i class="signinput">Account reference, if applicable</i></div>
+        </div>
+        <br>
+        <div class="column-row">
+            <div class="underline">&nbsp;&nbsp;{{ $user[0]->registration_address }}</div>
+            
+            <div><i class="signinput">Address</i></div>
+        </div>
     </div>
     <div class="column">
-            <h3><u> Delivery Instructions </u></h3>
-          
-             <div class="column-row">
-                <div class="user-data">&nbsp;&nbsp;{{$user[0]->delivery_account_reference}} </div>
-                 ______________________________
-              <div><i class="signinput">Account reference, if applicable</i></div>
-          </div>
-  
-          
-          <div class="column-row">
-              <div class="user-data">&nbsp;&nbsp;{{$user[0]->delivery_contact}} </div>
-              ______________________________
-              <div><i class="signinput">Contact Name</i></div>
-          </div>
-  
-          
-          <div class="column-row">
-              <div class="user-data">&nbsp;&nbsp;{{$user[0]->delivery_address}} </div>
-              ______________________________
-              <div><i class="signinput">Address</i></div>
-          </div>
-  
-          
-          <div class="column-row">        
-              <div class="user-data">&nbsp;&nbsp;{{$user[0]->delivery_telephone}}</div>
-              ______________________________
-              <div><i class="signinput">Telephone Number</i></div>
-          </div>
+        <h3><u>Delivery Instructions</u></h3>
+        <br><br>
+        <div class="column-row">
+            <div class="underline">&nbsp;&nbsp;{{ $user[0]->delivery_account_reference }}</div>     
+            <div><i class="signinput">Account reference, if applicable</i></div>
+        </div>
+        <br>
+        <div class="column-row">
+            <div class="underline">&nbsp;&nbsp;{{ $user[0]->delivery_contact }}</div>
+            <div><i class="signinput">Contact Name</i></div>
+        </div>
+        <br>
+        <div class="column-row">
+            <div class="underline">&nbsp;&nbsp;{{ $user[0]->delivery_address }}</div>
+            <div><i class="signinput">Address</i></div>
+        </div>
+        <br>
+        <div class="column-row">        
+            <div class="underline">&nbsp;&nbsp;{{ $user[0]->delivery_telephone }}</div>
+            <div><i class="signinput">Telephone Number</i></div>
+        </div>
     </div>
 </div>
 
-<hr>
+<br>
+{{-- new page --}}
+<div class="page-break"></div>
+<div class="subscription-date">
+    <span>This subscription is accepted by the Issuer this</span> <u>___{{$user[0]->signed_day1}}______</u> day of <u>____{{$user[0]->signed_month1}}________</u>, 2019.
+    <p >CHP Master I Limited Partnership</p>
 
-        <div class="subscription-date">
-           <span>This subscription is accepted by the Issuer this</span> <u>___{{$user[0]->signed_day1}}______</u> day of <u>____{{$user[0]->signed_month1}}________</u>, 2019.
-            <p >CHP Master I Limited Partnership</p>
-
-            <div class="signature">
-                <div class="signature-image">&nbsp;&nbsp;
-                        <img src="{{$user[0]->form_signature}}" alt="Form signature" height="400" width="400"> 
-                </div>
-                ____________________________________________________________________
-                <div><i class="signinput">Authorized Signature</i></div>
-            </div>
-
+    <div class="signature">
+        <div class="signature-image">&nbsp;&nbsp;
+                <img src="{{$user[0]->form_signature}}" alt="Form signature" height="400" width="400"> 
         </div>
+        <div><i class="">Authorized Signature</i></div>
+    </div>
+
+</div>
 <br>
 <br>
 <!-- -->
@@ -857,10 +801,8 @@
                 <br>
             </ol>
         </div>
-        <hr>
         <!-- Appendix -->
 
-        <div style="page-break-after: always;"></div>
         <div class="content">
                 <div class="has-text-centered">
                     <h3 class="is-uppercase has-text-weight-bold title">Appendix I</h3>
@@ -1230,7 +1172,6 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
 @endif
 
 
-<div style="page-break-after: always;"></div>
 <div class="has-text-centered">
         <p class="title is-3 is-spaced">Appendix IA</p>
         <p class="subtitle is-5">Form 45-106F9</p>
@@ -1368,8 +1309,6 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
 
 
         <br><br><br>
-        <hr>
-        <div style="page-break-after: always;"></div>
         <div class="has-text-centered">
             <h3 class="subtitle is-3">APPENDIX II</h3>
             <br>

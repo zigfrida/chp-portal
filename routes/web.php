@@ -68,23 +68,25 @@ Route::get('/{id}/portfolio', function ($id) {
         $signature = DB::table('signatures')
                         ->where('user_id', $id)
                         ->get();
-        
+
         $province = $user[0]->province;
 
         $country = $user[0]->country;
 
-        return view('portfolio', compact('user', 'files', 'thisUser', 'years', 'metrics', 'fundInfo', 'extraInfo', 'classAPA', 'classBPA', 'signature','province','country'));
+        return view('portfolio', compact('user', 'files', 'thisUser', 'years', 'metrics', 'fundInfo', 'extraInfo', 'classAPA', 'classBPA', 'signature', 'province', 'country'));
     }
 })->middleware('auth');
 
-Route::get('/{id}/edit_profile', function ($id){
-    if ($id != auth()->id() && \Auth::user()->role != 'admin') 
+Route::get('/{id}/edit_profile', function ($id) {
+    if ($id != auth()->id() && \Auth::user()->role != 'admin') {
         abort(403);
-    else
+    } else {
         $user = DB::table('form_users')->where('user_id', $id)->get();
-        $province = $user[0]->province;
-        $country = $user[0]->country;
-        return view('edit_profile', compact('user','province','country'));
+    }
+    $province = $user[0]->province;
+    $country = $user[0]->country;
+
+    return view('edit_profile', compact('user', 'province', 'country'));
 })->middleware('auth');
 
 Route::patch('/{id}/edit_profile', 'FormUserController@updateProfile')->middleware('auth');
@@ -92,7 +94,6 @@ Route::patch('/{id}/edit_profile', 'FormUserController@updateProfile')->middlewa
 /*
     Admin Page
 */
-
 Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], function () {
     Route::get('/', function () {
         $clientsA = DB::table('form_users')
@@ -132,7 +133,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], functio
                 ->where('class', 'B')
                 ->get();
 
-        return view('admin', compact('clientsA', 'clientsB', 'clientsPC', 'classABFiles', 'classAFiles', 'classBFiles','fundInfoA', 'fundInfoB'));
+        return view('admin', compact('clientsA', 'clientsB', 'clientsPC', 'classABFiles', 'classAFiles', 'classBFiles', 'fundInfoA', 'fundInfoB'));
     });
 });
 
@@ -156,6 +157,9 @@ Route::patch('/{id}/portfolio/form2', 'FormUserController@updateSubAgreement')->
 */
 Route::post('/fileupload', 'UploadController@store');
 
+/*
+    File downloading
+*/
 Route::get('/{id}/portfolio/{type}/{filename}', function ($id, $type, $filename) {
     $filepath = ' ';
     if ($id != auth()->id() && \Auth::user()->role != 'admin') {
@@ -172,8 +176,8 @@ Route::get('/{id}/portfolio/{type}/{filename}', function ($id, $type, $filename)
         $filepath = 'B'.'/'.$filename;
     }
 
-    // return Storage::download($filepath);
-    return response()->download($filepath);
+    return Storage::download($filepath);
+    // return response()->download('2/test_file1.txt');
 })->middleware('auth');
 
 /*
@@ -217,7 +221,6 @@ Route::post('/admin/editMC', 'FundInfoController@managementComment');
 /*
     PDF stuff
 */
-
 Route::get('{id}/filledform', 'PDFController@filledform');
 Route::get('{id}/formtest', 'PDFController@test');
 

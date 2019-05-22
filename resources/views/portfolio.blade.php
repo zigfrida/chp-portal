@@ -606,7 +606,7 @@
 				<div class="column is-one-quarter">
 						{{ $file->filename  }} <br>
 						{{ $file->created_at }} <br>
-					<a href="portfolio/{{ $file->file_type}}/{{ $file->filename }}" class="button is-warning">Download</a>
+					<a href="/{{ $user[0]->user_id }}/portfolio/{{ $file->file_type}}/{{ $file->filename }}" class="button is-warning">Download</a>
 					  
       @if (auth()->user()->isAdmin())
             
@@ -622,17 +622,11 @@
 						<div class="dropdown-menu" id="dropdown-menu4" role="menu">
 							<div class="dropdown-content">
 								<div class="dropdown-item">
-									edit
-								</div>
-								<div class="dropdown-item">
 									@if ($file->user_id != 1)
-											
-									
-									<form method="post" action="portfolio/{{$file->filename}}">
+									<form method="post" action="/{{ $user[0]->user_id }}/portfolio/{{$file->filename}}">
 										@csrf
-										@method('delete')
-										
-										<a href="#" onclick="$(this).closest('form').submit()">delete</a>
+										@method('delete')		
+										<a onclick="$(this).closest('form').submit()">delete</a>
 									</form>
 									@endif
  								</div>
