@@ -13,7 +13,7 @@ class CreatePISummariesTable extends Migration
     {
         Schema::create('p_i_summaries', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('user_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->string('units')->default('');
             $table->string('NAVPerUnit')->default('');
             $table->string('NAV')->default('');
