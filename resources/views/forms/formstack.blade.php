@@ -237,6 +237,108 @@
                 </div>
             </div>
         </fieldset>
+        <br>
+        <div class="field is-horizontal">
+            <div class="field-label">
+                <label class="label">Do you require registration and delivery through your brokerage?</label>
+            </div>
+            <div class="field-body">
+                <div class="field is-narrow">
+                    <div class="control">
+                        <label class="radio">
+                        <input value="yes" type="radio" name="req_brokerage" onclick="show2()">
+                        Yes
+                        </label>
+                        <label class="radio">
+                        <input value="no" type="radio" name="req_brokerage" onclick="show1()">
+                        No
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hide" id="div1">
+            <div class="field is-horizontal" id="name_of_authorized_signatory">
+                <div class="field-label is-normal">
+                    <label class="label">Registration Instructions</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                    <p class="control is-expanded has-icons-left">
+                        <input class="input" type="text" name="registration_name" value="">
+                        <span class="icon is-small is-left">
+                        <i class="fas fa-user"></i>
+                        </span>
+                    </p>
+                    <i><p class="help">Name</p></i>
+                    </div>
+                    <div class="field">
+                    <p class="control is-expanded has-icons-left t">
+                        <input class="input" type="text" name="registration_account_reference" value="">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                    </p>
+                    <i><p class="help">Account reference, if applicable</p></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">&nbsp;</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control is-expanded ">
+                            <input class="input"name="registration_address" type="text" value="">
+                        </p>
+                        <i><p class="help">Address</p></i>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Delivery Instructions</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control is-expanded ">
+                            <input class="input" name="delivery_contact" type="text" value="">
+                        </p>
+                        <i><p class="help">Contact name</p></i>
+                    </div>
+                    <div class="field">
+                        <p class="control">
+                            <input class="input" name="delivery_telephone" type="tel" value="">
+                        </p>
+                        <i><p class="help">Telephone Number</p></i>
+                    </div>
+                    <div class="field">
+                        <p class="control is-expanded ">
+                            <input class="input " name="delivery_account_reference" type="text" value="">
+                        </p>
+                        <i><p class="help">Account reference, if applicable</p></i>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">&nbsp;</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control is-expanded ">
+                            <input class="input " name="delivery_address" type="text" value="">
+                        </p>
+                        <i><p class="help">Address</p></i>
+                    </div>
+                </div>
+            </div>
+        </div>
             <hr>
 
             <div class="field is-horizontal">
@@ -1018,6 +1120,12 @@
         document.getElementById("business_fieldset").disabled = false;
         document.getElementById("business_checkboxes").style = "display: inline;";
         document.getElementById("people_checkboxes").style = "display: none;";
+    }
 
+    function show1(){
+        document.getElementById('div1').style.display ='none';
+    }
+    function show2(){
+        document.getElementById('div1').style.display = 'block';
     }
 </script>

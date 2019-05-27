@@ -153,6 +153,29 @@ class FormUserController extends Controller
                 ]);
         }
 
+        $registration_name = $request->registration_name ?? '';
+        $registration_account_reference = $request->registration_account_reference ?? '';
+        $registration_address = $request->registration_address ?? '';
+
+        $delivery_contact = $request->delivery_contact ?? '';
+        $delivery_telephone = $request->delivery_telephone ?? '';
+        $delivery_account_reference = $request->delivery_account_reference ?? '';
+        $delivery_address = $request->delivery_address ?? '';
+
+        \DB::table('form_users')
+            ->where('user_id', $id)
+            ->update(
+                [
+                    'registration_name' => $registration_name,
+                    'registration_account_reference' => $registration_account_reference,
+                    'registration_address' => $registration_address,
+                    'delivery_contact' => $delivery_contact,
+                    'delivery_telephone' => $delivery_telephone,
+                    'delivery_account_reference' => $delivery_account_reference,
+                    'delivery_address' => $delivery_address,
+                ]
+            );
+
         // finished the first form
         \DB::table('form_users')
             ->where('user_id', $id)
@@ -257,14 +280,14 @@ class FormUserController extends Controller
         $signed_month1 = $request->signed_month1;
         $signed_year1 = $request->signed_year1;
 
-        $registration_name = $request->registration_name ?? '';
-        $registration_account_reference = $request->registration_account_reference ?? '';
-        $registration_address = $request->registration_adress ?? '';
+        // $registration_name = $request->registration_name ?? '';
+        // $registration_account_reference = $request->registration_account_reference ?? '';
+        // $registration_address = $request->registration_address ?? '';
 
-        $delivery_contact = $request->delivery_contact ?? '';
-        $delivery_telephone = $request->delivery_telephone ?? '';
-        $delivery_account_reference = $request->delivery_account_reference ?? '';
-        $delivery_address = $request->delivery_address ?? '';
+        // $delivery_contact = $request->delivery_contact ?? '';
+        // $delivery_telephone = $request->delivery_telephone ?? '';
+        // $delivery_account_reference = $request->delivery_account_reference ?? '';
+        // $delivery_address = $request->delivery_address ?? '';
 
         $risk_ck1 = $request->risk_ck1;
         $risk_ck2 = $request->risk_ck2;
@@ -293,13 +316,13 @@ class FormUserController extends Controller
                 'signed_day1' => $signed_day1,
                 'signed_month1' => $signed_month1,
                 'signed_year1' => $signed_year1,
-                'registration_name' => $registration_name,
-                'registration_account_reference' => $registration_account_reference,
-                'registration_address' => $registration_address,
-                'delivery_contact' => $delivery_contact,
-                'delivery_telephone' => $delivery_telephone,
-                'delivery_account_reference' => $delivery_account_reference,
-                'delivery_address' => $delivery_address,
+                // 'registration_name' => $registration_name,
+                // 'registration_account_reference' => $registration_account_reference,
+                // 'registration_address' => $registration_address,
+                // 'delivery_contact' => $delivery_contact,
+                // 'delivery_telephone' => $delivery_telephone,
+                // 'delivery_account_reference' => $delivery_account_reference,
+                // 'delivery_address' => $delivery_address,
                 'risk_ck1' => $risk_ck1,
                 'risk_ck2' => $risk_ck2,
                 'risk_ck3' => $risk_ck3,
@@ -333,7 +356,7 @@ class FormUserController extends Controller
 
         $registration_name = $request->registration_name ?? '';
         $registration_account_reference = $request->registration_account_reference ?? '';
-        $registration_address = $request->registration_adress ?? '';
+        $registration_address = $request->registration_address ?? '';
 
         $delivery_contact = $request->delivery_contact ?? '';
         $delivery_telephone = $request->delivery_telephone ?? '';
@@ -365,9 +388,8 @@ class FormUserController extends Controller
         return redirect($testPath);
     }
 
-
-    public function updateProfile(Request $request, $id){
-
+    public function updateProfile(Request $request, $id)
+    {
         $subscriber_name = $request->input('subscriber_name');
         $email = $request->input('email');
         $steet = $request->input('street');
@@ -402,18 +424,14 @@ class FormUserController extends Controller
                 'email' => $email,
             ]);
 
-        
-
         $newPath;
-        if(auth()->user()->isAdmin()){
+        if (auth()->user()->isAdmin()) {
             $newPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class[0]->class.'&method=updateSpreadUserName';
-
-        }else{
+        } else {
             $newPath = '/'.$id.'/edit_profile';
         }
-            
+
         return redirect($newPath);
-        
     }
 
     /**

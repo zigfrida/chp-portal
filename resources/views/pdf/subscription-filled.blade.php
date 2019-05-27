@@ -49,13 +49,13 @@
 
     .row-form {
         position: relative;
-        top : -15px;
+        top: -15px;
     }
 
     .user-data {
-        position:relative;
-        left:21px;
-        top : 26px;
+        position: relative;
+        left: 21px;
+        top: 26px;
     }
 
     .indent {
@@ -68,7 +68,7 @@
     } */
 
     .darkenrow {
-        background-color:darkgrey;
+        background-color: darkgrey;
         color:white;
     }
         
@@ -96,6 +96,7 @@
                     <br><br><br>
                     <h2 class="title is-2 has-text-success is-uppercase is-bold">CHP Master I <br> Limited Partnership</h2>
                     <br>
+                    <br>
                     <h3 class="title is-3 is-uppercase">Subscription Agreement</h3>
                     <br>
                     <h4 class="title is-4 is-uppercase" style="text-decoration: underline;">Class A & B Units</h4>
@@ -116,7 +117,7 @@
 
             {{-- new page --}}
             <div class="page-break"></div>
-
+            <br><br>
             <div class="has-text-centered">
                 <h4 class="title is-4 is-uppercase">Subscription Agreement</h4>
             </div>
@@ -139,112 +140,122 @@
                     <br>
                 </div>
             @endif
-
-            <span class="has-text-weight-bold">DATED</span> this <u>{{ $user[0]->signed_day1 }}</u> day of <u>{{ $user[0]->signed_month1 }}</u>, {{ $user[0]->signed_year1 }}.
-            <br><br><br>
-
-<div class="row-form">
-    <div class="column">
-        
-  		<div class="column-row">
-            <div class="underline">&nbsp;&nbsp;{{ $user[0]->subscriber_name }}</div>
-            <div><i class="signinput">(Name of Subscriber - please print)</i></div>
-        </div>
-        <br>
-        <div class="column-row">
-            <div class="underline">&nbsp;&nbsp;by:{{ $user[0]->official_capacity_or_title_of_authorized_signatory }}</div>
-            <div><i class="signinput">(Official Capacity or Title - please print)</i></div>
-        </div>
-        <br>
-        <div class="column-row">
-            <div class="underline">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="50" width="87"></div>
-			<div><i class="signinput">Authorized Signature</i></div>
-        </div>
-        <br>
-        <div class="column-row">
-             <div class="underline">&nbsp;&nbsp;{{ $user[0]->name }}</div>
-			<div><i class="">Name</i></div>
-        </div>
-  
-    </div>
-<div class="column">
-    <div class="column-row">
-          <div class="underline">&nbsp;&nbsp;{{ $user[0]->street }}</div>
-          <div><i class="signinput">Subscriber's Address</i></div>
-    </div>
-    <br>
-    <div class="column-row">        
-        <div class="underline">&nbsp;&nbsp;{{ $user[0]->email }}</div>
-        <div><i class="signinput">(Email)</i></div>
-    </div>
-    <br><br>
-    <div class="column-row">
-        <div class="underline">&nbsp;&nbsp; </div>
-        <div><i class="signinput">(Facsimile Number)</i></div>
-    </div>
-    <br>
-    <div class="column-row telephone">
-        <div class="underline">&nbsp;&nbsp;{{ $user[0]->phone }}</div>
-        <div><i class="signinput">Telephone</i></div>
-    </div>  
-
-  
-  </div>
-</div>
+            
+            <div class="shrinker">
+                <span class="has-text-weight-bold">DATED</span> this <u>{{ $user[0]->signed_day1 }}</u> day of <u>{{ $user[0]->signed_month1 }}</u>, {{ $user[0]->signed_year1 }}.
+                <br><br><br>
+                <div class="row-form">
+                    <div class="column"> 
+                        <div class="column-row">
+                            <div class="underline">&nbsp;&nbsp;{{ $user[0]->subscriber_name }}</div>
+                            <div><i class="signinput">(Name of Subscriber - please print)</i></div>
+                        </div>
+                        <br>
+                        <div class="column-row">
+                            <div class="underline">&nbsp;&nbsp;by:{{ $user[0]->official_capacity_or_title_of_authorized_signatory }}</div>
+                            <div><i class="signinput">(Official Capacity or Title - please print)</i></div>
+                        </div>
+                        <br>
+                        <div class="column-row">
+                            <div class="underline">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="50" width="87"></div>
+                            <div><i class="signinput">Authorized Signature</i></div>
+                        </div>
+                        <br>
+                        <div class="column-row">
+                            <div class="underline">&nbsp;&nbsp;{{ $user[0]->name }}</div>
+                            <div><i class="">Name</i></div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="column-row">
+                            <div class="underline">&nbsp;&nbsp;{{ $user[0]->street }}</div>
+                            <div><i class="signinput">Subscriber's Address</i></div>
+                        </div>
+                        <br>
+                        <div class="column-row">        
+                            <div class="underline">&nbsp;&nbsp;{{ $user[0]->email }}</div>
+                            <div><i class="signinput">(Email)</i></div>
+                        </div>
+                        <br><br>
+                        <div class="column-row">
+                            <div class="underline">&nbsp;&nbsp; </div>
+                            <div><i class="signinput">(Facsimile Number)</i></div>
+                        </div>
+                        <br>
+                        <div class="column-row telephone">
+                            <div class="underline">&nbsp;&nbsp;{{ $user[0]->phone }}</div>
+                            <div><i class="signinput">Telephone</i></div>
+                        </div>  
+                    </div>
+                </div>
+            </div>
 
 <br>
+<style>
+.shrinker {
+    /* zoom: 0.3; */
+    /* -moz-transform: scale(0.3);
+    /* -moz-transform-origin: 0 0; */
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+}
+</style>
 
-<div class="row-form">
-    <div class="column">
-        <h3><u> Registration Instructions </u></h3>
-        <br><br>
-        <div class="column-row">
-            <div class="underline">&nbsp;&nbsp;{{ $user[0]->registration_name }}</div>
-            <div><i class="signinput">Name</i></div>
+@if($user[0]->registration_name != '')
+    <div class="row-form shrinker">
+        <div class="column">
+            <h3><u> Registration Instructions </u></h3>
+            <br><br>
+            <div class="column-row">
+                <div class="underline">&nbsp;&nbsp;{{ $user[0]->registration_name }}</div>
+                <div><i class="signinput">Name</i></div>
+            </div>
+            <br>
+            <div class="column-row">
+                <div class="underline">&nbsp;&nbsp;{{ $user[0]->registration_account_reference }} </div>
+                
+                <div><i class="signinput">Account reference, if applicable</i></div>
+            </div>
+            <br>
+            <div class="column-row">
+                <div class="underline">&nbsp;&nbsp;{{ $user[0]->registration_address }}</div>
+                
+                <div><i class="signinput">Address</i></div>
+            </div>
         </div>
-        <br>
-        <div class="column-row">
-            <div class="underline">&nbsp;&nbsp;by: {{ $user[0]->registration_account_reference }} </div>
-            
-            <div><i class="signinput">Account reference, if applicable</i></div>
-        </div>
-        <br>
-        <div class="column-row">
-            <div class="underline">&nbsp;&nbsp;{{ $user[0]->registration_address }}</div>
-            
-            <div><i class="signinput">Address</i></div>
+        <div class="column">
+            <h3><u>Delivery Instructions</u></h3>
+            <br><br>
+            <div class="column-row">
+                <div class="underline">&nbsp;&nbsp;{{ $user[0]->delivery_account_reference }}</div>     
+                <div><i class="signinput">Account reference, if applicable</i></div>
+            </div>
+            <br>
+            <div class="column-row">
+                <div class="underline">&nbsp;&nbsp;{{ $user[0]->delivery_contact }}</div>
+                <div><i class="signinput">Contact Name</i></div>
+            </div>
+            <br>
+            <div class="column-row">
+                <div class="underline">&nbsp;&nbsp;{{ $user[0]->delivery_address }}</div>
+                <div><i class="signinput">Address</i></div>
+            </div>
+            <br>
+            <div class="column-row">        
+                <div class="underline">&nbsp;&nbsp;{{ $user[0]->delivery_telephone }}</div>
+                <div><i class="signinput">Telephone Number</i></div>
+            </div>
         </div>
     </div>
-    <div class="column">
-        <h3><u>Delivery Instructions</u></h3>
-        <br><br>
-        <div class="column-row">
-            <div class="underline">&nbsp;&nbsp;{{ $user[0]->delivery_account_reference }}</div>     
-            <div><i class="signinput">Account reference, if applicable</i></div>
-        </div>
-        <br>
-        <div class="column-row">
-            <div class="underline">&nbsp;&nbsp;{{ $user[0]->delivery_contact }}</div>
-            <div><i class="signinput">Contact Name</i></div>
-        </div>
-        <br>
-        <div class="column-row">
-            <div class="underline">&nbsp;&nbsp;{{ $user[0]->delivery_address }}</div>
-            <div><i class="signinput">Address</i></div>
-        </div>
-        <br>
-        <div class="column-row">        
-            <div class="underline">&nbsp;&nbsp;{{ $user[0]->delivery_telephone }}</div>
-            <div><i class="signinput">Telephone Number</i></div>
-        </div>
-    </div>
-</div>
-
+@endif
 <br>
 {{-- new page --}}
 <div class="page-break"></div>
 <div class="subscription-date">
-    <span>This subscription is accepted by the Issuer this</span> <u>___{{$user[0]->signed_day1}}______</u> day of <u>____{{$user[0]->signed_month1}}________</u>, 2019.
+    <span>This subscription is accepted by the Issuer this</span> <u>{{$user[0]->signed_day1}}</u> day of <u>{{$user[0]->signed_month1}}</u>, {{ $user[0]->signed_year1 }}.
+
     <p >CHP Master I Limited Partnership</p>
 
     <div class="signature">
@@ -829,10 +840,8 @@
                         <tr>
                             <td>a)</td>
                             <td>
-                                @if ($user[0]->ind_ck1 == 1)
-                                    X
-                                @else
-                                    _____
+                                @if($user[0]->ind_ck1 == 1)
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
                                 @endif
                             </td>
                             <td>an individual whose net income before taxes exceeded $200,000 in each of the two most recentcalendar years or whose net income before taxes combined with that of a spouse exceeded $300,000 in each of the two most recent calendar years and who, in either case, reasonably expects to exceed that net income level in the current calendar year. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
@@ -841,10 +850,8 @@
                         <tr>
                             <td>b)</td>
                             <td>
-                                @if ($user[0]->ind_ck2 == 1)
-                                    X
-                                @else
-                                    _____
+                                @if($user[0]->ind_ck1 == 1)
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
                                 @endif
                             </td>
                             <td>an individual, who, either alone or with a spouse, has net assets of at least $5,000,000. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
@@ -854,9 +861,7 @@
                             <td>c)</td>
                             <td>
                                 @if ($user[0]->ind_ck3 == 1)
-                                    X
-                                @else
-                                    _____
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
                                 @endif
                             </td>
                             <td>an individual who, either alone or with a spouse, beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $1,000,000. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
@@ -865,10 +870,8 @@
                         <tr>
                             <td>d)</td>
                             <td>
-                                @if ($user[0]->ind_ck4 == 1)
-                                    X
-                                @else
-                                    _____
+                                @if($user[0]->ind_ck4 == 1)
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
                                 @endif
                             </td>
                             <td>an individual who beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $5,000,000.</td>
@@ -877,10 +880,8 @@
                         <tr>
                             <td>e)</td>
                             <td>
-                                @if ($user[0]->ind_ck5 == 1)
-                                    X
-                                @else
-                                    _____
+                                @if($user[0]->ind_ck5 == 1)
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
                                 @endif
                             </td>
                             <td>an individual registered under the securities legislation of a jurisdiction of Canada, as a representative of a person registered under the securities legislation of a jurisdiction of Canada as an adviser or dealer.</td>
@@ -889,10 +890,8 @@
                         <tr>
                             <td>f)</td>
                             <td>
-                                @if ($user[0]->ind_ck6 == 1)
-                                    X
-                                @else
-                                    _____
+                                @if($user[0]->ind_ck6 == 1)
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
                                 @endif
                             </td>
                             <td>an individual formerly registered under the securities legislation of a jurisdiction of Canada, other than an individual formerly registered solely as a representative of a limited market dealer under one or both of the Securities Act (Ontario) or the Securities Act (Newfoundland and Labrador),</td>
@@ -913,10 +912,8 @@
                         <tr>
                             <td>a)</td>
                             <td>
-                                @if ($user[0]->bus_ck1 == 1)
-                                    
-                                @else
-                                    _____
+                                @if($user[0]->bus_ck1 == 1)
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
                                 @endif
                             </td>
                             <td>except in Ontario, a Person registered under the securities legislation of a jurisdiction of Canada as an adviser or dealer.</td>
@@ -925,10 +922,8 @@
                         <tr>
                             <td>b)</td>
                             <td>
-                                @if ($user[0]->bus_ck2 == 1)
-                                    X
-                                @else
-                                    _____
+                                @if($user[0]->bus_ck2 == 1)
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
                                 @endif
                             </td>                            
                             <td>except in Ontario, a pension fund that is regulated by either the Office of the Superintendent of Financial Institutions (Canada) or a pension commission or similar regulatory authority of a jurisdiction of Canada.</td>
@@ -937,10 +932,8 @@
                         <tr>
                             <td>c)</td>
                             <td>                            
-                                @if ($user[0]->bus_ck3 == 1)
-                                    X
-                                @else
-                                    _____
+                                @if($user[0]->bus_ck3 == 1)
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
                                 @endif
                             </td>
                             <td>a Person, other than an individual or investment fund, that has net assets of at least $5,000,000 as shown on its most recently prepared financial statements.</td>
@@ -949,10 +942,8 @@
                         <tr>
                             <td>d)</td>
                             <td>
-                                @if ($user[0]->bus_ck4 == 1)
-                                    X
-                                @else
-                                    _____
+                                @if($user[0]->bus_ck4 == 1)
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
                                 @endif
                             </td>
                             <td>an investment fund that distributes or has distributed securities under a prospectus in a jurisdiction of Canada for which the regulator or, in Québec, the securities regulatory authority, has issued a receipt.</td>
@@ -961,10 +952,8 @@
                         <tr>
                             <td>e)</td>
                             <td>
-                                @if ($user[0]->bus_ck5 == 1)
-                                    X
-                                @else
-                                    _____
+                                @if($user[0]->bus_ck5 == 1)
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
                                 @endif
                             </td>
                             <td>a person acting on behalf of a fully managed account managed by that person if that person is registered or authorized to carry on business as an adviser or the equivalent under the securities legislation of a jurisdiction of Canada or a foreign jurisdiction.</td>
@@ -973,10 +962,8 @@
                         <tr>
                             <td>f)</td>
                             <td>
-                                @if ($user[0]->bus_ck6 == 1)
-                                    X
-                                @else
-                                    _____
+                                @if($user[0]->bus_ck6 == 1)
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
                                 @endif
                             </td>
                             <td>a registered charity under the Income Tax Act (Canada) that, in regard to the trade, has obtained advice from an eligibility adviser or an adviser registered under the securities legislation of the jurisdiction of the registered charity to provide advice on the securities being traded.</td>
@@ -985,10 +972,8 @@
                         <tr>
                             <td>g)</td>
                             <td>
-                                @if ($user[0]->bus_ck7 == 1)
-                                    X
-                                @else
-                                    _____
+                                @if($user[0]->bus_ck7 == 1)
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
                                 @endif
                             </td>
                             <td>a person in respect of which all of the owners of interests, direct, indirect, or beneficial, except the voting securities required by law to be owned by directors, are persons that are accredited investors.</td>
@@ -997,10 +982,8 @@
                         <tr>
                             <td>h)</td>
                             <td>
-                                @if ($user[0]->bus_ck8 == 1)
-                                    X
-                                @else
-                                    _____
+                                @if($user[0]->bus_ck8 == 1)
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
                                 @endif
                             </td>
                             <td>an investment fund that is advised by a person registered as an adviser or a person that is exempt from registration as an adviser.</td>
@@ -1009,10 +992,8 @@
                         <tr>
                             <td>i)</td>
                             <td>
-                                @if ($user[0]->bus_ck9 == 1)
-                                    X
-                                @else
-                                    _____
+                                @if($user[0]->bus_ck9 == 1)
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
                                 @endif
                             </td>
                             <td>a person that is recognized or designated by the securities regulatory authority or, except in Ontario and Québec, the regulator as an accredited investor.</td>
@@ -1021,10 +1002,8 @@
                         <tr>
                             <td>j)</td>
                             <td>
-                                @if ($user[0]->bus_ck10 == 1)
-                                    X
-                                @else
-                                    _____   
+                                @if($user[0]->bus_ck10 == 1)
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
                                 @endif
                             </td>
                             <td>a trust established by an accredited investor for the benefit of the accredited investor’s family members of which a majority of the trustees are accredited investors and all of the beneficiaries are the accredited investor’s spouse, a former spouse of the accredited investor or a parent, grandparent, brother, sister, child or grandchild of that accredited investor, of that accredited investor’s spouse or of that accredited investor’s former spouse.</td>
@@ -1055,122 +1034,91 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
 <br>
 <br>
 
-
     <span class="is-uppercase has-text-weight-bold">IN WITNESS WHEREOF</span>, the undersigned has executed this certificate as of the 
-        <u>____{{$user[0]->signed_month1}}______</u>
-                    the day of <u>_____{{$user[0]->signed_day1}}___</u>,  {{ now()->year }} 
+        <u>{{$user[0]->signed_month1}}</u>
+                    the day of <u>{{$user[0]->signed_day1}}</u>,  {{ $user[0]->signed_year1 }} 
 </div>
 
-<!-- dirty php . change later -->
 
-@if($user[0]->clientType == 'Business')
+<span class="has-text-weight-bold">DATED</span> this <u>{{ $user[0]->signed_day1 }}</u> day of <u>{{ $user[0]->signed_month1 }}</u>, {{ $user[0]->signed_year1 }}.
+<br><br><br>
+@if($user[0]->clientType == 'business')
 <div class="row-form">
-        <div class="column">
-            <b> If a Corporation, Partnership or Other Entity: </b> 
+    <div class="column">
+        <b> If a Corporation, Partnership or Other Entity: </b> 
+        <br><br>
+            <div class="column-row">
+                <div class="underline">&nbsp;&nbsp;{{$user[0]->subscriber_name}} </div>
+                <div><i class="signinput">Name of Entity</i></div>
+            </div>
+            <br>
+            <div class="column-row">
+                <div class="underline">&nbsp;&nbsp;{{$user[0]->clientType}} </div>
+                <div><i class="signinput">Type of Entity</i></div>
+            </div>
             <br><br>
-        
-              
-                <div class="column-row">
-                  <div class="user-data">&nbsp;&nbsp;{{$user[0]->subscriber_name}} </div>
-                  ______________________________
-                  <div><i class="signinput">Name of Entity</i></div>
-                  
-              </div>
-          
-              
-              <div class="column-row">
-                  <div class="user-data">&nbsp;&nbsp;{{$user[0]->clientType}} </div>
-                  by:____________________________
-                  <div><i class="signinput">Type of Entity</i></div>
-              </div>
-              
-              
-              <div class="column-row">
-                  <div class="user-data">&nbsp;&nbsp;<img src="{{$user[0]->form_signature}}" alt="Form signature" height="60" width="90"> </div>
-                  ______________________________
-                  <div><i class="signinput">Signature of Person Signing</i></div>
-              </div>
-
-        
-        </div>
+            
+            <div class="column-row">
+                <div class="underline">&nbsp;&nbsp;<img src="{{$user[0]->form_signature}}" alt="Form signature" height="60" width="90"> </div>
+                <div><i class="signinput">Signature of Person Signing</i></div>
+            </div>
+            <br>
+    
+    </div>
         <div class="column">
             <b>If an Individual </b>
                 <br><br>
               
                  <div class="column-row">
-                   <div class="user-data">&nbsp;&nbsp;--------------<div>
-                     ______________________________
+                   <div class="underline">&nbsp;&nbsp;<div>
                   <div><i class="signinput">Signature</i></div>
               </div>
       
-              
+              <br>
               <div class="column-row">
-                  <div class="user-data">&nbsp;&nbsp;-------------- </div>
-                  ______________________________
+                  <div class="underline">&nbsp;&nbsp;</div>
                   <div><i class="signinput">Print or Type Name</i></div>
               </div>
-      
-
-        
+              <br>
             </div>
     </div>
 
 @else
-
-<div class="row-form">
+    <div class="row-form">
         <div class="column">
             <b> If a Corporation, Partnership or Other Entity: </b> 
             <br><br>
-        
-              
-                <div class="column-row">
-                  <div class="user-data">&nbsp;&nbsp;--------------- </div>
-                  ______________________________
-                  <div><i class="signinput">Name of Entity</i></div>
-                  
-              </div>
-          
-              
-              <div class="column-row">
-                  <div class="user-data">&nbsp;&nbsp;--------------- </div>
-                  by:____________________________
-                  <div><i class="signinput">Type of Entity</i></div>
-              </div>
-              
-              
-              <div class="column-row">
-                  <div class="user-data">&nbsp;&nbsp;----------------- </div>
-                  ______________________________
-                  <div><i class="signinput">Signature of Person Signing</i></div>
-              </div>
-
-        
+            <div class="column-row">
+                <div class="underline">&nbsp;&nbsp;</div>
+                <div><i class="signinput">Name of Entity</i></div>
+            </div>
+            <br>
+            <div class="column-row">
+                <div class="underline">&nbsp;&nbsp;</div>
+                <div><i class="signinput">Type of Entity</i></div>
+            </div>
+            <br>
+            <div class="column-row">
+                <div class="underline">&nbsp;&nbsp;</div>
+                <div><i class="signinput">Signature of Person Signing</i></div>
+            </div>
         </div>
         <div class="column">
             <b>If an Individual </b>
-                <br><br>
-              
-                 <div class="column-row">
-                   <div class="user-data">&nbsp;&nbsp;<img src="{{$user[0]->form_signature}}" alt="Form signature" height="30" width="90"></div>
-                     ______________________________
-                  <div><i class="signinput">Signature</i></div>
-              </div>
-      
-              
-              <div class="column-row">
-                  <div class="user-data">&nbsp;&nbsp;{{$user[0]->name}} </div>
-                  ______________________________
-                  <div><i class="signinput">Print or Type Name</i></div>
-              </div>
-      
-
-        
+            <br><br>
+            <div class="column-row">
+                <div class="underline">&nbsp;&nbsp;<img src="{{$user[0]->form_signature}}" alt="Form signature" height="30" width="90"></div>
+                <div><i class="signinput">Signature</i></div>
             </div>
+            <br>
+            <div class="column-row">
+                <div class="underline">&nbsp;&nbsp;{{$user[0]->name}} </div>
+                <div><i class="signinput">Print or Type Name</i></div>
+            </div>
+        </div>
     </div>
 
-
 @endif
-
 
 <div class="has-text-centered">
         <p class="title is-3 is-spaced">Appendix IA</p>
@@ -1183,9 +1131,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
         <h6 class="subtitle is-6 has-text-weight-bold">This investment is risky. Don't invest unless you can afford to lose all the money you pay for this investment</h6>            
 </div>
 
-
 <div class="content">
-
     <div>   
         <span class="has-text-weight-bold">SECTION 1 TO BE COMPLETED BY THE ISSUER OR SELLING SECURITY HOLDER</span>     
                 <table class="table is-bordered">
@@ -1208,7 +1154,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                         </tr>
                         <tr class="darkenrow">
                            <td>
-                               <div class="has-text-grey-lighter">
+                               <div class="">
                                     <span class="has-text-weight-bold">2. Risk acknowledgement</span>
                                 </div>
                             </td>
@@ -1221,49 +1167,64 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                         </tr>
                         <tr>
                             <td><span class="has-text-weight-bold">Risk of loss</span> - You could lose your entire investment of $321231132312 </td>
-                            <td>{{$user[0]->risk_ck1}}</td>
-                        </tr>
+                            <td>
+                                @if($user[0]->ind_ck1 == 1)
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="60"></div>
+                                @endif
+                            </td>
+\                        </tr>
                         <tr>
                             <td><span class="has-text-weight-bold">Liquidity risk</span> – You may not be able to sell your investment quickly – or at all.</td>
-                             <td>{{$user[0]->risk_ck2}}</td>
+                            <td>
+                                @if($user[0]->ind_ck1 == 1)
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="60"></div>
+                                @endif
+                            </td>
                         </tr>   
                         <tr>
                             <td><span class="has-text-weight-bold">Lack of information</span> – You may receive little or no information about your investment.</td>
-                            <td>{{$user[0]->risk_ck3}}</td>
+                            <td>
+                                @if($user[0]->ind_ck1 == 1)
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="60"></div>
+                                @endif
+                            </td>
                        </tr>
-                                            
                         <tr>
                             <td><span class="has-text-weight-bold">Lack of advice</span> – You will not receive advice from the salesperson about whether this investment is suitable for you unless the salesperson is registered. The salesperson is the person who meets with, or provides information to, you about making this investment. To check whether the salesperson is registered, go to www.aretheyregistered.ca.</td>
-                            <td>{{$user[0]->risk_ck4}}</td>
+                            <td>
+                                @if($user[0]->ind_ck1 == 1)
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="60"></div>
+                                @endif
+                            </td>
                         </tr>
                         <tr class="darkenrow">
-                            <td><div class="has-text-grey-lighter">
+                            <td><div class="">
                                 <span class="has-text-weight-bold">3. Accredited investor status</span>
                             </div></td>
                             <td><span class="has-text-weight-bold">Your initials</span></td>
                         </tr>
                         <tr>
                             <td> - Your net income before taxes was more than $200,000 in each of the 2 most recent calendar years, and you expect it to be more than $200,000 in the current calendar year. (You can find your net income before taxes on your personal income tax return.)</td>
-                            <td>{{$user[0]->risk_ck5}}</td>
+                            {{-- <td>{{$user[0]->risk_ck5}}</td> --}}
                         </tr>
                         
                         <tr>
                             <td> - Your net income before taxes combined with your spouse’s was more than $300,000 in each of the 2 most recent calendar years, and you expect your combined net income before taxes to be more than $300,000 in the current calendar year.</td>
-                             <td>{{$user[0]->risk_ck6}}</td>
+                             {{-- <td>{{$user[0]->risk_ck6}}</td> --}}
                         </tr>
                             
                         <tr>
                             <td> - Either alone or with your spouse, you own more than $1 million in cash and securities, after subtracting any debt related to the cash and securities.</td>
-                            <td>{{$user[0]->risk_ck7}}</td>
+                            {{-- <td>{{$user[0]->risk_ck7}}</td> --}}
                         </tr>
                         <tr>
                              <td> - Either alone or with your spouse, you have net assets worth more than $5 million. (Your net assets are your total assets (including real estate) minus your total debt.)</td>
-                             <td>{{$user[0]->risk_chk8}}</td>
+                             {{-- <td>{{$user[0]->risk_chk8}}</td> --}}
                         </tr>
                             
                         <tr class="darkenrow">
                              <td>
-                                  <div class="has-text-grey-lighter">
+                                  <div class="">
                                     <span>4. Your name and signature</span>
                                  </div>
                              </td>
@@ -1302,6 +1263,8 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
         </div>
         <br>
 
+        <div class="page-break"></div>
+        <br>
         <p class="has-text-weight-bold">Form instructions:</p>
         <p>1. This form does not mandate the use of a specific font size or style but the font must be legible.</p>
         <p>2. The information in sections 1, 5 and 6 must be completed before the purchaser completes and signs the form.</p>
