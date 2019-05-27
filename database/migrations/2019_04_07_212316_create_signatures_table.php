@@ -16,8 +16,8 @@ class CreateSignaturesTable extends Migration
         Schema::create('signatures', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->longText('form_signature')->default('');
-            $table->longText('sub_signature')->default('');
+            $table->longText('form_signature');
+            $table->longText('sub_signature');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });

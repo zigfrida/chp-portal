@@ -367,7 +367,13 @@
                     <div class="field">
                         <h1 class="title"><span class="le-decor"> Class A</span></h1>
                         <div class="control">
-                            <textarea class="textarea is-warning is-medium" name="management_comment_A" rows="4" placeholder="New comment for class A from management">{{$fundInfoA[0]->management_comment}}</textarea>
+                            <textarea class="textarea is-warning is-medium" name="management_comment_A" rows="4" placeholder="New comment for class A from management">
+                                <?php
+                                if(isset($fundInfoA[0]->management_comment))
+                                    echo $fundInfoA[0]->management_comment;
+                                ?>
+                                {{-- {{(isset($fundInfoA[0]->management_comment)) echo $fundInfoA[0]->management_comment}} --}}
+                            </textarea>
                         </div>
                     </div>  
                 </div>
@@ -375,7 +381,13 @@
                     <div class="field">
                         <h1 class="title"><span class="le-decor">Class B</span></h1>
                         <div class="control">
-                            <textarea class="textarea is-warning is-medium" name="management_comment_B" rows="4" placeholder="New comment for class B from management">{{$fundInfoB[0]->management_comment}}</textarea>
+                            <textarea class="textarea is-warning is-medium" name="management_comment_B" rows="4" placeholder="New comment for class B from management">
+                                <?php
+                                if(isset($fundInfoB[0]->management_comment))
+                                    echo $fundInfoB[0]->management_comment;
+                                ?>
+                                {{-- {{if(isset($fundInfoB[0]->management_comment))echo $fundInfoB[0]->management_comment}} --}}
+                            </textarea>
                         </div>
                     </div>
                 </div>

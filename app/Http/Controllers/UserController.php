@@ -107,6 +107,8 @@ class UserController extends Controller
 
         Signature::create([
             'user_id' => $user['id'],
+            'form_signature' => ' ',
+            'sub_signature' => ' ',
         ]);
 
         return redirect('/admin')->with('success', 'User created!');

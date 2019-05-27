@@ -34,7 +34,7 @@
                     </div>
                 @endif
 
-                <form action="/{{ $user[0]->user_id }}/edit_profile" method="post">
+                <form action="/{{ $user[0]->user_id }}/edit_profile" method="post" name="editProfile">
                     @method('PATCH')
                     @csrf
                     <div class="field is-horizontal">
@@ -72,7 +72,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="field is-horizontal">
                         <div class="field-label is-normal">
                             <label class="label">Contact</label>
@@ -86,7 +85,7 @@
                                         </a>
                                     </p>
                                     <p class="control is-expanded">
-                                        <input class="input" name="phone" type="tel" placeholder="778-555-5555" value="{{$user[0]->phone}}" required>
+                                        <input class="input" id="phone" name="phone" type="text" value="{{$user[0]->phone}}" required>
                                     </p>
                                 </div>
                             </div>
@@ -176,6 +175,50 @@
                         </div>
                     </div>
 
+                    <!-- Change password -->
+
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label class="label">New Password</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field is-narrow">
+                                <div class="control is-expanded">
+                                    <div class="field">
+                                        <p class="control has-icons-left">
+                                            <input class="input" type="password" placeholder="Password"name="password" min="7" required>
+                                            <span class="icon is-small is-left">
+                                            <i class="fas fa-lock"></i>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <i><p class="help">Minimum Length 7</p></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label class="label">Confirm Password</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field is-narrow">
+                                <div class="control is-expanded">
+                                    <div class="field">
+                                        <p class="control has-icons-left">
+                                            <input class="input" type="password" placeholder="Password" name="password_confirm" required>
+                                            <span class="icon is-small is-left">
+                                            <i class="fas fa-lock"></i>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <i><p class="help">Confirm New Password</p></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
 
                     <div class="field is-horizontal">
                         <div class="field-label">
@@ -197,7 +240,6 @@
         <hr>
 
     </main>
-
 
     @include('layouts.partials.footer')
 </body>
