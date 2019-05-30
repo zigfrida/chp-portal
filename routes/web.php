@@ -18,7 +18,48 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/about',function(){
+    return view('about');
+});
+Route::get('/people',function(){
+    return view('people');
+});
+Route::get('/originate',function(){
+    return view('originate');
+});
+Route::get('/specialty-lending',function(){
+    return view('specialty_lending');
+});
+Route::get('/contact',function(){
+    return view('contact');
+});
+Route::get('/home1',function(){
+    return view('home1');
+});
+Route::get('/kelly-klatik',function(){
+    return view('kelly_klatik');
+});
+Route::get('/dean-linden',function(){
+    return view('dean_linden');
+});
+Route::get('/marshall-house',function(){
+    return view('marshall_house');
+});
+Route::get('/alli-radiuk',function(){
+    return view('alli_radiuk');
+});
+Route::get('/kevin-hung',function(){
+    return view('kevin_hung');
+});
+Route::get('/brent-burgess',function(){
+    return view('brent_burgess');
+});
+Route::get('/philip-nanney',function(){
+    return view('philip_nanney');
+});
+Route::get('/geoffrey-mccord',function(){
+    return view('geoffrey_mccord');
+});
 /*
     User's portfolio
 */
