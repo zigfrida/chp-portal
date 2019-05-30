@@ -123,6 +123,7 @@ class FormUserController extends Controller
                 ->where('user_id', $id)
                 ->update(['subscriber_name' => $request->subscriber_name,
                 'clientType' => $request->clientType,
+                'city' => $request->city,
                 'province' => $request->province,
                 'street' => $request->street,
                 'postal_code' => $request->postal_code,

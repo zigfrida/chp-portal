@@ -525,7 +525,6 @@
                                 <br>
 
                                 {{-- Signature (NOT INITIALS) --}}
-                                <h1>Put signature thing here</h1>
                                 <canvas id="myCanvas2" width="500" height="250" style="border:1px solid #000000;"></canvas>
                                 <input type="button" onclick="signaturePad2.clear()" value="Clear">
                                 <input type="hidden" id="sub_signature" name="sub_signature" value="">
