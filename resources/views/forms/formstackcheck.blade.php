@@ -244,13 +244,40 @@
                     </div>
                 </div>
             </div> --}}
-
-            <div style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" 
-                    unselectable="on"
-                    onselectstart="return false;" 
-                    onmousedown="return false;">
-                <img src="{{$signature[0]->form_signature}}" alt="Form signature" height="500" width="500">
+            <div class="columns">
+                <div class="column">
+                    <div style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none; border:1px dotted black" 
+                        unselectable="on"
+                        onselectstart="return false;" 
+                        onmousedown="return false;">
+                        <img src="{{ $signature[0]->form_signature }}" alt="Initials" height="500" width="500">
+                    </div>
+                    <div class="columns">
+                        <div class="column" style="margin-top:5px;">
+                            <span class="tag is-white">initials</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="column">
+                    <div style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none; border:1px dotted black" 
+                        unselectable="on"
+                        onselectstart="return false;" 
+                        onmousedown="return false;">
+                        <img src="{{ $signature[0]->sub_signature }}" alt="Signature" height="500" width="500">
+                    </div>
+                    <div class="columns">
+                        <div class="column" style="margin-top:5px;">
+                            <span class="tag is-white">signature</span>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
+
+
+
+
             <div class="field is-horizontal">
                 <div class="field-label">
                     <!-- Left empty for spacing -->
