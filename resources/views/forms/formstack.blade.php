@@ -17,7 +17,7 @@
                 </ul>
             </div>
         @endif
-        <form onsubmit="saveSignature()" action="/{{ $user[0]->user_id }}/portfolio/form1" method="post">
+        <form onsubmit="saveCanvasDrawing()" action="/{{ $user[0]->user_id }}/portfolio/form1" method="post">
             @csrf
             <div class="field is-horizontal">
                 <div class="field-label">
@@ -454,14 +454,7 @@
                             <input type="button" onclick="signaturePad.clear()" value="Clear">
                             <input type="hidden" id="form_signature" name="form_signature" value="">
                             <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
-                            <script>
-                                var myCanvas = document.getElementById("myCanvas");
-                                var signaturePad = new SignaturePad(myCanvas);
 
-                                function saveSignature(){
-                                    var input = document.getElementById("form_signature").value = signaturePad.toDataURL();
-                                }
-                            </script>
                             <p>Use your mouse or finger to draw your initials above</p>
                             <br><br>
                         </article>
@@ -535,19 +528,7 @@
                                 <h1>Put signature thing here</h1>
                                 <canvas id="myCanvas2" width="500" height="250" style="border:1px solid #000000;"></canvas>
                                 <input type="button" onclick="signaturePad2.clear()" value="Clear">
-                                <input type="hidden" id="form_signature2" name="form_signature2" value="">
-                                <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
-                                <script>
-                                    var myCanvas2 = document.getElementById("myCanvas2");
-                                    var signaturePad2 = new SignaturePad(myCanvas);
-    
-                                    function saveSignature(){
-                                        var input = document.getElementById("form_signature2").value = signaturePad2.toDataURL();
-                                    }
-                                </script>
-
-
-
+                                <input type="hidden" id="sub_signature" name="sub_signature" value="">
 
                                 <div class="content">
                                     <ol class="is-upper-roman">
@@ -1178,5 +1159,24 @@
             document.getElementById('individual_accred_investors').style.display = "none";
         }
     });
+
+</script>
+
+<script>
+    var myCanvas = document.getElementById("myCanvas");
+    var signaturePad = new SignaturePad(myCanvas);
+
+    var myCanvas2 = document.getElementById("myCanvas2");
+    var signaturePad2 = new SignaturePad(myCanvas2);
+
+    function saveCanvasDrawing() {
+        var input = document.getElementById("form_signature").value = signaturePad.toDataURL();
+        var input2 = document.getElementById("sub_signature").value = signaturePad2.toDataURL();
+    }
+</script>
+
+<script>
+
+
 
 </script>
