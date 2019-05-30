@@ -376,15 +376,15 @@
                             <div class="content" style="margin-bottom: 10px; display: none;" id="people_checkboxes" >
                                 <br>
                                 <label class="checkbox">
-                                    <input name="ind_ck1" type="checkbox">
+                                    <input type="checkbox" name="ind_ck1" id="risk_ck1">
                                     An individual whose net income before taxes exceeded $200,000 in each of the two most recent calendar years or whose net income before taxes combined with that of a spouse exceeded $300,000 in each of the two most recent calendar years and who, in either case, reasonably expects to exceed that net income level in the current calendar year;
                                 </label>
                                 <label class="checkbox">
-                                    <input type="checkbox"  name="ind_ck2" >
+                                    <input type="checkbox"  name="ind_ck2" id="risk_ck2">
                                     An individual, who, either alone or with a spouse, has net assets of at least $5,000,000
                                 </label>
                                 <label class="checkbox">
-                                    <input type="checkbox"  name="ind_ck3" >
+                                    <input type="checkbox"  name="ind_ck3" id="risk_ck3">
                                     An individual who, either alone or with a spouse, beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $1,000,000
                                 </label>
                                 <label class="checkbox">
@@ -449,7 +449,7 @@
                             <br>
                             <h4 class="title is-4">The Subscriber acknowledges that the Issuer is relying upon the Subscriber's disclosure herein. In the event the Subscriber's accredited investor status changes prior to the date on which a certificate representing any of the Units is issued, the Subscriber agrees to immediately notify the Issuer of such change.</h2>
                             <br>
-                            <h5 class="subtitle is-5">Initial (put in the writing box afterwards)</h5>
+                            <h5 class="subtitle is-5">Initial<span class="has-text-danger">*</span></h5>
                             <canvas id="myCanvas" width="500" height="250" style="border:1px solid #000000;"></canvas>
                             <input type="button" onclick="signaturePad.clear()" value="Clear">
                             <input type="hidden" id="form_signature" name="form_signature" value="">
@@ -462,13 +462,14 @@
                                     var input = document.getElementById("form_signature").value = signaturePad.toDataURL();
                                 }
                             </script>
+                            <p>Use your mouse or finger to draw your initials above</p>
                             <br><br>
                         </article>
                     </div>
                 </div>
             </div>
             <br><br><br>
-            <div class="tile is-ancestor">
+            <div class="tile is-ancestor" id="individual_accred_investors" style="display:none;">
                     <div class="tile is-parent">
                         <div class="tile">
                             <article class="tile is-child box">
@@ -490,19 +491,21 @@
                                     <br>
                                     By clicking here, you confirm that you have read this form and you understand the risks of making this investment as identified in this form<span class="has-text-danger">*</span>
                                     <br><br>
-                                    <label class="checkbox">
-                                        <input type="checkbox">
-                                        <i>An individual whose net income before taxes exceeded $200,000 in each of the two most recent calendar years or whose net income before taxes combined with that of a spouse exceeded $300,000 in each of the two most recent calendar years and who, in either case, reasonably expects to exceed that net income level in the current calendar year;</i>
-                                    </label>
+                                    <div style="outline: 1px solid red; outline-offset:3px;">
+                                        <label class="checkbox">
+                                            <input type="checkbox">
+                                            <i>An individual whose net income before taxes exceeded $200,000 in each of the two most recent calendar years or whose net income before taxes combined with that of a spouse exceeded $300,000 in each of the two most recent calendar years and who, in either case, reasonably expects to exceed that net income level in the current calendar year;</i>
+                                        </label>
+                                    </div>
+
                                 </div>
                                 <br>
                             </article>
                         </div>
                     </div>
+                    <br><br><br>
                 </div>
-            <br><br><br>
 
-            <hr>
             
 
 
@@ -527,7 +530,25 @@
                                 <br>
                                 <h5 class="subtitle is-5">By signing here, you acknowledge that you have read and agree to the terms presented in the Subscription Agreement as outlined below<span class="has-text-danger">*</span></h5>
                                 <br>
+
+                                {{-- Signature (NOT INITIALS) --}}
                                 <h1>Put signature thing here</h1>
+                                <canvas id="myCanvas2" width="500" height="250" style="border:1px solid #000000;"></canvas>
+                                <input type="button" onclick="signaturePad2.clear()" value="Clear">
+                                <input type="hidden" id="form_signature2" name="form_signature2" value="">
+                                <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+                                <script>
+                                    var myCanvas2 = document.getElementById("myCanvas2");
+                                    var signaturePad2 = new SignaturePad(myCanvas);
+    
+                                    function saveSignature(){
+                                        var input = document.getElementById("form_signature2").value = signaturePad2.toDataURL();
+                                    }
+                                </script>
+
+
+
+
                                 <div class="content">
                                     <ol class="is-upper-roman">
                                         <li> Interpretation</li>
@@ -1128,4 +1149,34 @@
     function show2(){
         document.getElementById('div1').style.display = 'block';
     }
+    
+    // for the risk acknowledgement stuffs
+    let riskCheckbox1 = document.getElementById('risk_ck1');
+    let riskCheckbox2 = document.getElementById('risk_ck2');
+    let riskCheckbox3 = document.getElementById('risk_ck3');
+
+    riskCheckbox1.addEventListener('change', function(e) {
+        if (riskCheckbox1.checked == true) { // the checkbox is checked
+            document.getElementById('individual_accred_investors').style.display = "block";
+        } else if (!riskCheckbox2.checked && !riskCheckbox3.checked) {
+            document.getElementById('individual_accred_investors').style.display = "none";
+        }
+    });
+
+    riskCheckbox2.addEventListener('change', function(e) {
+        if (riskCheckbox2.checked == true) { // the checkbox is checked
+            document.getElementById('individual_accred_investors').style.display = "block";
+        } else if (!riskCheckbox1.checked && !riskCheckbox3.checked) {
+            document.getElementById('individual_accred_investors').style.display = "none";
+        }
+    });
+
+    riskCheckbox3.addEventListener('change', function(e) {
+        if (riskCheckbox3.checked == true) { // the checkbox is checked
+            document.getElementById('individual_accred_investors').style.display = "block";
+        } else if (!riskCheckbox1.checked && !riskCheckbox2.checked) {
+            document.getElementById('individual_accred_investors').style.display = "none";
+        }
+    });
+
 </script>
