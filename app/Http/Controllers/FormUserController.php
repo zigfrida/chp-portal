@@ -193,7 +193,7 @@ class FormUserController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Admin confirms that the data from the form is gucci.
      *
      * @param \Illuminate\Http\Request $request
      * @param \App\form_user           $form_user
@@ -205,6 +205,8 @@ class FormUserController extends Controller
         $clientType = $request->input('clientType');
 
         $subscriber_name = $request->input('subscriber_name');
+        // do class thing here
+
         $steet = $request->input('street');
         $city = $request->input('city');
         $province = $request->input('province');
@@ -272,14 +274,29 @@ class FormUserController extends Controller
                 ->where('user_id', $id)
                 ->update(['access_level' => 1]);
         }
+
+        // insert class A/B into DB
+
         \DB::table('form_users')
             ->where('user_id', $id)
-            ->update(['access_level' => 1]);
+            ->update(['access_level' => 2]);
+        \DB::table('form_users')
+            ->where('user_id', $id)
+            ->update(['form_level' => 2]);
 
-        $redirectPath = '/'.$id.'/portfolio';
-        // $testPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
+        // $redirectPath = '/'.$id.'/portfolio';
+        // // $testPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
 
-        return Redirect::away($redirectPath);
+        // return Redirect::away($redirectPath);
+
+        $newPath;
+        if (auth()->user()->isAdmin()) {
+            $newPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class[0]->class.'&method=updateSpreadUserName';
+        } else {
+            $newPath = '/'.$id.'/edit_profile';
+        }
+
+        return redirect($newPath);
     }
 
     public function storeSubAgreement(Request $request, $id)

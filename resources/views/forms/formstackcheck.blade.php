@@ -31,7 +31,7 @@
                 <div class="field-body">
                     <div class="field">
                         <p class="control is-expanded has-icons-left">
-                            <input class="input {{ $errors->has('subscriber_name') ? 'is-danger' : '' }}" type="text" name="subscriber_name" value="{{ $user[0]->subscriber_name }} ">
+                            <input class="input {{ $errors->has('subscriber_name') ? 'is-danger' : '' }}" type="text" name="subscriber_name" value="{{ $user[0]->subscriber_name }}">
                             <span class="icon is-small is-left">
                             <i class="fas fa-user" ></i>
                         </span>
@@ -130,7 +130,7 @@
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <input class="input {{ $errors->has('phone') ? 'is-danger' : '' }}" name="phone" type="tel" value="{{  $user[0]->phone }}">
+                            <input class="input {{ $errors->has('phone') ? 'is-danger' : '' }}" name="phone" type="tel" value="{{ $user[0]->phone }}">
                         </div>
                     </div>
                 </div>
@@ -143,7 +143,7 @@
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <input class="input {{ $errors->has('email') ? 'is-danger' : '' }}" name="email" type="email" value={{  $user[0]->email }}>
+                            <input class="input {{ $errors->has('email') ? 'is-danger' : '' }}" name="email" type="email" value="{{ $user[0]->email }}">
                         </div>
                     </div>
                 </div>
@@ -156,7 +156,7 @@
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <input class="input {{ $errors->has('sin') ? 'is-danger' : '' }}" name="sin" type="text" value={{  $user[0]->sin }}>
+                            <input class="input {{ $errors->has('sin') ? 'is-danger' : '' }}" name="sin" type="text" value="{{ $user[0]->sin }}">
                         </div>
                     </div>
                 </div>
@@ -319,7 +319,7 @@
             <div class="field-body">
                 <div class="field">
                     <p class="control is-expanded has-icons-left">
-                        <input class="input {{ $errors->has('subscriber_name') ? 'is-danger' : '' }}" type="text" name="subscriber_name" value="{{  $user[0]->subscriber_name }} ">
+                        <input class="input {{ $errors->has('subscriber_name') ? 'is-danger' : '' }}" type="text" name="subscriber_name" value="{{ $user[0]->subscriber_name }} ">
                         <span class="icon is-small is-left">
                         <i class="fas fa-user" ></i>
                     </span>
@@ -337,15 +337,13 @@
                 <div class="field is-expanded">
                     <div class="field">
                         <p class="control is-expanded">
-                            <input class="input {{ $errors->has('street') ? 'is-danger' : '' }}" name="street" type="tel" value="{{  $user[0]->street }}">
+                            <input class="input {{ $errors->has('street') ? 'is-danger' : '' }}" name="street" type="tel" value="{{ $user[0]->street }}">
                         </p>
                     </div>
                     <i><p class="help">Street Name</p></i>
                 </div>
             </div>
         </div>
-
-
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
@@ -354,7 +352,7 @@
             <div class="field-body">
                 <div class="field">
                     <p class="control is-expanded ">
-                        <input class="input {{ $errors->has('city') ? 'is-danger' : '' }}"name="city" type="text" value={{ $user[0]->city }}>
+                        <input class="input {{ $errors->has('city') ? 'is-danger' : '' }}" name="city" type="text" value="{{ $user[0]->city }}">
                     </p>
                     <i><p class="help">City</p></i>
                 </div>
@@ -418,7 +416,7 @@
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <input class="input {{ $errors->has('phone') ? 'is-danger' : '' }}" name="phone" type="tel" value="{{  $user[0]->phone }}">
+                        <input class="input {{ $errors->has('phone') ? 'is-danger' : '' }}" name="phone" type="tel" value="{{ $user[0]->phone }}">
                     </div>
                 </div>
             </div>
@@ -431,7 +429,7 @@
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <input class="input {{ $errors->has('email') ? 'is-danger' : '' }}" name="email" type="email" value={{  $user[0]->email }}>
+                        <input class="input {{ $errors->has('email') ? 'is-danger' : '' }}" name="email" type="email" value="{{ $user[0]->email }}">
                     </div>
                 </div>
             </div>
@@ -444,7 +442,7 @@
             <div class="field-body">
                 <div class="field">
                 <p class="control is-expanded has-icons-left">
-                    <input class="input {{ $errors->has('signatory_first_name') ? 'is-danger' : '' }}" type="text" name="signatory_first_name" value={{ $user[0]->signatory_first_name }}>
+                    <input class="input {{ $errors->has('signatory_first_name') ? 'is-danger' : '' }}" type="text" name="signatory_first_name" value="{{ $user[0]->signatory_first_name }}">
                     <span class="icon is-small is-left">
                     <i class="fas fa-user"></i>
                     </span>
@@ -453,7 +451,7 @@
                 </div>
                 <div class="field">
                 <p class="control is-expanded has-icons-left t">
-                    <input class="input {{ $errors->has('signatory_last_name') ? 'is-danger' : '' }}" type="text" name="signatory_last_name" value={{ $user[0]->signatory_last_name }}>
+                    <input class="input {{ $errors->has('signatory_last_name') ? 'is-danger' : '' }}" type="text" name="signatory_last_name" value="{{ $user[0]->signatory_last_name }}">
                     <span class="icon is-small is-left">
                         <i class="fas fa-user"></i>
                     </span>
@@ -471,7 +469,7 @@
             <div class="field-body">
                 <div class="field">
                 <p class="control is-expanded has-icons-left">
-                    <input class="input {{ $errors->has('official_capacity_or_title_of_authorized_signatory') ? 'is-danger' : '' }}" type="text" name="official_capacity_or_title_of_authorized_signatory" value={{ $user[0]->official_capacity_or_title_of_authorized_signatory }}>
+                    <input class="input {{ $errors->has('official_capacity_or_title_of_authorized_signatory') ? 'is-danger' : '' }}" type="text" name="official_capacity_or_title_of_authorized_signatory" value="{{ $user[0]->official_capacity_or_title_of_authorized_signatory }}">
                     <span class="icon is-small is-left">
                     <i class="fas fa-user"></i>
                     </span>

@@ -64,7 +64,7 @@
                     <div class="field is-expanded">
                         <div class="field">
                             <p class="control is-expanded">
-                                <input class="input {{ $errors->has('street') ? 'is-danger' : '' }}" name="street" type="tel" value="{{ old('street') ? old('street') : '' }}">
+                                <input class="input {{ $errors->has('street') ? 'is-danger' : '' }}" name="street" type="text" value="{{ old('street') ? old('street') : '' }}">
                             </p>
                         </div>
                         <i><p class="help">Street Name</p></i>
