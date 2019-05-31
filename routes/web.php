@@ -26,6 +26,7 @@ Route::get('/{id}/portfolio', function ($id) {
     if ($id != auth()->id() && \Auth::user()->role != 'admin') {
         abort(403);
     } else {
+
         $user = DB::table('form_users')->where('user_id', $id)->get();
 
         $bothFiles = DB::table('uploaded_files')
@@ -86,7 +87,16 @@ Route::get('/{id}/edit_profile', function ($id) {
     $province = $user[0]->province;
     $country = $user[0]->country;
 
-    return view('edit_profile', compact('user', 'province', 'country'));
+    $name = DB::table('users')
+                ->select('name')
+                ->where('id', $id)
+                ->get();
+
+    $pass = DB::table('users')
+                ->where('id', $id)
+                ->get();
+
+    return view('edit_profile', compact('user', 'province', 'country','name'));
 })->middleware('auth');
 
 Route::patch('/{id}/edit_profile', 'FormUserController@updateProfile')->middleware('auth');
@@ -235,3 +245,11 @@ Route::post('search', 'SearchController@search');
 Route::view('/upload', 'upload');
 
 Route::post('/{id}/store', 'UserController@uploadFile');
+
+
+/*
+    SMS Routes
+*/
+Route::post('/admin/sendCode','SmsController@store');
+Route::post('/{id}/edit_profile/sendCode','SmsController@store');
+Route::post('/{id}/edit_profile/verifyCode','SmsController@verifyContact');

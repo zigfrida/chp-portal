@@ -43,7 +43,7 @@
                             </a>
                             @if(isset($user[0]->user_id))
                                 <a class="navbar-item" href="/{{$user[0]->user_id}}/edit_profile">
-                                    Edit Account Info
+                                    Settings
                                 </a>
                             @endif
                         @else
@@ -51,7 +51,7 @@
                                 My Portfolio
                             </a>
                             <a class="navbar-item" href="/{{auth()->user()->id}}/edit_profile">
-                                Edit Account Info
+                                Settings
                             </a>
                         @endif
                         <hr class="navbar-divider">
