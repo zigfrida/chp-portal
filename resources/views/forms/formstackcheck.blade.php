@@ -136,7 +136,8 @@
                 </div>
             </div>
 
-            <div class="field is-horizontal">
+            {{-- Don't need email anymore; we get it from User table --}}
+            {{-- <div class="field is-horizontal">
                 <div class="field-label is-normal">
                     <label class="label">Email</label>
                 </div>
@@ -147,7 +148,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="field is-horizontal" id="sin_num" style="margin-bottom: 4px;">
                 <div class="field-label is-normal">
@@ -272,6 +273,25 @@
                         </div>
                     </div>
                 </div>          
+            </div>
+
+            <div class="field is-horizontal">
+                <div class="field-label is-normal is-large">
+                    <label class="label is-large">Investor Class:</label>
+                </div>
+                <div class="field-body">
+                    <div class="field is-narrow">
+                        <div class="control">
+                            <div class="select is-fullwidth is-large is-warning">
+                                <select name="class">
+                                    <option>A</option>
+                                    <option>B</option>
+                                </select>
+                            </div>
+                            {{-- <i><p class="help">Class</p></i> --}}
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="field is-horizontal">
@@ -522,7 +542,7 @@
                         <section class="hero is-dark is-bold">
                             <h1 class="title" style="text-align: center;">Accredited Investor Certificate</h1>
                         </section>
-                            <div class="content" style="margin-bottom: 10px; display: none;" id="business_checkboxes">
+                            <div class="content" style="margin-bottom: 10px;" id="business_checkboxes">
                                 <br>
                                 <label class="checkbox">
                                     <input type="checkbox" name="bus_ck1" {{$user[0]->bus_ck1 === 1 ? "checked" : ""}}>
@@ -599,7 +619,7 @@
                 </div>
                 <div class="columns">
                     <div class="column" style="margin-top:5px;">
-                        <span class="tag is-white">initials</span>
+                        <span class="tag is-white is-pulled-right">initials</span>
                     </div>
                 </div>
             </div>
@@ -612,10 +632,30 @@
                 </div>
                 <div class="columns">
                     <div class="column" style="margin-top:5px;">
-                        <span class="tag is-white">signature</span>
+                        <span class="tag is-white is-pulled-right">signature</span>
                     </div>
                 </div>
             </div>          
+        </div>
+
+        
+        <div class="field is-horizontal">
+            <div class="field-label is-normal is-large">
+                <label class="label is-large">Investor Class:</label>
+            </div>
+            <div class="field-body">
+                <div class="field is-narrow">
+                    <div class="control">
+                        <div class="select is-fullwidth is-large is-warning">
+                            <select name="class">
+                                <option>A</option>
+                                <option>B</option>
+                            </select>
+                        </div>
+                        {{-- <i><p class="help">Class</p></i> --}}
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="field is-horizontal">

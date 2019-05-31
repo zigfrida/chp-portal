@@ -76,7 +76,6 @@ class FormUserController extends Controller
                 'country' => 'required',
                 'sin' => 'required',
                 'phone' => 'required',
-                'email' => 'required',
                 'total_investment' => 'required',
             ]);
         } elseif ($request->clientType == 'business') { // user selected Non-Individual
@@ -88,7 +87,6 @@ class FormUserController extends Controller
                 'province' => 'required',
                 'country' => 'required',
                 'phone' => 'required',
-                'email' => 'required',
                 'business_number' => 'required',
                 'signatory_first_name' => 'required',
                 'signatory_last_name' => 'required',
@@ -110,7 +108,6 @@ class FormUserController extends Controller
                         'country' => $request->country,
                         'sin' => $request->sin,
                         'phone' => $request->phone,
-                        'email' => $request->email,
                         'total_investment' => $request->total_investment,
                         'ind_ck1' => $request->input('ind_ck1') !== null,
                         'ind_ck2' => $request->input('ind_ck2') !== null,
@@ -131,7 +128,6 @@ class FormUserController extends Controller
                 'country' => $request->country,
                 'sin' => $request->sin,
                 'phone' => $request->phone,
-                'email' => $request->email,
                 'business_number' => $request->business_number,
                 'signatory_first_name' => $request->signatory_first_name,
                 'official_capacity_or_title_of_authorized_signatory' => $request->official_capacity_or_title_of_authorized_signatory,
@@ -209,7 +205,6 @@ class FormUserController extends Controller
 
         // do class thing here
         $class = $request->class ?? '';
-
         $steet = $request->input('street');
         $city = $request->input('city');
         $province = $request->input('province');
@@ -232,7 +227,6 @@ class FormUserController extends Controller
                 'country' => $request->country,
                 'sin' => $request->sin,
                 'phone' => $request->phone,
-                'email' => $request->email,
                 'total_investment' => $request->total_investment,
                 'ind_ck1' => $request->input('ind_ck1') !== null,
                 'ind_ck2' => $request->input('ind_ck2') !== null,
@@ -259,7 +253,6 @@ class FormUserController extends Controller
                     'country' => $request->country,
                     'sin' => $request->sin,
                     'phone' => $request->phone,
-                    'email' => $request->email,
                     'business_number' => $request->business_number,
                     'signatory_first_name' => $request->signatory_first_name,
                     'official_capacity_or_title_of_authorized_signatory' => $request->official_capacity_or_title_of_authorized_signatory,
@@ -298,7 +291,7 @@ class FormUserController extends Controller
 
         $newPath;
         if (auth()->user()->isAdmin()) {
-            $newPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class[0]->class.'&method=updateSpreadUserName';
+            $newPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
         } else {
             $newPath = '/'.$id.'/edit_profile';
         }
@@ -434,7 +427,9 @@ class FormUserController extends Controller
 
         $subscriber_name = $request->input('subscriber_name');
         $new_subscriber_name = $request->input('new_subscriber_name');
-        $email = $request->input('email');
+        
+        // don't need email anymore: get from User table
+        //$email = $request->input('email');
         $steet = $request->input('street');
         $city = $request->input('city');
         $province = $request->input('province');
@@ -447,7 +442,6 @@ class FormUserController extends Controller
         \DB::table('form_users')
             ->where('user_id', $id)
             ->update([
-                'email' => $request->email,
                 'street' => $request->street,
                 'city' => $request->city,
                 'province' => $request->province,
@@ -457,11 +451,11 @@ class FormUserController extends Controller
                 'phone_mobile' => $request->phone_mobile,
         ]);
 
-        \DB::table('users')
-            ->where('id', $id)
-            ->update([
-                'email' => $email,
-        ]);
+        // \DB::table('users')
+        //     ->where('id', $id)
+        //     ->update([
+        //         'email' => $email,
+        // ]);
 
         if (!auth()->user()->isAdmin()) {
             //Change made by client
