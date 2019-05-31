@@ -297,6 +297,15 @@
                     <i><p class="help">Country</p></i>
                 </div>
             </div>
+            <div class="field-label is-normal">
+                <label class="label">Social Insurance Number</label>
+            </div>
+            <div class="field">
+                <p class="control is-expanded ">
+                    <input class="input" name="sin" placeholder="SIN Number" required>
+                </p>
+                <i><p class="help">Social Insurance Number</p></i>
+            </div>
         </div>
     </div>
 

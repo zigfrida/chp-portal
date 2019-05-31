@@ -123,6 +123,7 @@ class UserController extends Controller
         $province = $request->input('province');
         $postal_code = $request->input('postal_code');
         $country = $request->input('country');
+        $sin = $request->input('sin');
 
         $clientType = $request->input('clientType');
         $class = $request->input('class');
@@ -150,6 +151,7 @@ class UserController extends Controller
             'country' => $country,
             'phone' => $phone,
             'email' => $email,
+            'sin' => $sin,
             'access_level' => 2,
             'form_level' => 2,
         ]);
@@ -158,9 +160,16 @@ class UserController extends Controller
             'user_id' => $user['id'],
         ]);
 
+        //$testPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$user['id'].'&name='.$name.'&class='.$class.'&method=updateSpreadUser_idClassName';
+
         return redirect('/admin')->with('success', 'User created!');
+    }
+
+    public function updatePassword(Request $request, $id){
 
 
+        
+        return redirect('/'.$id.'/edit_profile');
     }
 
     /**

@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+/**
+ * API Routes for sending SMS and verification
+ */
+Route::post('send-sms','SmsController@store');
+Route::post('verify-user','SmsController@verifyContact');

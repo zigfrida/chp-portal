@@ -6,6 +6,7 @@ use App\form_user;
 use App\User;
 use Redirect;
 use Illuminate\Http\Request;
+use Alert;
 
 class FormUserController extends Controller
 {
@@ -413,9 +414,21 @@ class FormUserController extends Controller
         return redirect($testPath);
     }
 
-    public function updateProfile(Request $request, $id)
-    {
+
+    public function updateProfile(Request $request, $id){
+
+        $old_name = \DB::table('users')
+            ->select('name')
+            ->where('id', $id)
+            ->get();
+
+        $current_name = \DB::table('form_users')
+            ->select('subscriber_name')
+            ->where('user_id', $id)
+            ->get();
+
         $subscriber_name = $request->input('subscriber_name');
+        $new_subscriber_name = $request->input('new_subscriber_name');
         $email = $request->input('email');
         $steet = $request->input('street');
         $city = $request->input('city');
@@ -423,16 +436,12 @@ class FormUserController extends Controller
         $postal_code = $request->input('postal_code');
         $country = $request->input('country');
         $phone = $request->input('phone');
+        $phone_mobile = $request->input('phone_mobile');
 
-        $class = \DB::table('form_users')
-            ->select('class')
-            ->where('user_id', $id)
-            ->get();
-
+        //This innformation will always be updated, dosen't matter if it is an admin or not. However, redirect path changes if changes were made by an admin, and the name of the client was also part of the change (affect path).
         \DB::table('form_users')
             ->where('user_id', $id)
             ->update([
-                'subscriber_name' => $subscriber_name,
                 'email' => $request->email,
                 'street' => $request->street,
                 'city' => $request->city,
@@ -440,23 +449,84 @@ class FormUserController extends Controller
                 'postal_code' => $request->postal_code,
                 'country' => $request->country,
                 'phone' => $request->phone,
-            ]);
+                'phone_mobile' => $request->phone_mobile,
+        ]); 
 
         \DB::table('users')
             ->where('id', $id)
             ->update([
-                'name' => $subscriber_name,
                 'email' => $email,
+        ]); 
+
+        if(!auth()->user()->isAdmin()){
+            //Change made by client
+            \DB::table('users')
+                    ->where('id', $id)
+                    ->update([
+                        'name' => $subscriber_name,
+                ]); 
+
+            \DB::table('form_users')
+                ->where('user_id', $id)
+                ->update([
+                    'profile_changed' => 1,
             ]);
 
-        $newPath;
-        if (auth()->user()->isAdmin()) {
-            $newPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class[0]->class.'&method=updateSpreadUserName';
+            return redirect('/'.$id.'/edit_profile')->with('success', 'Profile Updated');;
+
         } else {
-            $newPath = '/'.$id.'/edit_profile';
+            //Change made by admin
+            $newPath = "";
+
+            \DB::table('form_users')
+                ->where('user_id', $id)
+                ->update([
+                    'profile_changed' => 0,
+            ]);
+
+            if ($old_name[0]->name != $current_name[0]->subscriber_name){
+                //Names, are not the same, changes were made by the client
+                //Accept name change
+                \DB::table('users')
+                    ->where('id', $id)
+                    ->update([
+                        'name' => $request->input('new_subscriber_name'),
+                ]); 
+
+                \DB::table('form_users')
+                    ->where('user_id', $id)
+                    ->update([
+                        'subscriber_name' => $request->input('new_subscriber_name'),
+                ]); 
+
+                $newPath ='https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&method=updateUserName';
+                
+                //return redirect('/'.$id.'/edit_profile');
+
+            } else if ($old_name[0]->name == $current_name[0]->subscriber_name){
+                //Client did not change name, but admin did
+                //Both names are the same, but an admin changed user name
+                \DB::table('users')
+                    ->where('id', $id)
+                    ->update([
+                        'name' => $subscriber_name,
+                ]); 
+
+                \DB::table('form_users')
+                    ->where('user_id', $id)
+                    ->update([
+                        'subscriber_name' => $subscriber_name,
+                ]);
+
+                $newPath ='https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&method=updateUserName';
+                //return redirect('/'.$id.'/edit_profile');
+            } else{
+                //means everything else was updated except name
+                 $newPath ='https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&method=updateUserNameOnlyInvestor';               
+            }
+            return redirect($newPath);
         }
 
-        return redirect($newPath);
     }
 
     /**

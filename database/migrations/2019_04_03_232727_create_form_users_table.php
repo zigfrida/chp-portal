@@ -23,6 +23,7 @@ class CreateFormUsersTable extends Migration
             $table->string('postal_code')->default('');
             $table->string('country')->default('');
             $table->string('phone')->default('');
+            $table->string('phone_mobile')->default('');
             $table->string('email')->default('');
             $table->string('sin')->nullable()->default('');
             $table->string('signatory_first_name')->nullable()->default('');
@@ -75,6 +76,8 @@ class CreateFormUsersTable extends Migration
             $table->string('risk_ck6')->default('');
             $table->string('risk_ck7')->default('');
             $table->string('risk_chk8')->default('');
+
+            $table->boolean('profile_changed')->nullable()->default(0);
 
             $table->timestamps();
 
