@@ -187,7 +187,7 @@
             </div>
         </div>
 
-        <div id="navMenubd-example" class="navbar-menu is-active">
+        <div id="navMenubd-example" class="navbar-menu">
             <div class="navbar-start">
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link  is-active" href="#">

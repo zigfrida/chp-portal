@@ -102,33 +102,29 @@ class FormUserController extends Controller
             \DB::table('form_users')
                 ->where('user_id', $id)
                 ->update(['subscriber_name' => $request->subscriber_name,
-                'clientType' => $request->clientType,
-                'city' => $request->city,
-                'province' => $request->province,
-                'street' => $request->street,
-                'postal_code' => $request->postal_code,
-                'country' => $request->country,
-                'sin' => $request->sin,
-                'phone' => $request->phone,
-                'email' => $request->email,
-                'total_investment' => $request->total_investment,
-                'ind_ck1' => $request->input('ind_ck1') !== null,
-                'ind_ck2' => $request->input('ind_ck2') !== null,
-                'ind_ck3' => $request->input('ind_ck3') !== null,
-                'ind_ck4' => $request->input('ind_ck4') !== null,
-                'ind_ck5' => $request->input('ind_ck5') !== null,
-                'ind_ck6' => $request->input('ind_ck6') !== null,
-                ]);
-            \DB::table('signatures')
-                ->where('user_id', $id)
-                ->update([
-                    'form_signature' => $request->input('form_signature'),
-                ]);
+                        'clientType' => $request->clientType,
+                        'city' => $request->city,
+                        'province' => $request->province,
+                        'street' => $request->street,
+                        'postal_code' => $request->postal_code,
+                        'country' => $request->country,
+                        'sin' => $request->sin,
+                        'phone' => $request->phone,
+                        'email' => $request->email,
+                        'total_investment' => $request->total_investment,
+                        'ind_ck1' => $request->input('ind_ck1') !== null,
+                        'ind_ck2' => $request->input('ind_ck2') !== null,
+                        'ind_ck3' => $request->input('ind_ck3') !== null,
+                        'ind_ck4' => $request->input('ind_ck4') !== null,
+                        'ind_ck5' => $request->input('ind_ck5') !== null,
+                        'ind_ck6' => $request->input('ind_ck6') !== null,
+                    ]);
         } elseif ($request->clientType == 'business') {
             \DB::table('form_users')
                 ->where('user_id', $id)
                 ->update(['subscriber_name' => $request->subscriber_name,
                 'clientType' => $request->clientType,
+                'city' => $request->city,
                 'province' => $request->province,
                 'street' => $request->street,
                 'postal_code' => $request->postal_code,
@@ -153,6 +149,41 @@ class FormUserController extends Controller
                 'bus_ck10' => $request->input('bus_ck10') !== null,
                 ]);
         }
+        // store the INITIALS!
+        \DB::table('signatures')
+            ->where('user_id', $id)
+            ->update([
+                'form_signature' => $request->input('form_signature'),
+            ]);
+        // store the SIGNATURE!
+        \DB::table('signatures')
+            ->where('user_id', $id)
+            ->update([
+                'sub_signature' => $request->input('sub_signature'),
+            ]);
+
+        $registration_name = $request->registration_name ?? '';
+        $registration_account_reference = $request->registration_account_reference ?? '';
+        $registration_address = $request->registration_address ?? '';
+
+        $delivery_contact = $request->delivery_contact ?? '';
+        $delivery_telephone = $request->delivery_telephone ?? '';
+        $delivery_account_reference = $request->delivery_account_reference ?? '';
+        $delivery_address = $request->delivery_address ?? '';
+
+        \DB::table('form_users')
+            ->where('user_id', $id)
+            ->update(
+                [
+                    'registration_name' => $registration_name,
+                    'registration_account_reference' => $registration_account_reference,
+                    'registration_address' => $registration_address,
+                    'delivery_contact' => $delivery_contact,
+                    'delivery_telephone' => $delivery_telephone,
+                    'delivery_account_reference' => $delivery_account_reference,
+                    'delivery_address' => $delivery_address,
+                ]
+            );
 
         // finished the first form
         \DB::table('form_users')
@@ -258,14 +289,14 @@ class FormUserController extends Controller
         $signed_month1 = $request->signed_month1;
         $signed_year1 = $request->signed_year1;
 
-        $registration_name = $request->registration_name ?? '';
-        $registration_account_reference = $request->registration_account_reference ?? '';
-        $registration_address = $request->registration_adress ?? '';
+        // $registration_name = $request->registration_name ?? '';
+        // $registration_account_reference = $request->registration_account_reference ?? '';
+        // $registration_address = $request->registration_address ?? '';
 
-        $delivery_contact = $request->delivery_contact ?? '';
-        $delivery_telephone = $request->delivery_telephone ?? '';
-        $delivery_account_reference = $request->delivery_account_reference ?? '';
-        $delivery_address = $request->delivery_address ?? '';
+        // $delivery_contact = $request->delivery_contact ?? '';
+        // $delivery_telephone = $request->delivery_telephone ?? '';
+        // $delivery_account_reference = $request->delivery_account_reference ?? '';
+        // $delivery_address = $request->delivery_address ?? '';
 
         $risk_ck1 = $request->risk_ck1;
         $risk_ck2 = $request->risk_ck2;
@@ -294,13 +325,13 @@ class FormUserController extends Controller
                 'signed_day1' => $signed_day1,
                 'signed_month1' => $signed_month1,
                 'signed_year1' => $signed_year1,
-                'registration_name' => $registration_name,
-                'registration_account_reference' => $registration_account_reference,
-                'registration_address' => $registration_address,
-                'delivery_contact' => $delivery_contact,
-                'delivery_telephone' => $delivery_telephone,
-                'delivery_account_reference' => $delivery_account_reference,
-                'delivery_address' => $delivery_address,
+                // 'registration_name' => $registration_name,
+                // 'registration_account_reference' => $registration_account_reference,
+                // 'registration_address' => $registration_address,
+                // 'delivery_contact' => $delivery_contact,
+                // 'delivery_telephone' => $delivery_telephone,
+                // 'delivery_account_reference' => $delivery_account_reference,
+                // 'delivery_address' => $delivery_address,
                 'risk_ck1' => $risk_ck1,
                 'risk_ck2' => $risk_ck2,
                 'risk_ck3' => $risk_ck3,
@@ -334,7 +365,7 @@ class FormUserController extends Controller
 
         $registration_name = $request->registration_name ?? '';
         $registration_account_reference = $request->registration_account_reference ?? '';
-        $registration_address = $request->registration_adress ?? '';
+        $registration_address = $request->registration_address ?? '';
 
         $delivery_contact = $request->delivery_contact ?? '';
         $delivery_telephone = $request->delivery_telephone ?? '';
@@ -368,9 +399,6 @@ class FormUserController extends Controller
 
 
     public function updateProfile(Request $request, $id){
-        // if (!preg_match("^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$",$request->input('phone'))){
-        //     return false;
-        // }
 
         $old_name = \DB::table('users')
             ->select('name')

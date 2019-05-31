@@ -27,7 +27,7 @@
             /* -moz-transform: scale(0.3);
             /* -moz-transform-origin: 0 0; */
             -webkit-transform: scale(0.9);
-            */ -moz-transform: scale(0.9);
+            -moz-transform: scale(0.9);
             -ms-transform: scale(0.9);
             transform: scale(0.9);
         }
