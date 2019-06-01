@@ -76,7 +76,6 @@ class FormUserController extends Controller
                 'country' => 'required',
                 'sin' => 'required',
                 'phone' => 'required',
-                'email' => 'required',
                 'total_investment' => 'required',
             ]);
         } elseif ($request->clientType == 'business') { // user selected Non-Individual
@@ -88,7 +87,6 @@ class FormUserController extends Controller
                 'province' => 'required',
                 'country' => 'required',
                 'phone' => 'required',
-                'email' => 'required',
                 'business_number' => 'required',
                 'signatory_first_name' => 'required',
                 'signatory_last_name' => 'required',
@@ -110,7 +108,6 @@ class FormUserController extends Controller
                         'country' => $request->country,
                         'sin' => $request->sin,
                         'phone' => $request->phone,
-                        'email' => $request->email,
                         'total_investment' => $request->total_investment,
                         'ind_ck1' => $request->input('ind_ck1') !== null,
                         'ind_ck2' => $request->input('ind_ck2') !== null,
@@ -131,7 +128,6 @@ class FormUserController extends Controller
                 'country' => $request->country,
                 'sin' => $request->sin,
                 'phone' => $request->phone,
-                'email' => $request->email,
                 'business_number' => $request->business_number,
                 'signatory_first_name' => $request->signatory_first_name,
                 'official_capacity_or_title_of_authorized_signatory' => $request->official_capacity_or_title_of_authorized_signatory,
@@ -194,7 +190,7 @@ class FormUserController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Admin confirms that the data from the form is gucci.
      *
      * @param \Illuminate\Http\Request $request
      * @param \App\form_user           $form_user
@@ -206,6 +202,9 @@ class FormUserController extends Controller
         $clientType = $request->input('clientType');
 
         $subscriber_name = $request->input('subscriber_name');
+
+        // do class thing here
+        $class = $request->class ?? '';
         $steet = $request->input('street');
         $city = $request->input('city');
         $province = $request->input('province');
@@ -219,6 +218,7 @@ class FormUserController extends Controller
             ->where('user_id', $id)
             ->update([
                 'subscriber_name' => $subscriber_name,
+                'class' => $class,
                 'clientType' => $request->clientType,
                 'city' => $request->city,
                 'province' => $request->province,
@@ -227,7 +227,6 @@ class FormUserController extends Controller
                 'country' => $request->country,
                 'sin' => $request->sin,
                 'phone' => $request->phone,
-                'email' => $request->email,
                 'total_investment' => $request->total_investment,
                 'ind_ck1' => $request->input('ind_ck1') !== null,
                 'ind_ck2' => $request->input('ind_ck2') !== null,
@@ -239,20 +238,21 @@ class FormUserController extends Controller
             \DB::table('form_users')
                 ->where('user_id', $id)
                 ->update(['access_level' => 1]);
+                
         } elseif ($clientType == 'business') {
             \DB::table('form_users')
                 ->where('user_id', $id)
                 ->update([
                     'subscriber_name' => $subscriber_name,
+                    'class' => $class,
                     'clientType' => $request->clientType,
                     'province' => $request->province,
                     'street' => $request->street,
                     'postal_code' => $request->postal_code,
-                    'city' => $request->city,       //Missing?
+                    'city' => $request->city,
                     'country' => $request->country,
                     'sin' => $request->sin,
                     'phone' => $request->phone,
-                    'email' => $request->email,
                     'business_number' => $request->business_number,
                     'signatory_first_name' => $request->signatory_first_name,
                     'official_capacity_or_title_of_authorized_signatory' => $request->official_capacity_or_title_of_authorized_signatory,
@@ -273,14 +273,30 @@ class FormUserController extends Controller
                 ->where('user_id', $id)
                 ->update(['access_level' => 1]);
         }
+
+
+        // insert class A/B into DB
+
         \DB::table('form_users')
             ->where('user_id', $id)
-            ->update(['access_level' => 1]);
+            ->update(['access_level' => 2]);
+        \DB::table('form_users')
+            ->where('user_id', $id)
+            ->update(['form_level' => 2]);
 
-        $redirectPath = '/'.$id.'/portfolio';
-        // $testPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
+        // $redirectPath = '/'.$id.'/portfolio';
+        // // $testPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
 
-        return Redirect::away($redirectPath);
+        // return Redirect::away($redirectPath);
+
+        $newPath;
+        if (auth()->user()->isAdmin()) {
+            $newPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
+        } else {
+            $newPath = '/'.$id.'/edit_profile';
+        }
+
+        return redirect($newPath);
     }
 
     public function storeSubAgreement(Request $request, $id)
@@ -397,9 +413,8 @@ class FormUserController extends Controller
         return redirect($testPath);
     }
 
-
-    public function updateProfile(Request $request, $id){
-
+    public function updateProfile(Request $request, $id)
+    {
         $old_name = \DB::table('users')
             ->select('name')
             ->where('id', $id)
@@ -412,7 +427,9 @@ class FormUserController extends Controller
 
         $subscriber_name = $request->input('subscriber_name');
         $new_subscriber_name = $request->input('new_subscriber_name');
-        $email = $request->input('email');
+        
+        // don't need email anymore: get from User table
+        //$email = $request->input('email');
         $steet = $request->input('street');
         $city = $request->input('city');
         $province = $request->input('province');
@@ -425,7 +442,6 @@ class FormUserController extends Controller
         \DB::table('form_users')
             ->where('user_id', $id)
             ->update([
-                'email' => $request->email,
                 'street' => $request->street,
                 'city' => $request->city,
                 'province' => $request->province,
@@ -433,21 +449,21 @@ class FormUserController extends Controller
                 'country' => $request->country,
                 'phone' => $request->phone,
                 'phone_mobile' => $request->phone_mobile,
-        ]); 
+        ]);
 
-        \DB::table('users')
-            ->where('id', $id)
-            ->update([
-                'email' => $email,
-        ]); 
+        // \DB::table('users')
+        //     ->where('id', $id)
+        //     ->update([
+        //         'email' => $email,
+        // ]);
 
-        if(!auth()->user()->isAdmin()){
+        if (!auth()->user()->isAdmin()) {
             //Change made by client
             \DB::table('users')
                     ->where('id', $id)
                     ->update([
                         'name' => $subscriber_name,
-                ]); 
+                ]);
 
             \DB::table('form_users')
                 ->where('user_id', $id)
@@ -459,7 +475,7 @@ class FormUserController extends Controller
 
         } else {
             //Change made by admin
-            $newPath = "";
+            $newPath = '';
 
             \DB::table('form_users')
                 ->where('user_id', $id)
@@ -467,33 +483,32 @@ class FormUserController extends Controller
                     'profile_changed' => 0,
             ]);
 
-            if ($old_name[0]->name != $current_name[0]->subscriber_name){
+            if ($old_name[0]->name != $current_name[0]->subscriber_name) {
                 //Names, are not the same, changes were made by the client
                 //Accept name change
                 \DB::table('users')
                     ->where('id', $id)
                     ->update([
                         'name' => $request->input('new_subscriber_name'),
-                ]); 
+                ]);
 
                 \DB::table('form_users')
                     ->where('user_id', $id)
                     ->update([
                         'subscriber_name' => $request->input('new_subscriber_name'),
-                ]); 
+                ]);
 
-                $newPath ='https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&method=updateUserName';
-                
-                //return redirect('/'.$id.'/edit_profile');
+                $newPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&method=updateUserName';
 
-            } else if ($old_name[0]->name == $current_name[0]->subscriber_name){
+            //return redirect('/'.$id.'/edit_profile');
+            } elseif ($old_name[0]->name == $current_name[0]->subscriber_name) {
                 //Client did not change name, but admin did
                 //Both names are the same, but an admin changed user name
                 \DB::table('users')
                     ->where('id', $id)
                     ->update([
                         'name' => $subscriber_name,
-                ]); 
+                ]);
 
                 \DB::table('form_users')
                     ->where('user_id', $id)
@@ -501,15 +516,15 @@ class FormUserController extends Controller
                         'subscriber_name' => $subscriber_name,
                 ]);
 
-                $newPath ='https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&method=updateUserName';
-                //return redirect('/'.$id.'/edit_profile');
-            } else{
+                $newPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&method=updateUserName';
+            //return redirect('/'.$id.'/edit_profile');
+            } else {
                 //means everything else was updated except name
-                 $newPath ='https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&method=updateUserNameOnlyInvestor';               
+                $newPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&method=updateUserNameOnlyInvestor';
             }
+
             return redirect($newPath);
         }
-
     }
 
     /**
