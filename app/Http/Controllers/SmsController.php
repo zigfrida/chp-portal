@@ -53,6 +53,8 @@ class SmsController extends Controller
             //return redirect('/'.$request->user_id.'/edit_profile');
             //return true;
             //return $result;
+            //Allis number '+16042109557'
+            //we get this number from twilio '+16042108680'
         }
         catch (Exception $e){
             echo "Error: " . $e->getMessage();

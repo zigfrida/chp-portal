@@ -471,7 +471,8 @@ class FormUserController extends Controller
                     'profile_changed' => 1,
             ]);
 
-            return redirect('/'.$id.'/edit_profile')->with('success', 'Profile Updated');
+            return redirect('/'.$id.'/edit_profile')->with('success', 'Your request has been submitted, pending admin approval.');;
+
         } else {
             //Change made by admin
             $newPath = '';

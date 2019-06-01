@@ -20,7 +20,8 @@ class UploadedFiles extends Migration
 
             $table->string('file_type')->default('I');
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            //$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users');
 
             $table->timestamps();
         });
