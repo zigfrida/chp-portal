@@ -312,7 +312,7 @@
                                         My Portfolio
                                     </a>
                                     <a class="navbar-item" href="/{{auth()->user()->id}}/edit_profile">
-                                        Settings
+                                        User Profile
                                     </a>
                                 @endif
                                 <hr class="navbar-divider">

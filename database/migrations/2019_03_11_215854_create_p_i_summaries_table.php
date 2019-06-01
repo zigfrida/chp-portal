@@ -25,7 +25,10 @@ class CreatePISummariesTable extends Migration
             $table->longText('comment')->nullable();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            //$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->foreign('user_id')->references('id')->on('users');
+
         });
     }
 

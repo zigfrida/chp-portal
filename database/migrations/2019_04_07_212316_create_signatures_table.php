@@ -19,7 +19,8 @@ class CreateSignaturesTable extends Migration
             $table->longText('form_signature');
             $table->longText('sub_signature');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            //$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

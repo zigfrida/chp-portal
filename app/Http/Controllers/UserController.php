@@ -135,6 +135,7 @@ class UserController extends Controller
         $user->password = Hash::make($user->password);
         $user->email = $email;
         $user->role = 'standard';
+        $user->existing = 'existing';
         $user->save();
 
         // \Invytr::invite($user);
@@ -160,7 +161,9 @@ class UserController extends Controller
             'user_id' => $user['id'],
         ]);
 
-        //$testPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$user['id'].'&name='.$name.'&class='.$class.'&method=updateSpreadUser_idClassName';
+        // $testPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$user['id'].'&name='.$name.'&class='.$class.'&method=updateSpreadUser_idClassName';
+
+        // return redirect($testPath);
 
         return redirect('/admin')->with('success', 'User created!');
     }

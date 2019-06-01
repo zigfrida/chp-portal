@@ -70,6 +70,8 @@ Route::get('/{id}/portfolio', function ($id) {
 
         $user = DB::table('form_users')->where('user_id', $id)->get();
 
+        $user_table = DB::table('users')->where('id', $id)->get();
+
         $bothFiles = DB::table('uploaded_files')
                         ->where('file_type', 'AB');
 
@@ -115,7 +117,7 @@ Route::get('/{id}/portfolio', function ($id) {
 
         $country = $user[0]->country;
 
-        return view('portfolio', compact('user', 'files', 'thisUser', 'years', 'metrics', 'fundInfo', 'extraInfo', 'classAPA', 'classBPA', 'signature', 'province', 'country'));
+        return view('portfolio', compact('user', 'files', 'thisUser', 'years', 'metrics', 'fundInfo', 'extraInfo', 'classAPA', 'classBPA', 'signature', 'province', 'country', 'user_table'));
     }
 })->middleware('auth');
 

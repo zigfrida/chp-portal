@@ -122,10 +122,12 @@
         </div>
  
         <br>
-        <div class="columns is-centered">
-            <a class="button is-light" href="{{url($user[0]->user_id.'/filledform')}}" style="padding:10px">Download Subscription Agreement (PDF)</a><br>
-            <a class="button is-light" href="{{url($user[0]->user_id.'/formtest')}}" style="padding:10px">>> Web Version</a><br>
-        </div>
+        @if(!$user_table[0]->existing == 'existing')
+            <div class="columns is-centered">
+                <a class="button is-light" href="{{url($user[0]->user_id.'/filledform')}}" style="padding:10px">Download Subscription Agreement (PDF)</a><br>
+                <a class="button is-light" href="{{url($user[0]->user_id.'/formtest')}}" style="padding:10px">>> Web Version</a><br>
+            </div>
+        @endif
     </main>
 
 

@@ -21,7 +21,8 @@ class CreateSmsVerificationTable extends Migration
             $table->string('status')->default('pending');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            //$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users');
             
         });
     }

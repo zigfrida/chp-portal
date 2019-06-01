@@ -271,13 +271,10 @@
                         <div class="has-text-centered">
                             <h1 class="title is-3"><span class="decor">Change</span> <span class="le-decor">Password</span></h1>
                         </div>            
-                    </div>
-                    <br>
+                    </div><br>
                     <div class="has-text-centered">
                         <p>When changing your password, a verification code will be sent at your mobile phone.</p>
-                    </div>
-                    <br>
-                    {{-- action="/{{ $user[0]->user_id }}/edit_profile/sendCode" --}}
+                    </div><br>
                     <form action="/{{ $user[0]->user_id }}/edit_profile/verifyCode" method="POST" id="code_validation">
                         @csrf
                         {{-- <div class="field is-horizontal">
@@ -358,57 +355,54 @@
                         </div>
 
                         <div id="verification_form">
-                        <div id="verification_form_container">
-                        <br>
-                        <div id="code_verification">
-                        {{-- action="/{{ $user[0]->user_id }}/edit_profile/verifyCode" method="POST" --}}
-                        {{-- <form action="/{{ $user[0]->user_id }}/edit_profile/verifyCode" method="POST" id="code_verification"> --}}
-                            <br>
-                            <div class="has-text-centered">
-                                <h1 class="title"><span class="decor">User Verification</span></h1>
-                            </div>
-                            <br>
-                            <p class="is-medium">For your password to be set, please enter the verification code that was sent to your contact number.</p>
-                            <br>
-                            @csrf
-                            <div class="form-popup" id="myForm">
-                                <div class="field is-horizontal">
-                                    <div class="field-label is-normal">
-                                        <label class="label">Verification Code</label>
-                                    </div>
-                                    <div class="field-body">
-                                        <div class="field is-narrow">
-                                            <div class="control">
-                                                <div class="field">
-                                                    <p class="control has-icons-left">
-                                                        <input class="input" type="number" name="code" placeholder="Code" maxlength="4" required>
-                                                        <span class="icon is-small is-left">
-                                                        <i class="fas fa-lock"></i>
-                                                        </span>
-                                                    </p>
+                            <div id="verification_form_container">
+                                <br>
+                                <div id="code_verification">
+                                {{-- action="/{{ $user[0]->user_id }}/edit_profile/verifyCode" method="POST" --}}
+                                {{-- <form action="/{{ $user[0]->user_id }}/edit_profile/verifyCode" method="POST" id="code_verification"> --}}
+                                    <br>
+                                        <div class="has-text-centered">
+                                            <h1 class="title"><span class="decor">User Verification</span></h1>
+                                        </div><br>
+                                        <p class="is-medium">For your password to be set, please enter the verification code that was sent to your contact number.</p><br>
+                                    @csrf
+                                    <div class="form-popup" id="myForm">
+                                        <div class="field is-horizontal">
+                                            <div class="field-label is-normal">
+                                                <label class="label">Verification Code</label>
+                                            </div>
+                                            <div class="field-body">
+                                                <div class="field is-narrow">
+                                                    <div class="control">
+                                                        <div class="field">
+                                                            <p class="control has-icons-left">
+                                                                <input class="input" type="number" name="code" placeholder="Code" maxlength="4" required>
+                                                                <span class="icon is-small is-left">
+                                                                <i class="fas fa-lock"></i>
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                        <i><p class="help">4 Digits Verification Code</p></i>
+                                                    </div>
                                                 </div>
-                                                <i><p class="help">4 Digits Verification Code</p></i>
+                                            </div>
+                                        </div>
+                                        <div class="field is-horizontal">
+                                            <div class="field-label"></div>
+                                            <div class="field-body">
+                                                <div class="field is-grouped is-grouped-right">
+                                                    <div class="control">
+                                                        <button class="button is-warning" type="submit" id="VerifyCode">Submit</button>
+                                                        <button class="button is-light" type="button" onclick="hideVerificationForm()">Back</button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="field is-horizontal">
-                                    <div class="field-label">
-                                    </div>
-                                    <div class="field-body">
-                                        <div class="field is-grouped is-grouped-right">
-                                            <div class="control">
-                                                <button class="button is-warning" type="submit" id="VerifyCode">Submit</button>
-                                                <button class="button is-light" type="button" onclick="hideVerificationForm()">Back</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                {{-- </form> --}}
                             </div>
                         </div>
-                        {{-- </form> --}}
-                    </div>
-                    </div>
 
                     </form>
 
