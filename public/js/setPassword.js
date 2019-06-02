@@ -27,9 +27,13 @@ $('#SendCodeSet').click(function (event) {
 
     var phone_mobile = document.getElementById("phone_mobile").value;
 
+    
+
     var test = $('#set_code_validation').serialize();
     alert("sefggeafga");
     alert(test);
+
+    var url = "/password/set/sendCode";
 
     if (new_password != confirm_password || new_password == "" || confirm_password == "") {
         alert("Passwords must be the same.");

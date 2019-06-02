@@ -311,7 +311,7 @@ Route::post('/admin/sendCode','SmsController@store');
 Route::post('/{id}/edit_profile/sendCode','SmsController@store');
 Route::post('/{id}/edit_profile/verifyCode','SmsController@verifyContact');
 
-Route::post('/password/set/sendCode','SmsController@store');
+Route::post('/password/set/sendCode','SmsController@setStore');
 Route::post('/password/set/verifyCode','SmsController@verifyContact');
 
 /*
