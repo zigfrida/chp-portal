@@ -314,6 +314,9 @@ Route::post('/{id}/edit_profile/verifyCode','SmsController@verifyContact');
 Route::post('/password/set/sendCode','SmsController@setStore');
 Route::post('/password/set/verifyCode','SmsController@verifyContactSet');
 
+Route::post('/password/reset/sendCode','SmsController@setStore');
+Route::post('/password/reset/verifyCode','SmsController@verifyContactSet');
+
 /*
     Disable user from being able to log in
 */
