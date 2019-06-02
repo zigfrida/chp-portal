@@ -39,7 +39,7 @@
                 <div class="container">
                     <div class="navbar-brand">
                         <figure class="image" style="margin-top: 20px">
-                            <img src="{{url('/images/logo.png')}}" alt="Cypress Hills Partners">
+                            <a href="/"><img src="{{url('/images/logo.png')}}" alt="Cypress Hills Partners"></a>
                         </figure>
                         <span class="navbar-burger burger" data-target="navbarMenu">
                             <span></span>
@@ -64,6 +64,7 @@
             </nav>
         </div>
         <div class="hero-body">
+            <br>
             <div class="container has-text-centered">
                 <div class="columns is-vcentered">
                     <div class="column is-5">
@@ -111,7 +112,7 @@
                                 </figure>
                             </a>
                         </li>
-                        <li><a></a></li>
+                        <li><a>Fat</a></li>
                     </ul>
                 </div>
             </div>

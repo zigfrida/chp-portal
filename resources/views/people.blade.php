@@ -1,439 +1,350 @@
-
 <!DOCTYPE html>
-<html lang="en">
-	<head><script src="/gdpr/gdprscript.js?buildTime=1559175606&hasRemindMe=true&stealth=false"></script>
-		<title>People of CypressHills Partners - CYPRESSHILLS PARTNERS</title><meta property="og:site_name" content="CYPRESSHILLS PARTNERS" />
-<meta property="og:title" content="People of CypressHills Partners" />
-<meta property="og:description" content="Kelly Klatik Managing Partner  &amp; Co-Founder" />
-<meta property="og:image" content="https://www.cypresshillspartners.com/uploads/5/9/5/6/59561431/cypresshills-black-yellow.png" />
-<meta property="og:url" content="https://www.cypresshillspartners.com/people.html" />
+<html>
 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cypress Hills Partners</title>
+    <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!-- Bulma Version 0.7.4-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.7.4/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
+	
+    <style type="text/css">
+        html,
+        body {
+            font-family: 'Open Sans';
+        }
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0;">
+        img {
+            padding: 5px;
+        }
+        
+        .tabs li.is-active a {
+            border-bottom-color: black;
+            color: black;
+            opacity: 0;
+        }
+    </style>
+</head>
 
-		
-		<link id="wsite-base-style" rel="stylesheet" type="text/css" href="//cdn2.editmysite.com/css/sites.css?buildTime=1551130962" />
-<link rel="stylesheet" type="text/css" href="//cdn2.editmysite.com/css/old/fancybox.css?1551130962" />
-<link rel="stylesheet" type="text/css" href="//cdn2.editmysite.com/css/social-icons.css?buildtime=1551130962" media="screen,projection" />
-<link rel="stylesheet" type="text/css" href="/files/main_style.css?1551139250" title="wsite-theme-css" />
-<link href='//fonts.googleapis.com/css?family=Roboto:400,300,300italic,700,400italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<body style="background-color: #a38560;background-image: linear-gradient(315deg, #a38560 0%, #e0d4ae 74%);">
+    <section class="hero is-fullheight is-default is-bold">
+        <div class="hero-head">
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <figure class="image" style="margin-top: 20px">
+                            <a href="/"><img src="{{url('/images/logo.png')}}" alt="Cypress Hills Partners"></a>
+                        </figure>
+                        <span class="navbar-burger burger" data-target="navbarMenu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </div>
+                    <div id="navbarMenu" class="navbar-menu">
+                        <div class="navbar-end">
+                            <div class="tabs is-right">
+                                <ul>
+                                    <li class="is-active"><a href="/">Home</a></li>
+                                    <li><a href="/about">About</a></li>
+                                    <li><a href="/people"><b>People</b></a></li>
+                                    <li><a href="/originate">Originate</a></li>
+                                    <li><a href="/specialty-landing">Specialty Lending</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
 
-<link href='//fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
-<link href='//fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
-<link href='//fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
-<link href='//fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
-<link href='//fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
-<link href='//fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
-<link href='//fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+		{{-- modal stuff --}}
 
-<link rel="stylesheet" href="{{ asset('css/about/main_style.css') }}">
-<link rel="stylesheet" href="{{ asset('css/about/fancybox.css') }}">
-<link rel="stylesheet" href="{{ asset('css/about/site_membership.css') }}">
-<link rel="stylesheet" href="{{ asset('css/about/sites.css') }}">
-<link rel="stylesheet" href="{{ asset('css/about/social-icons.css') }}">
-	<style>
-		#banner{background: url("/images/2137183102.jpg") no-repeat center center fixed;
-						opacity: 0.7;
-				}
-	</style>
-		
-	</head>
-	<body class="short-header-page  wsite-theme-light  wsite-page-people"><div id="banner-wrap" class="wsite-background wsite-custom-background">
-		<div id="banner-cover">
-
-			<div id="header-wrap">
-				<div id="header" class="container">
-					<label id="nav-trigger" class="hamburger" for="mobile-input"><span></span></label>
-					<h1 id="logo"><span class="wsite-logo">
-
-	<a href="/">
-		<img src="{{url('/images/cypresshills-black-yellow.png')}}" alt="CYPRESSHILLS PARTNERS" />
-	</a>
-
-</span></h1>
-<div id="nav">
-		<ul class="wsite-menu-default">
-			<li id="pg872786692115223829" class="wsite-menu-item-wrap">
-				<a
-							href="/"
-					class="wsite-menu-item"
-					>
-					Home
-				</a>
-				
-			</li>
-			<li id="active" class="wsite-menu-item-wrap">
-				<a
-							href="/about"
-					class="wsite-menu-item"
-					>
-					About
-				</a>
-				
-			</li>
-			<li id="pg998570747561422519" class="wsite-menu-item-wrap">
-				<a
-							href="/people"
-					class="wsite-menu-item"
-					>
-					People
-				</a>
-				
-			</li>
-			<li id="pg257996365458556285" class="wsite-menu-item-wrap">
-				<a
-							href="/originate"
-					class="wsite-menu-item"
-					>
-					Originate
-				</a>
-				
-			</li>
-			<li id="pg994389317271352423" class="wsite-menu-item-wrap">
-				<a
-							href="/specialty-lending"
-					class="wsite-menu-item"
-					>
-					Specialty Lending
-				</a>
-				
-			</li>
-			<li id="pg994422633699973658" class="wsite-menu-item-wrap">
-				<a
-							href="/contact"
-					class="wsite-menu-item"
-					>
-					Contact
-				</a>
-				
-			</li>
-		</ul>
-	</div>
+		<section class="container">
+			<div class="columns features">
+				<div class="column is-4">
+				<div class="card is-shady">
+					<div class="card-image">
+					<figure class="image is-4by3">
+						<img src="{{url('/images/kelly_klatik.jpg')}}" alt="Placeholder image">
+					</figure>
 					</div>
-					<div id="mobile-nav" class="container">
-						<ul class="wsite-menu-default">
-								<li id="pg872786692115223829" class="wsite-menu-item-wrap">
-									<a
-												href="/"
-										class="wsite-menu-item"
-										>
-										Home
-									</a>
-									
-								</li>
-								<li id="active" class="wsite-menu-item-wrap">
-									<a
-												href="/about"
-										class="wsite-menu-item"
-										>
-										About
-									</a>
-									
-								</li>
-								<li id="pg998570747561422519" class="wsite-menu-item-wrap">
-									<a
-												href="/people"
-										class="wsite-menu-item"
-										>
-										People
-									</a>
-									
-								</li>
-								<li id="pg257996365458556285" class="wsite-menu-item-wrap">
-									<a
-												href="/originate"
-										class="wsite-menu-item"
-										>
-										Originate
-									</a>
-									
-								</li>
-								<li id="pg994389317271352423" class="wsite-menu-item-wrap">
-									<a
-												href="/specialty-lending"
-										class="wsite-menu-item"
-										>
-										Specialty Lending
-									</a>
-									
-								</li>
-								<li id="pg994422633699973658" class="wsite-menu-item-wrap">
-									<a
-												href="/contact"
-										class="wsite-menu-item"
-										>
-										Contact
-									</a>
-									
-								</li>
-						</ul>
+					<div class="card-content">
+					<div class="content">
+						<h4>Kelly Klatik</h4>
+						<p>Kelly Klatik was born and raised in Saskatchewan, Canada. Kelly is a Managing Partner at Cypress Hills, which he co-founded in 2014. He oversees the firm’s origination and operational activities. He also manages the co-origination process with institutional investors.</p>
+						<span class="button is-warning modal-button" data-target="modal-card1">+</span>
+					</div>
 					</div>
 				</div>
-
-			<div id="banner" class="">
-				<div id="banner-content">
-					<h2><span class="wsite-text wsite-headline">
-	<span style="font-weight:bold">People build opportunities.</span>
-</span></h2>
+				</div>
+				<div class="column is-4">
+				<div class="card is-shady">
+					<div class="card-image">
+					<figure class="image is-4by3">
+						<img src="{{url('/images/dean_theman.jpg')}}" alt="Placeholder image">
+					</figure>
+					</div>
+					<div class="card-content">
+					<div class="content">
+						<h4>Dean Linden</h4>
+						<p>Dean Linden has over 20 years of experience as a financier and business development professional. He has spearheaded the financing and development of Companies in Consumer Finance, Biotech, Healthcare, Media, Entertainment and Natural Resource sectors.</p>
+						<span class="button is-warning modal-button" data-target="modal-card2">Modal Card</span>
+					</div>
+					</div>
+				</div>
+				</div>
+				<div class="column is-4">
+				<div class="card is-shady">
+					<div class="card-image">
+					<figure class="image is-4by3">
+						<img src="{{url('/images/marshall.jpg')}}" alt="Placeholder image">
+					</figure>
+					</div>
+					<div class="card-content">
+					<div class="content">
+						<h4>Marshall House</h4>
+						<p>Marshall House has 25 years of accounting and finance experience in senior management positions in large public and private companies.</p>
+						<br><br><br>
+						<span class="button is-warning modal-button" data-target="modal-card3">Modal Card</span>
+					</div>
+					</div>
+				</div>
 				</div>
 			</div>
+		</section>
+		  
+		
+		<section class="container">
+			<div class="columns features" style="margin-top:5%;">
+				<div class="column is-4">
+					<div class="card is-shady">
+						<div class="card-image">
+						<figure class="image is-4by3">
+							<img src="{{url('/images/alli_radiuk.jpeg')}}" alt="Placeholder image">
+						</figure>
+						</div>
+						<div class="card-content">
+						<div class="content">
+							<h4>Alli Radiuk</h4>
+							<p>Ms. Radiuk holds a Bachelor of Commerce degree with a specialization in Finance from the University of British Columbia. She previously held various positions at Toronto-Dominion Bank in the Underwriting Division where she employed her knowledge and expertise in underwriting secured consumer loans.</p>
+							<span class="button is-warning modal-button" data-target="modal-card4">Modal Card</span>
+						</div>
+						</div>
+					</div>
+				</div>
+				<div class="column is-4">
+					<div class="card is-shady">
+						<div class="card-image">
+						<figure class="image is-4by3">
+							<img src="{{url('/images/anthonyWONG.jpeg')}}" alt="Placeholder image">
+						</figure>
+						</div>
+						<div class="card-content">
+						<div class="content">
+							<h4>Anthony Wong</h4>
+							<p>Anthony has over 25 years of experience in the corporate finance and communications industry. His diverse skill set uniquely positions him to understand and work with a variety of businesses and ventures from law to technology to digital media. Anthony has worked in both the private and public sectors.</p>
+							<span class="button is-warning modal-button" data-target="modal-card5">Modal Card</span>
+						</div>
+						</div>
+					</div>
+				</div>
+				<div class="column is-4">
+					<div class="card is-shady">
+						<div class="card-image">
+						<figure class="image is-4by3">
+							<img src="{{url('/images/kevinMuffinGuy.jpg')}}" alt="Placeholder image">
+						</figure>
+						</div>
+						<div class="card-content">
+						<div class="content">
+							<h4>Kevin Hung</h4>
+							<p>
+								Kevin is strategically involved in accounting and analytics for CHP.
+								He was previously an Associate Advisor with RBC Dominion Securities where he employed his knowledge and
+								expertise in portfolio modeling and financial planning, and was a recipient of the 2017 RBC Performance Award.
+							</p>
+							<br>
+							<span class="button is-warning modal-button" data-target="modal-card6">Modal Card</span>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		{{-- SPONGEBOB: 					--}}
+		{{-- 			WHAT TIME IS IT?	--}}
+		{{-- PATRICK: 						--}}
+		{{-- 			IT'S MODAL TIME 	--}}		
+		<div id="modal-card1" class="modal modal-fx-3dSlit">
+			<div class="modal-background"></div>
+			<div class="modal-content is-tiny">
+				<!-- content -->
+				<div class="card">
+				<div class="card-image">
+					<figure class="image is-4by3">
+					<img src="{{url('/images/kelly_klatik.jpg')}}" alt="Placeholder image">
+					</figure>
+				</div>
+				<div class="card-content">
+					<div class="content">
+							Kelly serves as a member of the board of directors for Merchant Advance Capital Ltd. and as a board observer with Creditloans Canada Ltd., both origination partner companies of Cypress Hills.
+							
+							Kelly has has over 27 years of experience in the investment banking/management and alternative asset sectors. Prior to Cypress Hills, Kelly served for 4 years as CEO and co-founder of an alternative asset/natural resource based company listed on the TSX-V, which harvested one of the oldest paper based historic data sets resulting in the approval of an $800 million build. Before this, Kelly spent over a decade as Director, Investment Banking at M Partners and Vice President of Equity Capital Markets for Investment Planning Counsel, part of the Montreal based Power Financial Group. He successfully executed on numerous transactions and deal flow totaling over $4.0 billion since 2000 primarily in structured financial products and public equity financings weighted towards the Consumer Finance, Commercial Finance, Technology and Natural Resource sectors.
+							
+							​Kelly received a Bachelor of Commerce in Accounting from University of Saskatchewan, an MBA from Royal Roads University, and earned the Institute of Corporate Directors designation (ICD.D) from Rotman School of Business.
+					</div>
+				</div>
+				</div>
+				<!-- end content -->
+			</div>
+			<button class="modal-close is-large" aria-label="close"></button>
+		</div>
 
-		</div>			
+		<div id="modal-card2" class="modal modal-fx-3dSlit">
+			<div class="modal-background"></div>
+			<div class="modal-content is-tiny">
+				<!-- content -->
+				<div class="card">
+				<div class="card-image">
+					<figure class="image is-4by3">
+					<img src="{{url('/images/dean_theman.jpg')}}" alt="Placeholder image">
+					</figure>
+				</div>
+				<div class="card-content">
+					<div class="content">
+							He began his career in 1988 as the General Manager of the Single A affiliate of the Toronto Blue Jays.	​  
+							Dean's attention quickly turned to Capital Markets and Finance when he arrived in Vancouver in the early nineties.
+							He joined ID Biomedical in 1997 and in 2005 it was sold to Global Pharma giant Glaxo SmithKline for $1.7B.
+							Dean went on to become a founding shareholder and important visionary in the early stage development of both CRH Medical and Falco Resources.
+							Linden has had the good fortune to work with some of the most experienced professionals at both Director and Management levels.
+							Cypress Hills Partners is the culmination of a business career that has spanned three decades and allows Dean to apply his expertise and focus on the things he does the best.				</div>
+				</div>
+				<!-- end content -->
+			</div>
+			<button class="modal-close is-large" aria-label="close"></button>
+		</div>
+
+		<div id="modal-card3" class="modal modal-fx-3dSlit">
+			<div class="modal-background"></div>
+			<div class="modal-content is-tiny">
+				<!-- content -->
+				<div class="card">
+				<div class="card-image">
+					<figure class="image is-4by3">
+					<img src="{{url('/images/marshall.jpg')}}" alt="Placeholder image">
+					</figure>
+				</div>
+				<div class="card-content">
+					<div class="content">
+						Marshall has been an integral part of developing Cypress Hills’ processes and internal controls in using his extensive
+						knowledge and understanding of the CHP loan portfolios and their respective cashflows, allowing for timely and accurate
+						reporting from the origination partners and to the CHP fund investors. Marshall’s attention to detail, excellent problem solving skills and strong work ethic have been vital to the success of Cypress Hills.  ​
+						Mr. House received a Bachelor of Arts from the University of British Columbia in 1990 and his CPA designation in 2001.​						
+					</div>
+				</div>
+				</div>
+				<!-- end content -->
+			</div>
+			<button class="modal-close is-large" aria-label="close"></button>
+		</div>
+
+		<div id="modal-card4" class="modal modal-fx-3dSlit">
+			<div class="modal-background"></div>
+			<div class="modal-content is-tiny">
+				<!-- content -->
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+							<img src="{{url('/images/alli_radiuk.jpeg')}}" alt="Placeholder image">
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="content">
+							She has acted as a Strategic Consultant focused on Business Development and Corporate Finance in both the Technology and Entertainment industries prior to joining Cypress Hills Partners. Alli has been strategically involved in building multi-million dollar financing structures and assisting in the management of various funds.  Alli brings a unique skill set from her experience in the financial sector and business operations											
+						</div>
+					</div>
+				</div>
+				<!-- end content -->
+			</div>
+			<button class="modal-close is-large" aria-label="close"></button>
+		</div>
+
+		<div id="modal-card5" class="modal modal-fx-3dSlit">
+			<div class="modal-background"></div>
+			<div class="modal-content is-tiny">
+				<!-- content -->
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+						<img src="{{url('/images/anthonyWONG.jpeg')}}" alt="Placeholder image">
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="content">
+							Anthony has worked in both the private and public sectors. He has been a provincial and national representative on national and international committees and projects.    
+
+							Anthony studied philosophy and politics for three years in Canada and Great Britain before earning his law degree from the University of British Columbia.											
+						</div>
+					</div>
+				</div>
+				<!-- end content -->
+			</div>
+			<button class="modal-close is-large" aria-label="close"></button>
+		</div>
+
+
+		<div id="modal-card6" class="modal modal-fx-3dSlit">
+			<div class="modal-background"></div>
+			<div class="modal-content is-tiny">
+				<!-- content -->
+				<div class="card">
+				<div class="card-image">
+					<figure class="image is-4by3">
+					<img src="{{url('/images/kevinMuffinGuy.jpg')}}" alt="Placeholder image">
+					</figure>
+				</div>
+				<div class="card-content">
+					<div class="content">
+						Kevin worked with one of the largest Wealth Management teams in Western Canada, providing key business operation and portfolio management functions.
+						Kevin received a Bachelor of Commerce in Accounting from the University of British Columbia in 2014 and earned the Chartered Financial Analyst (CFA) designation in 2018.
+					</div>
+				</div>
+				</div>
+				<!-- end content -->
+			</div>
+			<button class="modal-close is-large" aria-label="close"></button>
+		</div>
+
+
+	</section>
+	<br>
+	<div class="hero-foot">
+		<div class="container">
+			<div class="tabs is-centered">
+				<ul>
+					<li><a>LinkedIn</a></li>
+					<li>
+						<a href="https://www.google.com/maps/place/1080+Mainland+St,+Vancouver,+BC+V6B+2T4/@49.2756006,-123.1225802,17z/data=!3m1!4b1!4m5!3m4!1s0x548673d65a82a923:0x19c1da5918a84be7!8m2!3d49.2755971!4d-123.1203915">
+							<figure>
+								<img class="image is-48x48" src="{{url('/images/google_maps.svg')}}">
+							</figure>
+						</a>
+					</li>
+					<li><a>Umm</a></li>
+				</ul>
+			</div>
+		</div>
 	</div>
-	
-	<div id="main-wrap">
-		<div class="container"><div id="wsite-content" class="wsite-elements wsite-not-footer">
-	<h2 class="wsite-content-title" style="text-align:left;"><font size="6">Meet the Team</font></h2>
+	<script src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>
+</body>
 
-<div><div style="height: 10px; overflow: hidden; width: 100%;"></div>
-<hr class="styled-hr" style="width:100%;"></hr>
-<div style="height: 10px; overflow: hidden; width: 100%;"></div></div>
-
-<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
-	<table class="wsite-multicol-table">
-		<tbody class="wsite-multicol-tbody">
-			<tr class="wsite-multicol-tr">
-				<td class="wsite-multicol-col" style="width:17.676767676768%; padding:0 15px;">
-					
-						
-
-<div class="paragraph" style="text-align:left;"><font color="#2a2a2a"><a href="/kelly-klatik"><font color="#2a2a2a"><strong><font size="5">Kelly Klatik</font></strong></font><br /><font color="#2a2a2a">Managing Partner</font></a>&nbsp;&amp; Co-Founder</font></div>
-
-
-					
-				</td>				<td class="wsite-multicol-col" style="width:82.323232323232%; padding:0 15px;">
-					
-						
-
-<div style="text-align:left;"><div style="height:10px;overflow:hidden"></div>
-<span class="wsite-social wsite-social-default"><a class='first-child wsite-social-item wsite-social-linkedin' href='https://ca.linkedin.com/in/klatik' target='_blank' alt='Linkedin'><span class='wsite-social-item-inner'></span></a><a class='last-child wsite-social-item wsite-social-twitter' href='https://twitter.com/CypressHillsPtn' target='_blank' alt='Twitter'><span class='wsite-social-item-inner'></span></a></span>
-<div style="height:0px;overflow:hidden"></div></div>
-
-
-					
-				</td>			</tr>
-		</tbody>
-	</table>
-</div></div></div>
-
-<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
-	<table class="wsite-multicol-table">
-		<tbody class="wsite-multicol-tbody">
-			<tr class="wsite-multicol-tr">
-				<td class="wsite-multicol-col" style="width:17.676767676768%; padding:0 15px;">
-					
-						
-
-<div class="paragraph" style="text-align:left;"><font color="#2a2a2a"><a href="/dean-linden"><strong><font size="5" color="#2a2a2a">Dean Linden</font></strong><br /><font color="#2a2a2a">Managing Partner</font></a>&nbsp;&amp; Co-Founder</font></div>
-
-
-					
-				</td>				<td class="wsite-multicol-col" style="width:82.323232323232%; padding:0 15px;">
-					
-						
-
-<div style="text-align:left;"><div style="height:10px;overflow:hidden"></div>
-<span class="wsite-social wsite-social-default"><a class='first-child wsite-social-item wsite-social-linkedin' href='https://ca.linkedin.com/pub/dean-linden/33/342/899' target='_blank' alt='Linkedin'><span class='wsite-social-item-inner'></span></a><a class='last-child wsite-social-item wsite-social-twitter' href='https://twitter.com/CypressHillsPtn' target='_blank' alt='Twitter'><span class='wsite-social-item-inner'></span></a></span>
-<div style="height:0px;overflow:hidden"></div></div>
-
-
-					
-				</td>			</tr>
-		</tbody>
-	</table>
-</div></div></div>
-
-<div class="paragraph"><a href="/marshall-house"><font color="#2a2a2a"><strong><font size="5">Marshall House</font></strong></font><br /><font color="#2a2a2a">Chief Financial Officer</font></a></div>
-
-<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
-	<table class="wsite-multicol-table">
-		<tbody class="wsite-multicol-tbody">
-			<tr class="wsite-multicol-tr">
-				<td class="wsite-multicol-col" style="width:17.676767676768%; padding:0 15px;">
-					
-						
-
-<div class="paragraph"><a href="/alli-radiuk"><font size="5" color="#2a2a2a"><strong>Alli Radiuk</strong></font></a><br />Associate</div>
-
-
-					
-				</td>				<td class="wsite-multicol-col" style="width:82.323232323232%; padding:0 15px;">
-					
-						
-
-<div style="text-align:left;"><div style="height:10px;overflow:hidden"></div>
-<span class="wsite-social wsite-social-default"><a class='first-child wsite-social-item wsite-social-linkedin' href='https://www.linkedin.com/in/aradiuk/' target='_blank' alt='Linkedin'><span class='wsite-social-item-inner'></span></a><a class='last-child wsite-social-item wsite-social-twitter' href='https://twitter.com/alliradiuk' target='_blank' alt='Twitter'><span class='wsite-social-item-inner'></span></a></span>
-<div style="height:0px;overflow:hidden"></div></div>
-
-
-					
-				</td>			</tr>
-		</tbody>
-	</table>
-</div></div></div>
-
-<div class="paragraph"><font color="#2a2a2a"><a href="/anthony-wong"><strong><font color="#2a2a2a" size="5">Anthony Wong</font></strong><br />C</a>orporate Affairs</font></div>
-
-<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
-	<table class="wsite-multicol-table">
-		<tbody class="wsite-multicol-tbody">
-			<tr class="wsite-multicol-tr">
-				<td class="wsite-multicol-col" style="width:17.676767676768%; padding:0 15px;">
-					
-						
-
-<div class="paragraph"><strong><font color="#2a2a2a" size="5"><a href="/kevin-hung"><font color="#2a2a2a">Kevin Hung</font></a></font></strong><br /><font color="#2a2a2a">Fund Accountant</font></div>
-
-
-					
-				</td>				<td class="wsite-multicol-col" style="width:82.323232323232%; padding:0 15px;">
-					
-						
-
-<div style="text-align:left;"><div style="height:10px;overflow:hidden"></div>
-<span class="wsite-social wsite-social-default"><a class='first-child wsite-social-item wsite-social-linkedin' href='https://www.linkedin.com/in/kevinmhung/' target='_blank' alt='Linkedin'><span class='wsite-social-item-inner'></span></a></span>
-<div style="height:0px;overflow:hidden"></div></div>
-
-
-					
-				</td>			</tr>
-		</tbody>
-	</table>
-</div></div></div>
-
-<div class="wsite-spacer" style="height:10px;"></div>
-
-<h2 class="wsite-content-title"><font size="6">Advisors</font></h2>
-
-<div><div style="height: 10px; overflow: hidden; width: 100%;"></div>
-<hr class="styled-hr" style="width:100%;"></hr>
-<div style="height: 10px; overflow: hidden; width: 100%;"></div></div>
-
-<div class="paragraph" style="text-align:left;"><strong><font size="5"><a href="/brent-burgess"><font color="#2a2a2a">Brent Burgess</font></a></font></strong></div>
-
-<div class="paragraph" style="text-align:left;"><strong><font size="5"><a href="/philip-nanney" style=""><font color="#2a2a2a">Philip Nanney</font></a></font></strong></div>
-
-<div class="paragraph" style="text-align:justify;"><strong><font size="5"><a href="/geoffrey-mccord" style=""><font color="#2a2a2a">Geoffrey McCord</font></a></font></strong></div>
-</div>
-</div>
-	</div>
-
-	<div id="footer-wrap" style="visibility:hidden">
-		<div class="container"><div class='wsite-elements wsite-footer'>
-<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
-	<table class="wsite-multicol-table">
-		<tbody class="wsite-multicol-tbody">
-			<tr class="wsite-multicol-tr">
-				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
-					
-						
-
-<div class="wsite-spacer" style="height:50px;"></div>
-
-
-					
-				</td>				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
-					
-						
-
-<div class="wsite-spacer" style="height:50px;"></div>
-
-
-					
-				</td>			</tr>
-		</tbody>
-	</table>
-</div></div></div>
-
-<div class="weebly-footer" style="text-align:right;"><div style="height:10px;overflow:hidden"></div>
-Proudly powered by <a href="https://www.weebly.com/?utm_source=internal&utm_medium=footer&utm_campaign=2" href="_blank">Weebly</a>
-<div style="height:10px;overflow:hidden"></div></div></div></div>
-	</div>	
-
-	<script type="text/javascript" src="/files/theme/plugins.js?1543260304"></script>
-	<script type="text/javascript" src="/files/theme/custom.js?1543260304"></script>
-
-    <div id="customer-accounts-app"></div>
-    <script src="//cdn2.editmysite.com/js/site/main-customer-accounts-site.js?buildTime=1551130962"></script>
-<div id="dialog-region"></div>
-		<script type="text/javascript">
-	var _gaq = _gaq || [];
-	_gaq.push(['_setAccount', 'UA-7870337-1']);
-	_gaq.push(['_setDomainName', 'none']);
-	_gaq.push(['_setAllowLinker', true]);
-
-	(function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	})();
-
-	_W.Analytics = _W.Analytics || {'trackers': {}};
-	_W.Analytics.trackers.wGA = '_gaq';
-</script>
-
-<script type="text/javascript" async=1>
-	;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
-			p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments)
-			};p[i].q=p[i].q||[];n=l.createElement(o);g=l.getElementsByTagName(o)[0];n.async=1;
-			n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,'script','//cdn2.editmysite.com/js/wsnbn/snowday262.js','snowday'));
-
-	var r = [99, 104, 101, 99, 107, 111, 117, 116, 46, 40, 119, 101, 101, 98, 108, 121, 124, 101, 100, 105, 116, 109, 121, 115, 105, 116, 101, 41, 46, 99, 111, 109];
-	var snPlObR = function(arr) {
-		var s = '';
-		for (var i = 0 ; i < arr.length ; i++){
-			s = s + String.fromCharCode(arr[i]);
-		}
-		return s;
-	};
-	var s = snPlObR(r);
-
-	var regEx = new RegExp(s);
-
-	_W.Analytics = _W.Analytics || {'trackers': {}};
-	_W.Analytics.trackers.wSP = 'snowday';
-	_W.Analytics.user_id = '123176875';
-	_W.Analytics.site_id = '699236092855965529';
-
-	// Setting do not track if the GDPR cookie is not present. This is then checked by the snowday initializer
-	// to set tracking decisions. https://github.com/snowplow/snowplow-javascript-tracker/blob/2.6.2/src/js/tracker.js#L1509
-	window.doNotTrack = document.cookie.indexOf('gdpr-kb') === -1 ? 'yes' : null;
-
-
-	(function(app_id, ec_hostname, discover_root_domain) {
-		var track = window[_W.Analytics.trackers.wSP];
-		if (!track) return;
-		track('newTracker', app_id, ec_hostname, {
-			appId: app_id,
-			post: true,
-			platform: 'web',
-			discoverRootDomain: discover_root_domain,
-			cookieName: '_snow_',
-			contexts: {
-				webPage: true,
-				performanceTiming: true,
-				gaCookies: true
-			},
-			crossDomainLinker: function (linkElement) {
-				return regEx.test(linkElement.href);
-			},
-			respectDoNotTrack: document.cookie.indexOf('gdpr-kb') === -1
-		});
-		track('trackPageView', _W.Analytics.user_id+':'+_W.Analytics.site_id);
-		track('crossDomainLinker', function (linkElement) {
-			return regEx.test(linkElement.href);
-		});
-	})(
-		'_wn',
-		'ec.editmysite.com',
-		true
-	);
-</script>
-
-
-
-
-	</body>
 </html>
