@@ -55,7 +55,7 @@
                                     <li><a href="/about">About</a></li>
                                     <li><a href="/people">People</a></li>
                                     <li><a href="/originate">Originate</a></li>
-                                    <li><a href="/specialty-landing">Specialty Lending</a></li>
+                                    <li><a href="/specialty-lending">Specialty Lending</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -64,7 +64,6 @@
             </nav>
         </div>
         <div class="hero-body">
-            <br>
             <div class="container has-text-centered">
                 <div class="columns is-vcentered">
                     <div class="column is-5">

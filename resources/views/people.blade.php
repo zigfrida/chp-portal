@@ -56,7 +56,7 @@
                                     <li><a href="/about">About</a></li>
                                     <li><a href="/people"><b>People</b></a></li>
                                     <li><a href="/originate">Originate</a></li>
-                                    <li><a href="/specialty-landing">Specialty Lending</a></li>
+                                    <li><a href="/specialty-lending">Specialty Lending</a></li>
                                 </ul>
                             </div>
                         </div>
