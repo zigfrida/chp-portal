@@ -28,8 +28,8 @@ $('#SendCodeSet').click(function (event) {
     var phone_mobile = document.getElementById("phone_mobile").value;
 
     var test = $('#set_code_validation').serialize();
-
-    //alert(test);
+    alert("sefggeafga");
+    alert(test);
 
     if (new_password != confirm_password || new_password == "" || confirm_password == "") {
         alert("Passwords must be the same.");
@@ -41,7 +41,7 @@ $('#SendCodeSet').click(function (event) {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             type: "POST",
-            url: "/password/reset/set/sendCode",
+            url: "/password/set/sendCode",
             data: $('#set_code_validation').serialize(),
             cache: false,
             processData: false,

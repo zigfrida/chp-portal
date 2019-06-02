@@ -311,8 +311,8 @@ Route::post('/admin/sendCode','SmsController@store');
 Route::post('/{id}/edit_profile/sendCode','SmsController@store');
 Route::post('/{id}/edit_profile/verifyCode','SmsController@verifyContact');
 
-Route::post('/password/reset/set/sendCode','SmsController@store');
-Route::post('/password/reset/set/verifyCode','SmsController@verifyContact');
+Route::post('/password/set/sendCode','SmsController@store');
+Route::post('/password/set/verifyCode','SmsController@verifyContact');
 
 /*
     Disable user from being able to log in
