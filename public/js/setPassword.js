@@ -29,7 +29,7 @@ $('#SendCodeSet').click(function (event) {
 
     var test = $('#set_code_validation').serialize();
 
-    alert(test);
+    //alert(test);
 
     if (new_password != confirm_password || new_password == "" || confirm_password == "") {
         alert("Passwords must be the same.");
@@ -56,6 +56,6 @@ $('#SendCodeSet').click(function (event) {
                 passed = true;
             },
         });
-        //showVerificationForm();
+        showVerificationForm();
     }
 });

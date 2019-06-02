@@ -30,7 +30,7 @@ $('#SendCode').click(function (event){
 
     var test = $('#code_validation').serialize();
 
-    alert(test);
+    //alert(test);
 
     if (new_password != confirm_password || new_password == "" || confirm_password == ""){
         alert("Passwords must be the same.");
