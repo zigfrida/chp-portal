@@ -94,7 +94,7 @@ class UserController extends Controller
         $user->role = 'standard';
         $user->save();
 
-        // \Invytr::invite($user);
+        \Invytr::invite($user);
 
         form_user::create([
             'user_id' => $user['id'],
@@ -138,7 +138,7 @@ class UserController extends Controller
         $user->existing = 'existing';
         $user->save();
 
-        // \Invytr::invite($user);
+        \Invytr::invite($user);
 
         form_user::create([
             'user_id' => $user['id'],

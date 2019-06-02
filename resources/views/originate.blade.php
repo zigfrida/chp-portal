@@ -1,542 +1,208 @@
-
 <!DOCTYPE html>
-<html lang="en">
-	<head><script src="/gdpr/gdprscript.js?buildTime=1559175606&hasRemindMe=true&stealth=false"></script>
-		<title>Originate - CYPRESSHILLS PARTNERS</title><meta property="og:site_name" content="CYPRESSHILLS PARTNERS" />
-<meta property="og:title" content="Originate" />
-<meta property="og:description" content="Our  objective is to accelerate the growth of specialty lending platforms and service providers using our advanced structuring knowledge.   ​" />
-<meta property="og:image" content="https://www.cypresshillspartners.com/uploads/5/9/5/6/59561431/cypresshills-black-yellow.png" />
-<meta property="og:url" content="https://www.cypresshillspartners.com/originate.html" />
+<html>
 
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Cypress Hills Partners</title>
+	<link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
-
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0;">
-
-		
-		<link id="wsite-base-style" rel="stylesheet" type="text/css" href="//cdn2.editmysite.com/css/sites.css?buildTime=1551130962" />
-<link rel="stylesheet" type="text/css" href="//cdn2.editmysite.com/css/old/fancybox.css?1551130962" />
-<link rel="stylesheet" type="text/css" href="//cdn2.editmysite.com/css/social-icons.css?buildtime=1551130962" media="screen,projection" />
-<link rel="stylesheet" type="text/css" href="/files/main_style.css?1551139250" title="wsite-theme-css" />
-<link href='//fonts.googleapis.com/css?family=Roboto:400,300,300italic,700,400italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
-
-<link href='//fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
-<link href='//fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
-<link href='//fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
-<link href='//fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
-<link href='//fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
-<link href='//fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
-<link href='//fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
-
-<style>
-	@font-face {
-		font-family: 'wicons';
-		src: url(//cdn2.editmysite.com/fonts/wIcons/wicons.eot?buildTime=1551130962);
-		src: url(//cdn2.editmysite.com/fonts/wIcons/wicons.eot?buildTime=1551130962#iefix) format('embedded-opentype'),
-				 url(//cdn2.editmysite.com/fonts/wIcons/wicons.woff?buildTime=1551130962) format('woff'),
-				 url(//cdn2.editmysite.com/fonts/wIcons/wicons.ttf?buildTime=1551130962) format('truetype'),
-				 url(//cdn2.editmysite.com/fonts/wIcons/wicons.svg?buildTime=1551130962#wicons) format('svg');
-		font-weight: normal;
-		font-style: normal;
-	}
-	/* Hack to smooth out font rendering on Chrome for Windows */
-	@media screen and (-webkit-min-device-pixel-ratio: 0) {
-		@font-face {
-			font-family: 'wicons';
-			src: url(//cdn2.editmysite.com/fonts/wIcons/wicons.svg?buildTime=1551130962#wicons) format('svg');
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+		integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<!-- Bulma Version 0.7.4-->
+	<link rel="stylesheet" href="https://unpkg.com/bulma@0.7.4/css/bulma.min.css" />
+	<link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
+	<style type="text/css">
+		html,
+		body {
+			font-family: 'Open Sans';
 		}
-	}
 
-	@font-face {
-		font-family: 'wsocial';
-		src: url(//cdn2.editmysite.com/fonts/wSocial/wsocial.eot?buildTime=1551130962);
-		src: url(//cdn2.editmysite.com/fonts/wSocial/wsocial.eot?buildTime=1551130962#iefix) format('embedded-opentype'),
-				 url(//cdn2.editmysite.com/fonts/wSocial/wsocial.woff?buildTime=1551130962) format('woff'),
-				 url(//cdn2.editmysite.com/fonts/wSocial/wsocial.ttf?buildTime=1551130962) format('truetype'),
-				 url(//cdn2.editmysite.com/fonts/wSocial/wsocial.svg?buildTime=1551130962#wsocial) format('svg');
-		font-weight: normal;
-		font-style: normal;
-	}
-	/* Hack to smooth out font rendering on Chrome for Windows */
-	@media screen and (-webkit-min-device-pixel-ratio: 0) {
-		@font-face {
-			font-family: 'wsocial';
-			src: url(//cdn2.editmysite.com/fonts/wSocial/wsocial.svg?buildTime=1551130962#wsocial) format('svg');
+		img {
+			padding: 5px;
 		}
-	}
-</style>
 
-<link rel="stylesheet" href="{{ asset('css/about/main_style.css') }}">
-<link rel="stylesheet" href="{{ asset('css/about/fancybox.css') }}">
-<link rel="stylesheet" href="{{ asset('css/about/site_membership.css') }}">
-<link rel="stylesheet" href="{{ asset('css/about/sites.css') }}">
-<link rel="stylesheet" href="{{ asset('css/about/social-icons.css') }}">
-		
-<style>
-		#banner{background: url("/images/Coffee.jpg") no-repeat center center fixed;
-						opacity: 0.7;
-				}
-</style>		
-	</head>
-	<body class="short-header-page  wsite-theme-light  wsite-page-originate"><div id="banner-wrap" class="wsite-background wsite-custom-background">
-		<div id="banner-cover">
+		.tabs li.is-active a {
+			border-bottom-color: black;
+			color: black;
+			opacity: 0;
+		}
+	</style>
+</head>
 
-			<div id="header-wrap">
-				<div id="header" class="container">
-					<label id="nav-trigger" class="hamburger" for="mobile-input"><span></span></label>
-					<h1 id="logo"><span class="wsite-logo">
-
-	<a href="/">
-		<img src="{{url('/images/cypresshills-black-yellow.png')}}" alt="CYPRESSHILLS PARTNERS" />
-	</a>
-
-</span></h1>
-<div id="nav">
-		<ul class="wsite-menu-default">
-			<li id="pg872786692115223829" class="wsite-menu-item-wrap">
-				<a
-							href="/"
-					class="wsite-menu-item"
-					>
-					Home
-				</a>
-				
-			</li>
-			<li id="active" class="wsite-menu-item-wrap">
-				<a
-							href="/about"
-					class="wsite-menu-item"
-					>
-					About
-				</a>
-				
-			</li>
-			<li id="pg998570747561422519" class="wsite-menu-item-wrap">
-				<a
-							href="/people"
-					class="wsite-menu-item"
-					>
-					People
-				</a>
-				
-			</li>
-			<li id="pg257996365458556285" class="wsite-menu-item-wrap">
-				<a
-							href="/originate"
-					class="wsite-menu-item"
-					>
-					Originate
-				</a>
-				
-			</li>
-			<li id="pg994389317271352423" class="wsite-menu-item-wrap">
-				<a
-							href="/specialty-lending"
-					class="wsite-menu-item"
-					>
-					Specialty Lending
-				</a>
-				
-			</li>
-			<li id="pg994422633699973658" class="wsite-menu-item-wrap">
-				<a
-							href="/contact"
-					class="wsite-menu-item"
-					>
-					Contact
-				</a>
-				
-			</li>
-		</ul>
-	</div>
+<body style="background-color: #a38560;background-image: linear-gradient(315deg, #a38560 0%, #e0d4ae 74%);">
+	<section class="hero is-fullheight is-default is-bold">
+		<div class="hero-head">
+			<nav class="navbar">
+				<div class="container">
+					<div class="navbar-brand">
+						<figure class="image" style="margin-top: 20px">
+							<a href="/"><img src="{{url('/images/logo.png')}}" alt="Cypress Hills Partners"></a>
+						</figure>
+						<span class="navbar-burger burger" data-target="navbarMenu">
+							<span></span>
+							<span></span>
+							<span></span>
+						</span>
 					</div>
-					<div id="mobile-nav" class="container">
-						<ul class="wsite-menu-default">
-								<li id="pg872786692115223829" class="wsite-menu-item-wrap">
-									<a
-												href="/"
-										class="wsite-menu-item"
-										>
-										Home
-									</a>
-									
-								</li>
-								<li id="active" class="wsite-menu-item-wrap">
-									<a
-												href="/about"
-										class="wsite-menu-item"
-										>
-										About
-									</a>
-									
-								</li>
-								<li id="pg998570747561422519" class="wsite-menu-item-wrap">
-									<a
-												href="/people"
-										class="wsite-menu-item"
-										>
-										People
-									</a>
-									
-								</li>
-								<li id="pg257996365458556285" class="wsite-menu-item-wrap">
-									<a
-												href="/originate"
-										class="wsite-menu-item"
-										>
-										Originate
-									</a>
-									
-								</li>
-								<li id="pg994389317271352423" class="wsite-menu-item-wrap">
-									<a
-												href="/specialty-lending"
-										class="wsite-menu-item"
-										>
-										Specialty Lending
-									</a>
-									
-								</li>
-								<li id="pg994422633699973658" class="wsite-menu-item-wrap">
-									<a
-												href="/contact"
-										class="wsite-menu-item"
-										>
-										Contact
-									</a>
-									
-								</li>
-						</ul>
+					<div id="navbarMenu" class="navbar-menu">
+						<div class="navbar-end">
+							<div class="tabs is-right">
+								<ul>
+									<li class="is-active"><a href="/">Home</a></li>
+									<li><a href="/about">About</a></li>
+									<li><a href="/people">People</a></li>
+									<li><a href="/originate"><b>Originate</b></a></li>
+									<li><a href="/specialty-lending">Specialty Lending</a></li>
+								</ul>
+							</div>
+						</div>
 					</div>
 				</div>
+			</nav>
+		</div>
 
-			<div id="banner" class="">
-				<div id="banner-content">
-					<h2><span class="wsite-text wsite-headline">
-	Originate
-</span></h2>
+		<div style="font-family: 'Playfair Display', serif;">
+			<div class="columns is-centered is-mobile" style="padding-top:5%;">
+				<h1 class="title is-3">And I knew exactly what to do. But in a much more real sense, I had no idea what to do.</h1>
+			</div>
+			<div class="columns is-centered is-mobile">
+				<h1 class="subtitle is-5">-Michael Scott</h1>
+			</div>
+
+
+			<div class="columns is-mobile is-centered">
+				<div class="column is-half">
+					<p class="bd-notification is-primary">
+						<b>Originate</b>
+					</p>
 				</div>
 			</div>
 
-		</div>			
-	</div>
-	
-	<div id="main-wrap">
-		<div class="container"><div id="wsite-content" class="wsite-elements wsite-not-footer">
-	<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
-	<table class="wsite-multicol-table">
-		<tbody class="wsite-multicol-tbody">
-			<tr class="wsite-multicol-tr">
-				<td class="wsite-multicol-col" style="width:25.757575757576%; padding:0 15px;">
-					
-						
+			<div class="columns is-mobile is-centered">
+				<div class="column is-half">
+					<p class="bd-notification is-primary">Our objective is to accelerate the growth of specialty lending platforms and service providers using our advanced structuring knowledge.
+					</p>
+				</div>
+			</div>
+
+			<div class="columns is-mobile is-centered">
+				<div class="column is-half">
+					<p class="bd-notification is-primary">
+						<b>Scope of Target Lenders</b>
+					</p>
+				</div>
+			</div>
+
+			<div class="columns is-mobile is-centered">
+				<div class="column is-half">
+					<p class="bd-notification is-primary">
+						We believe there is optimal risk reward opportunities in Specialty Lenders with loan books less than $50 million that have developed out their primary infrastructure and established proven credit underwriting strategies.
+					</p>
+				</div>
+			</div>
+
+			<div class="columns is-mobile is-centered">
+				<div class="column is-half">
+					<p class="bd-notification is-primary">
+						<b>Balance Sheet Lenders</b>
+					</p>
+				</div>
+			</div>
+
+			<div class="columns is-mobile is-centered">
+				<div class="column is-half">
+					<p class="bd-notification is-primary">
+						Majority of Specialty Lenders fall into this category where all of their loan originations are financed off of their own balance sheet. Their balance sheet will normally be stacked between a senior secured loan, subordinated debt, and then equity.
+					</p>
+				</div>
+			</div>
+			
+			<div class="columns is-mobile is-centered">
+				<div class="column is-half">
+					<p class="bd-notification is-primary">
+						<b>Marketplace Lenders</b>
+					</p>
+				</div>
+			</div>
+
+			<div class="columns is-mobile is-centered">
+				<div class="column is-half">
+					<p class="bd-notification is-primary">
+						This category is growing rapidly which includes Lending Club as the poster child to this peer to peer lending area. Marketplace Lenders act primarily as a service provider to the loan resulting in the loan being underwritten off balance sheet to third party institutional investor(s).
+					</p>
+				</div>
+			</div>
+
+			<div class="columns is-mobile is-centered">
+				<div class="column is-half">
+					<p class="bd-notification is-primary">
+						<b>Hybrid Lenders</b>
+					</p>
+				</div>
+			</div>
+
+			<div class="columns is-mobile is-centered">
+				<div class="column is-half">
+					<p class="bd-notification is-primary">
+						Hybrid Lenders will borrow the strengths of both a Balance Sheet Lending strategy and a Marketplace Lending strategy where they will originate loans on their balance sheet but will also use Marketplace lending facilities to sell off a portion of their loans.
+					</p>
+				</div>
+			</div>
+
+			<div class="columns is-mobile is-centered">
+				<div class="column is-half">
+					<p class="bd-notification is-primary">
+						<b>Funding Strategy</b>
+					</p>
+				</div>
+			</div>
+
+			<div class="columns is-mobile is-centered">
+				<div class="column is-half">
+					<p class="bd-notification is-primary">
+						Our funding efforts are supported by both internally managed merchant banking funds and co-investment partners which includes other institutional and family office funds.
+					</p>
+				</div>
+			</div>
+		</div>
+
+        <div class="hero-foot">
+			<div class="container">
+				<div class="tabs is-centered">
+					<ul>
+						<li>
+							<a href="https://twitter.com/cypresshillsptn">
+								<figure>
+									<img class="image is-48x48" src="{{url('/images/twitter.svg')}}">
+								</figure>
+							</a>
+						</li>
+
+						<li>
+							<a href="https://www.google.com/maps/place/1080+Mainland+St,+Vancouver,+BC+V6B+2T4/@49.2756006,-123.1225802,17z/data=!3m1!4b1!4m5!3m4!1s0x548673d65a82a923:0x19c1da5918a84be7!8m2!3d49.2755971!4d-123.1203915">
+								<figure>
+									<img class="image is-48x48" src="{{url('/images/google_maps.svg')}}">
+								</figure>
+							</a>
+						</li>
+
+						<li>
+							<a href="https://www.linkedin.com/company/cypress-hills-partners/about/">
+								<figure>
+									<img class="image is-48x48" src="{{url('/images/linkedin.svg')}}">
+								</figure>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
 
-<h2 class="wsite-content-title" style="text-align:left;"><strong><font size="3"><span id="selectionBoundary_1448857477249_032840978587046266">&#65279;</span>Originate</font></strong></h2>
-
-
-					
-				</td>				<td class="wsite-multicol-col" style="width:74.242424242424%; padding:0 15px;">
-					
-						
-
-<div class="paragraph" style="text-align:left;"><span><span>Our &nbsp;objective is to </span><span>accelerate the growth of specialty lending platforms and service providers using our advanced structuring knowledge. &nbsp;</span></span>&#8203;<span></span></div>
-
-
-					
-				</td>			</tr>
-		</tbody>
-	</table>
-</div></div></div>
-
-<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
-	<table class="wsite-multicol-table">
-		<tbody class="wsite-multicol-tbody">
-			<tr class="wsite-multicol-tr">
-				<td class="wsite-multicol-col" style="width:25.757575757576%; padding:0 15px;">
-					
-						
-
-<h2 class="wsite-content-title" style="text-align:left;"><span><strong><font size="3">Scope of Target Lenders</font></strong></span></h2>
-
-
-					
-				</td>				<td class="wsite-multicol-col" style="width:74.242424242424%; padding:0 15px;">
-					
-						
-
-<div class="paragraph" style="text-align:left;"><span><span>We believe there is optimal risk reward opportunities in Specialty Lenders with loan books less than $50 million that have developed out their primary infrastructure and established proven credit underwriting strategies.</span></span></div>
-
-
-					
-				</td>			</tr>
-		</tbody>
-	</table>
-</div></div></div>
-
-<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
-	<table class="wsite-multicol-table">
-		<tbody class="wsite-multicol-tbody">
-			<tr class="wsite-multicol-tr">
-				<td class="wsite-multicol-col" style="width:25.757575757576%; padding:0 15px;">
-					
-						
-
-<h2 class="wsite-content-title" style="text-align:left;"><span id="selectionBoundary_1448855957709_10715214908123016">&#65279;</span><span><span style="font-weight:700"><font size="3">Balance Sheet Lenders</font></span></span></h2>
-
-
-					
-				</td>				<td class="wsite-multicol-col" style="width:74.242424242424%; padding:0 15px;">
-					
-						
-
-<div class="paragraph" style="text-align:left;"><span><span>Majority of Specialty Lenders fall into this category where all of their loan originations are financed off of their own balance sheet. Their balance sheet will normally be stacked between a senior secured loan, subordinated debt, and then equity.</span></span></div>
-
-
-					
-				</td>			</tr>
-		</tbody>
-	</table>
-</div></div></div>
-
-<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
-	<table class="wsite-multicol-table">
-		<tbody class="wsite-multicol-tbody">
-			<tr class="wsite-multicol-tr">
-				<td class="wsite-multicol-col" style="width:25.757575757576%; padding:0 15px;">
-					
-						
-
-<h2 class="wsite-content-title" style="text-align:left;"><span><span style="font-weight:700"><font size="3">Marketplace Lenders</font></span></span></h2>
-
-
-					
-				</td>				<td class="wsite-multicol-col" style="width:74.242424242424%; padding:0 15px;">
-					
-						
-
-<div class="paragraph" style="text-align:left;"><span><span>This category is growing rapidly which includes Lending Club as the poster child to this peer to peer lending area. Marketplace Lenders act primarily as a service provider to the loan resulting in the loan being underwritten off balance sheet to third party institutional investor(s).</span></span></div>
-
-
-					
-				</td>			</tr>
-		</tbody>
-	</table>
-</div></div></div>
-
-<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
-	<table class="wsite-multicol-table">
-		<tbody class="wsite-multicol-tbody">
-			<tr class="wsite-multicol-tr">
-				<td class="wsite-multicol-col" style="width:25.757575757576%; padding:0 15px;">
-					
-						
-
-<h2 class="wsite-content-title" style="text-align:left;"><span><span style="font-weight:700"><font size="3">Hybrid Lenders</font></span></span></h2>
-
-
-					
-				</td>				<td class="wsite-multicol-col" style="width:74.242424242424%; padding:0 15px;">
-					
-						
-
-<div class="paragraph" style="text-align:left;"><span id="selectionBoundary_1448855971362_1990375069435686">&#65279;</span><span><span>Hybrid Lenders will borrow the strengths of both a Balance Sheet Lending strategy and a Marketplace Lending strategy where they will originate loans on their balance sheet but will also use Marketplace lending facilities to sell off a portion of their loans. </span></span>&#8203;</div>
-
-
-					
-				</td>			</tr>
-		</tbody>
-	</table>
-</div></div></div>
-
-<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
-	<table class="wsite-multicol-table">
-		<tbody class="wsite-multicol-tbody">
-			<tr class="wsite-multicol-tr">
-				<td class="wsite-multicol-col" style="width:25.757575757576%; padding:0 15px;">
-					
-						
-
-<h2 class="wsite-content-title" style="text-align:left;"><span><span style="font-weight:700"><font size="3">Funding Strategy</font></span></span></h2>
-
-
-					
-				</td>				<td class="wsite-multicol-col" style="width:74.242424242424%; padding:0 15px;">
-					
-						
-
-<div class="paragraph" style="text-align:left;"><span><span>Our funding efforts are supported by both internally managed merchant banking funds and co-investment partners which includes other institutional and family office funds. </span></span>&#8203;</div>
-
-
-					
-				</td>			</tr>
-		</tbody>
-	</table>
-</div></div></div>
-
-<div><div style="height: 20px; overflow: hidden; width: 100%;"></div>
-<hr class="styled-hr" style="width:100%;"></hr>
-<div style="height: 20px; overflow: hidden; width: 100%;"></div></div>
-</div>
-</div>
-	</div>
-
-	<div id="footer-wrap" style="visibility:hidden">
-		<div class="container"><div class='wsite-elements wsite-footer'>
-<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
-	<table class="wsite-multicol-table">
-		<tbody class="wsite-multicol-tbody">
-			<tr class="wsite-multicol-tr">
-				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
-					
-						
-
-<div class="wsite-spacer" style="height:50px;"></div>
-
-
-					
-				</td>				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
-					
-						
-
-<div class="wsite-spacer" style="height:50px;"></div>
-
-
-					
-				</td>			</tr>
-		</tbody>
-	</table>
-</div></div></div>
-
-<div class="weebly-footer" style="text-align:right;"><div style="height:10px;overflow:hidden"></div>
-Proudly powered by <a href="https://www.weebly.com/?utm_source=internal&utm_medium=footer&utm_campaign=2" href="_blank">Weebly</a>
-<div style="height:10px;overflow:hidden"></div></div></div></div>
-	</div>	
-
-	<script type="text/javascript" src="/files/theme/plugins.js?1543260304"></script>
-	<script type="text/javascript" src="/files/theme/custom.js?1543260304"></script>
-
-    <div id="customer-accounts-app"></div>
-    <script src="//cdn2.editmysite.com/js/site/main-customer-accounts-site.js?buildTime=1551130962"></script>
-<div id="dialog-region"></div>
-		<script type="text/javascript">
-	var _gaq = _gaq || [];
-	_gaq.push(['_setAccount', 'UA-7870337-1']);
-	_gaq.push(['_setDomainName', 'none']);
-	_gaq.push(['_setAllowLinker', true]);
-
-	(function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	})();
-
-	_W.Analytics = _W.Analytics || {'trackers': {}};
-	_W.Analytics.trackers.wGA = '_gaq';
-</script>
-
-<script type="text/javascript" async=1>
-	;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
-			p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments)
-			};p[i].q=p[i].q||[];n=l.createElement(o);g=l.getElementsByTagName(o)[0];n.async=1;
-			n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,'script','//cdn2.editmysite.com/js/wsnbn/snowday262.js','snowday'));
-
-	var r = [99, 104, 101, 99, 107, 111, 117, 116, 46, 40, 119, 101, 101, 98, 108, 121, 124, 101, 100, 105, 116, 109, 121, 115, 105, 116, 101, 41, 46, 99, 111, 109];
-	var snPlObR = function(arr) {
-		var s = '';
-		for (var i = 0 ; i < arr.length ; i++){
-			s = s + String.fromCharCode(arr[i]);
-		}
-		return s;
-	};
-	var s = snPlObR(r);
-
-	var regEx = new RegExp(s);
-
-	_W.Analytics = _W.Analytics || {'trackers': {}};
-	_W.Analytics.trackers.wSP = 'snowday';
-	_W.Analytics.user_id = '123176875';
-	_W.Analytics.site_id = '699236092855965529';
-
-	// Setting do not track if the GDPR cookie is not present. This is then checked by the snowday initializer
-	// to set tracking decisions. https://github.com/snowplow/snowplow-javascript-tracker/blob/2.6.2/src/js/tracker.js#L1509
-	window.doNotTrack = document.cookie.indexOf('gdpr-kb') === -1 ? 'yes' : null;
-
-
-	(function(app_id, ec_hostname, discover_root_domain) {
-		var track = window[_W.Analytics.trackers.wSP];
-		if (!track) return;
-		track('newTracker', app_id, ec_hostname, {
-			appId: app_id,
-			post: true,
-			platform: 'web',
-			discoverRootDomain: discover_root_domain,
-			cookieName: '_snow_',
-			contexts: {
-				webPage: true,
-				performanceTiming: true,
-				gaCookies: true
-			},
-			crossDomainLinker: function (linkElement) {
-				return regEx.test(linkElement.href);
-			},
-			respectDoNotTrack: document.cookie.indexOf('gdpr-kb') === -1
-		});
-		track('trackPageView', _W.Analytics.user_id+':'+_W.Analytics.site_id);
-		track('crossDomainLinker', function (linkElement) {
-			return regEx.test(linkElement.href);
-		});
-	})(
-		'_wn',
-		'ec.editmysite.com',
-		true
-	);
-</script>
-
-
-
-<script>
-	(function(jQuery) {
-		try {
-			if (jQuery) {
-				jQuery('div.blog-social div.fb-like').attr('class', 'blog-social-item blog-fb-like');
-				var $commentFrame = jQuery('#commentArea iframe');
-				if ($commentFrame.length > 0) {
-					var frameHeight = jQuery($commentFrame[0].contentWindow.document).height() + 50;
-					$commentFrame.css('min-height', frameHeight + 'px');
-				}
-				if (jQuery('.product-button').length > 0){
-					jQuery(document).ready(function(){
-						jQuery('.product-button').parent().each(function(index, product){
-							if(jQuery(product).attr('target') == 'paypal'){
-								if (!jQuery(product).find('> [name="bn"]').length){
-									jQuery('<input>').attr({
-										type: 'hidden',
-										name: 'bn',
-										value: 'DragAndDropBuil_SP_EC'
-									}).appendTo(product);
-								}
-							}
-						});
-					});
-				}
-			}
-			else {
-				// Prototype
-				$$('div.blog-social div.fb-like').each(function(div) {
-					div.className = 'blog-social-item blog-fb-like';
-				});
-				$$('#commentArea iframe').each(function(iframe) {
-					iframe.style.minHeight = '410px';
-				});
-			}
-		}
-		catch(ex) {}
-	})(window._W && _W.jQuery);
-
-	window._W.isEUUser = false;
-	window._W.showCookieToAll = "";
-</script>
-
-
-	</body>
 </html>
