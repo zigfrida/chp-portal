@@ -1,9 +1,3 @@
-// $.ajaxSetup({
-//     headers: {
-//         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-//     }
-// });
-
 function showVerificationForm() {
     var verificationModal = document.getElementById('verification_form');
     var verificationModalClass = verificationModal.className;
@@ -25,13 +19,6 @@ $('#SendCodeSet').click(function (event) {
     var new_password = document.getElementById("password").value;
     var confirm_password = document.getElementById("password-confirm").value;
 
-    var phone_mobile = document.getElementById("phone_mobile").value;
-
-    
-
-    var test = $('#set_code_validation').serialize();
-    alert("sefggeafga");
-    alert(test);
 
     var url = "/password/set/sendCode";
 

@@ -1,13 +1,3 @@
-// function showVerificationForm() {
-//     var new_password = document.getElementById("password").value;
-//     var confirm_password = document.getElementById("confirm_password").value;
-//     if(new_password === "" || confirm_password === ""){
-//         alert('You must enter a passoword');
-//     } else{
-//         document.getElementById('verification_form').style.display = "block";
-//     }
-// }
-
 function showVerificationForm() {
     var verificationModal = document.getElementById('verification_form');
     var verificationModalClass = verificationModal.className;

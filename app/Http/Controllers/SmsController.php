@@ -120,4 +120,39 @@ class SmsController extends Controller
         return $this->sendSms($request); // send and return its response
     }
 
+
+    public function verifyContactSet(Request $request){
+        $email = $request->input('email');
+        $GetId = \DB::table('users')
+            ->where('email', $email)
+            ->get();
+        
+        $id = $GetId[0]->id;
+        
+        $smsVerifcation = $this->smsVerifcation::where('user_id','=',$id)
+                ->latest() //show the latest if there are multiple
+                ->first();
+
+        if ($request->code == $smsVerifcation->code){
+            $request["status"] = 'verified';
+
+            $smsVerifcation->updateModel($request);
+            //return $smsVerifcation->updateModel($request);
+            $msg["message"] = "verified";
+
+            $newPassword = Hash::make($request->input('password'));
+
+            \DB::table('users')
+                ->where("id", $id)
+                ->update(['password' => $newPassword]);
+
+            return redirect('/'.$id.'/portfolio')->with('success', 'Password Updated');
+            //return $msg;
+        } else {
+            $msg["message"] = "not verified";
+            // return $msg;
+            return redirect()->back()->with('errors', 'Incorrect Verification Code');
+        }
+    }
+
 }

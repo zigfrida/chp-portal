@@ -312,12 +312,11 @@ Route::post('/{id}/edit_profile/sendCode','SmsController@store');
 Route::post('/{id}/edit_profile/verifyCode','SmsController@verifyContact');
 
 Route::post('/password/set/sendCode','SmsController@setStore');
-Route::post('/password/set/verifyCode','SmsController@verifyContact');
+Route::post('/password/set/verifyCode','SmsController@verifyContactSet');
 
 /*
     Disable user from being able to log in
 */
-// Route::post('/{id}/edit_profile/deleteAccount', 'UserController@deleteUser');
 Route::post('/{id}/edit_profile/deleteAccount', function ($id) {
     
     \DB::table('users')
