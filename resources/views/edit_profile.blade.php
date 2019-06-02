@@ -12,35 +12,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Edit Profile</title>
 
-    <style>
-        #verification_form {
-            width:100%;
-            height:100%;
-            /* opacity:.95; */
-            top:0;
-            left:0;
-            display:none;
-            position:fixed;
-            background-color:#313131;
-            overflow:auto
-        }
-        div#verification_form_container {
-            position:absolute;
-            left:47%;
-            top:17%;
-            margin-left:-202px;
-        }
-        #code_verification {
-            max-width:500px;
-            min-width:30px;
-            padding:10px 50px;
-            border:2px solid gray;
-            border-radius:10px;
-            background-color:#fff
-        }
-
-    </style>
-
 </head>
 
 <body>
@@ -259,9 +230,49 @@
                     </div>
 
                 </form>
+
             </section>
         </div>
         <hr>
+
+        @if(auth()->user()->isAdmin())
+
+        <br>
+        <div class="has-text-centered">
+            <h1 class="title"><span class="decor">Delete</span> <span class="le-decor">{{ $user[0]->subscriber_name }} Account</span></h1>
+        </div><br>
+
+        <div class="columns is-mobile is-centered">
+            <div class="column is-narrow">
+                <div class="control">
+                    <button type="button" onclick="deleteUserPopup()" class="button is-danger">Delete Account</button>
+                </div><br><br><br>
+            </div>
+        </div>
+
+        <form action="/{{ $user[0]->user_id }}/edit_profile/deleteAccount" method="POST">
+            @csrf
+            <div id="deletePopup" class="modal">
+                <div class="modal-background"></div>
+                <div class="modal-card">
+                    <header class="modal-card-head has-text-centered">
+                        <p class="modal-card-title">Delete {{ $user[0]->subscriber_name }} Account</p>
+                        <button class="delete" type="button" onclick="closeModal()" aria-label="close"></button>
+                    </header>
+                    <section class="modal-card-body">
+                        <p>You are about to delete {{ $user[0]->subscriber_name }} account.</p>
+                        <p>Deleting a client's account will disabled them from being able to log in.</p>
+                        <p>Their information will still be kept in the database.</p>
+                    </section>
+                    <footer class="modal-card-foot is-centered">
+                        <button type="submit" class="button is-danger">Delete Account</button>
+                        <button class="button" type="button" onclick="closeModal()">Cancel</button>
+                    </footer>
+                </div>
+            </div>
+        </form>
+
+        @endif
 
         <!-- Change password -->
         @if(!auth()->user()->isAdmin())
@@ -275,136 +286,131 @@
                     <div class="has-text-centered">
                         <p>When changing your password, a verification code will be sent at your mobile phone.</p>
                     </div><br>
-                    <form action="/{{ $user[0]->user_id }}/edit_profile/verifyCode" method="POST" id="code_validation">
-                        @csrf
-                        {{-- <div class="field is-horizontal">
-                            <div class="field-label is-normal">
-                                <label class="label">Current Password</label>
-                            </div>
-                            <div class="field-body">
-                                <div class="field is-narrow">
-                                    <div class="control is-expanded">
-                                        <div class="field">
-                                            <p class="control has-icons-left">
-                                                <input class="input" type="password" placeholder="Current Password" id="current_password" min="6" id="password" required>
-                                                <span class="icon is-small is-left">
-                                                <i class="fas fa-lock"></i>
-                                                </span>
-                                            </p>
-                                        </div>
-                                        <i><p class="help">Current password used to log in</p></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
+                    
+                    <div class="columns is-mobile is-centered">
+                        <div class="column is-narrow is-6">
 
-                        <div class="field is-horizontal">
-                            <div class="field-label is-normal">
-                                <label class="label">New Password</label>
-                            </div>
-                            <div class="field-body">
-                                <div class="field is-narrow">
-                                    <div class="control is-expanded">
-                                        <div class="field">
-                                            <p class="control has-icons-left">
-                                                <input class="input" type="password" placeholder="Password"name="password" min="6" id="password" required>
-                                                <span class="icon is-small is-left">
-                                                <i class="fas fa-lock"></i>
-                                                </span>
-                                            </p>
-                                        </div>
-                                        <i><p class="help">Minimum Length 6</p></i>
+                            <form action="/{{ $user[0]->user_id }}/edit_profile/verifyCode" method="POST" id="code_validation">
+                                @csrf
+                                {{-- <div class="field is-horizontal">
+                                    <div class="field-label is-normal">
+                                        <label class="label">Current Password</label>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="field is-horizontal">
-                            <div class="field-label is-normal">
-                                <label class="label">Confirm New Password</label>
-                            </div>
-                            <div class="field-body">
-                                <div class="field is-narrow">
-                                    <div class="control is-expanded">
-                                        <div class="field">
-                                            <p class="control has-icons-left">
-                                                <input class="input" type="password" placeholder="Password"name="confirm_password" min="6" id="confirm_password" required>
-                                                <span class="icon is-small is-left">
-                                                <i class="fas fa-lock"></i>
-                                                </span>
-                                            </p>
-                                        </div>
-                                        <i><p class="help">Re-enter the new password</p></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <input type="hidden" id="code_id" name="code_id" value="{{$user[0]->user_id}}">
-
-                        <div class="field is-horizontal">
-                            <div class="field-label">
-                                <!-- Left empty for spacing -->
-                            </div>
-                            <div class="field-body">
-                                <div class="field is-grouped is-grouped-right">
-                                    <div class="control">
-                                        {{-- <button class="button is-warning" type="submit">Save</button> --}}
-                                        <button class="button is-warning" type="button" id="SendCode">Save</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="verification_form">
-                            <div id="verification_form_container">
-                                <br>
-                                <div id="code_verification">
-                                {{-- action="/{{ $user[0]->user_id }}/edit_profile/verifyCode" method="POST" --}}
-                                {{-- <form action="/{{ $user[0]->user_id }}/edit_profile/verifyCode" method="POST" id="code_verification"> --}}
-                                    <br>
-                                        <div class="has-text-centered">
-                                            <h1 class="title"><span class="decor">User Verification</span></h1>
-                                        </div><br>
-                                        <p class="is-medium">For your password to be set, please enter the verification code that was sent to your contact number.</p><br>
-                                    @csrf
-                                    <div class="form-popup" id="myForm">
-                                        <div class="field is-horizontal">
-                                            <div class="field-label is-normal">
-                                                <label class="label">Verification Code</label>
+                                    <div class="field-body">
+                                        <div class="field is-narrow">
+                                            <div class="control is-expanded">
+                                                <div class="field">
+                                                    <p class="control has-icons-left">
+                                                        <input class="input" type="password" placeholder="Current Password" id="current_password" min="6" id="password" required>
+                                                        <span class="icon is-small is-left">
+                                                        <i class="fas fa-lock"></i>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                                <i><p class="help">Current password used to log in</p></i>
                                             </div>
-                                            <div class="field-body">
-                                                <div class="field is-narrow">
-                                                    <div class="control">
-                                                        <div class="field">
-                                                            <p class="control has-icons-left">
-                                                                <input class="input" type="number" name="code" placeholder="Code" maxlength="4" required>
-                                                                <span class="icon is-small is-left">
-                                                                <i class="fas fa-lock"></i>
-                                                                </span>
-                                                            </p>
+                                        </div>
+                                    </div>
+                                </div> --}}
+                        
+                                <div class="field is-horizontal">
+                                    <div class="field-label is-normal">
+                                        <label class="label">New Password</label>
+                                    </div>
+                                    <div class="field-body">
+                                        <div class="field is-narrow">
+                                            <div class="control is-expanded">
+                                                <div class="field">
+                                                    <p class="control has-icons-left">
+                                                        <input class="input" type="password" placeholder="Password"name="password" id="password" required>
+                                                        <span class="icon is-small is-left">
+                                                        <i class="fas fa-lock"></i>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                                <i><p class="help">New Password</p></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field is-horizontal">
+                                    <div class="field-label is-normal">
+                                        <label class="label">Confirm Password</label>
+                                    </div>
+                                    <div class="field-body">
+                                        <div class="field is-narrow">
+                                            <div class="control is-expanded">
+                                                <div class="field">
+                                                    <p class="control has-icons-left">
+                                                        <input class="input" type="password" placeholder="Password"name="confirm_password" id="confirm_password" required>
+                                                        <span class="icon is-small is-left">
+                                                        <i class="fas fa-lock"></i>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                                <i><p class="help">Re-enter the new password</p></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="code_id" name="code_id" value="{{$user[0]->user_id}}">
+
+                                <div class="field is-horizontal">
+                                    <div class="field-label">
+                                        <!-- Left empty for spacing -->
+                                    </div>
+                                    <div class="field-body">
+                                        <div class="field is-grouped is-grouped-right">
+                                            <div class="control">
+                                                <button class="button is-warning" type="button" id="SendCode">Save</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div id="verification_form" class="modal">
+                                    <div class="modal-background"></div>
+                                    <div class="modal-card">
+                                        <header class="modal-card-head">
+                                            <p class="modal-card-title">User Verification</p>
+                                            <button class="delete" onclick="hideVerificationForm()" aria-label="close" type="button"></button>
+                                        </header>
+                                        <section class="modal-card-body">
+                                            @csrf
+                                                <p class="is-medium">For your password to be set, please enter the verification code that was sent to your contact number.</p><br>
+                                            <div class="form-popup" id="myForm">
+                                                <div class="field is-horizontal">
+                                                    <div class="field-label is-normal">
+                                                        <label class="label">Verification Code</label>
+                                                    </div>
+                                                    <div class="field-body">
+                                                        <div class="field is-narrow">
+                                                            <div class="control">
+                                                                <div class="field">
+                                                                    <p class="control has-icons-left">
+                                                                        <input class="input" type="number" name="code" placeholder="Code" maxlength="4"required>
+                                                                        <span class="icon is-small is-left">
+                                                                        <i class="fas fa-lock"></i>
+                                                                        </span>
+                                                                    </p>
+                                                                </div>
+                                                                <i><p class="help">4 Digits Verification Code</p></i>
+                                                            </div>
                                                         </div>
-                                                        <i><p class="help">4 Digits Verification Code</p></i>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="field is-horizontal">
-                                            <div class="field-label"></div>
-                                            <div class="field-body">
-                                                <div class="field is-grouped is-grouped-right">
-                                                    <div class="control">
-                                                        <button class="button is-warning" type="submit" id="VerifyCode">Submit</button>
-                                                        <button class="button is-light" type="button" onclick="hideVerificationForm()">Back</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        </section>
+                                        <footer class="modal-card-foot">
+                                            <button class="button is-warning" type="submit" id="VerifyCode">Submit</button>
+                                            <button class="button" type="button" onclick="hideVerificationForm()">Cancel</button>
+                                        </footer>
                                     </div>
                                 </div>
-                                {{-- </form> --}}
-                            </div>
+                            </form>
                         </div>
-
-                    </form>
+                    </div>
 
                 </section>
 

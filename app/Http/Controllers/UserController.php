@@ -236,4 +236,5 @@ class UserController extends Controller
 
         return redirect($str)->with('success', 'File uploaded!');
     }
+
 }
