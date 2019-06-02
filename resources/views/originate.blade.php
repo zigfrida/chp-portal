@@ -68,8 +68,12 @@
 
 		<div style="font-family: 'Playfair Display', serif;">
 			<div class="columns is-centered is-mobile" style="padding-top:5%;">
-				<h1 class="subtitle is-1">Originate</h1>
+				<h1 class="title is-3">And I knew exactly what to do. But in a much more real sense, I had no idea what to do.</h1>
 			</div>
+			<div class="columns is-centered is-mobile">
+				<h1 class="subtitle is-5">-Michael Scott</h1>
+			</div>
+
 
 			<div class="columns is-mobile is-centered">
 				<div class="column is-half">
@@ -167,20 +171,33 @@
 			</div>
 		</div>
 
-		<div class="hero-foot">
+        <div class="hero-foot">
 			<div class="container">
 				<div class="tabs is-centered">
 					<ul>
-						<li><a>LinkedIn</a></li>
 						<li>
-							<a
-								href="https://www.google.com/maps/place/1080+Mainland+St,+Vancouver,+BC+V6B+2T4/@49.2756006,-123.1225802,17z/data=!3m1!4b1!4m5!3m4!1s0x548673d65a82a923:0x19c1da5918a84be7!8m2!3d49.2755971!4d-123.1203915">
+							<a href="https://twitter.com/cypresshillsptn">
+								<figure>
+									<img class="image is-48x48" src="{{url('/images/twitter.svg')}}">
+								</figure>
+							</a>
+						</li>
+
+						<li>
+							<a href="https://www.google.com/maps/place/1080+Mainland+St,+Vancouver,+BC+V6B+2T4/@49.2756006,-123.1225802,17z/data=!3m1!4b1!4m5!3m4!1s0x548673d65a82a923:0x19c1da5918a84be7!8m2!3d49.2755971!4d-123.1203915">
 								<figure>
 									<img class="image is-48x48" src="{{url('/images/google_maps.svg')}}">
 								</figure>
 							</a>
 						</li>
-						<li><a>Fat</a></li>
+
+						<li>
+							<a href="https://www.linkedin.com/company/cypress-hills-partners/about/">
+								<figure>
+									<img class="image is-48x48" src="{{url('/images/linkedin.svg')}}">
+								</figure>
+							</a>
+						</li>
 					</ul>
 				</div>
 			</div>

@@ -96,7 +96,7 @@
 					<div class="content">
 						<h4>Dean Linden</h4>
 						<p>Dean Linden has over 20 years of experience as a financier and business development professional. He has spearheaded the financing and development of Companies in Consumer Finance, Biotech, Healthcare, Media, Entertainment and Natural Resource sectors.</p>
-						<span class="button is-warning modal-button" data-target="modal-card2">Modal Card</span>
+						<span class="button is-warning modal-button" data-target="modal-card2">+</span>
 					</div>
 					</div>
 				</div>
@@ -113,7 +113,7 @@
 						<h4>Marshall House</h4>
 						<p>Marshall House has 25 years of accounting and finance experience in senior management positions in large public and private companies.</p>
 						<br><br><br>
-						<span class="button is-warning modal-button" data-target="modal-card3">Modal Card</span>
+						<span class="button is-warning modal-button" data-target="modal-card3">+</span>
 					</div>
 					</div>
 				</div>
@@ -135,7 +135,7 @@
 						<div class="content">
 							<h4>Alli Radiuk</h4>
 							<p>Ms. Radiuk holds a Bachelor of Commerce degree with a specialization in Finance from the University of British Columbia. She previously held various positions at Toronto-Dominion Bank in the Underwriting Division where she employed her knowledge and expertise in underwriting secured consumer loans.</p>
-							<span class="button is-warning modal-button" data-target="modal-card4">Modal Card</span>
+							<span class="button is-warning modal-button" data-target="modal-card4">+</span>
 						</div>
 						</div>
 					</div>
@@ -151,7 +151,7 @@
 						<div class="content">
 							<h4>Anthony Wong</h4>
 							<p>Anthony has over 25 years of experience in the corporate finance and communications industry. His diverse skill set uniquely positions him to understand and work with a variety of businesses and ventures from law to technology to digital media. Anthony has worked in both the private and public sectors.</p>
-							<span class="button is-warning modal-button" data-target="modal-card5">Modal Card</span>
+							<span class="button is-warning modal-button" data-target="modal-card5">+</span>
 						</div>
 						</div>
 					</div>
@@ -172,7 +172,7 @@
 								expertise in portfolio modeling and financial planning, and was a recipient of the 2017 RBC Performance Award.
 							</p>
 							<br>
-							<span class="button is-warning modal-button" data-target="modal-card6">Modal Card</span>
+							<span class="button is-warning modal-button" data-target="modal-card6">+</span>
 						</div>
 						</div>
 					</div>
@@ -331,7 +331,14 @@
 		<div class="container">
 			<div class="tabs is-centered">
 				<ul>
-					<li><a>LinkedIn</a></li>
+					<li>
+						<a href="https://twitter.com/cypresshillsptn">
+							<figure>
+								<img class="image is-48x48" src="{{url('/images/twitter.svg')}}">
+							</figure>
+						</a>
+					</li>
+
 					<li>
 						<a href="https://www.google.com/maps/place/1080+Mainland+St,+Vancouver,+BC+V6B+2T4/@49.2756006,-123.1225802,17z/data=!3m1!4b1!4m5!3m4!1s0x548673d65a82a923:0x19c1da5918a84be7!8m2!3d49.2755971!4d-123.1203915">
 							<figure>
@@ -339,7 +346,14 @@
 							</figure>
 						</a>
 					</li>
-					<li><a>Umm</a></li>
+
+					<li>
+						<a href="https://www.linkedin.com/company/cypress-hills-partners/about/">
+							<figure>
+								<img class="image is-48x48" src="{{url('/images/linkedin.svg')}}">
+							</figure>
+						</a>
+					</li>
 				</ul>
 			</div>
 		</div>

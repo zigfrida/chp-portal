@@ -85,22 +85,36 @@
 
 
         <div class="hero-foot">
-            <div class="container">
-                <div class="tabs is-centered">
-                    <ul>
-                        <li><a>LinkedIn</a></li>
-                        <li>
-                            <a href="https://www.google.com/maps/place/1080+Mainland+St,+Vancouver,+BC+V6B+2T4/@49.2756006,-123.1225802,17z/data=!3m1!4b1!4m5!3m4!1s0x548673d65a82a923:0x19c1da5918a84be7!8m2!3d49.2755971!4d-123.1203915">
-                                <figure>
-                                    <img class="image is-48x48" src="{{url('/images/google_maps.svg')}}">
-                                </figure>
-                            </a>
-                        </li>
-                        <li><a>Fat</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+			<div class="container">
+				<div class="tabs is-centered">
+					<ul>
+						<li>
+							<a href="https://twitter.com/cypresshillsptn">
+								<figure>
+									<img class="image is-48x48" src="{{url('/images/twitter.svg')}}">
+								</figure>
+							</a>
+						</li>
+
+						<li>
+							<a href="https://www.google.com/maps/place/1080+Mainland+St,+Vancouver,+BC+V6B+2T4/@49.2756006,-123.1225802,17z/data=!3m1!4b1!4m5!3m4!1s0x548673d65a82a923:0x19c1da5918a84be7!8m2!3d49.2755971!4d-123.1203915">
+								<figure>
+									<img class="image is-48x48" src="{{url('/images/google_maps.svg')}}">
+								</figure>
+							</a>
+						</li>
+
+						<li>
+							<a href="https://www.linkedin.com/company/cypress-hills-partners/about/">
+								<figure>
+									<img class="image is-48x48" src="{{url('/images/linkedin.svg')}}">
+								</figure>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
     </section>
 </body>
 
