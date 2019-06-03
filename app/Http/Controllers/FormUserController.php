@@ -284,17 +284,7 @@ class FormUserController extends Controller
             ->where('user_id', $id)
             ->update(['form_level' => 2]);
 
-        // $redirectPath = '/'.$id.'/portfolio';
-        // // $testPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
-
-        // return Redirect::away($redirectPath);
-
-        $newPath;
-        if (auth()->user()->isAdmin()) {
-            $newPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
-        } else {
-            $newPath = '/'.$id.'/edit_profile';
-        }
+        $newPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
 
         return redirect($newPath);
     }
@@ -438,6 +428,8 @@ class FormUserController extends Controller
         $phone = $request->input('phone');
         $phone_mobile = $request->input('phone_mobile');
 
+        $email = $request->input('email');
+
         //This innformation will always be updated, dosen't matter if it is an admin or not. However, redirect path changes if changes were made by an admin, and the name of the client was also part of the change (affect path).
         \DB::table('form_users')
             ->where('user_id', $id)
@@ -449,13 +441,14 @@ class FormUserController extends Controller
                 'country' => $request->country,
                 'phone' => $request->phone,
                 'phone_mobile' => $request->phone_mobile,
+                'email' => $request->email,
         ]);
 
-        // \DB::table('users')
-        //     ->where('id', $id)
-        //     ->update([
-        //         'email' => $email,
-        // ]);
+        \DB::table('users')
+            ->where('id', $id)
+            ->update([
+                'email' => $email,
+        ]);
 
         if (!auth()->user()->isAdmin()) {
             //Change made by client

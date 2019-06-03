@@ -31,48 +31,6 @@ class UserController extends Controller
     {
     }
 
-    // public function storeFormstack(Request $request, $id)
-    // {
-    //     $request->validate([
-    //         'clientType' => 'bail|required',
-    //     ]);
-    //     if ($request->clientType == 'individual') { // user selected Individual
-    //         $request->validate([
-    //             'subscriber_name' => 'required',
-    //             'city' => 'required',
-    //             'street' => 'required',
-    //             'postal_code' => 'required',
-    //             'province' => 'required',
-    //             'country' => 'required',
-    //             'sin' => 'required',
-    //             'phone' => 'required',
-    //             'email' => 'required',
-    //         ]);
-    //     } elseif ($request->clientType == 'business') { // user selected Non-Individual
-    //         $request->validate([
-    //             'subscriber_name' => 'required',
-    //             'street' => 'required',
-    //             'city' => 'required',
-    //             'postal_code' => 'required',
-    //             'province' => 'required',
-    //             'country' => 'required',
-    //             'phone' => 'required',
-    //             'email' => 'required',
-    //             'business_number' => 'required',
-    //             'signatory_first_name' => 'required',
-    //             'signatory_last_name' => 'required',
-    //             'official_capacity_or_title_of_authorized_signatory' => 'required',
-    //         ]);
-    //     }
-
-    //     $redirectPath = '/'.$id.'/portfolio';
-    //     // $user = DB::table('users')->where('id', $id)->get();
-    //     DB::table('users')
-    //         ->where('id', $id)
-    //         ->update(['form_level' => 1]);
-
-    //     return redirect($redirectPath);
-    // }
 
     /**
      * Store a newly created resource in storage.
@@ -87,9 +45,9 @@ class UserController extends Controller
         $email = $request->input('email');
         $user = new User(); //same as App/User() but had to do it this way to resolve namespace conflicts
         $user->name = $name;
-        // $user->password = Hash::make(str_random(16));
-        $user->password = '111111';
-        $user->password = Hash::make($user->password);
+        $user->password = Hash::make(str_random(16));
+        // $user->password = '111111';
+        //$user->password = Hash::make($user->password);
         $user->email = $email;
         $user->role = 'standard';
         $user->save();
@@ -99,6 +57,7 @@ class UserController extends Controller
         form_user::create([
             'user_id' => $user['id'],
             'subscriber_name' => $user['name'],
+            'email' => $user['email'],
         ]);
 
         PISummary::create([
@@ -130,9 +89,9 @@ class UserController extends Controller
 
         $user = new User();
         $user->name = $name;
-        // $user->password = Hash::make(str_random(16));
-        $user->password = '111111';
-        $user->password = Hash::make($user->password);
+        $user->password = Hash::make(str_random(16));
+        // $user->password = '111111';
+        // $user->password = Hash::make($user->password);
         $user->email = $email;
         $user->role = 'standard';
         $user->existing = 'existing';
@@ -161,11 +120,11 @@ class UserController extends Controller
             'user_id' => $user['id'],
         ]);
 
-        // $testPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$user['id'].'&name='.$name.'&class='.$class.'&method=updateSpreadUser_idClassName';
+        $testPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$user['id'].'&name='.$name.'&class='.$class.'&method=updateSpreadUser_idClassName';
 
-        // return redirect($testPath);
+        return redirect($testPath);
 
-        return redirect('/admin')->with('success', 'User created!');
+        //return redirect('/admin')->with('success', 'User created!');
     }
 
     public function updatePassword(Request $request, $id){
@@ -236,4 +195,5 @@ class UserController extends Controller
 
         return redirect($str)->with('success', 'File uploaded!');
     }
+
 }

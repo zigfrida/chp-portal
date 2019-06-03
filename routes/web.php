@@ -135,10 +135,6 @@ Route::get('/{id}/edit_profile', function ($id) {
                 ->where('id', $id)
                 ->get();
 
-    $pass = DB::table('users')
-                ->where('id', $id)
-                ->get();
-
     return view('edit_profile', compact('user', 'province', 'country','name'));
 })->middleware('auth');
 
@@ -149,18 +145,32 @@ Route::patch('/{id}/edit_profile', 'FormUserController@updateProfile')->middlewa
 */
 Route::group(['prefix' => 'admin', 'middleware' => ['auth' => 'admin']], function () {
     Route::get('/', function () {
-        $clientsA = DB::table('form_users')
+        // $clientsA = DB::table('form_users')
+        //                 ->where('class', 'A')
+        //                 ->where(function ($q) {
+        //                     $q->where('clientType', 'individual')
+        //                      ->orwhere('clientType', 'business');
+        //                 })->get();
+        
+        $clientsA = DB::table('users')
+                        ->join('form_users', 'users.id', '=', 'form_users.user_id')
                         ->where('class', 'A')
-                        ->where(function ($q) {
-                            $q->where('clientType', 'individual')
-                             ->orwhere('clientType', 'business');
-                        })->get();
-        $clientsB = DB::table('form_users')
+                        ->where('role', 'LIKE', 'standard')
+                        ->get();
+
+
+        // $clientsB = DB::table('form_users')
+        //                 ->where('class', 'B')
+        //                 ->where(function ($q) {
+        //                     $q->where('clientType', 'individual')
+        //                      ->orwhere('clientType', 'business');
+        //                 })->get();
+
+        $clientsB = DB::table('users')
+                        ->join('form_users', 'users.id', '=', 'form_users.user_id')
                         ->where('class', 'B')
-                        ->where(function ($q) {
-                            $q->where('clientType', 'individual')
-                             ->orwhere('clientType', 'business');
-                        })->get();
+                        ->where('role', 'LIKE', 'standard')
+                        ->get();
 
         $clientsPC = DB::table('form_users')
                         ->where('class', 'NOT LIKE', 'A')
@@ -296,3 +306,24 @@ Route::post('/{id}/store', 'UserController@uploadFile');
 Route::post('/admin/sendCode','SmsController@store');
 Route::post('/{id}/edit_profile/sendCode','SmsController@store');
 Route::post('/{id}/edit_profile/verifyCode','SmsController@verifyContact');
+
+Route::post('/password/set/sendCode','SmsController@setStore');
+Route::post('/password/set/verifyCode','SmsController@verifyContactSet');
+
+Route::post('/password/reset/sendCode','SmsController@setStore');
+Route::post('/password/reset/verifyCode','SmsController@verifyContactSet');
+
+/*
+    Disable user from being able to log in
+*/
+Route::post('/{id}/edit_profile/deleteAccount', function ($id) {
+    
+    \DB::table('users')
+        ->where('id', $id)
+        ->update([
+            'banned_until' => 1,
+            'role' => 'retired',
+        ]);
+
+    return redirect('/admin')->with('success', 'User Deleted');
+});

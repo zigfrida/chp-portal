@@ -9,12 +9,29 @@
         
         $access_css = $cA->access_level + $cA->form_level;
 
+        $edit_profile = $cA->profile_changed; 
+       
+            switch ($edit_profile) {
+                case 1:
+                    $span_class = 'icon has-text-warning';
+                    $icon_class = 'fas fa-exclamation-triangle';
+                    break;
+                
+                default:
+                    $span_class = '';
+                    $icon_class = '';
+                    break;
+            } 
+
         ?>
 
         <div class="column is-one-quarter">
                 <span class="has-text-weight-bold">Name:</span> {{ $cA->subscriber_name  }} <br>
                 <span class="has-text-weight-bold">Email:</span> {{ $cA->email }} <br>
                 <a href="/{{ $cA->user_id }}/portfolio">Portfolio</a>
+                    <span class="{{$span_class}}">
+                        <i class="{{$icon_class}}"></i>
+                    </span>
                 <hr>
             </div>
         @endforeach
@@ -26,12 +43,31 @@
     <div id="B_portfolios" class="columns is-multiline">
         @foreach ($clientsB as $cB)
 
-        <?php $access_css = $cB->access_level + $cB->form_level; ?>
+        <?php $access_css = $cB->access_level + $cB->form_level; 
+
+            $edit_profile = $cB->profile_changed; 
+       
+            switch ($edit_profile) {
+                case 1:
+                    $span_class = 'icon has-text-warning';
+                    $icon_class = 'fas fa-exclamation-triangle';
+                    break;
+                
+                default:
+                    $span_class = '';
+                    $icon_class = '';
+                    break;
+            } 
+        
+        ?>
 
         <div class="column is-one-quarter">
             <span class="has-text-weight-bold">Name:</span> {{ $cB->subscriber_name  }}<br>
             <span class="has-text-weight-bold">Email:</span> {{ $cB->email }}<br>
             <a href="/{{ $cB->user_id }}/portfolio" class="">Portfolio</a>
+                <span class="{{$span_class}}">
+                    <i class="{{$icon_class}}"></i>
+                </span>
             <hr>
         </div>
     @endforeach
@@ -44,38 +80,38 @@
         @foreach ($clientsPC as $cPC)
 
         <?php 
-        $access_css = $cPC->access_level + $cPC->form_level;
-                //php injection help
-                $span_class = '';
-                $icon_class = '';
- 
- 
-                switch($access_css){
-                    case  0:
-                        $span_class = '';
-                        $icon_class = '';
-                        
-                        break;
-                    case  1:
-                        $span_class = 'icon has-text-info';
-                        $icon_class = 'fas fa-info-circle';
-                        
-                        break;
-                    case  2:
-                        $span_class = '';
-                        $icon_class = '';
-                        break;
-                    case  3:
-                        $span_class = 'icon has-text-success';
-                        $icon_class = 'fas fa-exclamation-triangle';
-                        
-                        break;
-                    default:
-                        $span_class = '';
-                        $icon_class = '';        
-                        
-                }
 
+        $access_css = $cPC->access_level + $cPC->form_level;
+            //php injection help
+            $span_class = '';
+            $icon_class = '';
+
+
+            switch($access_css){
+                case  0:
+                    $span_class = '';
+                    $icon_class = '';
+                    
+                    break;
+                case  1:
+                    $span_class = 'icon has-text-info';
+                    $icon_class = 'fas fa-info-circle';
+                    
+                    break;
+                case  2:
+                    $span_class = '';
+                    $icon_class = '';
+                    break;
+                case  3:
+                    $span_class = 'icon has-text-success';
+                    $icon_class = 'fas fa-exclamation-triangle';
+                    
+                    break;
+                default:
+                    $span_class = '';
+                    $icon_class = '';        
+                    
+            }               
  
         ?>
 
@@ -85,7 +121,7 @@
             <a href="/{{ $cPC->user_id }}/portfolio" class="">Portfolio</a>
                 <span class="{{$span_class}}">
                     <i class="{{$icon_class}}"></i>
-                  </span>
+                </span>
             <hr>
         </div>
     @endforeach
@@ -106,7 +142,7 @@
         <div class="field-body">
             <div class="field">
                 <p class="control is-expanded has-icons-left">
-                    <input class="input " type="text" name="name" placeholder="Francisco Wagner">
+                    <input class="input " type="text" name="name" placeholder="Full Name">
                     <span class="icon is-small is-left">
                         <i class="fas fa-user"></i>
                     </span>
@@ -122,7 +158,7 @@
         <div class="field-body">
             <div class="field">
                 <p class="control is-expanded has-icons-left has-icons-right">
-                    <input class="input " name="email" type="email" placeholder="ameriichinose@yabai.jp">
+                    <input class="input " name="email" type="email" placeholder="example@email.com">
                     <span class="icon is-small is-left">
                         <i class="fas fa-envelope"></i>
                     </span>

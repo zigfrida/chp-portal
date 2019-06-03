@@ -205,4 +205,5 @@
 	</section>
 </body>
 
+<script type="text/javascript" src="{{ URL::asset('js/menu.js') }}"></script>
 </html>

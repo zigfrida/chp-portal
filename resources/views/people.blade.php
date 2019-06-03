@@ -52,7 +52,7 @@
                         <div class="navbar-end">
                             <div class="tabs is-right">
                                 <ul>
-                                    <li class="is-active"><a href="/">Home</a></li>
+                                    <li><a href="/">Home</a></li>
                                     <li><a href="/about">About</a></li>
                                     <li><a href="/people"><b>People</b></a></li>
                                     <li><a href="/originate">Originate</a></li>
@@ -60,14 +60,15 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+					</div>
+
                 </div>
             </nav>
         </div>
 
 		{{-- modal stuff --}}
 
-		<section class="container">
+		<section class="container" style="margin-top:60px;">
 			<div class="columns features">
 				<div class="column is-4">
 				<div class="card is-shady">
@@ -177,9 +178,79 @@
 						</div>
 					</div>
 				</div>
+
+				
+
+
 			</div>
 		</section>
 		
+		<section class="container">
+				<div class="columns features" style="margin-top:5%;">
+						<div class="column is-4">
+								<div class="card is-shady">
+									<div class="card-image">
+									<figure class="image is-4by3">
+										<img src="{{url('/images/brent-burgess_orig.jpg')}}" alt="Placeholder image">
+									</figure>
+									</div>
+									<div class="card-content">
+									<div class="content">
+										<h4>Brent Burgess, Advisor</h4>
+										<p>
+											Brent Burgess was born and raised in Saskatchewan, Canada. He cofounded a private credit investment firm, Triangle Capital, which had its IPO in 2007 on the NYSE.
+										</p>
+										<br>
+										<span class="button is-warning modal-button" data-target="modal-card7">+</span>
+									</div>
+									</div>
+								</div>
+						</div>
+
+						<div class="column is-4">
+								<div class="card is-shady">
+									<div class="card-image">
+									<figure class="image is-4by3">
+										<img src="{{url('/images/person.png')}}" alt="Placeholder image">
+									</figure>
+									</div>
+									<div class="card-content">
+									<div class="content">
+										<h4>Philip Nanney, Advisor</h4>
+										<p>
+											Philip has spent the last decade evaluating transactions involving ownership transitions, rapidly growing businesses, and misunderstood asset classes, industries and situations. 	
+										</p>
+										<br>
+										<span class="button is-warning modal-button" data-target="modal-card8">+</span>
+									</div>
+									</div>
+								</div>
+						</div>
+
+						<div class="column is-4">
+								<div class="card is-shady">
+									<div class="card-image">
+									<figure class="image is-4by3">
+										<img src="{{url('/images/person.png')}}" alt="Placeholder image">
+									</figure>
+									</div>
+									<div class="card-content">
+									<div class="content">
+										<h4>Geoffrey McCord, Advisor</h4>
+										<p>
+											Geoffrey McCord’s professional career spans over 42 years as a top level executive for various financial firms, including 14 years at Connor, Clark and Co.	
+										</p>
+										<br>
+										<span class="button is-warning modal-button" data-target="modal-card9">+</span>
+									</div>
+									</div>
+								</div>
+						</div>
+
+						
+				</div>
+		</section>
+
 		{{-- SPONGEBOB: 					--}}
 		{{-- 			WHAT TIME IS IT?	--}}
 		{{-- PATRICK: 						--}}
@@ -324,6 +395,71 @@
 			<button class="modal-close is-large" aria-label="close"></button>
 		</div>
 
+		<div id="modal-card7" class="modal modal-fx-3dSlit">
+			<div class="modal-background"></div>
+			<div class="modal-content is-tiny">
+				<!-- content -->
+				<div class="card">
+				<div class="card-image">
+					<figure class="image is-4by3">
+					<img src="{{url('/images/brent-burgess_orig.jpg')}}" alt="Placeholder image">
+					</figure>
+				</div>
+				<div class="card-content">
+					<div class="content">
+						Brent Burgess was born and raised in Saskatchewan, Canada. He cofounded a private credit investment firm, Triangle Capital, which had its IPO in 2007 on the NYSE. He was instrumental in growing the credit portfolio to approximately $1 billion. He served as Triangle’s Chief Investment Officer and on its board of directors until his departure in 2016, when he started Granville Advisers.  Granville provides financial and strategic advice to businesses ranging from large banks and insurance companies to early stage start-up companies.  Brent is also a partner with Sovereign’s Capital and serves on its investment committee.  In addition, he is actively involved with a number of organizations that focus on the integration of leadership, business, and faith, including Regent College in Vancouver, where he is Vice-Chairman of the Board.
+					</div>
+				</div>
+				</div>
+				<!-- end content -->
+			</div>
+			<button class="modal-close is-large" aria-label="close"></button>
+		</div>
+
+		<div id="modal-card8" class="modal modal-fx-3dSlit">
+				<div class="modal-background"></div>
+				<div class="modal-content is-tiny">
+					<!-- content -->
+					<div class="card">
+					<div class="card-image">
+						<figure class="image is-4by3">
+						<img src="{{url('/images/person.png')}}" alt="Placeholder image">
+						</figure>
+					</div>
+					<div class="card-content">
+						<div class="content">
+								Philip has spent the last decade evaluating transactions involving ownership transitions, rapidly growing businesses, and misunderstood asset classes, industries and situations. He has worked on buy side transactions totaling in excess of $2 billion. Philip was formerly Vice President at Victory Park Capital Advisors (VPC), a leading financier of specialty lenders globally. At VPC he was responsible for origination, fundamental analysis, execution and management of direct private debt and equity investment, including specialty finance transactions in North America, Latin America, and Europe.
+								Philip has an MBA from Kellogg School of Management at Northwestern University and received a Bachelor of Science degree in business administration from the University of North Carolina at Chapel Hill where he graduated with highest distinction.	
+						</div>
+					</div>
+					</div>
+					<!-- end content -->
+				</div>
+				<button class="modal-close is-large" aria-label="close"></button>
+			</div>
+
+			<div id="modal-card9" class="modal modal-fx-3dSlit">
+					<div class="modal-background"></div>
+					<div class="modal-content is-tiny">
+						<!-- content -->
+						<div class="card">
+						<div class="card-image">
+							<figure class="image is-4by3">
+							<img src="{{url('/images/person.png')}}" alt="Placeholder image">
+							</figure>
+						</div>
+						<div class="card-content">
+							<div class="content">
+									Geoffrey McCord’s professional career spans over 42 years as a top level executive for various financial firms, including 14 years at Connor, Clark and Co., an investment dealer based in Toronto offering a comprehensive array of investment strategies, spanning traditional and alternative asset classes in a variety of quantitative and fundamental styles.  During this time, Geoffrey served as Chief Financial Officer, Senior Vice President and Head of Operations.  He then moved on to IPC where he served in a number of executive positions, including Executive Vice President of IPC Financial Network Inc. and President of IPC Securities Corporation.
+									Mr. McCord currently sits as President of Thorn Tree Capital Corporation and privately consults as an independent management consultant.  A seasoned financial professional, he brings several years of related experience to his role as an Advisor with Cypress Hills Partners Inc.
+									Mr. McCord has a B.Comm. from Queen’s University, Kingston, Ontario and is a CPA C.A.	
+							</div>
+						</div>
+						</div>
+						<!-- end content -->
+					</div>
+					<button class="modal-close is-large" aria-label="close"></button>
+				</div>
 
 	</section>
 	<br>
@@ -359,6 +495,8 @@
 		</div>
 	</div>
 	<script src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>
+	<script type="text/javascript" src="{{ URL::asset('js/menu.js') }}"></script>
+
 </body>
 
 </html>

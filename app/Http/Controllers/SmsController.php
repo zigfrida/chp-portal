@@ -10,6 +10,8 @@ use Twilio\Jwt\ClientToken;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 use Alert;
+use App\form_user;
+use App\User;
 
 class SmsController extends Controller
 {
@@ -49,12 +51,7 @@ class SmsController extends Controller
                 'To' => $request->phone,
                 'From' => '+16042108680' //we get this number from twilio
             ]]);
-            //dd($result);
-            //return redirect('/'.$request->user_id.'/edit_profile');
-            //return true;
-            //return $result;
-            //Allis number '+16042109557'
-            //we get this number from twilio '+16042108680'
+
         }
         catch (Exception $e){
             echo "Error: " . $e->getMessage();
@@ -87,6 +84,70 @@ class SmsController extends Controller
             $msg["message"] = "not verified";
             // return $msg;
             return redirect()->back()->with('errors', 'Incorrect Verification Code');
+        }
+    }
+
+    /**
+     * Function for users setting their password for the first time, when they receive an account
+     */
+    public function setStore(Request $request){
+        $phone = $request->input('phone_mobile');
+        $email = $request->input('email');
+
+        $GetId = \DB::table('users')
+            ->where('email', $email)
+            ->get();
+        
+        $id = $GetId[0]->id;
+
+        \DB::table('form_users')
+            ->where('user_id', $id)
+            ->update([
+                'phone_mobile' => $phone,
+            ]);
+
+        $request['user_id'] = $id;
+        $request['phone'] = $phone;
+
+        $code = rand(1000, 9999); //generate random code
+        $request['code'] = $code; //add code in $request body
+        $this->smsVerifcation->store($request); //call store method of model
+        return $this->sendSms($request); // send and return its response
+    }
+
+
+    public function verifyContactSet(Request $request){
+        $email = $request->input('email');
+        $GetId = \DB::table('users')
+            ->where('email', $email)
+            ->get();
+        
+        $id = $GetId[0]->id;
+        
+        $smsVerifcation = $this->smsVerifcation::where('user_id','=',$id)
+                ->latest() //show the latest if there are multiple
+                ->first();
+
+        if ($request->code == $smsVerifcation->code){
+            $request["status"] = 'verified';
+
+            $smsVerifcation->updateModel($request);
+            //return $smsVerifcation->updateModel($request);
+            $msg["message"] = "verified";
+
+            $newPassword = Hash::make($request->input('password'));
+
+            \DB::table('users')
+                ->where("id", $id)
+                ->update(['password' => $newPassword]);
+
+            return redirect('/'.$id.'/portfolio')->with('success', 'Password Updated');
+            //return $msg;
+        } else {
+            $msg["message"] = "not verified";
+            // return $msg;
+            return redirect('/home');
+            //return redirect()->back()->with('errors', 'Incorrect Verification Code');
         }
     }
 
