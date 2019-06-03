@@ -49,9 +49,6 @@
                             </div>
                         </div>
 
-                        <!--Only asks for phone number input, when it does not exist-->
-                        @if(!isset($phone_mobile))
-
                         <div class="form-group row">
                             <label for="mobile_phone" class="col-md-4 col-form-label text-md-right">{{ __('Mobile Phone') }}</label>
 
@@ -65,8 +62,6 @@
                                 @endif
                             </div>
                         </div>
-
-                        @endif
 
                         {{-- <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

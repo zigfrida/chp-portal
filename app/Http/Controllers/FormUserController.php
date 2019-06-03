@@ -116,7 +116,7 @@ class FormUserController extends Controller
                         'ind_ck4' => $request->input('ind_ck4') !== null,
                         'ind_ck5' => $request->input('ind_ck5') !== null,
                         'ind_ck6' => $request->input('ind_ck6') !== null,
-                        'req_brokerage' => $request->input('req_brokerage') !== null,
+                        'req_brokerage' => $request->input('req_brokerage'),
                     ]);
         } elseif ($request->clientType == 'business') {
             \DB::table('form_users')
@@ -144,7 +144,7 @@ class FormUserController extends Controller
                 'bus_ck8' => $request->input('bus_ck8') !== null,
                 'bus_ck9' => $request->input('bus_ck9') !== null,
                 'bus_ck10' => $request->input('bus_ck10') !== null,
-                'req_brokerage' => $request->input('req_brokerage') !== null,
+                'req_brokerage' => $request->input('req_brokerage'),
                 ]);
         }
         // store the INITIALS!

@@ -77,7 +77,7 @@ class CreateFormUsersTable extends Migration
             $table->string('risk_ck7')->default('');
             $table->string('risk_chk8')->default('');
 
-            $table->boolean('req_brokerage')->nullable()->default(0);
+            $table->string('req_brokerage')->default('');
 
             $table->boolean('yass_ck')->nullable()->default(0);
 
