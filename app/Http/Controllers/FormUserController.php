@@ -284,17 +284,7 @@ class FormUserController extends Controller
             ->where('user_id', $id)
             ->update(['form_level' => 2]);
 
-        // $redirectPath = '/'.$id.'/portfolio';
-        // // $testPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
-
-        // return Redirect::away($redirectPath);
-
-        $newPath;
-        if (auth()->user()->isAdmin()) {
-            $newPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
-        } else {
-            $newPath = '/'.$id.'/edit_profile';
-        }
+        $newPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
 
         return redirect($newPath);
     }
@@ -451,11 +441,11 @@ class FormUserController extends Controller
                 'phone_mobile' => $request->phone_mobile,
         ]);
 
-        // \DB::table('users')
-        //     ->where('id', $id)
-        //     ->update([
-        //         'email' => $email,
-        // ]);
+        \DB::table('users')
+            ->where('id', $id)
+            ->update([
+                'email' => $email,
+        ]);
 
         if (!auth()->user()->isAdmin()) {
             //Change made by client

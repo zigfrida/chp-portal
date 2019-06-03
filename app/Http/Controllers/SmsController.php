@@ -51,8 +51,6 @@ class SmsController extends Controller
                 'To' => $request->phone,
                 'From' => '+16042108680' //we get this number from twilio
             ]]);
-            //Allis number '+16042109557'
-            //we get this number from twilio '+16042108680'
         }
         catch (Exception $e){
             echo "Error: " . $e->getMessage();
@@ -107,12 +105,8 @@ class SmsController extends Controller
                 'phone_mobile' => $phone,
             ]);
 
-
         $request['user_id'] = $id;
-        //$request['user_id'] = '6';
-
         $request['phone'] = $phone;
-        //$request['phone'] = '7789292206';
 
         $code = rand(1000, 9999); //generate random code
         $request['code'] = $code; //add code in $request body
