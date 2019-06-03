@@ -151,7 +151,8 @@ class SmsController extends Controller
         } else {
             $msg["message"] = "not verified";
             // return $msg;
-            return redirect()->back()->with('errors', 'Incorrect Verification Code');
+            return redirect('/home');
+            //return redirect()->back()->with('errors', 'Incorrect Verification Code');
         }
     }
 
