@@ -486,8 +486,8 @@
                                     <br><br>
                                     <div style="outline: 1px solid red; outline-offset:3px;">
                                         <label class="checkbox">
-                                            <input type="checkbox">
-                                            <i>An individual whose net income before taxes exceeded $200,000 in each of the two most recent calendar years or whose net income before taxes combined with that of a spouse exceeded $300,000 in each of the two most recent calendar years and who, in either case, reasonably expects to exceed that net income level in the current calendar year;</i>
+                                            <input type="checkbox" name="yass_ck">
+                                                Yes
                                         </label>
                                     </div>
 

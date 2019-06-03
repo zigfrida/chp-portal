@@ -234,6 +234,8 @@ class FormUserController extends Controller
                 'ind_ck4' => $request->input('ind_ck4') !== null,
                 'ind_ck5' => $request->input('ind_ck5') !== null,
                 'ind_ck6' => $request->input('ind_ck6') !== null,
+                'yass_ck' => $request->input('yass_ck') !== null,
+
                 ]);
             \DB::table('form_users')
                 ->where('user_id', $id)
