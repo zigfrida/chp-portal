@@ -78,7 +78,11 @@ class SmsController extends Controller
                 ->where("id", $id)
                 ->update(['password' => $newPassword]);
 
-            return redirect('/'.$id.'/edit_profile')->with('success', 'Password Updated');
+            if(auth()->user()->isAdmin()){
+                return redirect('/admin');
+            } else{
+                return redirect('/'.$id.'/edit_profile')->with('success', 'Password Updated');
+            }
             //return $msg;
         } else {
             $msg["message"] = "not verified";
