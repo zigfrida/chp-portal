@@ -93,7 +93,7 @@ class UserController extends Controller
         $user->email = $email;
         $user->role = 'standard';
         $user->save();
-
+        
         \Invytr::invite($user);
 
         form_user::create([
