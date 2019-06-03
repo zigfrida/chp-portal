@@ -11,7 +11,7 @@ class form_user extends Model
         'ind_ck3','ind_ck14','ind_ck5','ind_ck6','bus_ck1',
         'bus_ck2','bus_ck3','bus_ck4', 'bus_ck5', 'bus_ck6',
         'bus_ck7','bus_ck8','bus_ck9','bus_ck10','access_level','form_level',
-        'profile_changed',
+        'profile_changed', 'yass_ck',
         
     ];
 }

@@ -77,6 +77,8 @@ class CreateFormUsersTable extends Migration
             $table->string('risk_ck7')->default('');
             $table->string('risk_chk8')->default('');
 
+            $table->boolean('yass_ck')->nullable()->default(0);
+
             $table->boolean('profile_changed')->nullable()->default(0);
 
             $table->timestamps();
