@@ -117,6 +117,7 @@ class FormUserController extends Controller
                         'ind_ck5' => $request->input('ind_ck5') !== null,
                         'ind_ck6' => $request->input('ind_ck6') !== null,
                         'req_brokerage' => $request->input('req_brokerage'),
+                        'yass_ck' => $request->input('yass_ck') !== null,
                     ]);
         } elseif ($request->clientType == 'business') {
             \DB::table('form_users')
@@ -236,7 +237,6 @@ class FormUserController extends Controller
                 'ind_ck4' => $request->input('ind_ck4') !== null,
                 'ind_ck5' => $request->input('ind_ck5') !== null,
                 'ind_ck6' => $request->input('ind_ck6') !== null,
-                'yass_ck' => $request->input('yass_ck') !== null,
 
                 ]);
             \DB::table('form_users')
