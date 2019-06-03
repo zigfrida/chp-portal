@@ -65,6 +65,7 @@ class FormUserController extends Controller
     {
         $request->validate([
             'clientType' => 'bail|required',
+            'req_brokerage' => 'bail|required',
         ]);
         if ($request->clientType == 'individual') { // user selected Individual
             $request->validate([
@@ -115,6 +116,7 @@ class FormUserController extends Controller
                         'ind_ck4' => $request->input('ind_ck4') !== null,
                         'ind_ck5' => $request->input('ind_ck5') !== null,
                         'ind_ck6' => $request->input('ind_ck6') !== null,
+                        'req_brokerage' => $request->input('req_brokerage') !== null,
                     ]);
         } elseif ($request->clientType == 'business') {
             \DB::table('form_users')
@@ -126,7 +128,6 @@ class FormUserController extends Controller
                 'street' => $request->street,
                 'postal_code' => $request->postal_code,
                 'country' => $request->country,
-                'sin' => $request->sin,
                 'phone' => $request->phone,
                 'business_number' => $request->business_number,
                 'signatory_first_name' => $request->signatory_first_name,
@@ -143,6 +144,7 @@ class FormUserController extends Controller
                 'bus_ck8' => $request->input('bus_ck8') !== null,
                 'bus_ck9' => $request->input('bus_ck9') !== null,
                 'bus_ck10' => $request->input('bus_ck10') !== null,
+                'req_brokerage' => $request->input('req_brokerage') !== null,
                 ]);
         }
         // store the INITIALS!
