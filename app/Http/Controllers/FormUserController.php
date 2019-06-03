@@ -439,6 +439,7 @@ class FormUserController extends Controller
                 'country' => $request->country,
                 'phone' => $request->phone,
                 'phone_mobile' => $request->phone_mobile,
+                'email' => $request->email,
         ]);
 
         \DB::table('users')

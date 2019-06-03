@@ -135,10 +135,6 @@ Route::get('/{id}/edit_profile', function ($id) {
                 ->where('id', $id)
                 ->get();
 
-    $pass = DB::table('users')
-                ->where('id', $id)
-                ->get();
-
     return view('edit_profile', compact('user', 'province', 'country','name'));
 })->middleware('auth');
 

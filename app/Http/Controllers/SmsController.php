@@ -51,6 +51,7 @@ class SmsController extends Controller
                 'To' => $request->phone,
                 'From' => '+16042108680' //we get this number from twilio
             ]]);
+
         }
         catch (Exception $e){
             echo "Error: " . $e->getMessage();

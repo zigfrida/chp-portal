@@ -57,6 +57,7 @@ class UserController extends Controller
         form_user::create([
             'user_id' => $user['id'],
             'subscriber_name' => $user['name'],
+            'email' => $user['email'],
         ]);
 
         PISummary::create([
