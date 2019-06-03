@@ -428,6 +428,8 @@ class FormUserController extends Controller
         $phone = $request->input('phone');
         $phone_mobile = $request->input('phone_mobile');
 
+        $email = $request->input('email');
+
         //This innformation will always be updated, dosen't matter if it is an admin or not. However, redirect path changes if changes were made by an admin, and the name of the client was also part of the change (affect path).
         \DB::table('form_users')
             ->where('user_id', $id)
