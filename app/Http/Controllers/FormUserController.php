@@ -493,7 +493,7 @@ class FormUserController extends Controller
                         'subscriber_name' => $request->input('new_subscriber_name'),
                 ]);
 
-                $newPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&method=updateUserName';
+                $newPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$new_subscriber_name.'&method=updateUserName';
 
             //return redirect('/'.$id.'/edit_profile');
             } elseif ($old_name[0]->name == $current_name[0]->subscriber_name) {
