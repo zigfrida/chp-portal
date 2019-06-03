@@ -73,7 +73,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="button" id="SendCodeSet" class="btn btn-primary">
-                                    Set Password
+                                    LolSet Password
                                     {{-- {{ __('Reset Password') }} --}}
                                 </button>
                             </div>
