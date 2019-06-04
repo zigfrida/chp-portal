@@ -49,6 +49,9 @@
                             </div>
                         </div>
 
+                        <!--Email in the url, new client, request phone-->
+                        @if(isset($_GET['email']) == 1)
+
                         <div class="form-group row">
                             <label for="mobile_phone" class="col-md-4 col-form-label text-md-right">{{ __('Mobile Phone') }}</label>
 
@@ -63,6 +66,8 @@
                             </div>
                         </div>
 
+                        @endif
+
                         {{-- <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -70,10 +75,11 @@
                                 </button>
                             </div>
                         </div> --}}
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="button" id="SendCodeSet" class="btn btn-primary">
-                                    LolSet Password
+                                    Set Password
                                     {{-- {{ __('Reset Password') }} --}}
                                 </button>
                             </div>

@@ -19,12 +19,19 @@ $('#SendCodeSet').click(function (event) {
     var new_password = document.getElementById("password").value;
     var confirm_password = document.getElementById("password-confirm").value;
 
+    var needs_phone = false;
 
-    var url = "/password/set/sendCode";
+    var phone_mobile = document.getElementById("phone_mobile");
+
+    if (phone_mobile != null){
+        phone_mobile = phone_mobile.value;
+    }
 
     if (new_password != confirm_password || new_password == "" || confirm_password == "") {
         alert("Passwords must be the same.");
         return false;
+    } else if (phone_mobile == "") {
+        alert("You must enter a phone number for SMS verification.");
     } else {
         event.preventDefault();
         $.ajax({

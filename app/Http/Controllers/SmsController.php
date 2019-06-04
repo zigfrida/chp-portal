@@ -95,20 +95,29 @@ class SmsController extends Controller
      * Function for users setting their password for the first time, when they receive an account
      */
     public function setStore(Request $request){
-        $phone = $request->input('phone_mobile');
         $email = $request->input('email');
-
         $GetId = \DB::table('users')
             ->where('email', $email)
             ->get();
         
         $id = $GetId[0]->id;
+        $phone = "";
 
-        \DB::table('form_users')
-            ->where('user_id', $id)
-            ->update([
-                'phone_mobile' => $phone,
-            ]);
+        //Trying to get phone number from table
+        $emailDB = DB::table('form_users')
+                ->where('user_id', $id)
+                ->get();
+
+        $phone = $emailDB[0]->phone_mobile;
+
+        if ($phone == null){
+            $phone = $request->input('phone_mobile');
+            \DB::table('form_users')
+                ->where('user_id', $id)
+                ->update([
+                    'phone_mobile' => $phone,
+                ]);
+        }
 
         $request['user_id'] = $id;
         $request['phone'] = $phone;
