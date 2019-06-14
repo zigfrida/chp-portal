@@ -97,6 +97,7 @@ body {
 
 #oppt{
     color: #cdb723;
+    text-shadow: 1px 1px 3px black;
 }
 
 #learn_more {
@@ -232,12 +233,13 @@ body {
     padding-top: 120px; 
     font-size: 290%;
     color: #f1f1f1;
+    text-shadow: 1px 1px 3px black;
 }
 
 #quote-legend{
     font-family: 'Neuton',
     serif;
-    font-size: 130%;
+    font-size: 150%;
     color: #cdb723;
 }
 
@@ -339,7 +341,7 @@ body {
     text-align: left;
     outline: none;
     font-size: 19px;
-    padding-left: 30px; 
+    padding-left: 25px; 
     border-top: 1px solid #cdb723;
     
 }
@@ -426,7 +428,7 @@ body {
 }
 
 #contact-us-column1 button:hover {
-    border: 3px solid transparent;
+    border: 1.5px solid transparent;
     background-color: white;
     color: darkgray;
 }
@@ -604,6 +606,62 @@ textarea{
     margin: 0 auto;
 }
 
+@media screen and (max-width: 500px) {
+    #nav-logo {
+        left: 13px;
+        top: 13px;
+        width: 190px;
+    }
+
+    #icon {
+        margin-right: 130px;
+    }
+
+    #home {
+        padding-top: 150px;
+        background-position-y: -800px;
+    }
+
+    #about{
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .collapsible {
+        width: 80%;
+    }
+
+    #spec-lend {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .contact-col {
+        width: 370px;
+        padding: 0px 30px 20px 0px;
+    }
+
+    #footer-column1{
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    input {
+        width: 100%;
+        border: 1.5px solid #f1f1f1;
+        background-color: #c1ab1b;
+        border-radius: 3.5px;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+
+    #contact-us-container h1 {
+        margin-left: 0px;
+        margin-right: 115px;
+    }
+
+}
+
 @media screen and (max-width: 730px){
     .contain{
         width: 500px;
@@ -639,6 +697,7 @@ textarea{
 
 
 }
+
 
 @media screen and (max-width: 950px){
     #contact-us-container {
