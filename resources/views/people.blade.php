@@ -48,7 +48,17 @@
 				<a id="nav-logo" href="/"><img alt="chp-logo" src="/images/cypresshills-black-yellow.png"></a>
 				<a id="icon" onclick="open_nav()"><i class="fa fa-bars"></i></a>
 				<div class="topnav" id="myTopnav">
-					<a id="log-in" href="/login">Log In</a>
+					@if (auth()->user())
+						@if (auth()->user()->userType() == 'admin')
+							<a class="no-scroll" id="log-in" href="{{ url('/admin') }}" class="button">Admin Portal</a>
+						@elseif (auth()->user()->userType() == 'standard')
+							<a class="no-scroll" id="log-in" href="{{ url('/' . auth()->user()->id . '/portfolio') }}" class="button">My Portolio</a>
+						@elseif (auth()->user()->userType()== 'ghost')
+							<a class="no-scroll" id="log-in" href="https://google.com" class="button">Exclusive Portal</a>
+						@endif
+					@else
+						<a class="no-scroll" id="log-in" href="{{ url('/login') }}">Login</a>
+					@endif
 					<a href="/#contact-us">Contact Us</a>
 					<a href="/#spec-lend">Specialty Lending</a>
 					<a href="/#originate">Originate</a>
@@ -103,7 +113,7 @@
 					<div class="card-content">
 					<div class="content">
 						<h4>Dean Linden</h4>
-						<p>Managing Partner</p>
+						<p>Managing Partner & Co-Founder</p>
 						<span class="button is-warning modal-button" data-target="modal-card2">read more</span>
 						<span style="float: right;">
 							<a href="https://ca.linkedin.com/in/dean-linden-89934233">
@@ -171,7 +181,7 @@
 						<div class="card-content">
 						<div class="content">
 							<h4>Anthony Wong</h4>
-							<p>Corporate Affairs</p>
+							<p>VP Operations & Corporate Affairs</p>
 							<span class="button is-warning modal-button" data-target="modal-card5">read more</span>
 						</div>
 						</div>

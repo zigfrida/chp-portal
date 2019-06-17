@@ -35,18 +35,29 @@
 
     <div id="nav-container">
         <a id="nav-logo" class="scroll" href="#home"><img alt="chp-logo" src="/images/cypresshills-black-yellow.png"></a>
-        {{-- <nav id="nav"> --}}
-            <a id="icon" onclick="open_nav()"><i class="fa fa-bars"></i></a>
-            <div class="topnav" id="myTopnav">
-                <a class="no-scroll" id="log-in" href="/login">Log In</a>
-                <a class="scroll" href="#contact-us">Contact Us</a>
-                <a class="scroll" href="#spec-lend">Specialty Lending</a>
-                <a class="scroll" href="#originate">Originate</a>
-                <a class="no-scroll" href="/people">People</a>
-                <a class="scroll" href="#about">About</a>
-                <a class="scroll" href="#home">Home</a>
-            </div>
-        {{-- </nav> --}}
+        <a id="icon" onclick="open_nav()"><i class="fa fa-bars"></i></a>
+        <div class="topnav" id="myTopnav">
+            @if (auth()->user())
+                @if (auth()->user()->userType() == 'admin')
+                    <a class="no-scroll" id="log-in" href="{{ url('/admin') }}" class="button">Admin Portal</a>
+                @elseif (auth()->user()->userType() == 'standard')
+                    <a class="no-scroll" id="log-in" href="{{ url('/' . auth()->user()->id . '/portfolio') }}" class="button">My Portolio</a>
+                @elseif (auth()->user()->userType()== 'ghost')
+                    <a class="no-scroll" id="log-in" href="https://google.com" class="button">Exclusive Portal</a>
+                @endif
+            @else
+                <a class="no-scroll" id="log-in" href="{{ url('/login') }}">Login</a>
+            @endif
+
+            {{-- <a class="no-scroll" id="log-in" href="/login">Log In</a> --}}
+
+            <a class="scroll" href="#contact-us">Contact Us</a>
+            <a class="scroll" href="#spec-lend">Specialty Lending</a>
+            <a class="scroll" href="#originate">Originate</a>
+            <a class="no-scroll" href="/people">People</a>
+            <a class="scroll" href="#about">About</a>
+            <a class="scroll" href="#home">Home</a>
+        </div>
     </div>
 
 </head>
@@ -59,24 +70,6 @@
             <p id="home-icons"><span>Originate</span>&#xB7;<span>Innovate</span>&#xB7;<span>Accelerate</span></p>
             <a class="scroll" href="#about" id="learn_more"><b>LEARN MORE</b></a>
         </div>
-
-        {{-- <div id="icon-section">
-            <div id="spacing"><span></span></div>
-            <div class="icon-container">
-                <img class="icon-image" alt="Originate" src="/images/originate.svg">
-                <p class="icon-label">Originate</p>
-            </div>
-            <div class="border-btw"></div>
-            <div class="icon-container">
-                <img class="icon-image" alt="Innovate" src="/images/innovate.svg">
-                <p class="icon-label">Innovate</p>
-            </div>
-            <div class="border-btw"></div>
-            <div class="icon-container">
-                <img class="icon-image" alt="Accelerate" src="/images/acceleration.svg">
-                <p class="icon-label">Accelerate</p>     
-            </div>
-        </div> --}}
 
         <div id="about">
             <h1>About</h1>
@@ -251,9 +244,6 @@
             <div class="clearfix"></div>
         </div>
     </div>
-
-
-    {{-- <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> --}}
 </footer>
 
 <script type="text/javascript" src="{{ URL::asset('js/menu.js') }}"></script>
