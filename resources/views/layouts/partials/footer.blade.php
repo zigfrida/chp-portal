@@ -16,7 +16,7 @@
     <span class="icon is-small" style="display: inline-block;">
         <i class="far fa-copyright"></i>
     </span>
-    Cypress Hill Partners <br>
+    Cypress Hills Partners <br>
     <a href="#" class="ml">with ❤️</a>
 </div>
                     

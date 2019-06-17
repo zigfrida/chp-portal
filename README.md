@@ -1,4 +1,4 @@
-# Cypress Hill Partners
+# Cypress Hills Partners
 ## Project Website
 
 ### Getting started
