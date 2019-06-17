@@ -752,6 +752,19 @@ textarea{
     filter: grayscale(100%);
 }
 
+.container-advisors{
+    text-align: center;
+}
+
+.title-advisors{
+    font-size: 30px;
+    color: #cdb723;
+    font-family: 'Maitree',
+    serif;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-bottom: 1px solid #cdb723;
+}
 
 
 
