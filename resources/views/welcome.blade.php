@@ -145,22 +145,14 @@
                         <form id="form-832043679925255988">
                             <p id="text-required"><span class="asterx">*</span>Indicates required field</p>
                             Name<span class="asterx">*</span><br>
-                            <input type="text" placeholder="First Name" style="margin-right: 5px;"><input type="text" placeholder="Last Name"><br>
+                            <input type="text" placeholder="First Name" name="first_name" style="margin-right: 5px;"><input type="text" placeholder="Last Name" name="last_name"><br>
                             Email<span class="asterx">*</span><br>
-                            <input type="text" placeholder="Email" style="width:100%"><br>
+                            <input type="text" placeholder="Email" name="email" style="width:100%"><br>
                             Comment<span class="asterx">*</span><br>
-                            <textarea type="text" placeholder="Leave your comment here"></textarea><br>
+                            <textarea type="text" placeholder="Leave your comment here" name="comment"></textarea><br>
 
                             <div style="text-align:left; margin-top:10px; margin-bottom:10px;">
-                                <input type="hidden" name="form_version" value="2" />
-                                <input type="hidden" name="wsite_approved" id="wsite-approved" value="approved" />
-                                <input type="hidden" name="ucfid" value="832043679925255988" />
-                                <input type="hidden" name="recaptcha_token"/>
                                 <button type="submit"><b>Submit</b></button>
-                                {{-- <input type="submit" style="position:absolute;top:0;left:-9999px;width:1px;height:1px" /> --}}
-                                {{-- <a>
-                                    <span>Submit</span>
-                                </a> --}}
                             </div>
                         </form>
                     </div>
@@ -189,14 +181,15 @@
 <footer>
     <div class="footer">
         <div class="contain" id="footer-row">
-            <div class="col" id="footer-column1">
+            <!--SUBSCRIBE SECTION REMOVED-->
+            {{-- <div class="col" id="footer-column1">
                 <h1>Subscribe</h1>
                 <form>
                     <p>Subscribe to receive exclusive features and newsletters.</p>
                     <input type="email" placeholder="Email" style="width:100%"><br>
                     <button type="submit"><b>Submit</b></button>
                 </form>
-            </div>
+            </div> --}}
 
             <div class="col" id="footer-column2">
                 <div>
@@ -215,6 +208,9 @@
                         </ul>
                     </div>
                 </div>
+            </div>
+
+            <div class="col" id="footer-column1">
                 <div id="rede-icons">
                     <ul>
                         <li>
