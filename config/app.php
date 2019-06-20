@@ -173,6 +173,11 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        /**
+         * Google Drive provider
+         */
+        App\Providers\GoogleDriveServiceProvider::class,
     ],
 
     /*
