@@ -291,7 +291,7 @@ class FormUserController extends Controller
             ->where('user_id', $id)
             ->update(['form_level' => 2]);
 
-        $newPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
+        $newPath = 'https://script.google.com/macros/s/AKfycbx7Of-_WXvFyY3XvB3pTVQvf3U2Mn3tMzkhKfbf1MtkRQPnciZc/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
 
         /**Saving subagreement into Google Drive */
         $user = \DB::table('form_users')
@@ -423,8 +423,7 @@ class FormUserController extends Controller
             ->update(['access_level' => 2]);
 
         $redirectPath = '/'.$id.'/'.'portfolio';
-        $testPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
-
+        $testPath = 'https://script.google.com/macros/s/AKfycbx7Of-_WXvFyY3XvB3pTVQvf3U2Mn3tMzkhKfbf1MtkRQPnciZc/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
         return redirect($testPath);
     }
 
@@ -516,7 +515,9 @@ class FormUserController extends Controller
                         'subscriber_name' => $request->input('new_subscriber_name'),
                 ]);
 
-                $newPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$new_subscriber_name.'&method=updateUserName';
+                $newPath = 'https://script.google.com/macros/s/AKfycbx7Of-_WXvFyY3XvB3pTVQvf3U2Mn3tMzkhKfbf1MtkRQPnciZc/dev?user_id='.$id.'&name='.$new_subscriber_name.'&method=updateUserName';
+
+        
 
             //return redirect('/'.$id.'/edit_profile');
             } elseif ($old_name[0]->name == $current_name[0]->subscriber_name) {
@@ -534,11 +535,11 @@ class FormUserController extends Controller
                         'subscriber_name' => $subscriber_name,
                 ]);
 
-                $newPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&method=updateUserName';
+                $newPath = 'https://script.google.com/macros/s/AKfycbx7Of-_WXvFyY3XvB3pTVQvf3U2Mn3tMzkhKfbf1MtkRQPnciZc/dev?user_id='.$id.'&name='.$subscriber_name.'&method=updateUserName';
             //return redirect('/'.$id.'/edit_profile');
             } else {
                 //means everything else was updated except name
-                $newPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&method=updateUserNameOnlyInvestor';
+                $newPath = 'https://script.google.com/macros/s/AKfycbx7Of-_WXvFyY3XvB3pTVQvf3U2Mn3tMzkhKfbf1MtkRQPnciZc/dev?user_id='.$id.'&method=updateUserNameOnlyInvestor';
             }
 
             return redirect($newPath);
