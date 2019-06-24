@@ -51,15 +51,7 @@ return [
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
-            'prefix_indexes' => true,
             'strict' => true,
-	    'engine' => null,
-	    'options' => array(
-       		 PDO::MYSQL_ATTR_SSL_KEY => '/var/lib/mysql/client-key.pem',
-        	 PDO::MYSQL_ATTR_SSL_CERT => '/var/lib/mysql/client-cert.pem',
-		 PDO::MYSQL_ATTR_SSL_CA => '/var/lib/mysql/ca.pem',
-		 PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
-	 ),
         ],
 
         'pgsql' => [

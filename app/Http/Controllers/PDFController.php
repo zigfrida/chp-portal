@@ -30,6 +30,12 @@ class PDFController extends Controller
             $pdf->setPaper('A4', 'Portrait');
             $pdf->render();
 
+            //Storing pdf subagreement on Google Drive
+            // $fileName = $user[0]->subscriber_name . '_Subscription_Agreement';
+            // $fileSave = $pdf->output();
+
+            // \Storage::cloud()->put($fileName, $fileSave);
+
             return $pdf->stream();
         }
     }

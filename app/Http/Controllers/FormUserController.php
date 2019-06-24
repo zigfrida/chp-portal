@@ -8,6 +8,9 @@ use Redirect;
 use Illuminate\Http\Request;
 use Alert;
 
+use Dompdf\Dompdf;
+use Dompdf\Options;
+
 class FormUserController extends Controller
 {
     /**
@@ -289,6 +292,24 @@ class FormUserController extends Controller
             ->update(['form_level' => 2]);
 
         $newPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
+
+        /**Saving subagreement into Google Drive */
+        $user = \DB::table('form_users')
+            ->join('users', 'form_users.user_id', '=', 'users.id')
+            ->join('p_i_summaries', 'form_users.user_id', '=', 'p_i_summaries.user_id')
+            ->join('signatures', 'form_users.user_id', '=', 'signatures.user_id')
+            ->where('form_users.user_id', $id)->get();
+
+        $htmlstring = view('pdf.subscription-filled', compact('user'))->render();
+        $options = new Options();
+        $options->set('defaultFont', 'Arial');
+        $pdf = new Dompdf($options);
+        $pdf->loadHtml($htmlstring);
+        $pdf->setPaper('A4', 'Portrait');
+        $pdf->render();
+        $fileName = $user[0]->subscriber_name . '_Subscription_Agreement';
+        $fileSave = $pdf->output();
+        \Storage::cloud()->put($fileName, $fileSave);
 
         return redirect($newPath);
     }

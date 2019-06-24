@@ -17,6 +17,7 @@
         "laravel/framework": "5.7.*",
         "laravel/tinker": "^1.0",
         "league/flysystem-sftp": "~1.0",
+        "nao-pon/flysystem-google-drive": "~1.1",
         "twilio/sdk": "^5.32",
         "uxweb/sweet-alert": "^2.0",
         "wildbit/swiftmailer-postmark": "^3.0"
