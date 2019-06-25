@@ -142,7 +142,7 @@
             @endif
             
             <div class="shrinker">
-                <span class="has-text-weight-bold">DATED</span> this <u>{{ $user[0]->signed_day1 }}</u> day of <u>{{ $user[0]->signed_month1 }}</u>, {{ $user[0]->signed_year1 }}.
+                <span class="has-text-weight-bold">DATED</span> <u>{{ $user[0]->signed_year1 }}</u>.
                 <br><br><br>
                 <div class="row-form">
                     <div class="column"> 
@@ -157,7 +157,7 @@
                         </div>
                         <br>
                         <div class="column-row">
-                            <div class="underline">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="50" width="87"></div>
+                            <div class="underline">&nbsp;&nbsp;<img src="{{ $user[0]->sub_signature }}" alt="Form signature" height="50" width="87"></div>
                             <div><i class="signinput">Authorized Signature</i></div>
                         </div>
                         <br>
@@ -254,13 +254,13 @@
 {{-- new page --}}
 <div class="page-break"></div>
 <div class="subscription-date">
-    <span>This subscription is accepted by the Issuer this</span> <u>{{$user[0]->signed_day1}}</u> day of <u>{{$user[0]->signed_month1}}</u>, {{ $user[0]->signed_year1 }}.
+    <span>This subscription is accepted by the Issuer on</span> <u>{{ $user[0]->signed_year1 }}.
 
     <p >CHP Master I Limited Partnership</p>
 
     <div class="signature">
         <div class="signature-image">&nbsp;&nbsp;
-                <img src="{{$user[0]->form_signature}}" alt="Form signature" height="400" width="400"> 
+                <img src="{{$user[0]->sub_signature}}" alt="Form signature" height="400" width="400"> 
         </div>
         <div><i class="">Authorized Signature</i></div>
     </div>
@@ -825,191 +825,194 @@
                 <br>
                 In connection with the execution of the Agreement to which this appendix is attached, the Subscriber represents, warrants and certifies to the Issuer that <span class="has-text-weight-bold">(please initial the applicable categories)</span> the Subscriber is:
                 <br><br>
-                
-                <span class="has-text-weight-bold">(Categories Applicable to Individuals Only)</span>
-                <br>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>&nbsp;</th>
-                            <th>&nbsp;</th>
-                            <th>&nbsp;</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>a)</td>
-                            <td>
-                                @if($user[0]->ind_ck1 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
-                                @endif
-                            </td>
-                            <td>an individual whose net income before taxes exceeded $200,000 in each of the two most recentcalendar years or whose net income before taxes combined with that of a spouse exceeded $300,000 in each of the two most recent calendar years and who, in either case, reasonably expects to exceed that net income level in the current calendar year. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
-                        </tr>
-                        
-                        <tr>
-                            <td>b)</td>
-                            <td>
-                                @if($user[0]->ind_ck1 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
-                                @endif
-                            </td>
-                            <td>an individual, who, either alone or with a spouse, has net assets of at least $5,000,000. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
-                        </tr>
 
-                        <tr>
-                            <td>c)</td>
-                            <td>
-                                @if ($user[0]->ind_ck3 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
-                                @endif
-                            </td>
-                            <td>an individual who, either alone or with a spouse, beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $1,000,000. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
-                        </tr>
+                @if($user[0]->clientType === 'individual')
+                    <span class="has-text-weight-bold">(Categories Applicable to Individuals Only)</span>
+                    <br>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>a)</td>
+                                <td>
+                                    @if($user[0]->ind_ck1 == 1)
+                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
+                                    @endif
+                                </td>
+                                <td>an individual whose net income before taxes exceeded $200,000 in each of the two most recentcalendar years or whose net income before taxes combined with that of a spouse exceeded $300,000 in each of the two most recent calendar years and who, in either case, reasonably expects to exceed that net income level in the current calendar year. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>b)</td>
+                                <td>
+                                    @if($user[0]->ind_ck1 == 1)
+                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
+                                    @endif
+                                </td>
+                                <td>an individual, who, either alone or with a spouse, has net assets of at least $5,000,000. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
+                            </tr>
 
-                        <tr>
-                            <td>d)</td>
-                            <td>
-                                @if($user[0]->ind_ck4 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
-                                @endif
-                            </td>
-                            <td>an individual who beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $5,000,000.</td>
-                        </tr>
+                            <tr>
+                                <td>c)</td>
+                                <td>
+                                    @if ($user[0]->ind_ck3 == 1)
+                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
+                                    @endif
+                                </td>
+                                <td>an individual who, either alone or with a spouse, beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $1,000,000. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
+                            </tr>
 
-                        <tr>
-                            <td>e)</td>
-                            <td>
-                                @if($user[0]->ind_ck5 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
-                                @endif
-                            </td>
-                            <td>an individual registered under the securities legislation of a jurisdiction of Canada, as a representative of a person registered under the securities legislation of a jurisdiction of Canada as an adviser or dealer.</td>
-                        </tr>
+                            <tr>
+                                <td>d)</td>
+                                <td>
+                                    @if($user[0]->ind_ck4 == 1)
+                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
+                                    @endif
+                                </td>
+                                <td>an individual who beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $5,000,000.</td>
+                            </tr>
 
-                        <tr>
-                            <td>f)</td>
-                            <td>
-                                @if($user[0]->ind_ck6 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
-                                @endif
-                            </td>
-                            <td>an individual formerly registered under the securities legislation of a jurisdiction of Canada, other than an individual formerly registered solely as a representative of a limited market dealer under one or both of the Securities Act (Ontario) or the Securities Act (Newfoundland and Labrador),</td>
-                        </tr>
-                    </tbody>
-                </table>
+                            <tr>
+                                <td>e)</td>
+                                <td>
+                                    @if($user[0]->ind_ck5 == 1)
+                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
+                                    @endif
+                                </td>
+                                <td>an individual registered under the securities legislation of a jurisdiction of Canada, as a representative of a person registered under the securities legislation of a jurisdiction of Canada as an adviser or dealer.</td>
+                            </tr>
 
-                <span class="has-text-weight-bold">(Categories Applicable to Individuals and Non-Individuals)</span>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>&nbsp;</th>
-                            <th>&nbsp;</th>
-                            <th>&nbsp;</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>a)</td>
-                            <td>
-                                @if($user[0]->bus_ck1 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
-                                @endif
-                            </td>
-                            <td>except in Ontario, a Person registered under the securities legislation of a jurisdiction of Canada as an adviser or dealer.</td>
-                        </tr>
-                        
-                        <tr>
-                            <td>b)</td>
-                            <td>
-                                @if($user[0]->bus_ck2 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
-                                @endif
-                            </td>                            
-                            <td>except in Ontario, a pension fund that is regulated by either the Office of the Superintendent of Financial Institutions (Canada) or a pension commission or similar regulatory authority of a jurisdiction of Canada.</td>
-                        </tr>
+                            <tr>
+                                <td>f)</td>
+                                <td>
+                                    @if($user[0]->ind_ck6 == 1)
+                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
+                                    @endif
+                                </td>
+                                <td>an individual formerly registered under the securities legislation of a jurisdiction of Canada, other than an individual formerly registered solely as a representative of a limited market dealer under one or both of the Securities Act (Ontario) or the Securities Act (Newfoundland and Labrador),</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-                        <tr>
-                            <td>c)</td>
-                            <td>                            
-                                @if($user[0]->bus_ck3 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
-                                @endif
-                            </td>
-                            <td>a Person, other than an individual or investment fund, that has net assets of at least $5,000,000 as shown on its most recently prepared financial statements.</td>
-                        </tr>
+                @elseif($user[0]->clientType === 'business')
+                    <span class="has-text-weight-bold">(Categories Applicable to Individuals and Non-Individuals)</span>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>a)</td>
+                                <td>
+                                    @if($user[0]->bus_ck1 == 1)
+                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
+                                    @endif
+                                </td>
+                                <td>except in Ontario, a Person registered under the securities legislation of a jurisdiction of Canada as an adviser or dealer.</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>b)</td>
+                                <td>
+                                    @if($user[0]->bus_ck2 == 1)
+                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
+                                    @endif
+                                </td>                            
+                                <td>except in Ontario, a pension fund that is regulated by either the Office of the Superintendent of Financial Institutions (Canada) or a pension commission or similar regulatory authority of a jurisdiction of Canada.</td>
+                            </tr>
 
-                        <tr>
-                            <td>d)</td>
-                            <td>
-                                @if($user[0]->bus_ck4 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
-                                @endif
-                            </td>
-                            <td>an investment fund that distributes or has distributed securities under a prospectus in a jurisdiction of Canada for which the regulator or, in Québec, the securities regulatory authority, has issued a receipt.</td>
-                        </tr>
+                            <tr>
+                                <td>c)</td>
+                                <td>                            
+                                    @if($user[0]->bus_ck3 == 1)
+                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
+                                    @endif
+                                </td>
+                                <td>a Person, other than an individual or investment fund, that has net assets of at least $5,000,000 as shown on its most recently prepared financial statements.</td>
+                            </tr>
 
-                        <tr>
-                            <td>e)</td>
-                            <td>
-                                @if($user[0]->bus_ck5 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
-                                @endif
-                            </td>
-                            <td>a person acting on behalf of a fully managed account managed by that person if that person is registered or authorized to carry on business as an adviser or the equivalent under the securities legislation of a jurisdiction of Canada or a foreign jurisdiction.</td>
-                        </tr>
+                            <tr>
+                                <td>d)</td>
+                                <td>
+                                    @if($user[0]->bus_ck4 == 1)
+                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
+                                    @endif
+                                </td>
+                                <td>an investment fund that distributes or has distributed securities under a prospectus in a jurisdiction of Canada for which the regulator or, in Québec, the securities regulatory authority, has issued a receipt.</td>
+                            </tr>
 
-                        <tr>
-                            <td>f)</td>
-                            <td>
-                                @if($user[0]->bus_ck6 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
-                                @endif
-                            </td>
-                            <td>a registered charity under the Income Tax Act (Canada) that, in regard to the trade, has obtained advice from an eligibility adviser or an adviser registered under the securities legislation of the jurisdiction of the registered charity to provide advice on the securities being traded.</td>
-                        </tr>
+                            <tr>
+                                <td>e)</td>
+                                <td>
+                                    @if($user[0]->bus_ck5 == 1)
+                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
+                                    @endif
+                                </td>
+                                <td>a person acting on behalf of a fully managed account managed by that person if that person is registered or authorized to carry on business as an adviser or the equivalent under the securities legislation of a jurisdiction of Canada or a foreign jurisdiction.</td>
+                            </tr>
 
-                        <tr>
-                            <td>g)</td>
-                            <td>
-                                @if($user[0]->bus_ck7 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
-                                @endif
-                            </td>
-                            <td>a person in respect of which all of the owners of interests, direct, indirect, or beneficial, except the voting securities required by law to be owned by directors, are persons that are accredited investors.</td>
-                        </tr>
+                            <tr>
+                                <td>f)</td>
+                                <td>
+                                    @if($user[0]->bus_ck6 == 1)
+                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
+                                    @endif
+                                </td>
+                                <td>a registered charity under the Income Tax Act (Canada) that, in regard to the trade, has obtained advice from an eligibility adviser or an adviser registered under the securities legislation of the jurisdiction of the registered charity to provide advice on the securities being traded.</td>
+                            </tr>
 
-                        <tr>
-                            <td>h)</td>
-                            <td>
-                                @if($user[0]->bus_ck8 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
-                                @endif
-                            </td>
-                            <td>an investment fund that is advised by a person registered as an adviser or a person that is exempt from registration as an adviser.</td>
-                        </tr>
+                            <tr>
+                                <td>g)</td>
+                                <td>
+                                    @if($user[0]->bus_ck7 == 1)
+                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
+                                    @endif
+                                </td>
+                                <td>a person in respect of which all of the owners of interests, direct, indirect, or beneficial, except the voting securities required by law to be owned by directors, are persons that are accredited investors.</td>
+                            </tr>
 
-                        <tr>
-                            <td>i)</td>
-                            <td>
-                                @if($user[0]->bus_ck9 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
-                                @endif
-                            </td>
-                            <td>a person that is recognized or designated by the securities regulatory authority or, except in Ontario and Québec, the regulator as an accredited investor.</td>
-                        </tr>
+                            <tr>
+                                <td>h)</td>
+                                <td>
+                                    @if($user[0]->bus_ck8 == 1)
+                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
+                                    @endif
+                                </td>
+                                <td>an investment fund that is advised by a person registered as an adviser or a person that is exempt from registration as an adviser.</td>
+                            </tr>
 
-                        <tr>
-                            <td>j)</td>
-                            <td>
-                                @if($user[0]->bus_ck10 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
-                                @endif
-                            </td>
-                            <td>a trust established by an accredited investor for the benefit of the accredited investor’s family members of which a majority of the trustees are accredited investors and all of the beneficiaries are the accredited investor’s spouse, a former spouse of the accredited investor or a parent, grandparent, brother, sister, child or grandchild of that accredited investor, of that accredited investor’s spouse or of that accredited investor’s former spouse.</td>
-                        </tr>
-                    </tbody>
-                </table>
+                            <tr>
+                                <td>i)</td>
+                                <td>
+                                    @if($user[0]->bus_ck9 == 1)
+                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
+                                    @endif
+                                </td>
+                                <td>a person that is recognized or designated by the securities regulatory authority or, except in Ontario and Québec, the regulator as an accredited investor.</td>
+                            </tr>
+
+                            <tr>
+                                <td>j)</td>
+                                <td>
+                                    @if($user[0]->bus_ck10 == 1)
+                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="150"></div>
+                                    @endif
+                                </td>
+                                <td>a trust established by an accredited investor for the benefit of the accredited investor’s family members of which a majority of the trustees are accredited investors and all of the beneficiaries are the accredited investor’s spouse, a former spouse of the accredited investor or a parent, grandparent, brother, sister, child or grandchild of that accredited investor, of that accredited investor’s spouse or of that accredited investor’s former spouse.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                @endif
 <br>
             <p class="is-uppercase">Definitions</p>
             For the purposes of this certificate, the following definitions apply: <br>
@@ -1034,13 +1037,11 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
 <br>
 <br>
 
-    <span class="is-uppercase has-text-weight-bold">IN WITNESS WHEREOF</span>, the undersigned has executed this certificate as of the 
-        <u>{{$user[0]->signed_month1}}</u>
-                    the day of <u>{{$user[0]->signed_day1}}</u>,  {{ $user[0]->signed_year1 }} 
+    <span class="is-uppercase has-text-weight-bold">IN WITNESS WHEREOF</span>, the undersigned has executed this certificate as of <u>{{ $user[0]->signed_year1 }}</u>
 </div>
 
 
-<span class="has-text-weight-bold">DATED</span> this <u>{{ $user[0]->signed_day1 }}</u> day of <u>{{ $user[0]->signed_month1 }}</u>, {{ $user[0]->signed_year1 }}.
+<span class="has-text-weight-bold">DATED</span> <u>{{ $user[0]->signed_year1 }}</u>.
 <br><br><br>
 @if($user[0]->clientType == 'business')
 <div class="row-form">
@@ -1048,18 +1049,20 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
         <b> If a Corporation, Partnership or Other Entity: </b> 
         <br><br>
             <div class="column-row">
-                <div class="underline">&nbsp;&nbsp;{{$user[0]->subscriber_name}} </div>
+                <br>
+                <div class="underline">&nbsp;&nbsp;{{ $user[0]->subscriber_name }} </div>
                 <div><i class="signinput">Name of Entity</i></div>
             </div>
             <br>
             <div class="column-row">
-                <div class="underline">&nbsp;&nbsp;{{$user[0]->clientType}} </div>
+                <div class="underline">&nbsp;&nbsp;{{ $user[0]->clientType }} </div>
                 <div><i class="signinput">Type of Entity</i></div>
             </div>
             <br><br>
             
             <div class="column-row">
-                <div class="underline">&nbsp;&nbsp;<img src="{{$user[0]->form_signature}}" alt="Form signature" height="60" width="90"> </div>
+                <br>
+                <div class="underline">&nbsp;&nbsp;<img src="{{ $user[0]->sub_signature }}" alt="Sub signature" height="60" width="90"> </div>
                 <div><i class="signinput">Signature of Person Signing</i></div>
             </div>
             <br>
@@ -1069,9 +1072,9 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
             <b>If an Individual </b>
                 <br><br>
               
-                 <div class="column-row">
-                   <div class="underline">&nbsp;&nbsp;<div>
-                  <div><i class="signinput">Signature</i></div>
+                <div class="column-row">
+                <div class="underline">&nbsp;&nbsp;<div>
+                <div><i class="signinput">Signature</i></div>
               </div>
       
               <br>
@@ -1089,6 +1092,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
             <b> If a Corporation, Partnership or Other Entity: </b> 
             <br><br>
             <div class="column-row">
+                <br>
                 <div class="underline">&nbsp;&nbsp;</div>
                 <div><i class="signinput">Name of Entity</i></div>
             </div>
@@ -1107,7 +1111,8 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
             <b>If an Individual </b>
             <br><br>
             <div class="column-row">
-                <div class="underline">&nbsp;&nbsp;<img src="{{$user[0]->form_signature}}" alt="Form signature" height="30" width="90"></div>
+                <br>
+                <div class="underline">&nbsp;&nbsp;<img src="{{$user[0]->sub_signature}}" alt="Sub signature" height="30" width="90"></div>
                 <div><i class="signinput">Signature</i></div>
             </div>
             <br>
@@ -1166,10 +1171,10 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                             <td><span class="has-text-weight-bold">Your initials</span></td>
                         </tr>
                         <tr>
-                            <td><span class="has-text-weight-bold">Risk of loss</span> - You could lose your entire investment of $321231132312 </td>
+                            <td><span class="has-text-weight-bold">Risk of loss</span> - You could lose your entire investment of {{ $user[0]->total_investment }} </td>
                             <td>
                                 @if($user[0]->ind_ck1 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="60"></div>
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="50" width="110"></div>
                                 @endif
                             </td>
 \                        </tr>
@@ -1177,7 +1182,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                             <td><span class="has-text-weight-bold">Liquidity risk</span> – You may not be able to sell your investment quickly – or at all.</td>
                             <td>
                                 @if($user[0]->ind_ck1 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="60"></div>
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="50" width="110"></div>
                                 @endif
                             </td>
                         </tr>   
@@ -1185,7 +1190,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                             <td><span class="has-text-weight-bold">Lack of information</span> – You may receive little or no information about your investment.</td>
                             <td>
                                 @if($user[0]->ind_ck1 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="60"></div>
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="50" width="110"></div>
                                 @endif
                             </td>
                        </tr>
@@ -1193,7 +1198,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                             <td><span class="has-text-weight-bold">Lack of advice</span> – You will not receive advice from the salesperson about whether this investment is suitable for you unless the salesperson is registered. The salesperson is the person who meets with, or provides information to, you about making this investment. To check whether the salesperson is registered, go to www.aretheyregistered.ca.</td>
                             <td>
                                 @if($user[0]->ind_ck1 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="20" width="60"></div>
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="50" width="110"></div>
                                 @endif
                             </td>
                         </tr>
@@ -1225,7 +1230,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                         <tr class="darkenrow">
                              <td>
                                   <div class="">
-                                    <span>4. Your name and signature</span>
+                                    <span class="has-text-weight-bold">4. Your name and signature</span>
                                  </div>
                              </td>
                              <td></td>
@@ -1237,10 +1242,10 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                         </tr>
                         <tr>
                               <td>
-                                   Signature: <img src="{{$user[0]->form_signature}}" alt="Form signature" height="50" width="80"> 
+                                   Signature: <img src="{{$user[0]->sub_signature}}" alt="Form signature" height="50" width="80"> 
                                </td>
                                <td>
-                                    Date: {{ now()->day }}, {{ now()->month }}, {{ now()->year }}
+                                    Date: {{ $user[0]->signed_year1 }}
                                 </td>
                         </tr>
             
@@ -1251,7 +1256,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
             <br>
 
             <div class="has-background-white-bis">
-                <p class="has-text-weight-bold">6. For more information about this investment</p>
+                <p class="has-text-weight-bold">For more information about this investment</p>
                 <br>
                 CHP Master I Limited Partnership <br>
                 409 - 1080 Mainland St., Vancouver, BC. V6B 2T4 Attention: Kelly Klatik <br>

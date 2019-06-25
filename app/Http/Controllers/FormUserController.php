@@ -7,6 +7,7 @@ use App\User;
 use Redirect;
 use Illuminate\Http\Request;
 use Alert;
+use Carbon\Carbon;
 
 use Dompdf\Dompdf;
 use Dompdf\Options;
@@ -66,6 +67,10 @@ class FormUserController extends Controller
 
     public function storeFormstack(Request $request, $id)
     {
+    
+
+
+
         $request->validate([
             'clientType' => 'bail|required',
             'req_brokerage' => 'bail|required',
@@ -112,7 +117,7 @@ class FormUserController extends Controller
                         'country' => $request->country,
                         'sin' => $request->sin,
                         'phone' => $request->phone,
-                        'total_investment' => $request->total_investment,
+                        'total_investment' => number_format($request->total_investment, 2, ".", ","),
                         'ind_ck1' => $request->input('ind_ck1') !== null,
                         'ind_ck2' => $request->input('ind_ck2') !== null,
                         'ind_ck3' => $request->input('ind_ck3') !== null,
@@ -137,7 +142,7 @@ class FormUserController extends Controller
                 'signatory_first_name' => $request->signatory_first_name,
                 'official_capacity_or_title_of_authorized_signatory' => $request->official_capacity_or_title_of_authorized_signatory,
                 'signatory_last_name' => $request->signatory_last_name,
-                'total_investment' => $request->total_investment,
+                'total_investment' => number_format($request->total_investment, 2, ".", ","),
                 'bus_ck1' => $request->input('bus_ck1') !== null,
                 'bus_ck2' => $request->input('bus_ck2') !== null,
                 'bus_ck3' => $request->input('bus_ck3') !== null,
@@ -291,7 +296,24 @@ class FormUserController extends Controller
             ->where('user_id', $id)
             ->update(['form_level' => 2]);
 
-        $newPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
+
+        /*
+            "Jun 25, 2019".
+            Pretend like signed_year1 does everything.
+        */
+        $today = Carbon::now();
+
+        $formatted_date = $today->toFormattedDateString();
+        
+        \DB::table('form_users')
+        ->where('user_id', $id)
+        ->update(
+            [
+                'signed_year1' => $formatted_date,
+            ]
+        );
+
+        $newPath = 'https://script.google.com/macros/s/AKfycbx7Of-_WXvFyY3XvB3pTVQvf3U2Mn3tMzkhKfbf1MtkRQPnciZc/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
 
         /**Saving subagreement into Google Drive */
         $user = \DB::table('form_users')
@@ -423,8 +445,7 @@ class FormUserController extends Controller
             ->update(['access_level' => 2]);
 
         $redirectPath = '/'.$id.'/'.'portfolio';
-        $testPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
-
+        $testPath = 'https://script.google.com/macros/s/AKfycbx7Of-_WXvFyY3XvB3pTVQvf3U2Mn3tMzkhKfbf1MtkRQPnciZc/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
         return redirect($testPath);
     }
 
@@ -516,7 +537,9 @@ class FormUserController extends Controller
                         'subscriber_name' => $request->input('new_subscriber_name'),
                 ]);
 
-                $newPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$new_subscriber_name.'&method=updateUserName';
+                $newPath = 'https://script.google.com/macros/s/AKfycbx7Of-_WXvFyY3XvB3pTVQvf3U2Mn3tMzkhKfbf1MtkRQPnciZc/dev?user_id='.$id.'&name='.$new_subscriber_name.'&method=updateUserName';
+
+        
 
             //return redirect('/'.$id.'/edit_profile');
             } elseif ($old_name[0]->name == $current_name[0]->subscriber_name) {
@@ -534,11 +557,11 @@ class FormUserController extends Controller
                         'subscriber_name' => $subscriber_name,
                 ]);
 
-                $newPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&name='.$subscriber_name.'&method=updateUserName';
+                $newPath = 'https://script.google.com/macros/s/AKfycbx7Of-_WXvFyY3XvB3pTVQvf3U2Mn3tMzkhKfbf1MtkRQPnciZc/dev?user_id='.$id.'&name='.$subscriber_name.'&method=updateUserName';
             //return redirect('/'.$id.'/edit_profile');
             } else {
                 //means everything else was updated except name
-                $newPath = 'https://script.google.com/macros/s/AKfycbz91qqX2Jx7wrYpzp3PBOgemBhcuYLmvYkOxryUZIg/dev?user_id='.$id.'&method=updateUserNameOnlyInvestor';
+                $newPath = 'https://script.google.com/macros/s/AKfycbx7Of-_WXvFyY3XvB3pTVQvf3U2Mn3tMzkhKfbf1MtkRQPnciZc/dev?user_id='.$id.'&method=updateUserNameOnlyInvestor';
             }
 
             return redirect($newPath);
