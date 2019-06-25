@@ -254,18 +254,20 @@
 {{-- new page --}}
 <div class="page-break"></div>
 <div class="subscription-date">
-    <span>This subscription is accepted by the Issuer on</span> <u>{{ $user[0]->signed_year1 }}.
+    <p>CHP Master I Limited Partnership</p>
+    <br>
+    <p>By its General Partner - Cypress Hills Finance Corp.:</p>
+    <span>This subscription is accepted by the Issuer on _______________________</span>
+    <br>
+    <div><i class="">Authorized Signature</i></div>
+</div>
 
-    <p >CHP Master I Limited Partnership</p>
 
-    <div class="signature">
-        <div class="signature-image">&nbsp;&nbsp;
-                <img src="{{$user[0]->sub_signature}}" alt="Form signature" height="400" width="400"> 
-        </div>
-        <div><i class="">Authorized Signature</i></div>
-    </div>
+CHP Master I Limited Partnership
+By its General Partner - Cypress Hills Finance Corp.:
 
-</div>  
+____
+Authorized Signature 
 <br>
 <br>
 <!-- -->
@@ -825,6 +827,8 @@
                 <br>
                 In connection with the execution of the Agreement to which this appendix is attached, the Subscriber represents, warrants and certifies to the Issuer that <span class="has-text-weight-bold">(please initial the applicable categories)</span> the Subscriber is:
                 <br><br>
+
+
 
                 @if($user[0]->clientType === 'individual')
                     <span class="has-text-weight-bold">(Categories Applicable to Individuals Only)</span>
