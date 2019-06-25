@@ -298,7 +298,8 @@ class FormUserController extends Controller
 
 
         /*
-            "Jun 25, 2019"
+            "Jun 25, 2019".
+            Pretend like signed_year1 does everything.
         */
         $today = Carbon::now();
 

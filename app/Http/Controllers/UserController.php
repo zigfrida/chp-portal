@@ -122,7 +122,7 @@ class UserController extends Controller
 
         $testPath = 'https://script.google.com/macros/s/AKfycbx7Of-_WXvFyY3XvB3pTVQvf3U2Mn3tMzkhKfbf1MtkRQPnciZc/dev?user_id='.$user['id'].'&name='.$name.'&class='.$class.'&method=updateSpreadUser_idClassName';
 
-         // /exec
+        
 
         return redirect($testPath);
 
