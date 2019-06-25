@@ -282,7 +282,7 @@
             <div class="field is-narrow">
                 <div class="control">
                     <div class="select is-fullwidth">
-                        <select name="province">
+                        <select name="province" id="province">
                             <option>British Columbia</option>
                             <option>Alberta</option>
                             <option>Ontario</option>
@@ -299,7 +299,7 @@
                             <option>Yukon</option>
                         </select>
                     </div>
-                    <i><p class="help">Province</p></i>
+                    <i><p class="help">Province / State</p></i>
                 </div>
             </div>
             <div class="field">
@@ -321,7 +321,7 @@
                     <div class="select is-fullwidth">
                         <p class="control has-icons-left">
                             <span class="select">
-                                <select name="country">
+                                <select id="country" name="country" onchange="window.setOptions()">
                                     <option value="Canada">Canada</option>
                                     <option value="United States">United States</option>
                                 </select>

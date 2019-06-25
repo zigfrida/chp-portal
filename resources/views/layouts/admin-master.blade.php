@@ -9,6 +9,9 @@
     <link rel="shortcut icon" href="/images/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+    <script type="text/javascript" src="{{ URL::asset('js/dropState.js') }}" defer></script>
+
     <title>Cypress Hills Partners</title>
 
     {{-- <link rel="stylesheet" type="text/css" href="/css/home.css"> --}}

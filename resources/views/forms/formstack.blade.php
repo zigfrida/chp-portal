@@ -88,7 +88,7 @@
                     <div class="field is-narrow">
                         <div class="control">
                             <div class="select is-fullwidth">
-                                <select name="province">
+                                <select id="province" name="province">
                                     <option @if($province === "British Columbia") selected @endif>British Columbia</option>
                                     <option @if($province === "Alberta") selected @endif>Alberta</option>
                                     <option @if($province === "Manitoba") selected @endif>Manitoba</option>
@@ -126,7 +126,7 @@
                     <div class="field is-narrow">
                         <div class="control is-expanded">
                             <div class="select is-fullwidth">
-                                <select name="country">
+                                <select id="country" name="country">
                                     <option @if($country === "Canada")selected @endif>Canada</option>
                                     <option @if($country === "United States")selected @endif>United States</option>
                                 </select>
