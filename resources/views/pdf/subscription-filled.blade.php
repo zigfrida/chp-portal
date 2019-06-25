@@ -84,13 +84,6 @@
     .underline {
         border-bottom: 1px solid black;
     }
-
-    #test1{
-        background-image: url({{ $user[0]->form_signature }});
-        background-size= 500px 500px;
-    }
-
-    /* td img { max-width: none; width: 100% } */
 </style>
 
 {{-- TODO: make .signinput into something more readable --}}
@@ -122,7 +115,6 @@
                     </ol>
                 </div>
 
-                
             {{-- new page --}}
             <div class="page-break"></div>
             <br><br>
@@ -827,7 +819,7 @@
                     <h3 class="is-uppercase has-text-weight-bold title">Appendix I</h3>
                     <br>    
                     <h2 class="is-uppercase has-text-weight-bold has-text-link is-3">ACCREDITED INVESTOR CERTIFICATE</h2>
-                    <h6 class="title is-6">(National Instrument 45-106 and Securities Act(Ontario))</h6>
+                    <h6 class="title is-6">(National Instrument 45-106andSecurities Act(Ontario))</h6>
                 </div>
                 Capitalized terms not specifically defined in this certificate have the meaning ascribed to them in the Agreement to which this certificate is attached.
                 <br>
@@ -852,19 +844,17 @@
                                 <td>a)</td>
                                 <td>
                                     @if($user[0]->ind_ck1 == 1)
-                                    <div class="">&nbsp;&nbsp;
-                                        <img src="{{ $user[0]->form_signature }}" alt="Form signature" style="max-width:none;">
-                                    </div>
+                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="150"></div>
                                     @endif
                                 </td>
-                                <td>an individual whose net income before taxes exceeded $200,000 in each of the two most recent calendar years or whose net income before taxes combined with that of a spouse exceeded $300,000 in each of the two most recent calendar years and who, in either case, reasonably expects to exceed that net income level in the current calendar year. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
+                                <td>an individual whose net income before taxes exceeded $200,000 in each of the two most recentcalendar years or whose net income before taxes combined with that of a spouse exceeded $300,000 in each of the two most recent calendar years and who, in either case, reasonably expects to exceed that net income level in the current calendar year. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
                             </tr>
                             
                             <tr>
                                 <td>b)</td>
                                 <td>
                                     @if($user[0]->ind_ck1 == 1)
-                                    <div class=""><img src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
+                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="150"></div>
                                     @endif
                                 </td>
                                 <td>an individual, who, either alone or with a spouse, has net assets of at least $5,000,000. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
@@ -884,9 +874,7 @@
                                 <td>d)</td>
                                 <td>
                                     @if($user[0]->ind_ck4 == 1)
-                                    <div class="">&nbsp;&nbsp;
-                                        <img style="max-width: none;" src="{{ $user[0]->form_signature }}" alt="Form signature" >
-                                    </div>
+                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="150"></div>
                                     @endif
                                 </td>
                                 <td>an individual who beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $5,000,000.</td>
@@ -1139,9 +1127,6 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
 
 @endif
 
-
-<div class="page-break"></div>
-
 <div class="has-text-centered">
         <p class="title is-3 is-spaced">Appendix IA</p>
         <p class="subtitle is-5">Form 45-106F9</p>
@@ -1191,10 +1176,10 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                             <td><span class="has-text-weight-bold">Risk of loss</span> - You could lose your entire investment of {{ $user[0]->total_investment }} </td>
                             <td>
                                 @if($user[0]->ind_ck1 == 1)
-                                <div class="">&nbsp;&nbsp;<img style="max-width: none; min-width:350px" src="{{ $user[0]->form_signature }}" alt="Form signature" ></div>
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="150"></div>
                                 @endif
                             </td>
-                        </tr>
+\                        </tr>
                         <tr>
                             <td><span class="has-text-weight-bold">Liquidity risk</span> – You may not be able to sell your investment quickly – or at all.</td>
                             <td>
@@ -1215,7 +1200,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                             <td><span class="has-text-weight-bold">Lack of advice</span> – You will not receive advice from the salesperson about whether this investment is suitable for you unless the salesperson is registered. The salesperson is the person who meets with, or provides information to, you about making this investment. To check whether the salesperson is registered, go to www.aretheyregistered.ca.</td>
                             <td>
                                 @if($user[0]->ind_ck1 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="10" width="10"></div>
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="150"></div>
                                 @endif
                             </td>
                         </tr>
@@ -1292,7 +1277,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
         <p>2. The information in sections 1, 5 and 6 must be completed before the purchaser completes and signs the form.</p>
         <p>3. The purchaser must sign this form. Each of the purchaser and the issuer or selling security holder must receive a copy of this form signed by the purchaser. The issuer or selling security holder is required to keep a copy of this form for 8 years after the distribution.</p>
 
-        <div class="page-break"></div>
+
         <br><br><br>
         <div class="has-text-centered">
             <h3 class="subtitle is-3">APPENDIX II</h3>
