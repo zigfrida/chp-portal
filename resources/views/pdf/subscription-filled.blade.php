@@ -1138,7 +1138,6 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
 <div class="has-text-centered">
         <p class="title is-3 is-spaced">Appendix IA</p>
         <p class="subtitle is-5">Form 45-106F9</p>
-    
         <br>
         <h4 class="subtitle is-4">FORM FOR INDIVIDUAL ACCREDITED INVESTORS</h4>
         <br>
@@ -1149,7 +1148,9 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
 <div class="content">
     <div>
         <br>
-        <span class="has-text-weight-bold">SECTION 1 TO BE COMPLETED BY THE ISSUER OR SELLING SECURITY HOLDER</span>     
+        <div class="page-break"></div>
+        <div class="shrinker">        
+            <span class="has-text-weight-bold">SECTION 1 TO BE COMPLETED BY THE ISSUER OR SELLING SECURITY HOLDER</span>     
             <table class="table is-bordered">
                     <tr class="darkenrow">
                         <td><span class="has-text-weight-bold has-text-white">1. About your investment</span></td>
@@ -1256,6 +1257,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                 </tbody>
         
             </table>
+        </div>
     </div>
     <br>
 
