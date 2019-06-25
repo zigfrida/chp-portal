@@ -68,7 +68,7 @@
     } */
 
     .darkenrow {
-        background-color: darkgrey;
+        background-color: black;
         color:white;
     }
         
@@ -1142,7 +1142,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
     <div>   
         <span class="has-text-weight-bold">SECTION 1 TO BE COMPLETED BY THE ISSUER OR SELLING SECURITY HOLDER</span>     
                 <table class="table is-bordered">
-                        <tr class="darkenrow">
+                        <tr class="darkenrow has-background-black">
                             <td><span class="has-text-weight-bold">1. About your investment</span></td>
                             <td></td>
                         </tr>
