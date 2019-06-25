@@ -254,7 +254,7 @@
 {{-- new page --}}
 <div class="page-break"></div>
 <div class="subscription-date">
-    <span>This subscription is accepted by the Issuer this</span> <u>{{$user[0]->signed_day1}}</u> day of <u>{{$user[0]->signed_month1}}</u>, {{ $user[0]->signed_year1 }}.
+    <span>This subscription is accepted by the Issuer on</span> <u>{{ $user[0]->signed_year1 }}.
 
     <p >CHP Master I Limited Partnership</p>
 
@@ -1169,7 +1169,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                             <td><span class="has-text-weight-bold">Your initials</span></td>
                         </tr>
                         <tr>
-                            <td><span class="has-text-weight-bold">Risk of loss</span> - You could lose your entire investment of $321231132312 </td>
+                            <td><span class="has-text-weight-bold">Risk of loss</span> - You could lose your entire investment of {{ number_format($user[0]->total_investment, 2, ".", ","); }} </td>
                             <td>
                                 @if($user[0]->ind_ck1 == 1)
                                 <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="40" width="80"></div>
@@ -1188,10 +1188,11 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                             <td><span class="has-text-weight-bold">Lack of information</span> – You may receive little or no information about your investment.</td>
                             <td>
                                 @if($user[0]->ind_ck1 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="40" width="60"></div>
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="40" width="80"></div>
                                 @endif
                             </td>
                        </tr>
+                       <div class="page-break"></div>
                         <tr>
                             <td><span class="has-text-weight-bold">Lack of advice</span> – You will not receive advice from the salesperson about whether this investment is suitable for you unless the salesperson is registered. The salesperson is the person who meets with, or provides information to, you about making this investment. To check whether the salesperson is registered, go to www.aretheyregistered.ca.</td>
                             <td>
