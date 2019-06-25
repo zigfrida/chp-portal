@@ -271,7 +271,7 @@
 <br>
 <br>
 <!-- -->
-<div class="content" style="overflow-y: scroll;">
+<div class="content shrinker">
         <ol type="1">
             <li><b>Interpretation</b></li>
             <ol class="is-upper-roman">
