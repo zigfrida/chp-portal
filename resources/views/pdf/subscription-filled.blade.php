@@ -68,7 +68,7 @@
     } */
 
     .darkenrow {
-        background-color: ;
+        background-color: #3C6478;
         color:white;
     }
         
