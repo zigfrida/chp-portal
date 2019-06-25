@@ -4,8 +4,8 @@
 
     * {
         box-sizing: border-box;
-        max-width: none;
-        width: 100%;
+        /* max-width: none;
+        width: 100%; */
     }
 
     .black-border {
