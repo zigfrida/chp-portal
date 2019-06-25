@@ -814,7 +814,8 @@
         </div>
         <!-- Appendix -->
 
-        <div class="content">
+        <div class="page-break"></div>
+        <div class="content shrinker">
                 <div class="has-text-centered">
                     <h3 class="is-uppercase has-text-weight-bold title">Appendix I</h3>
                     <br>    
@@ -1163,7 +1164,6 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                                 <span class="has-text-weight-bold">2. Risk acknowledgement</span>
                             </div>
                         </td>
-
                         <td></td>
                     </tr>
                     <tr>
