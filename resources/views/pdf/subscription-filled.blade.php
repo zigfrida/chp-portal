@@ -1172,7 +1172,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                             <td><span class="has-text-weight-bold">Risk of loss</span> - You could lose your entire investment of {{ $user[0]->total_investment }} </td>
                             <td>
                                 @if($user[0]->ind_ck1 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="40" width="80"></div>
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="50" width="110"></div>
                                 @endif
                             </td>
 \                        </tr>
@@ -1180,7 +1180,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                             <td><span class="has-text-weight-bold">Liquidity risk</span> – You may not be able to sell your investment quickly – or at all.</td>
                             <td>
                                 @if($user[0]->ind_ck1 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="40" width="80"></div>
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="50" width="110"></div>
                                 @endif
                             </td>
                         </tr>   
@@ -1188,16 +1188,15 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                             <td><span class="has-text-weight-bold">Lack of information</span> – You may receive little or no information about your investment.</td>
                             <td>
                                 @if($user[0]->ind_ck1 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="40" width="80"></div>
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="50" width="110"></div>
                                 @endif
                             </td>
                        </tr>
-                       <div class="page-break"></div>
                         <tr>
                             <td><span class="has-text-weight-bold">Lack of advice</span> – You will not receive advice from the salesperson about whether this investment is suitable for you unless the salesperson is registered. The salesperson is the person who meets with, or provides information to, you about making this investment. To check whether the salesperson is registered, go to www.aretheyregistered.ca.</td>
                             <td>
                                 @if($user[0]->ind_ck1 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="40" width="80"></div>
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="50" width="110"></div>
                                 @endif
                             </td>
                         </tr>
