@@ -7,6 +7,7 @@ use App\User;
 use Redirect;
 use Illuminate\Http\Request;
 use Alert;
+use Carbon\Carbon;
 
 use Dompdf\Dompdf;
 use Dompdf\Options;
@@ -66,6 +67,10 @@ class FormUserController extends Controller
 
     public function storeFormstack(Request $request, $id)
     {
+    
+
+
+
         $request->validate([
             'clientType' => 'bail|required',
             'req_brokerage' => 'bail|required',
@@ -290,6 +295,22 @@ class FormUserController extends Controller
         \DB::table('form_users')
             ->where('user_id', $id)
             ->update(['form_level' => 2]);
+
+
+        /*
+            "Jun 25, 2019"
+        */
+        $today = Carbon::now();
+
+        $formatted_date = $today->toFormattedDateString();
+        
+        \DB::table('form_users')
+        ->where('user_id', $id)
+        ->update(
+            [
+                'signed_year1' => $formatted_date,
+            ]
+        );
 
         $newPath = 'https://script.google.com/macros/s/AKfycbx7Of-_WXvFyY3XvB3pTVQvf3U2Mn3tMzkhKfbf1MtkRQPnciZc/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
 
