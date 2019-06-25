@@ -883,7 +883,9 @@
                                 <td>d)</td>
                                 <td>
                                     @if($user[0]->ind_ck4 == 1)
-                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="150"></div>
+                                    <div class="">&nbsp;&nbsp;
+                                        <img style="max-width: none;" src="{{ $user[0]->form_signature }}" alt="Form signature" >
+                                    </div>
                                     @endif
                                 </td>
                                 <td>an individual who beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $5,000,000.</td>
