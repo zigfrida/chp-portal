@@ -845,7 +845,7 @@
                                 <td>a)</td>
                                 <td>
                                     @if($user[0]->ind_ck1 == 1)
-                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="150"></div>
+                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" style="width:100%; height:auto;"></div>
                                     @endif
                                 </td>
                                 <td>an individual whose net income before taxes exceeded $200,000 in each of the two most recentcalendar years or whose net income before taxes combined with that of a spouse exceeded $300,000 in each of the two most recent calendar years and who, in either case, reasonably expects to exceed that net income level in the current calendar year. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
