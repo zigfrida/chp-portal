@@ -1139,131 +1139,132 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
 </div>
 
 <div class="content">
-    <div>   
+    <div>
+        <br>
         <span class="has-text-weight-bold">SECTION 1 TO BE COMPLETED BY THE ISSUER OR SELLING SECURITY HOLDER</span>     
-                <table class="table is-bordered">
-                        <tr class="has-background-black">
-                            <td><span class="has-text-weight-bold">1. About your investment</span></td>
-                            <td></td>
-                        </tr>
+            <table class="table is-bordered">
+                    <tr class="darkenrow">
+                        <td><span class="has-text-weight-bold">1. About your investment</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Type of securities: <span class="has-text-weight-bold">Class A and B Limited Partnership Units</span></td>
+                        <td>Issuer: <span class="has-text-weight-bold">CHP Master I Limited Partnership</span></td>
+                    </tr>
+                    <tr>
+                        <td>Purchased from: <span class="has-text-weight-bold">The Issuer</span></td>
+                        <td></td>
+                    </tr>
                         <tr>
-                            <td>Type of securities: <span class="has-text-weight-bold">Class A and B Limited Partnership Units</span></td>
-                            <td>Issuer: <span class="has-text-weight-bold">CHP Master I Limited Partnership</span></td>
-                        </tr>
-                        <tr class="darkenrow">
-                            <td><span class="has-text-weight-bold">Purchased from: The Issuer</span></td>
-                            <td></td>
-                        </tr>
-                         <tr>
-                            <td>SECTIONS 2 TO 4 TO BE COMPLETED BY THE PURCHASER</td>
-                            <td></td>
-                        </tr>
-                        <tr class="darkenrow">
-                           <td>
-                               <div class="">
-                                    <span class="has-text-weight-bold">2. Risk acknowledgement</span>
+                        <td><span class="has-text-weight-bold">SECTIONS 2 TO 4 TO BE COMPLETED BY THE PURCHASER</span></td>
+                        <td></td>
+                    </tr>
+                    <tr class="darkenrow">
+                        <td>
+                            <div class="">
+                                <span class="has-text-weight-bold">2. Risk acknowledgement</span>
+                            </div>
+                        </td>
+
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>This is risky. Initial that you understand that: </td>
+                        <td><span class="has-text-weight-bold">Your initials</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="has-text-weight-bold">Risk of loss</span> - You could lose your entire investment of {{ $user[0]->total_investment }} </td>
+                        <td>
+                            @if($user[0]->ind_ck1 == 1)
+                            <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="150"></div>
+                            @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="has-text-weight-bold">Liquidity risk</span> – You may not be able to sell your investment quickly – or at all.</td>
+                        <td>
+                            @if($user[0]->ind_ck1 == 1)
+                            <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="150"></div>
+                            @endif
+                        </td>
+                    </tr>   
+                    <tr>
+                        <td><span class="has-text-weight-bold">Lack of information</span> – You may receive little or no information about your investment.</td>
+                        <td>
+                            @if($user[0]->ind_ck1 == 1)
+                            <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="150"></div>
+                            @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="has-text-weight-bold">Lack of advice</span> – You will not receive advice from the salesperson about whether this investment is suitable for you unless the salesperson is registered. The salesperson is the person who meets with, or provides information to, you about making this investment. To check whether the salesperson is registered, go to www.aretheyregistered.ca.</td>
+                        <td>
+                            @if($user[0]->ind_ck1 == 1)
+                            <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="150"></div>
+                            @endif
+                        </td>
+                    </tr>
+                    <tr class="darkenrow">
+                        <td><div class="">
+                            <span class="has-text-weight-bold">3. Accredited investor status</span>
+                        </div></td>
+                        <td><span class="has-text-weight-bold">Your initials</span></td>
+                    </tr>
+                    <tr>
+                        <td> - Your net income before taxes was more than $200,000 in each of the 2 most recent calendar years, and you expect it to be more than $200,000 in the current calendar year. (You can find your net income before taxes on your personal income tax return.)</td>
+                        {{-- <td>{{$user[0]->risk_ck5}}</td> --}}
+                    </tr>
+                    
+                    <tr>
+                        <td> - Your net income before taxes combined with your spouse’s was more than $300,000 in each of the 2 most recent calendar years, and you expect your combined net income before taxes to be more than $300,000 in the current calendar year.</td>
+                            {{-- <td>{{$user[0]->risk_ck6}}</td> --}}
+                    </tr>
+                        
+                    <tr>
+                        <td> - Either alone or with your spouse, you own more than $1 million in cash and securities, after subtracting any debt related to the cash and securities.</td>
+                        {{-- <td>{{$user[0]->risk_ck7}}</td> --}}
+                    </tr>
+                    <tr>
+                            <td> - Either alone or with your spouse, you have net assets worth more than $5 million. (Your net assets are your total assets (including real estate) minus your total debt.)</td>
+                            {{-- <td>{{$user[0]->risk_chk8}}</td> --}}
+                    </tr>
+                        
+                    <tr class="darkenrow">
+                            <td>
+                                <div class="">
+                                <span class="has-text-weight-bold">4. Your name and signature</span>
                                 </div>
                             </td>
-
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>This is risky. Initial that you understand that: </td>
-                            <td><span class="has-text-weight-bold">Your initials</span></td>
-                        </tr>
-                        <tr>
-                            <td><span class="has-text-weight-bold">Risk of loss</span> - You could lose your entire investment of {{ $user[0]->total_investment }} </td>
-                            <td>
-                                @if($user[0]->ind_ck1 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="150"></div>
-                                @endif
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><span class="has-text-weight-bold">Liquidity risk</span> – You may not be able to sell your investment quickly – or at all.</td>
-                            <td>
-                                @if($user[0]->ind_ck1 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="150"></div>
-                                @endif
-                            </td>
-                        </tr>   
-                        <tr>
-                            <td><span class="has-text-weight-bold">Lack of information</span> – You may receive little or no information about your investment.</td>
-                            <td>
-                                @if($user[0]->ind_ck1 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="150"></div>
-                                @endif
-                            </td>
-                       </tr>
-                        <tr>
-                            <td><span class="has-text-weight-bold">Lack of advice</span> – You will not receive advice from the salesperson about whether this investment is suitable for you unless the salesperson is registered. The salesperson is the person who meets with, or provides information to, you about making this investment. To check whether the salesperson is registered, go to www.aretheyregistered.ca.</td>
-                            <td>
-                                @if($user[0]->ind_ck1 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="150"></div>
-                                @endif
-                            </td>
-                        </tr>
-                        <tr class="darkenrow">
-                            <td><div class="">
-                                <span class="has-text-weight-bold">3. Accredited investor status</span>
-                            </div></td>
-                            <td><span class="has-text-weight-bold">Your initials</span></td>
-                        </tr>
-                        <tr>
-                            <td> - Your net income before taxes was more than $200,000 in each of the 2 most recent calendar years, and you expect it to be more than $200,000 in the current calendar year. (You can find your net income before taxes on your personal income tax return.)</td>
-                            {{-- <td>{{$user[0]->risk_ck5}}</td> --}}
-                        </tr>
-                        
-                        <tr>
-                            <td> - Your net income before taxes combined with your spouse’s was more than $300,000 in each of the 2 most recent calendar years, and you expect your combined net income before taxes to be more than $300,000 in the current calendar year.</td>
-                             {{-- <td>{{$user[0]->risk_ck6}}</td> --}}
-                        </tr>
-                            
-                        <tr>
-                            <td> - Either alone or with your spouse, you own more than $1 million in cash and securities, after subtracting any debt related to the cash and securities.</td>
-                            {{-- <td>{{$user[0]->risk_ck7}}</td> --}}
-                        </tr>
-                        <tr>
-                             <td> - Either alone or with your spouse, you have net assets worth more than $5 million. (Your net assets are your total assets (including real estate) minus your total debt.)</td>
-                             {{-- <td>{{$user[0]->risk_chk8}}</td> --}}
-                        </tr>
-                            
-                        <tr class="darkenrow">
-                             <td>
-                                  <div class="">
-                                    <span class="has-text-weight-bold">4. Your name and signature</span>
-                                 </div>
-                             </td>
-                        </tr>
-                
-                        <tr>
-                            <td>
-                                By signing this form, you confirm that you have read this form and you understand the risks of making this investment as identified in this form.
-                                <br><br>
-                                First and last name: {{ $user[0]->subscriber_name }}
-                                <br>
-                                Signature: <img src="{{$user[0]->sub_signature}}" alt="Sub signature" height="50" width="80">
-                                <br>
-                                Date: {{ $user[0]->signed_year1 }}
-                            </td>
-                        </tr>
-                    </tbody>
+                    </tr>
             
-                </table>
-            </div>
-            <br>
+                    <tr>
+                        <td>
+                            By signing this form, you confirm that you have read this form and you understand the risks of making this investment as identified in this form.
+                            <br><br>
+                            First and last name: {{ $user[0]->subscriber_name }}
+                            <br>
+                            Signature: <img src="{{$user[0]->sub_signature}}" alt="Sub signature" height="50" width="80">
+                            <br>
+                            Date: {{ $user[0]->signed_year1 }}
+                        </td>
+                    </tr>
+                </tbody>
+        
+            </table>
+    </div>
+    <br>
 
-            <div class="has-background-white-bis">
-                <p class="has-text-weight-bold">For more information about this investment</p>
-                <br>
-                CHP Master I Limited Partnership <br>
-                409 - 1080 Mainland St., Vancouver, BC. V6B 2T4 Attention: Kelly Klatik <br>
-                (604) 687-0755 <br> 
-                kelly@klatik.com <br>
-                <br>
-                <h6 class="subtitle is-6">For more information about prospectus exemptions, contact your local securities regulator. You can find contact information at www.securities-administrators.ca.</h6>
-            </div>
-        </div>
+    <div class="has-background-white-bis">
+        <p class="has-text-weight-bold">For more information about this investment</p>
+        <br>
+        CHP Master I Limited Partnership <br>
+        409 - 1080 Mainland St., Vancouver, BC. V6B 2T4 Attention: Kelly Klatik <br>
+        (604) 687-0755 <br> 
+        kelly@klatik.com <br>
+        <br>
+        <h6 class="subtitle is-6">For more information about prospectus exemptions, contact your local securities regulator. You can find contact information at www.securities-administrators.ca.</h6>
+    </div>
+</div>
         <br>
 
         <div class="page-break"></div>
