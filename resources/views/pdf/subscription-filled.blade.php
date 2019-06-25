@@ -257,9 +257,11 @@
     <p>CHP Master I Limited Partnership</p>
     <br>
     <p>By its General Partner - Cypress Hills Finance Corp.:</p>
-    <span>This subscription is accepted by the Issuer on _______________________</span>
+    
     <br>
-    <div><i class="">Authorized Signature</i></div>
+    _______________________________________
+    <br>
+    <div><p class="is-italic is-size-7">Authorized Signature</p></div>
 </div>
 
 
