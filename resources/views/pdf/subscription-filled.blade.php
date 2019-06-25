@@ -846,7 +846,6 @@
                             <tr>
                                 <td>a)</td>
                                 <td>
-                                    {{ dd($user[0]->ind_ck1) }}
                                     @if($user[0]->ind_ck1 == 1)
                                         <&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" width="50" height="50">
                                     @endif
