@@ -254,22 +254,18 @@
 {{-- new page --}}
 <div class="page-break"></div>
 <div class="subscription-date">
-    <p>CHP Master I Limited Partnership</p>
+    <p>This subscription is accepted by the Issuer this _______ day of ____________________, 20</p>
+    <br>
+    <p class="has-text-weight-bold">CHP Master I Limited Partnership</p>
     <br>
     <p>By its General Partner - Cypress Hills Finance Corp.:</p>
     
-    <br>
+    <br><br>
     _______________________________________
     <br>
     <div><p class="is-italic is-size-7">Authorized Signature</p></div>
 </div>
 
-
-CHP Master I Limited Partnership
-By its General Partner - Cypress Hills Finance Corp.:
-
-____
-Authorized Signature 
 <br>
 <br>
 <!-- -->
