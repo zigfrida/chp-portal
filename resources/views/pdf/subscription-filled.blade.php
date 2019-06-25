@@ -115,6 +115,7 @@
                     </ol>
                 </div>
 
+                
             {{-- new page --}}
             <div class="page-break"></div>
             <br><br>
@@ -1127,6 +1128,9 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
 
 @endif
 
+
+<div class="page-break"></div>
+
 <div class="has-text-centered">
         <p class="title is-3 is-spaced">Appendix IA</p>
         <p class="subtitle is-5">Form 45-106F9</p>
@@ -1179,7 +1183,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                                 <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="150"></div>
                                 @endif
                             </td>
-\                        </tr>
+                        </tr>
                         <tr>
                             <td><span class="has-text-weight-bold">Liquidity risk</span> – You may not be able to sell your investment quickly – or at all.</td>
                             <td>
@@ -1200,7 +1204,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                             <td><span class="has-text-weight-bold">Lack of advice</span> – You will not receive advice from the salesperson about whether this investment is suitable for you unless the salesperson is registered. The salesperson is the person who meets with, or provides information to, you about making this investment. To check whether the salesperson is registered, go to www.aretheyregistered.ca.</td>
                             <td>
                                 @if($user[0]->ind_ck1 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="150"></div>
+                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="10" width="10"></div>
                                 @endif
                             </td>
                         </tr>
