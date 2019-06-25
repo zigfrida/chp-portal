@@ -1191,7 +1191,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                             <td><span class="has-text-weight-bold">Risk of loss</span> - You could lose your entire investment of {{ $user[0]->total_investment }} </td>
                             <td>
                                 @if($user[0]->ind_ck1 == 1)
-                                <div class="">&nbsp;&nbsp;<img style="max-width: none;" src="{{ $user[0]->form_signature }}" alt="Form signature" ></div>
+                                <div class="">&nbsp;&nbsp;<img style="max-width: none; min-width:350px" src="{{ $user[0]->form_signature }}" alt="Form signature" ></div>
                                 @endif
                             </td>
                         </tr>
