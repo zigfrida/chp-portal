@@ -85,7 +85,7 @@
         border-bottom: 1px solid black;
     }
 
-    td img { max-width: none; width: 100% }
+    /* td img { max-width: none; width: 100% } */
 </style>
 
 {{-- TODO: make .signinput into something more readable --}}
@@ -822,7 +822,7 @@
                     <h3 class="is-uppercase has-text-weight-bold title">Appendix I</h3>
                     <br>    
                     <h2 class="is-uppercase has-text-weight-bold has-text-link is-3">ACCREDITED INVESTOR CERTIFICATE</h2>
-                    <h6 class="title is-6">(National Instrument 45-106andSecurities Act(Ontario))</h6>
+                    <h6 class="title is-6">(National Instrument 45-106 and Securities Act(Ontario))</h6>
                 </div>
                 Capitalized terms not specifically defined in this certificate have the meaning ascribed to them in the Agreement to which this certificate is attached.
                 <br>
@@ -847,10 +847,11 @@
                                 <td>a)</td>
                                 <td>
                                     @if($user[0]->ind_ck1 == 1)
-                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" style="max-width:none;"></div>
+                                    {{-- <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" style="max-width:none;"></div> --}}
+                                    <div style="background-image: url({{ $user[0]->form_signature }});background-size='500px 500px;'"></div>
                                     @endif
                                 </td>
-                                <td>an individual whose net income before taxes exceeded $200,000 in each of the two most recentcalendar years or whose net income before taxes combined with that of a spouse exceeded $300,000 in each of the two most recent calendar years and who, in either case, reasonably expects to exceed that net income level in the current calendar year. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
+                                <td>an individual whose net income before taxes exceeded $200,000 in each of the two most recent calendar years or whose net income before taxes combined with that of a spouse exceeded $300,000 in each of the two most recent calendar years and who, in either case, reasonably expects to exceed that net income level in the current calendar year. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
                             </tr>
                             
                             <tr>
