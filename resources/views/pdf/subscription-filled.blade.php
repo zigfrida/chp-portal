@@ -863,7 +863,7 @@
                                 <td>b)</td>
                                 <td>
                                     @if($user[0]->ind_ck1 == 1)
-                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
+                                    <div class=""><img src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
                                     @endif
                                 </td>
                                 <td>an individual, who, either alone or with a spouse, has net assets of at least $5,000,000. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
