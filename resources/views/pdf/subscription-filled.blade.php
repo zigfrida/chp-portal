@@ -1152,7 +1152,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
         <span class="has-text-weight-bold">SECTION 1 TO BE COMPLETED BY THE ISSUER OR SELLING SECURITY HOLDER</span>     
             <table class="table is-bordered">
                     <tr class="darkenrow">
-                        <td><span class="has-text-weight-bold">1. About your investment</span></td>
+                        <td><span class="has-text-weight-bold has-text-white">1. About your investment</span></td>
                         <td></td>
                     </tr>
                     <tr>
@@ -1168,7 +1168,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                     <tr class="darkenrow">
                         <td>
                             <div class="">
-                                <span class="has-text-weight-bold">2. Risk acknowledgement</span>
+                                <span class="has-text-weight-bold has-text-white">2. Risk acknowledgement</span>
                             </div>
                         </td>
                         <td></td>
@@ -1181,7 +1181,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                         <td><span class="has-text-weight-bold">Risk of loss</span> - You could lose your entire investment of {{ $user[0]->total_investment }} </td>
                         <td>
                             @if($user[0]->ind_ck1 == 1)
-                            <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="150"></div>
+                            <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
                             @endif
                         </td>
                     </tr>
@@ -1189,7 +1189,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                         <td><span class="has-text-weight-bold">Liquidity risk</span> – You may not be able to sell your investment quickly – or at all.</td>
                         <td>
                             @if($user[0]->ind_ck1 == 1)
-                            <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="150"></div>
+                            <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
                             @endif
                         </td>
                     </tr>   
@@ -1197,7 +1197,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                         <td><span class="has-text-weight-bold">Lack of information</span> – You may receive little or no information about your investment.</td>
                         <td>
                             @if($user[0]->ind_ck1 == 1)
-                            <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="150"></div>
+                            <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
                             @endif
                         </td>
                     </tr>
@@ -1205,13 +1205,13 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                         <td><span class="has-text-weight-bold">Lack of advice</span> – You will not receive advice from the salesperson about whether this investment is suitable for you unless the salesperson is registered. The salesperson is the person who meets with, or provides information to, you about making this investment. To check whether the salesperson is registered, go to www.aretheyregistered.ca.</td>
                         <td>
                             @if($user[0]->ind_ck1 == 1)
-                            <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="150"></div>
+                            <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
                             @endif
                         </td>
                     </tr>
                     <tr class="darkenrow">
                         <td><div class="">
-                            <span class="has-text-weight-bold">3. Accredited investor status</span>
+                            <span class="has-text-weight-bold has-text-white">3. Accredited investor status</span>
                         </div></td>
                         <td><span class="has-text-weight-bold">Your initials</span></td>
                     </tr>
@@ -1237,7 +1237,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                     <tr class="darkenrow">
                             <td>
                                 <div class="">
-                                <span class="has-text-weight-bold">4. Your name and signature</span>
+                                <span class="has-text-weight-bold has-text-white">4. Your name and signature</span>
                                 </div>
                             </td>
                     </tr>
