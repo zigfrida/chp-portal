@@ -1142,7 +1142,6 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
     <div>   
         <span class="has-text-weight-bold">SECTION 1 TO BE COMPLETED BY THE ISSUER OR SELLING SECURITY HOLDER</span>     
                 <table class="table is-bordered">
-                    
                         <tr class="darkenrow">
                             <td><span class="has-text-weight-bold">1. About your investment</span></td>
                             <td></td>
@@ -1239,16 +1238,19 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                         </tr>
                 
                         <tr>
-                             <td>By signing this form, you confirm that you have read this form and you understand the risks of making this investment as identified in this form.</td>
-                             <td>First and last name: {{ $user[0]->subscriber_name }}</td>
+                             <td>By signing this form, you confirm that you have read this form and you understand the risks of making this investment as identified in this form.</td>    
                         </tr>
                         <tr>
-                              <td>
-                                   Signature: <img src="{{$user[0]->sub_signature}}" alt="Sub signature" height="50" width="80"> 
-                               </td>
-                               <td>
-                                    Date: {{ $user[0]->signed_year1 }}
-                                </td>
+                            <td>First and last name: {{ $user[0]->subscriber_name }}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Signature: <img src="{{$user[0]->sub_signature}}" alt="Sub signature" height="50" width="80"> 
+                            </td>
+                            <td>Date: {{ $user[0]->signed_year1 }}</td>
+                        </tr>
+                        <tr>
+                            <td>Date: {{ $user[0]->signed_year1 }}</td>
                         </tr>
             
                     </tbody>
