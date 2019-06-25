@@ -1144,7 +1144,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
         <h5 class="subtitle is-5 has-text-weight-bold">WARNING!</h5>
         <h6 class="subtitle is-6 has-text-weight-bold">This investment is risky. Don't invest unless you can afford to lose all the money you pay for this investment</h6>            
 </div>
-
+<br><br><br><br><br><br><br><br>
 <div class="content ">
     <div>
         <br>
@@ -1156,7 +1156,9 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
             </tr>
             <tr>
                 <td>Type of securities: <span class="has-text-weight-bold">Class A and B Limited Partnership Units</span></td>
-                <td>Issuer: <span class="has-text-weight-bold">CHP Master I</span></td>
+            </tr>
+            <tr>
+                <td>Issuer: <span class="has-text-weight-bold">CHP Master I Limited Partnership</span></td>
             </tr>
             <tr>
                 <td>Purchased from: <span class="has-text-weight-bold">The Issuer</span></td>
@@ -1239,8 +1241,8 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                     {{-- <td>{{$user[0]->risk_ck7}}</td> --}}
                 </tr>
                 <tr>
-                        <td> - Either alone or with your spouse, you have net assets worth more than $5 million. (Your net assets are your total assets (including real estate) minus your total debt.)</td>
-                        {{-- <td>{{$user[0]->risk_chk8}}</td> --}}
+                    <td> - Either alone or with your spouse, you have net assets worth more than $5 million. (Your net assets are your total assets (including real estate) minus your total debt.)</td>
+                    {{-- <td>{{$user[0]->risk_chk8}}</td> --}}
                 </tr>
                     
                 <tr class="darkenrow">
