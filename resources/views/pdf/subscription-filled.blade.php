@@ -1169,7 +1169,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                             <td><span class="has-text-weight-bold">Your initials</span></td>
                         </tr>
                         <tr>
-                            <td><span class="has-text-weight-bold">Risk of loss</span> - You could lose your entire investment of {{ number_format($user[0]->total_investment, 2, ".", ","); }} </td>
+                            <td><span class="has-text-weight-bold">Risk of loss</span> - You could lose your entire investment of {{ $user[0]->total_investment) }} </td>
                             <td>
                                 @if($user[0]->ind_ck1 == 1)
                                 <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="40" width="80"></div>
