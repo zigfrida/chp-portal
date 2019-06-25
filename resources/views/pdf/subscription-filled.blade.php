@@ -852,8 +852,9 @@
                                 <td>a)</td>
                                 <td>
                                     @if($user[0]->ind_ck1 == 1)
-                                    {{-- <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" style="max-width:none;"></div> --}}
-                                    <div id="test1"></div>
+                                    <div class="">&nbsp;&nbsp;
+                                        <img src="{{ $user[0]->form_signature }}" alt="Form signature" style="max-width:none;">
+                                    </div>
                                     @endif
                                 </td>
                                 <td>an individual whose net income before taxes exceeded $200,000 in each of the two most recent calendar years or whose net income before taxes combined with that of a spouse exceeded $300,000 in each of the two most recent calendar years and who, in either case, reasonably expects to exceed that net income level in the current calendar year. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
@@ -1190,7 +1191,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                             <td><span class="has-text-weight-bold">Risk of loss</span> - You could lose your entire investment of {{ $user[0]->total_investment }} </td>
                             <td>
                                 @if($user[0]->ind_ck1 == 1)
-                                <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="auto" min-width="150"></div>
+                                <div class="">&nbsp;&nbsp;<img style="max-width: none;" src="{{ $user[0]->form_signature }}" alt="Form signature" ></div>
                                 @endif
                             </td>
                         </tr>
