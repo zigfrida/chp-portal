@@ -1234,25 +1234,19 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                                     <span class="has-text-weight-bold">4. Your name and signature</span>
                                  </div>
                              </td>
-                             <td></td>
                         </tr>
                 
                         <tr>
-                             <td>By signing this form, you confirm that you have read this form and you understand the risks of making this investment as identified in this form.</td>    
-                        </tr>
-                        <tr>
-                            <td>First and last name: {{ $user[0]->subscriber_name }}</td>
-                        </tr>
-                        <tr>
                             <td>
-                                Signature: <img src="{{$user[0]->sub_signature}}" alt="Sub signature" height="50" width="80"> 
+                                By signing this form, you confirm that you have read this form and you understand the risks of making this investment as identified in this form.
+                                <br>
+                                First and last name: {{ $user[0]->subscriber_name }}
+                                <br>
+                                Signature: <img src="{{$user[0]->sub_signature}}" alt="Sub signature" height="50" width="80">
+                                <br>
+                                Date: {{ $user[0]->signed_year1 }}
                             </td>
-                            <td>Date: {{ $user[0]->signed_year1 }}</td>
                         </tr>
-                        <tr>
-                            <td>Date: {{ $user[0]->signed_year1 }}</td>
-                        </tr>
-            
                     </tbody>
             
                 </table>
