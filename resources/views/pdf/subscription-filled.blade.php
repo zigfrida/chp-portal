@@ -1049,18 +1049,20 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
         <b> If a Corporation, Partnership or Other Entity: </b> 
         <br><br>
             <div class="column-row">
-                <div class="underline">&nbsp;&nbsp;{{$user[0]->subscriber_name}} </div>
+                <br>
+                <div class="underline">&nbsp;&nbsp;{{ $user[0]->subscriber_name }} </div>
                 <div><i class="signinput">Name of Entity</i></div>
             </div>
             <br>
             <div class="column-row">
-                <div class="underline">&nbsp;&nbsp;{{$user[0]->clientType}} </div>
+                <div class="underline">&nbsp;&nbsp;{{ $user[0]->clientType }} </div>
                 <div><i class="signinput">Type of Entity</i></div>
             </div>
             <br><br>
             
             <div class="column-row">
-                <div class="underline">&nbsp;&nbsp;<img src="{{$user[0]->form_signature}}" alt="Form signature" height="60" width="90"> </div>
+                <br>
+                <div class="underline">&nbsp;&nbsp;<img src="{{ $user[0]->sub_signature }}" alt="Sub signature" height="60" width="90"> </div>
                 <div><i class="signinput">Signature of Person Signing</i></div>
             </div>
             <br>
@@ -1070,9 +1072,9 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
             <b>If an Individual </b>
                 <br><br>
               
-                 <div class="column-row">
-                   <div class="underline">&nbsp;&nbsp;<div>
-                  <div><i class="signinput">Signature</i></div>
+                <div class="column-row">
+                <div class="underline">&nbsp;&nbsp;<div>
+                <div><i class="signinput">Signature</i></div>
               </div>
       
               <br>
@@ -1110,7 +1112,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
             <br><br>
             <div class="column-row">
                 <br>
-                <div class="underline">&nbsp;&nbsp;<img src="{{$user[0]->form_signature}}" alt="Form signature" height="30" width="90"></div>
+                <div class="underline">&nbsp;&nbsp;<img src="{{$user[0]->sub_signature}}" alt="Sub signature" height="30" width="90"></div>
                 <div><i class="signinput">Signature</i></div>
             </div>
             <br>
