@@ -1179,7 +1179,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                                 <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="150"></div>
                                 @endif
                             </td>
-\                        </tr>
+                        </tr>
                         <tr>
                             <td><span class="has-text-weight-bold">Liquidity risk</span> – You may not be able to sell your investment quickly – or at all.</td>
                             <td>
