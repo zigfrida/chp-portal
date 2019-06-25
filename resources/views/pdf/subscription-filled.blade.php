@@ -1153,11 +1153,9 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                     </tr>
                     <tr>
                         <td>Purchased from: <span class="has-text-weight-bold">The Issuer</span></td>
-                        <td></td>
                     </tr>
                         <tr>
                         <td><span class="has-text-weight-bold">SECTIONS 2 TO 4 TO BE COMPLETED BY THE PURCHASER</span></td>
-                        <td></td>
                     </tr>
                     <tr class="darkenrow">
                         <td>
