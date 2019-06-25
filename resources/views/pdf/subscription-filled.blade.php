@@ -1152,69 +1152,79 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
         <br>
         <span class="has-text-weight-bold">SECTION 1 TO BE COMPLETED BY THE ISSUER OR SELLING SECURITY HOLDER</span>     
         <table class="table is-bordered">
-                <tr class="darkenrow">
-                    <td><span class="has-text-weight-bold has-text-white">1. About your investment</span></td>
-                    <td></td>
-                </tr>
+            <tr class="darkenrow">
+                <td><span class="has-text-weight-bold has-text-white">1. About your investment</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Type of securities: <span class="has-text-weight-bold">Class A and B Limited Partnership Units</span></td>
+                <td>Issuer: <span class="has-text-weight-bold">CHP Master I Limited Partnership</span></td>
+            </tr>
+            <tr>
+                <td>Purchased from: <span class="has-text-weight-bold">The Issuer</span></td>
+            </tr>
                 <tr>
-                    <td>Type of securities: <span class="has-text-weight-bold">Class A and B Limited Partnership Units</span></td>
-                    <td>Issuer: <span class="has-text-weight-bold">CHP Master I Limited Partnership</span></td>
-                </tr>
-                <tr>
-                    <td>Purchased from: <span class="has-text-weight-bold">The Issuer</span></td>
-                </tr>
-                    <tr>
-                    <td><span class="has-text-weight-bold">SECTIONS 2 TO 4 TO BE COMPLETED BY THE PURCHASER</span></td>
-                </tr>
-                <tr class="darkenrow">
-                    <td>
-                        <div class="">
-                            <span class="has-text-weight-bold has-text-white">2. Risk acknowledgement</span>
-                        </div>
-                    </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>This is risky. Initial that you understand that: </td>
-                    <td><span class="has-text-weight-bold">Your initials</span></td>
-                </tr>
-                <tr>
-                    <td><span class="has-text-weight-bold">Risk of loss</span> - You could lose your entire investment of {{ $user[0]->total_investment }} </td>
-                    <td>
-                        @if($user[0]->ind_ck1 == 1)
-                        <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
-                        @endif
-                    </td>
-                </tr>
-                <tr>
-                    <td><span class="has-text-weight-bold">Liquidity risk</span> – You may not be able to sell your investment quickly – or at all.</td>
-                    <td>
-                        @if($user[0]->ind_ck1 == 1)
-                        <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
-                        @endif
-                    </td>
-                </tr>   
-                <tr>
-                    <td><span class="has-text-weight-bold">Lack of information</span> – You may receive little or no information about your investment.</td>
-                    <td>
-                        @if($user[0]->ind_ck1 == 1)
-                        <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
-                        @endif
-                    </td>
-                </tr>
-                <tr>
-                    <td><span class="has-text-weight-bold">Lack of advice</span> – You will not receive advice from the salesperson about whether this investment is suitable for you unless the salesperson is registered. The salesperson is the person who meets with, or provides information to, you about making this investment. To check whether the salesperson is registered, go to www.aretheyregistered.ca.</td>
-                    <td>
-                        @if($user[0]->ind_ck1 == 1)
-                        <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
-                        @endif
-                    </td>
-                </tr>
-                <tr class="darkenrow">
-                    <td><div class="">
-                        <span class="has-text-weight-bold has-text-white">3. Accredited investor status</span>
-                    </div></td>
-                    <td><span class="has-text-weight-bold">Your initials</span></td>
+                <td><span class="has-text-weight-bold">SECTIONS 2 TO 4 TO BE COMPLETED BY THE PURCHASER</span></td>
+            </tr>
+            <tr class="darkenrow">
+                <td>
+                    <div class="">
+                        <span class="has-text-weight-bold has-text-white">2. Risk acknowledgement</span>
+                    </div>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>This is risky. Initial that you understand that: </td>
+                <td><span class="has-text-weight-bold">Your initials</span></td>
+            </tr>
+            <tr>
+                <td><span class="has-text-weight-bold">Risk of loss</span> - You could lose your entire investment of {{ $user[0]->total_investment }} </td>
+                <td>
+                    @if($user[0]->ind_ck1 == 1)
+                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
+                    @endif
+                </td>
+            </tr>
+            <tr>
+                <td><span class="has-text-weight-bold">Liquidity risk</span> – You may not be able to sell your investment quickly – or at all.</td>
+                <td>
+                    @if($user[0]->ind_ck1 == 1)
+                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
+                    @endif
+                </td>
+            </tr>   
+            <tr>
+                <td><span class="has-text-weight-bold">Lack of information</span> – You may receive little or no information about your investment.</td>
+                <td>
+                    @if($user[0]->ind_ck1 == 1)
+                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
+                    @endif
+                </td>
+            </tr>
+            <tr>
+                <td><span class="has-text-weight-bold">Lack of advice</span> – You will not receive advice from the salesperson about whether this investment is suitable for you unless the salesperson is registered. The salesperson is the person who meets with, or provides information to, you about making this investment. To check whether the salesperson is registered, go to www.aretheyregistered.ca.</td>
+                <td>
+                    @if($user[0]->ind_ck1 == 1)
+                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
+                    @endif
+                </td>
+            </tr>
+    
+        </table>
+
+
+
+        <div class="page-break"></div>
+        
+        
+        
+        <table class="table is-bordered">
+            <tr class="darkenrow">
+                <td>
+                    <span class="has-text-weight-bold has-text-white">3. Accredited investor status</span>
+                </td>
+                <td><span class="has-text-weight-bold">Your initials</span></td>
                 </tr>
                 <tr>
                     <td> - Your net income before taxes was more than $200,000 in each of the 2 most recent calendar years, and you expect it to be more than $200,000 in the current calendar year. (You can find your net income before taxes on your personal income tax return.)</td>
@@ -1254,8 +1264,6 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                         Date: {{ $user[0]->signed_year1 }}
                     </td>
                 </tr>
-            </tbody>
-    
         </table>
     </div>
     <br>
