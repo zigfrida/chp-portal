@@ -1016,7 +1016,8 @@
                         </tbody>
                     </table>
                 @endif
-<br>
+            
+            <div class="page-break"></div>
             <p class="is-uppercase">Definitions</p>
             For the purposes of this certificate, the following definitions apply: <br>
 
@@ -1046,87 +1047,91 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
 
 <span class="has-text-weight-bold">DATED</span> <u>{{ $user[0]->signed_year1 }}</u>.
 <br><br><br>
-@if($user[0]->clientType == 'business')
-<div class="row-form">
-    <div class="column">
-        <b> If a Corporation, Partnership or Other Entity: </b> 
-        <br><br>
-            <div class="column-row">
-                <br>
-                <div class="underline">&nbsp;&nbsp;{{ $user[0]->subscriber_name }} </div>
-                <div><i class="signinput">Name of Entity</i></div>
-            </div>
-            <br>
-            <div class="column-row">
-                <div class="underline">&nbsp;&nbsp;{{ $user[0]->clientType }} </div>
-                <div><i class="signinput">Type of Entity</i></div>
-            </div>
-            <br><br>
-            
-            <div class="column-row">
-                <br>
-                <div class="underline">&nbsp;&nbsp;<img src="{{ $user[0]->sub_signature }}" alt="Sub signature" height="60" width="90"> </div>
-                <div><i class="signinput">Signature of Person Signing</i></div>
-            </div>
-            <br>
-    
-    </div>
-        <div class="column">
-            <b>If an Individual </b>
-                <br><br>
-              
-                <div class="column-row">
-                <div class="underline">&nbsp;&nbsp;<div>
-                <div><i class="signinput">Signature</i></div>
-              </div>
-      
-              <br>
-              <div class="column-row">
-                  <div class="underline">&nbsp;&nbsp;</div>
-                  <div><i class="signinput">Print or Type Name</i></div>
-              </div>
-              <br>
-            </div>
-    </div>
-
-@else
+<div class="shrinker">
+    @if($user[0]->clientType == 'business')
     <div class="row-form">
         <div class="column">
             <b> If a Corporation, Partnership or Other Entity: </b> 
             <br><br>
-            <div class="column-row">
+                <div class="column-row">
+                    <br>
+                    <div class="underline">&nbsp;&nbsp;{{ $user[0]->subscriber_name }} </div>
+                    <div><i class="signinput">Name of Entity</i></div>
+                </div>
                 <br>
-                <div class="underline">&nbsp;&nbsp;</div>
-                <div><i class="signinput">Name of Entity</i></div>
-            </div>
-            <br>
-            <div class="column-row">
-                <div class="underline">&nbsp;&nbsp;</div>
-                <div><i class="signinput">Type of Entity</i></div>
-            </div>
-            <br>
-            <div class="column-row">
-                <div class="underline">&nbsp;&nbsp;</div>
-                <div><i class="signinput">Signature of Person Signing</i></div>
-            </div>
-        </div>
-        <div class="column">
-            <b>If an Individual </b>
-            <br><br>
-            <div class="column-row">
+                <div class="column-row">
+                    <div class="underline">&nbsp;&nbsp;{{ $user[0]->clientType }} </div>
+                    <div><i class="signinput">Type of Entity</i></div>
+                </div>
+                <br><br>
+                
+                <div class="column-row">
+                    <br>
+                    <div class="underline">&nbsp;&nbsp;<img src="{{ $user[0]->sub_signature }}" alt="Sub signature" height="60" width="90"> </div>
+                    <div><i class="signinput">Signature of Person Signing</i></div>
+                </div>
                 <br>
-                <div class="underline">&nbsp;&nbsp;<img src="{{$user[0]->sub_signature}}" alt="Sub signature" height="30" width="90"></div>
-                <div><i class="signinput">Signature</i></div>
-            </div>
-            <br>
-            <div class="column-row">
-                <div class="underline">&nbsp;&nbsp;{{$user[0]->name}} </div>
-                <div><i class="signinput">Print or Type Name</i></div>
-            </div>
+        
         </div>
-    </div>
+            <div class="column">
+                <b>If an Individual </b>
+                    <br><br>
+                
+                    <div class="column-row">
+                    <div class="underline">&nbsp;&nbsp;<div>
+                    <div><i class="signinput">Signature</i></div>
+                </div>
+        
+                <br>
+                <div class="column-row">
+                    <div class="underline">&nbsp;&nbsp;</div>
+                    <div><i class="signinput">Print or Type Name</i></div>
+                </div>
+                <br>
+                </div>
+        </div>
 
-@endif
+    @else
+        <div class="row-form">
+            <div class="column">
+                <b> If a Corporation, Partnership or Other Entity: </b> 
+                <br><br>
+                <div class="column-row">
+                    <br>
+                    <div class="underline">&nbsp;&nbsp;</div>
+                    <div><i class="signinput">Name of Entity</i></div>
+                </div>
+                <br>
+                <div class="column-row">
+                    <div class="underline">&nbsp;&nbsp;</div>
+                    <div><i class="signinput">Type of Entity</i></div>
+                </div>
+                <br>
+                <div class="column-row">
+                    <div class="underline">&nbsp;&nbsp;</div>
+                    <div><i class="signinput">Signature of Person Signing</i></div>
+                </div>
+            </div>
+            <div class="column">
+                <b>If an Individual </b>
+                <br><br>
+                <div class="column-row">
+                    <br>
+                    <div class="underline">&nbsp;&nbsp;<img src="{{$user[0]->sub_signature}}" alt="Sub signature" height="30" width="90"></div>
+                    <div><i class="signinput">Signature</i></div>
+                </div>
+                <br>
+                <div class="column-row">
+                    <div class="underline">&nbsp;&nbsp;{{$user[0]->name}} </div>
+                    <div><i class="signinput">Print or Type Name</i></div>
+                </div>
+            </div>
+        </div>
+
+    @endif
+</div>
+
+<div class="page-break"></div>
 
 <div class="has-text-centered">
         <p class="title is-3 is-spaced">Appendix IA</p>
