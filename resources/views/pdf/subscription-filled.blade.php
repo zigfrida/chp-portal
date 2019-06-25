@@ -254,7 +254,7 @@
 {{-- new page --}}
 <div class="page-break"></div>
 <div class="subscription-date">
-    <p>This subscription is accepted by the Issuer this _______ day of ________________, 20__</p>
+    <p>This subscription is accepted by the Issuer this _______ day of ________________, 20____</p>
     <br>
     <p class="has-text-weight-bold">CHP Master I Limited Partnership</p>
     <br>
@@ -1239,7 +1239,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                         <tr>
                             <td>
                                 By signing this form, you confirm that you have read this form and you understand the risks of making this investment as identified in this form.
-                                <br>
+                                <br><br>
                                 First and last name: {{ $user[0]->subscriber_name }}
                                 <br>
                                 Signature: <img src="{{$user[0]->sub_signature}}" alt="Sub signature" height="50" width="80">
