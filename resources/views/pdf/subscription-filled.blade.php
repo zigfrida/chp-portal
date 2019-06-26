@@ -822,7 +822,7 @@
                     <h3 class="is-uppercase has-text-weight-bold title">Appendix I</h3>
                     <br>    
                     <h2 class="is-uppercase has-text-weight-bold has-text-link is-3">ACCREDITED INVESTOR CERTIFICATE</h2>
-                    <h6 class="title is-6">(National Instrument 45-106andSecurities Act(Ontario))</h6>
+                    <h6 class="title is-6">(National Instrument 45-106 and Securities Act(Ontario))</h6>
                 </div>
                 Capitalized terms not specifically defined in this certificate have the meaning ascribed to them in the Agreement to which this certificate is attached.
                 <br>
@@ -847,7 +847,7 @@
                                 <td>a)</td>
                                 <td>
                                     @if($user[0]->ind_ck1 == 1)
-                                        &nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" width="50" height="50">
+                                        &nbsp;&nbsp;<img style="max-width: none; width:100%" src="{{ $user[0]->form_signature }}" alt="Form signature">
                                     @endif
                                 </td>
                                 <td>an individual whose net income before taxes exceeded $200,000 in each of the two most recentcalendar years or whose net income before taxes combined with that of a spouse exceeded $300,000 in each of the two most recent calendar years and who, in either case, reasonably expects to exceed that net income level in the current calendar year. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
@@ -857,7 +857,7 @@
                                 <td>b)</td>
                                 <td>
                                     @if($user[0]->ind_ck1 == 1)
-                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
+                                    <div class="">&nbsp;&nbsp;<img style="max-width: none; width:100%" src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
                                     @endif
                                 </td>
                                 <td>an individual, who, either alone or with a spouse, has net assets of at least $5,000,000. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
@@ -867,7 +867,7 @@
                                 <td>c)</td>
                                 <td>
                                     @if ($user[0]->ind_ck3 == 1)
-                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
+                                    <div class="">&nbsp;&nbsp;<img style="max-width: none; width:100%" src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
                                     @endif
                                 </td>
                                 <td>an individual who, either alone or with a spouse, beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $1,000,000. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
@@ -877,7 +877,7 @@
                                 <td>d)</td>
                                 <td>
                                     @if($user[0]->ind_ck4 == 1)
-                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
+                                    <div class="">&nbsp;&nbsp;<img style="max-width: none; width:100%" src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
                                     @endif
                                 </td>
                                 <td>an individual who beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $5,000,000.</td>
@@ -887,7 +887,7 @@
                                 <td>e)</td>
                                 <td>
                                     @if($user[0]->ind_ck5 == 1)
-                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
+                                    <div class="">&nbsp;&nbsp;<img style="max-width: none; width:100%" src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
                                     @endif
                                 </td>
                                 <td>an individual registered under the securities legislation of a jurisdiction of Canada, as a representative of a person registered under the securities legislation of a jurisdiction of Canada as an adviser or dealer.</td>
@@ -897,7 +897,7 @@
                                 <td>f)</td>
                                 <td>
                                     @if($user[0]->ind_ck6 == 1)
-                                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
+                                    <div class="">&nbsp;&nbsp;<img style="max-width: none; width:100%" src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
                                     @endif
                                 </td>
                                 <td>an individual formerly registered under the securities legislation of a jurisdiction of Canada, other than an individual formerly registered solely as a representative of a limited market dealer under one or both of the Securities Act (Ontario) or the Securities Act (Newfoundland and Labrador),</td>
