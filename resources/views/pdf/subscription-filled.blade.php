@@ -86,6 +86,10 @@
     .underline {
         border-bottom: 1px solid black;
     }
+    table td img {
+        display: inline-block;  
+        float: left;
+    }
 </style>
 
 {{-- TODO: make .signinput into something more readable --}}
@@ -877,7 +881,7 @@
                                 <td>d)</td>
                                 <td>
                                     @if($user[0]->ind_ck4 == 1)
-                                    <div class="">&nbsp;&nbsp;<img style="max-width: none; width:100%" src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
+                                    <div class="">&nbsp;&nbsp;<img  src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
                                     @endif
                                 </td>
                                 <td>an individual who beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $5,000,000.</td>
@@ -887,7 +891,7 @@
                                 <td>e)</td>
                                 <td>
                                     @if($user[0]->ind_ck5 == 1)
-                                    <div class="">&nbsp;&nbsp;<img style="max-width: none; width:100%" src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
+                                    <div class="">&nbsp;&nbsp;<img  src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
                                     @endif
                                 </td>
                                 <td>an individual registered under the securities legislation of a jurisdiction of Canada, as a representative of a person registered under the securities legislation of a jurisdiction of Canada as an adviser or dealer.</td>
@@ -897,7 +901,7 @@
                                 <td>f)</td>
                                 <td>
                                     @if($user[0]->ind_ck6 == 1)
-                                    <div class="">&nbsp;&nbsp;<img style="max-width: none; width:100%" src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
+                                    <div class="">&nbsp;&nbsp;<img  src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
                                     @endif
                                 </td>
                                 <td>an individual formerly registered under the securities legislation of a jurisdiction of Canada, other than an individual formerly registered solely as a representative of a limited market dealer under one or both of the Securities Act (Ontario) or the Securities Act (Newfoundland and Labrador),</td>
