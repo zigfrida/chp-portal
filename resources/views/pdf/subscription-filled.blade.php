@@ -1144,11 +1144,12 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
         <h5 class="subtitle is-5 has-text-weight-bold">WARNING!</h5>
         <h6 class="subtitle is-6 has-text-weight-bold">This investment is risky. Don't invest unless you can afford to lose all the money you pay for this investment</h6>            
 </div>
-<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
 <div class="content ">
     <div>
         <br>
-        <span class="has-text-weight-bold">SECTION 1 TO BE COMPLETED BY THE ISSUER OR SELLING SECURITY HOLDER</span>     
+        <span class="has-text-weight-bold">SECTION 1 TO BE COMPLETED BY THE ISSUER OR SELLING SECURITY HOLDER</span>
+        <br>     
         <table class="table is-bordered">
             <tr class="darkenrow">
                 <td><span class="has-text-weight-bold has-text-white">1. About your investment</span></td>
@@ -1218,7 +1219,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
         <div class="page-break"></div>
         
         
-        
+        <br><br><br><br>
         <table class="table is-bordered">
             <tr class="darkenrow">
                 <td>
