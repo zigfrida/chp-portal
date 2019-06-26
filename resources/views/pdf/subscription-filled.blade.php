@@ -83,15 +83,12 @@
     .page-break {
         page-break-after: always;
     }
-    
+
     .underline {
         border-bottom: 1px solid black;
     }
 
-    table td img {
-        display: inline-block;  
-        float: left;
-    }
+
 </style>
 
 {{-- TODO: make .signinput into something more readable --}}
