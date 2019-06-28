@@ -226,6 +226,22 @@
                                                 <option @if($province === "West Virginia") selected @endif>West Virginia</option>
                                                 <option @if($province === "Wisconsin") selected @endif>Wisconsin</option>
                                                 <option @if($province === "Wyoming") selected @endif>Wyoming</option>
+
+                                            @else
+                                                <option>British Columbia</option>
+                                                <option>Alberta</option>
+                                                <option>Ontario</option>
+                                                <option>Manitoba</option>
+                                                <option>New Brunswick</option>
+                                                <option>Ontario</option>
+                                                <option>Newfoundland and Labrador</option>
+                                                <option>Northwest Territories</option>
+                                                <option>Nova Scotia</option>
+                                                <option>Nunavut</option>
+                                                <option>Prince Edward Island</option>
+                                                <option>Quebec</option>
+                                                <option>Saskatchewan</option>
+                                                <option>Yukon</option>
                                             @endif
                                         </select>
                                     </div>
