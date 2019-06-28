@@ -105,7 +105,7 @@
                                     <option>Yukon</option>
                                 </select>
                             </div>
-                            <i><p class="help">Province</p></i>
+                            <i><p class="help">Province / State</p></i>
                         </div>
                     </div>
 
