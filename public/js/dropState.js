@@ -18,9 +18,8 @@ window.setOptions = function () {
     if (provinces) {
         var i;
         for (i = 0; i < provinces.length; i++) {
-            option = new Option(provinces[i], i);
+            option = new Option(provinces[i]);
             provinceList.options.add(option);
         }
     }
-
 }

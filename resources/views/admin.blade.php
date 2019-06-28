@@ -282,7 +282,7 @@
             <div class="field is-narrow">
                 <div class="control">
                     <div class="select is-fullwidth">
-                        <select name="province" id="province">
+                        <select id="province" name="province">
                             <option>British Columbia</option>
                             <option>Alberta</option>
                             <option>Ontario</option>

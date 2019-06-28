@@ -74,19 +74,75 @@
                         <div class="control">
                             <div class="select is-fullwidth">
                                 <select id="province" name="province">
-                                    <option @if($province === "British Columbia") selected @endif>British Columbia</option>
-                                    <option @if($province === "Alberta") selected @endif>Alberta</option>
-                                    <option @if($province === "Manitoba") selected @endif>Manitoba</option>
-                                    <option @if($province === "New Brunswick") selected @endif>New Brunswick</option>
-                                    <option @if($province === "Ontario") selected @endif>Ontario</option>
-                                    <option @if($province === "Newfoundland and Labrador") selected @endif>Newfoundland and Labrador</option>
-                                    <option @if($province === "Northwest Territories") selected @endif>Northwest Territories</option>
-                                    <option @if($province === "Nova Scotia") selected @endif>Nova Scotia</option>
-                                    <option @if($province === "Nunavut") selected @endif>Nunavut</option>
-                                    <option @if($province === "Prince Edward Island") selected @endif>Prince Edward Island</option>
-                                    <option @if($province === "Quebec") selected @endif>Quebec</option>
-                                    <option @if($province === "Saskatchewan") selected @endif>Saskatchewan</option>
-                                    <option @if($province === "Yukon") selected @endif>Yukon</option>
+                                    @if ($country === "Canada")
+                                        <option @if($province === "British Columbia") selected @endif>British Columbia</option>
+                                        <option @if($province === "Alberta") selected @endif>Alberta</option>
+                                        <option @if($province === "Manitoba") selected @endif>Manitoba</option>
+                                        <option @if($province === "New Brunswick") selected @endif>New Brunswick</option>
+                                        <option @if($province === "Ontario") selected @endif>Ontario</option>
+                                        <option @if($province === "Newfoundland and Labrador") selected @endif>Newfoundland and Labrador</option>
+                                        <option @if($province === "Northwest Territories") selected @endif>Northwest Territories</option>
+                                        <option @if($province === "Nova Scotia") selected @endif>Nova Scotia</option>
+                                        <option @if($province === "Nunavut") selected @endif>Nunavut</option>
+                                        <option @if($province === "Prince Edward Island") selected @endif>Prince Edward Island</option>
+                                        <option @if($province === "Quebec") selected @endif>Quebec</option>
+                                        <option @if($province === "Saskatchewan") selected @endif>Saskatchewan</option>
+                                        <option @if($province === "Yukon") selected @endif>Yukon</option>
+                                    @endif
+
+                                    @if ($country == "United States")
+                                        <option @if($province === "Alabama") selected @endif>Alabama</option>
+                                        <option @if($province === "Alaska") selected @endif>Alaska</option>
+                                        <option @if($province === "Arizona") selected @endif>Arizona</option>
+                                        <option @if($province === "Arkansas") selected @endif>Arkansas</option>
+                                        <option @if($province === "California") selected @endif>California</option>
+                                        <option @if($province === "Colorado") selected @endif>Colorado</option>
+                                        <option @if($province === "Connecticut") selected @endif>Connecticut</option>
+                                        <option @if($province === "Delaware") selected @endif>Delaware</option>
+                                        <option @if($province === "District Of Columbia") selected @endif>District Of Columbia</option>
+                                        <option @if($province === "Florida") selected @endif>Florida</option>
+                                        <option @if($province === "Georgia") selected @endif>Georgia</option>
+                                        <option @if($province === "Hawaii") selected @endif>Hawaii</option>
+                                        <option @if($province === "Idaho") selected @endif>Idaho</option>
+                                        <option @if($province === "Illinois") selected @endif>Illinois</option>
+                                        <option @if($province === "Indiana") selected @endif>Indiana</option>
+                                        <option @if($province === "Iowa") selected @endif>Iowa</option>
+                                        <option @if($province === "Kansas") selected @endif>Kansas</option>
+                                        <option @if($province === "Kentucky") selected @endif>Kentucky</option>
+                                        <option @if($province === "Louisiana") selected @endif>Louisiana</option>
+                                        <option @if($province === "Maine") selected @endif>Maine</option>
+                                        <option @if($province === "Maryland") selected @endif>Maryland</option>
+                                        <option @if($province === "Massachusetts") selected @endif>Massachusetts</option>
+                                        <option @if($province === "Michigan") selected @endif>Michigan</option>
+                                        <option @if($province === "Minnesota") selected @endif>Minnesota</option>
+                                        <option @if($province === "Mississippi") selected @endif>Mississippi</option>
+                                        <option @if($province === "Missouri") selected @endif>Missouri</option>
+                                        <option @if($province === "Montana") selected @endif>Montana</option>
+                                        <option @if($province === "Nebraska") selected @endif>Nebraska</option>
+                                        <option @if($province === "Nevada") selected @endif>Nevada</option>
+                                        <option @if($province === "New Hampshire") selected @endif>New Hampshire</option>
+                                        <option @if($province === "New Jersey") selected @endif>New Jersey</option>
+                                        <option @if($province === "New Mexico") selected @endif>New Mexico</option>
+                                        <option @if($province === "New York") selected @endif>New York</option>
+                                        <option @if($province === "North Carolina") selected @endif>North Carolina</option>
+                                        <option @if($province === "North Dakota") selected @endif>North Dakota</option>
+                                        <option @if($province === "Ohio") selected @endif>Ohio</option>
+                                        <option @if($province === "Oklahoma") selected @endif>Oklahoma</option>
+                                        <option @if($province === "Oregon") selected @endif>Oregon</option>
+                                        <option @if($province === "Pennsylvania") selected @endif>Pennsylvania</option>
+                                        <option @if($province === "Rhode Island") selected @endif>Rhode Island</option>
+                                        <option @if($province === "South Carolina") selected @endif>South Carolina</option>
+                                        <option @if($province === "South Dakota") selected @endif>South Dakota</option>
+                                        <option @if($province === "Tennessee") selected @endif>Tennessee</option>
+                                        <option @if($province === "Texas") selected @endif>Texas</option>
+                                        <option @if($province === "Utah") selected @endif>Utah</option>
+                                        <option @if($province === "Vermont") selected @endif>Vermont</option>
+                                        <option @if($province === "Virginia") selected @endif>Virginia</option>
+                                        <option @if($province === "Washington") selected @endif>Washington</option>
+                                        <option @if($province === "West Virginia") selected @endif>West Virginia</option>
+                                        <option @if($province === "Wisconsin") selected @endif>Wisconsin</option>
+                                        <option @if($province === "Wyoming") selected @endif>Wyoming</option>
+                                    @endif
                                 </select>
                             </div>
                             <i><p class="help">Province</p></i>
@@ -380,19 +436,75 @@
                     <div class="control">
                         <div class="select is-fullwidth">
                             <select id="province" name="province">
-                                <option @if($province === "British Columbia") selected @endif>British Columbia</option>
-                                <option @if($province === "Alberta") selected @endif>Alberta</option>
-                                <option @if($province === "Manitoba") selected @endif>Manitoba</option>
-                                <option @if($province === "New Brunswick") selected @endif>New Brunswick</option>
-                                <option @if($province === "Ontario") selected @endif>Ontario</option>
-                                <option @if($province === "Newfoundland and Labrador") selected @endif>Newfoundland and Labrador</option>
-                                <option @if($province === "Northwest Territories") selected @endif>Northwest Territories</option>
-                                <option @if($province === "Nova Scotia") selected @endif>Nova Scotia</option>
-                                <option @if($province === "Nunavut") selected @endif>Nunavut</option>
-                                <option @if($province === "Prince Edward Island") selected @endif>Prince Edward Island</option>
-                                <option @if($province === "Quebec") selected @endif>Quebec</option>
-                                <option @if($province === "Saskatchewan") selected @endif>Saskatchewan</option>
-                                <option @if($province === "Yukon") selected @endif>Yukon</option>
+                                @if ($country === "Canada")
+                                    <option @if($province === "British Columbia") selected @endif>British Columbia</option>
+                                    <option @if($province === "Alberta") selected @endif>Alberta</option>
+                                    <option @if($province === "Manitoba") selected @endif>Manitoba</option>
+                                    <option @if($province === "New Brunswick") selected @endif>New Brunswick</option>
+                                    <option @if($province === "Ontario") selected @endif>Ontario</option>
+                                    <option @if($province === "Newfoundland and Labrador") selected @endif>Newfoundland and Labrador</option>
+                                    <option @if($province === "Northwest Territories") selected @endif>Northwest Territories</option>
+                                    <option @if($province === "Nova Scotia") selected @endif>Nova Scotia</option>
+                                    <option @if($province === "Nunavut") selected @endif>Nunavut</option>
+                                    <option @if($province === "Prince Edward Island") selected @endif>Prince Edward Island</option>
+                                    <option @if($province === "Quebec") selected @endif>Quebec</option>
+                                    <option @if($province === "Saskatchewan") selected @endif>Saskatchewan</option>
+                                    <option @if($province === "Yukon") selected @endif>Yukon</option>
+                                @endif
+
+                                @if ($country == "United States")
+                                    <option @if($province === "Alabama") selected @endif>Alabama</option>
+                                    <option @if($province === "Alaska") selected @endif>Alaska</option>
+                                    <option @if($province === "Arizona") selected @endif>Arizona</option>
+                                    <option @if($province === "Arkansas") selected @endif>Arkansas</option>
+                                    <option @if($province === "California") selected @endif>California</option>
+                                    <option @if($province === "Colorado") selected @endif>Colorado</option>
+                                    <option @if($province === "Connecticut") selected @endif>Connecticut</option>
+                                    <option @if($province === "Delaware") selected @endif>Delaware</option>
+                                    <option @if($province === "District Of Columbia") selected @endif>District Of Columbia</option>
+                                    <option @if($province === "Florida") selected @endif>Florida</option>
+                                    <option @if($province === "Georgia") selected @endif>Georgia</option>
+                                    <option @if($province === "Hawaii") selected @endif>Hawaii</option>
+                                    <option @if($province === "Idaho") selected @endif>Idaho</option>
+                                    <option @if($province === "Illinois") selected @endif>Illinois</option>
+                                    <option @if($province === "Indiana") selected @endif>Indiana</option>
+                                    <option @if($province === "Iowa") selected @endif>Iowa</option>
+                                    <option @if($province === "Kansas") selected @endif>Kansas</option>
+                                    <option @if($province === "Kentucky") selected @endif>Kentucky</option>
+                                    <option @if($province === "Louisiana") selected @endif>Louisiana</option>
+                                    <option @if($province === "Maine") selected @endif>Maine</option>
+                                    <option @if($province === "Maryland") selected @endif>Maryland</option>
+                                    <option @if($province === "Massachusetts") selected @endif>Massachusetts</option>
+                                    <option @if($province === "Michigan") selected @endif>Michigan</option>
+                                    <option @if($province === "Minnesota") selected @endif>Minnesota</option>
+                                    <option @if($province === "Mississippi") selected @endif>Mississippi</option>
+                                    <option @if($province === "Missouri") selected @endif>Missouri</option>
+                                    <option @if($province === "Montana") selected @endif>Montana</option>
+                                    <option @if($province === "Nebraska") selected @endif>Nebraska</option>
+                                    <option @if($province === "Nevada") selected @endif>Nevada</option>
+                                    <option @if($province === "New Hampshire") selected @endif>New Hampshire</option>
+                                    <option @if($province === "New Jersey") selected @endif>New Jersey</option>
+                                    <option @if($province === "New Mexico") selected @endif>New Mexico</option>
+                                    <option @if($province === "New York") selected @endif>New York</option>
+                                    <option @if($province === "North Carolina") selected @endif>North Carolina</option>
+                                    <option @if($province === "North Dakota") selected @endif>North Dakota</option>
+                                    <option @if($province === "Ohio") selected @endif>Ohio</option>
+                                    <option @if($province === "Oklahoma") selected @endif>Oklahoma</option>
+                                    <option @if($province === "Oregon") selected @endif>Oregon</option>
+                                    <option @if($province === "Pennsylvania") selected @endif>Pennsylvania</option>
+                                    <option @if($province === "Rhode Island") selected @endif>Rhode Island</option>
+                                    <option @if($province === "South Carolina") selected @endif>South Carolina</option>
+                                    <option @if($province === "South Dakota") selected @endif>South Dakota</option>
+                                    <option @if($province === "Tennessee") selected @endif>Tennessee</option>
+                                    <option @if($province === "Texas") selected @endif>Texas</option>
+                                    <option @if($province === "Utah") selected @endif>Utah</option>
+                                    <option @if($province === "Vermont") selected @endif>Vermont</option>
+                                    <option @if($province === "Virginia") selected @endif>Virginia</option>
+                                    <option @if($province === "Washington") selected @endif>Washington</option>
+                                    <option @if($province === "West Virginia") selected @endif>West Virginia</option>
+                                    <option @if($province === "Wisconsin") selected @endif>Wisconsin</option>
+                                    <option @if($province === "Wyoming") selected @endif>Wyoming</option>
+                                @endif
                             </select>
                         </div>
                         <i><p class="help">Province</p></i>
@@ -417,7 +529,7 @@
                 <div class="field is-narrow">
                     <div class="control is-expanded">
                         <div class="select is-fullwidth">
-                            <select id="country" name="country">
+                            <select id="country" name="country" onchange="window.setOptions()">
                                 <option @if($country === "Canada")selected @endif>Canada</option>
                                 <option @if($country === "United States")selected @endif>United States</option>
                             </select>

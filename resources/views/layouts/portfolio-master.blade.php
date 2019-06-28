@@ -14,6 +14,9 @@
             padding: 3rem 30rem;
         } */
     </style>
+
+    <script type="text/javascript" src="{{ URL::asset('js/dropState.js') }}" defer></script>
+    
 </head>
 <body>
     
@@ -122,7 +125,7 @@
         </div>
  
         <br>
-        @if(!$user_table[0]->existing == 'existing')
+        @if(!$user_table[0]->existing == 'existing' && auth()->user()->isAdmin())
             <div class="columns is-centered">
                 <a class="button is-light" href="{{url($user[0]->user_id.'/filledform')}}" style="padding:10px">Download Subscription Agreement (PDF)</a><br>
                 <a class="button is-light" href="{{url($user[0]->user_id.'/formtest')}}" style="padding:10px">>> Web Version</a><br>

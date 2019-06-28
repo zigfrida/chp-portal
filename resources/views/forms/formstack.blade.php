@@ -89,19 +89,20 @@
                         <div class="control">
                             <div class="select is-fullwidth">
                                 <select id="province" name="province">
-                                    <option @if($province === "British Columbia") selected @endif>British Columbia</option>
-                                    <option @if($province === "Alberta") selected @endif>Alberta</option>
-                                    <option @if($province === "Manitoba") selected @endif>Manitoba</option>
-                                    <option @if($province === "New Brunswick") selected @endif>New Brunswick</option>
-                                    <option @if($province === "Ontario") selected @endif>Ontario</option>
-                                    <option @if($province === "Newfoundland and Labrador") selected @endif>Newfoundland and Labrador</option>
-                                    <option @if($province === "Northwest Territories") selected @endif>Northwest Territories</option>
-                                    <option @if($province === "Nova Scotia") selected @endif>Nova Scotia</option>
-                                    <option @if($province === "Nunavut") selected @endif>Nunavut</option>
-                                    <option @if($province === "Prince Edward Island") selected @endif>Prince Edward Island</option>
-                                    <option @if($province === "Quebec") selected @endif>Quebec</option>
-                                    <option @if($province === "Saskatchewan") selected @endif>Saskatchewan</option>
-                                    <option @if($province === "Yukon") selected @endif>Yukon</option>
+                                    <option>British Columbia</option>
+                                    <option>Alberta</option>
+                                    <option>Ontario</option>
+                                    <option>Manitoba</option>
+                                    <option>New Brunswick</option>
+                                    <option>Ontario</option>
+                                    <option>Newfoundland and Labrador</option>
+                                    <option>Northwest Territories</option>
+                                    <option>Nova Scotia</option>
+                                    <option>Nunavut</option>
+                                    <option>Prince Edward Island</option>
+                                    <option>Quebec</option>
+                                    <option>Saskatchewan</option>
+                                    <option>Yukon</option>
                                 </select>
                             </div>
                             <i><p class="help">Province</p></i>
@@ -126,7 +127,7 @@
                     <div class="field is-narrow">
                         <div class="control is-expanded">
                             <div class="select is-fullwidth">
-                                <select id="country" name="country">
+                                <select id="country" name="country" onchange="window.setOptions()">
                                     <option @if($country === "Canada")selected @endif>Canada</option>
                                     <option @if($country === "United States")selected @endif>United States</option>
                                 </select>
