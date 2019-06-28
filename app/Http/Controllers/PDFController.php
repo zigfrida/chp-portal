@@ -21,7 +21,7 @@ class PDFController extends Controller
 
             $htmlstring = view('pdf.subscription-filled', compact('user'))->render();
             $options = new Options();
-            $options->set('defaultFont', 'Arial');
+            // $options->set('defaultFont', 'Arial');
 
             $pdf = new Dompdf($options);
 
