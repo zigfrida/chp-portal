@@ -89,6 +89,22 @@
     }
 
 
+    /* for the CSS table */
+    .boxer {
+        display: table;
+        border-collapse: collapse;
+    }
+    .boxer .box-row {
+        display: table-row;
+    }
+
+    .boxer .box {
+        display: table-cell;
+        vertical-align: top;
+        border: 1px solid black;
+        padding: 5px;
+    }
+
 </style>
 
 {{-- TODO: make .signinput into something more readable --}}
