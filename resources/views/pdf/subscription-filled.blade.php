@@ -1222,7 +1222,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                     </div>
                     <div class="box ">
                         @if($user[0]->ind_ck1 == 1)
-                            <div style="background-image: url('{{ $user[0]->form_signature }}'); width:100px; height:100px; background-size:150px"></div>
+                            <div style="background-image: url('{{url('/images/brent-burgess_orig.jpg')}}'); width:100px; height:100px; background-size:150px"></div>
                         @endif
                     </div>
                 </div>
