@@ -1213,7 +1213,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                         @if($user[0]->ind_ck1 == 1)
                             <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="100"></div>
                         @endif
-                    <div>
+                    </div>
                 </div>
             
                 <div class="box-row">
@@ -1293,24 +1293,24 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                     </div>
               </div>
             
-               <div class="box-row"><!--Headings-->
-                <div class="box"><h2>4. Your name and signature</h2></div>
-              </div>
-                          
+                <div class="box-row"><!--Headings-->
+                    <div class="box"><h2>4. Your name and signature</h2></div>
+                </div>
+                            
                     
                     
-              <!-- Start of 'box-row' -->
-              <div class="box-row">
+                <!-- Start of 'box-row' -->
+                <div class="box-row">
                 <div class="box">
-            By signing this form, you confirm that you have read this form and you understand the risks of making this investment as identified in this form.
-            <br><br><br><br>
-            First and last name: {{ $user[0]->subscriber_name }}
-            <br><br><br><br>
-            Signature: <br> <img src="{{$user[0]->sub_signature}}" alt="Sub signature" height="100" width="100">
-            <br><br>
-            Date: {{ $user[0]->signed_year1 }}
-            </div>
-                  </div>
+                By signing this form, you confirm that you have read this form and you understand the risks of making this investment as identified in this form.
+                <br><br><br><br>
+                First and last name: {{ $user[0]->subscriber_name }}
+                <br><br><br><br>
+                Signature: <br> <img src="{{$user[0]->sub_signature}}" alt="Sub signature" height="100" width="100">
+                <br><br>
+                Date: {{ $user[0]->signed_year1 }}
+                </div>
+                </div>
 
 
 
