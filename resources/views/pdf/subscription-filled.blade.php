@@ -1189,10 +1189,10 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                     
                 <div class="box-row">
                     <div class="box">Risk of loss - You could lose your entire investment of {{ $user[0]->total_investment }}</div>
-                    <div class="box center" style="background-image: url('{{ $user[0]->form_signature }}'); width:100px; height:100px;">
-                        {{-- @if($user[0]->ind_ck1 == 1)
-                            <div style="background-image: url('{{ $user[0]->form_signature }}'); width:100px; height:100px;"></div>
-                        @endif   --}}
+                    <div class="box center">
+                        @if($user[0]->ind_ck1 == 1)
+                            <div style="background-image: url('{{ $user[0]->form_signature }}'); width:100px; height:100px; background-size:150px"></div>
+                        @endif  
                     </div>
                 </div>
             
@@ -1200,7 +1200,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                     <div class="box">Liquidity risk – You may not be able to sell your investment quickly – or at all.</div>
                     <div class="box center">
                         @if($user[0]->ind_ck1 == 1)
-                            <div style="background-image: url('{{ $user[0]->form_signature }}'); width:100px; height:100px;"></div>
+                            <div style="background-image: url('{{ $user[0]->form_signature }}'); width:100px; height:100px; background-size:150px"></div>
                         @endif
                     </div>
                 </div>
@@ -1209,7 +1209,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                     <div class="box">Lack of information – You may receive little or no information about your investment.</div>
                     <div class="box center">
                         @if($user[0]->ind_ck1 == 1)
-                            <div style="background-image: url('{{ $user[0]->form_signature }}'); width:100px; height:100px;"></div>
+                            <div style="background-image: url('{{ $user[0]->form_signature }}'); width:100px; height:100px; background-size:150px"></div>
                         @endif
                     </div>
                 </div>
@@ -1222,7 +1222,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                     </div>
                     <div class="box ">
                         @if($user[0]->ind_ck1 == 1)
-                            <div style="background-image: url('{{ $user[0]->form_signature }}'); width:100px; height:100px;"></div>
+                            <div style="background-image: url('{{ $user[0]->form_signature }}'); width:100px; height:100px; background-size:150px"></div>
                         @endif
                     </div>
                 </div>
@@ -1243,7 +1243,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                     </div>
                     <div class="box center">
                         @if($user[0]->ind_ck1 == 1)
-                            <div style="background-image: url('{{ $user[0]->form_signature }}'); width:100px; height:100px;"></div>
+                            <div style="background-image: url('{{ $user[0]->form_signature }}'); width:100px; height:100px; background-size:150px"></div>
                         @endif
                     </div>
                 </div>
@@ -1257,7 +1257,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
 
                     <div class="box center">
                         @if($user[0]->ind_ck1 == 1)
-                            <div style="background-image: url('{{ $user[0]->form_signature }}'); width:100px; height:100px;"></div>
+                            <div style="background-image: url('{{ $user[0]->form_signature }}'); width:100px; height:100px; background-size:150px"></div>
                         @endif
                     </div>
                 </div>
@@ -1270,7 +1270,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
 
                     <div class="box center">
                         @if($user[0]->ind_ck3 == 1)
-                            <div style="background-image: url('{{ $user[0]->form_signature }}'); width:100px; height:100px;"></div>
+                            <div style="background-image: url('{{ $user[0]->form_signature }}'); width:100px; height:100px; background-size:150px"></div>
                         @endif
                     </div>
                 </div>
@@ -1284,7 +1284,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
 
                     <div class="box center">
                         @if($user[0]->ind_ck4 == 1)
-                            <div style="background-image: url('{{ $user[0]->form_signature }}'); width:100px; height:100px;"></div>
+                            <div style="background-image: url('{{ $user[0]->form_signature }}'); width:100px; height:100px; background-size:150px"></div>
                         @endif
                     </div>
               </div>
