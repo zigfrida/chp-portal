@@ -1245,7 +1245,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                     </div>
                     <div class="box center">
                         @if($user[0]->ind_ck1 == 1)
-                            <img src="{{ $user[0]->form_signature }}">
+                            <img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="100">
                         @endif
                     </div>
                 </div>
@@ -1259,7 +1259,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
 
                     <div class="box center">
                         @if($user[0]->ind_ck1 == 1)
-                            <img src="{{ $user[0]->form_signature }}">
+                            <img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="100">
                         @endif
                     </div>
                 </div>
@@ -1272,7 +1272,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
 
                     <div class="box center">
                         @if($user[0]->ind_ck3 == 1)
-                            <img src="{{ $user[0]->form_signature }}">
+                            <img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="100">
                         @endif
                     </div>
                 </div>
@@ -1288,7 +1288,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
 
                     <div class="box center">
                         @if($user[0]->ind_ck4 == 1)
-                            <img src="{{ $user[0]->form_signature }}">
+                            <img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="100">
                         @endif
                     </div>
               </div>
