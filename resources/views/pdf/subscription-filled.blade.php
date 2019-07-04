@@ -1176,7 +1176,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                 <div class="box-row"><!--Headings-->
                     <div class="box"><h2>1. About your investment<h2></div>
                 </div>
-              <!-- End of 'box-row' -->
+                <!-- End of 'box-row' -->
                   
                 <p>Type of securities: <b>Class A and B Limited Partnership Units</b></p>
                 <p>Issuer: <b>CHP Master I Limited Partnership</b></p>
@@ -1189,7 +1189,6 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                 </div>
               
                     
-              <!-- Start of 'box-row' -->
                 <div class="box-row">
                     <div class="box">Risk of loss - You could lose your entire investment of 2435342</div>
                     <div class="box center">
@@ -1197,79 +1196,102 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                             <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="100"></div>
                         @endif  
                     </div>
-              </div>
-              <!-- End of 'box-row' -->
+                </div>
             
-              <!-- Start of 'box-row' -->
-              <div class="box-row">
-                <div class="box">Liquidity risk – You may not be able to sell your investment quickly – or at all.</div>
-                @if($user[0]->ind_ck1 == 1)
-                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="100"></div>
-                @endif
-              </div>
-              <!-- End of 'box-row' -->
+                <div class="box-row">
+                    <div class="box">Liquidity risk – You may not be able to sell your investment quickly – or at all.</div>
+                    <div class="box center">
+                        @if($user[0]->ind_ck1 == 1)
+                            <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="100"></div>
+                        @endif
+                    </div>
+                </div>
             
-              <!-- Start of 'box-row' -->
-              <div class="box-row">
-                <div class="box">Lack of information – You may receive little or no information about your investment.</div>
-                @if($user[0]->ind_ck1 == 1)
-                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="100"></div>
-                @endif              </div>
-              <!-- End of 'box-row' -->
+                <div class="box-row">
+                    <div class="box">Lack of information – You may receive little or no information about your investment.</div>
+                    <div class="box center">
+                        @if($user[0]->ind_ck1 == 1)
+                            <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="100"></div>
+                        @endif
+                    <div>
+                </div>
             
-              <!-- Start of 'box-row' -->
-              <div class="box-row">
-                <div class="box">Lack of advice – You will not receive advice from the salesperson about whether this investment is suitable for you unless the salesperson is registered.
-                  <br>The salesperson is the person who meets with, or provides information to, you about making this investment.
-                  <br>To check whether the salesperson is registered, go to www.aretheyregistered.ca.</div>
-
-                    @if($user[0]->ind_ck1 == 1)
-                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="100"></div>
-                    @endif
-
-              </div>
+                <div class="box-row">
+                    <div class="box">
+                        Lack of advice – You will not receive advice from the salesperson about whether this investment is suitable for you unless the salesperson is registered.
+                        <br>The salesperson is the person who meets with, or provides information to, you about making this investment.
+                        <br>To check whether the salesperson is registered, go to www.aretheyregistered.ca.
+                    </div>
+                    <div class="box ">
+                        @if($user[0]->ind_ck1 == 1)
+                            <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="100"></div>
+                        @endif
+                    </div>
+                </div>
               <!-- End of 'box-row' -->
             
              
-              <div class="box-row"><!--Headings-->
-                <div class="box"><h2> 3. Accredited investor status </h2></div>
-                <div class="box">Your initials</div>
-              </div>
+                <div class="box-row"><!--Headings-->
+                    <div class="box"><h2> 3. Accredited investor status </h2></div>
+                    <div class="box">Your initials</div>
+                </div>
                     
                     
-              <!-- Start of 'box-row' -->
-              <div class="box-row">
-                <div class="box">- Your net income before taxes was more than $200,000 in each of the 2 most recent calendar years,
-                  <br>and you expect it to be more than $200,000 in the current calendar year.
-                  <br>(You can find your net income before taxes on your personal income tax return.)</div>
-                <div class="box center"><img src="https://dummyimage.com/120x100/000/fff"></div>
-              </div>
+                <div class="box-row">
+                    <div class="box">
+                        - Your net income before taxes was more than $200,000 in each of the 2 most recent calendar years,
+                        <br>and you expect it to be more than $200,000 in the current calendar year.
+                        <br>(You can find your net income before taxes on your personal income tax return.)
+                    </div>
+                    <div class="box center">
+                        @if($user[0]->risk_ck5 == 1)
+                            <img src="{{ $user[0]->form_signature }}">
+                        @endif
+                    </div>
+                </div>
+
+                <div class="box-row">
+                    <div class="box">
+                        - Your net income before taxes combined with your spouse’s was more than $300,000 in each of the
+                        <br>2 most recent calendar years, and you expect your combined net income before taxes to be more than $300,000
+                        <br>in the current calendar year.
+                    </div>
+
+                    <div class="box center">
+                        @if($user[0]->risk_ck6 == 1)
+                            <img src="{{ $user[0]->form_signature }}">
+                        @endif
+                    </div>
+                </div>
+
+                <div class="box-row">
+                    <div class="box">
+                        - Either alone or with your spouse, you own more than $1 million in cash and securities,
+                        <br>after subtracting any debt related to the cash and securities.
+                    </div>
+
+                    <div class="box center">
+                        @if($user[0]->risk_ck7 == 1)
+                            <img src="{{ $user[0]->form_signature }}">
+                        @endif
+                    </div>
+                </div>
               <!-- End of 'box-row' -->
             
-              <!-- Start of 'box-row' -->
-              <div class="box-row">
-                <div class="box">- Your net income before taxes combined with your spouse’s was more than $300,000 in each of the
-                  <br>2 most recent calendar years, and you expect your combined net income before taxes to be more than $300,000
-                  <br>in the current calendar year.</div>
-                <div class="box center"><img src="https://dummyimage.com/120x100/000/fff"></div>
+                <div class="page-break"></div>
+                <br><br><br><br>
+                <!-- Start of 'box-row' -->
+                <div class="box-row">
+                    <div class="box">
+                    - Either alone or with your spouse, you have net assets worth more than $5 million. (Your net assets are your total assets (including real estate) minus your total debt.)
+                    </div>
+
+                    <div class="box center">
+                        @if($user[0]->risk_ck8 == 1)
+                            <img src="{{ $user[0]->form_signature }}">
+                        @endif
+                    </div>
               </div>
-              <!-- End of 'box-row' -->
-            
-              <!-- Start of 'box-row' -->
-              <div class="box-row">
-                <div class="box">- Either alone or with your spouse, you own more than $1 million in cash and securities,
-                  <br>after subtracting any debt related to the cash and securities.</div>
-                <div class="box center"><img src="https://dummyimage.com/120x100/000/fff"></div>
-              </div>
-              <!-- End of 'box-row' -->
-            
-              <div class="page-break"></div>
-              <br><br><br><br>
-              <!-- Start of 'box-row' -->
-              <div class="box-row">    <div class="box">- Either alone or with your spouse, you have net assets worth more than $5 million. (Your net assets are your total assets (including real estate) minus your total debt.)</div>
-                <div class="box center"><img src="https://dummyimage.com/120x100/000/fff"></div>
-              </div>
-              <!-- End of 'box-row' -->
             
                <div class="box-row"><!--Headings-->
                 <div class="box"><h2>4. Your name and signature</h2></div>
@@ -1282,11 +1304,11 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                 <div class="box">
             By signing this form, you confirm that you have read this form and you understand the risks of making this investment as identified in this form.
             <br><br><br><br>
-            First and last name: Test PDF 
+            First and last name: {{ $user[0]->subscriber_name }}
             <br><br><br><br>
-            Signature: <br> <img src="https://dummyimage.com/120x100/000/fff">
+            Signature: <br> <img src="{{$user[0]->sub_signature}}" alt="Sub signature" height="100" width="100">
             <br><br>
-            Date: Some date
+            Date: {{ $user[0]->signed_year1 }}
             </div>
                   </div>
 
