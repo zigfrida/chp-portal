@@ -1200,7 +1200,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                     <div class="box">Liquidity risk – You may not be able to sell your investment quickly – or at all.</div>
                     <div class="box center">
                         @if($user[0]->ind_ck1 == 1)
-                            <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="100"></div>
+                            <div style="background-image: url('{{ $user[0]->form_signature }}'); width:100px; height:100px;"></div>
                         @endif
                     </div>
                 </div>
@@ -1209,7 +1209,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                     <div class="box">Lack of information – You may receive little or no information about your investment.</div>
                     <div class="box center">
                         @if($user[0]->ind_ck1 == 1)
-                            <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="100"></div>
+                            <div style="background-image: url('{{ $user[0]->form_signature }}'); width:100px; height:100px;"></div>
                         @endif
                     </div>
                 </div>
@@ -1222,7 +1222,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                     </div>
                     <div class="box ">
                         @if($user[0]->ind_ck1 == 1)
-                            <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="100"></div>
+                            <div style="background-image: url('{{ $user[0]->form_signature }}'); width:100px; height:100px;"></div>
                         @endif
                     </div>
                 </div>
@@ -1243,7 +1243,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                     </div>
                     <div class="box center">
                         @if($user[0]->ind_ck1 == 1)
-                            <img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="100">
+                            <div style="background-image: url('{{ $user[0]->form_signature }}'); width:100px; height:100px;"></div>
                         @endif
                     </div>
                 </div>
@@ -1257,7 +1257,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
 
                     <div class="box center">
                         @if($user[0]->ind_ck1 == 1)
-                            <img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="100">
+                            <div style="background-image: url('{{ $user[0]->form_signature }}'); width:100px; height:100px;"></div>
                         @endif
                     </div>
                 </div>
@@ -1270,7 +1270,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
 
                     <div class="box center">
                         @if($user[0]->ind_ck3 == 1)
-                            <img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="100">
+                            <div style="background-image: url('{{ $user[0]->form_signature }}'); width:100px; height:100px;"></div>
                         @endif
                     </div>
                 </div>
@@ -1284,7 +1284,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
 
                     <div class="box center">
                         @if($user[0]->ind_ck4 == 1)
-                            <img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="100">
+                            <div style="background-image: url('{{ $user[0]->form_signature }}'); width:100px; height:100px;"></div>
                         @endif
                     </div>
               </div>
