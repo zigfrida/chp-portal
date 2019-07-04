@@ -1215,7 +1215,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                 </div>
             
                 <div class="box-row">
-                    <div class="box">
+                    <div class="box" id="mebox">
                         Lack of advice – You will not receive advice from the salesperson about whether this investment is suitable for you unless the salesperson is registered.
                         <br>The salesperson is the person who meets with, or provides information to, you about making this investment.
                         <br>To check whether the salesperson is registered, go to www.aretheyregistered.ca.
