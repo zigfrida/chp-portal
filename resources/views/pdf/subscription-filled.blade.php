@@ -1180,6 +1180,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                 <p>Issuer: <b>CHP Master I Limited Partnership</b></p>
                 <p>Purchased from: <b>The Issuer</b></p>
                 <h3>SECTIONS 2 TO 4 TO BE COMPLETED BY THE PURCHASER</h3>
+                <img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="100">
                     
                 <div class="box-row">
                     <div class="box"><h2>2. Risk acknowledgement</h2><br><p>This is risky. Initial that you understand that:</p></div>
@@ -1190,7 +1191,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                 <div class="box-row">
                     <div class="box">Risk of loss - You could lose your entire investment of {{ $user[0]->total_investment }}
                     <br>
-                    <img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="100">
+                    
                     
                     </div>
                     <div class="box center">
