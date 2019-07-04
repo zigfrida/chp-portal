@@ -1189,10 +1189,10 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                     
                 <div class="box-row">
                     <div class="box">Risk of loss - You could lose your entire investment of {{ $user[0]->total_investment }}</div>
-                    <div class="box center">
-                        @if($user[0]->ind_ck1 == 1)
+                    <div class="box center" style="background-image: url('{{ $user[0]->form_signature }}'); width:100px; height:100px;">
+                        {{-- @if($user[0]->ind_ck1 == 1)
                             <div style="background-image: url('{{ $user[0]->form_signature }}'); width:100px; height:100px;"></div>
-                        @endif  
+                        @endif   --}}
                     </div>
                 </div>
             
