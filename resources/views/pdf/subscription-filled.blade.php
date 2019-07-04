@@ -1244,7 +1244,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                         <br>(You can find your net income before taxes on your personal income tax return.)
                     </div>
                     <div class="box center">
-                        @if($user[0]->risk_ck5 == 1)
+                        @if($user[0]->ind_ck1 == 1)
                             <img src="{{ $user[0]->form_signature }}">
                         @endif
                     </div>
@@ -1258,7 +1258,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                     </div>
 
                     <div class="box center">
-                        @if($user[0]->risk_ck6 == 1)
+                        @if($user[0]->ind_ck1 == 1)
                             <img src="{{ $user[0]->form_signature }}">
                         @endif
                     </div>
@@ -1271,7 +1271,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                     </div>
 
                     <div class="box center">
-                        @if($user[0]->risk_ck7 == 1)
+                        @if($user[0]->ind_ck3 == 1)
                             <img src="{{ $user[0]->form_signature }}">
                         @endif
                     </div>
@@ -1287,7 +1287,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                     </div>
 
                     <div class="box center">
-                        @if($user[0]->risk_ck8 == 1)
+                        @if($user[0]->ind_ck4 == 1)
                             <img src="{{ $user[0]->form_signature }}">
                         @endif
                     </div>
