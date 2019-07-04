@@ -1173,42 +1173,48 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
 
         <div class="jesus">
             <div class="boxer">
-              <div class="box-row"><!--Headings-->
-                <div class="box"><h2>1. About your investment<h2></div>
-              </div>
+                <div class="box-row"><!--Headings-->
+                    <div class="box"><h2>1. About your investment<h2></div>
+                </div>
               <!-- End of 'box-row' -->
                   
-                  
-                 <p>Type of securities: <b>Class A and B Limited Partnership Units</b></p>
-                 <p>Issuer: <b>CHP Master I Limited Partnership</b></p>
-                  <p>Purchased from: <b>The Issuer</b></p>
-                  <h3>SECTIONS 2 TO 4 TO BE COMPLETED BY THE PURCHASER</h3>
+                <p>Type of securities: <b>Class A and B Limited Partnership Units</b></p>
+                <p>Issuer: <b>CHP Master I Limited Partnership</b></p>
+                <p>Purchased from: <b>The Issuer</b></p>
+                <h3>SECTIONS 2 TO 4 TO BE COMPLETED BY THE PURCHASER</h3>
                     
-              <div class="box-row"><!--Headings-->
-                <div class="box"><h2>2. Risk acknowledgement</h2><br><p>This is risky. Initial that you understand that:</p></div>
-                <div class="box">Your initials</div>
-              </div>
+                <div class="box-row"><!--Headings-->
+                    <div class="box"><h2>2. Risk acknowledgement</h2><br><p>This is risky. Initial that you understand that:</p></div>
+                    <div class="box">Your initials</div>
+                </div>
               
                     
               <!-- Start of 'box-row' -->
-              <div class="box-row">
-                <div class="box">Risk of loss - You could lose your entire investment of 2435342</div>
-                <div class="box center"><img src="https://dummyimage.com/120x100/000/fff"></div>
+                <div class="box-row">
+                    <div class="box">Risk of loss - You could lose your entire investment of 2435342</div>
+                    <div class="box center">
+                        @if($user[0]->ind_ck1 == 1)
+                            <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="100"></div>
+                        @endif  
+                    </div>
               </div>
               <!-- End of 'box-row' -->
             
               <!-- Start of 'box-row' -->
               <div class="box-row">
                 <div class="box">Liquidity risk – You may not be able to sell your investment quickly – or at all.</div>
-                <div class="box center"><img src="https://dummyimage.com/120x100/000/fff"></div>
+                @if($user[0]->ind_ck1 == 1)
+                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="100"></div>
+                @endif
               </div>
               <!-- End of 'box-row' -->
             
               <!-- Start of 'box-row' -->
               <div class="box-row">
                 <div class="box">Lack of information – You may receive little or no information about your investment.</div>
-                <div class="box center"><img src="https://dummyimage.com/120x100/000/fff"></div>
-              </div>
+                @if($user[0]->ind_ck1 == 1)
+                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="100"></div>
+                @endif              </div>
               <!-- End of 'box-row' -->
             
               <!-- Start of 'box-row' -->
@@ -1216,7 +1222,11 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                 <div class="box">Lack of advice – You will not receive advice from the salesperson about whether this investment is suitable for you unless the salesperson is registered.
                   <br>The salesperson is the person who meets with, or provides information to, you about making this investment.
                   <br>To check whether the salesperson is registered, go to www.aretheyregistered.ca.</div>
-                <div class="box center"><img src="https://dummyimage.com/120x100/000/fff"></div>
+
+                    @if($user[0]->ind_ck1 == 1)
+                    <div class="">&nbsp;&nbsp;<img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="100"></div>
+                    @endif
+
               </div>
               <!-- End of 'box-row' -->
             
@@ -1253,6 +1263,8 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
               </div>
               <!-- End of 'box-row' -->
             
+              <div class="page-break"></div>
+              <br><br><br><br>
               <!-- Start of 'box-row' -->
               <div class="box-row">    <div class="box">- Either alone or with your spouse, you have net assets worth more than $5 million. (Your net assets are your total assets (including real estate) minus your total debt.)</div>
                 <div class="box center"><img src="https://dummyimage.com/120x100/000/fff"></div>
