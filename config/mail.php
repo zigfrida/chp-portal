@@ -56,7 +56,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'noreply@cypresshillspartners.co'),
-        'name' => env('MAIL_FROM_NAME', 'Admin Alli'),
+        'name' => env('MAIL_FROM_NAME', 'Cypress Hills Partners'),
     ],
 
     /*
