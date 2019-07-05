@@ -1163,12 +1163,12 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
         <h6 class="subtitle is-6 has-text-weight-bold">This investment is risky. Don't invest unless you can afford to lose all the money you pay for this investment</h6>            
 </div>
 <br><br><br>
+<br><br><br>
 <div class="content ">
     <div>
-        <br><br><br><br><br><br>
+        
         <span class="has-text-weight-bold">SECTION 1 TO BE COMPLETED BY THE ISSUER OR SELLING SECURITY HOLDER</span>
         
-
             
             <div class="boxer">
                 <div class="box-row">
@@ -1178,6 +1178,8 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                 <p>Type of securities: <b>Class A and B Limited Partnership Units</b></p>
                 <p>Issuer: <b>CHP Master I Limited Partnership</b></p>
                 <p>Purchased from: <b>The Issuer</b></p>
+
+                <br><br><br><br>
                 <h3>SECTIONS 2 TO 4 TO BE COMPLETED BY THE PURCHASER</h3>
                 
                 <div class="box-row">
