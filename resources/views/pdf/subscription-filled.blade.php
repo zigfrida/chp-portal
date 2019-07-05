@@ -1086,15 +1086,15 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                 <br>
         
         </div>
-            <div class="column">
-                <b>If an Individual </b>
-                    <br><br>
-                
-                    <div class="column-row">
-                    <div class="underline">&nbsp;&nbsp;<div>
-                    <div><i class="signinput">Signature</i></div>
+        <div class="column">
+            <b>If an Individual </b>
+            <br><br>
+
+            <div class="column-row">
+                <div class="underline">&nbsp;&nbsp;<div>
+                <div><i class="signinput">Signature</i></div>
                 </div>
-        
+
                 <br>
                 <div class="column-row">
                     <div class="underline">&nbsp;&nbsp;</div>
@@ -1102,6 +1102,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                 </div>
                 <br>
                 </div>
+            </div>
         </div>
 
     @else
