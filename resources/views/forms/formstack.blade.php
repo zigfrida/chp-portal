@@ -450,6 +450,8 @@
                             <br>
                             <h4 class="title is-4">The Subscriber acknowledges that the Issuer is relying upon the Subscriber's disclosure herein. In the event the Subscriber's accredited investor status changes prior to the date on which a certificate representing any of the Units is issued, the Subscriber agrees to immediately notify the Issuer of such change.</h2>
                             <br>
+
+                            {{-- 
                             <h5 class="subtitle is-5">Initial<span class="has-text-danger">*</span></h5>
                             <canvas id="myCanvas" width="500" height="250" style="border:1px solid #000000;"></canvas>
                             <input type="button" onclick="signaturePad.clear()" value="Clear">
@@ -457,6 +459,7 @@
                             <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
 
                             <p>Use your mouse or finger to draw your initials above</p>
+                             --}}
                             <br><br>
                         </article>
                     </div>
@@ -510,10 +513,10 @@
                     <div class="tile">
                         <article class="tile is-child box">
                             <section class="hero is-dark is-bold">
-                                <h1 class="title" style="text-align: center;">Acknowledgement</h1>
+                                <h1 class="title" style="text-align: center;">Subscription Information</h1>
                             </section>
                             <div style="overflow-y: scroll; height: 400px;">
-
+                                {{--
                                 <p>The undersigned (the “Subscriber”) hereby acknowledges that the Issuer is undertaking an offering
                                     of Class A limited partnership units (“Class A Units”) and Class B limited partnership units
                                     (“Class B Units”) at the NAV per Class A Unit and the NAV per Class B unit; and hereby tenders
@@ -526,10 +529,13 @@
                                 <br>
 
                                 {{-- Signature (NOT INITIALS) --}}
-                                <canvas id="myCanvas2" width="500" height="250" style="border:1px solid #000000;"></canvas>
+                                {{-- <canvas id="myCanvas2" width="500" height="250" style="border:1px solid #000000;"></canvas>
                                 <input type="button" onclick="signaturePad2.clear()" value="Clear">
                                 <input type="hidden" id="sub_signature" name="sub_signature" value="">
+                                --}}
 
+
+                                
                                 <div class="content">
                                     <ol class="is-upper-roman">
                                         <li> Interpretation</li>
