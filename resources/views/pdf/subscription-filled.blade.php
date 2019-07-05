@@ -1086,23 +1086,6 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                 <br>
         
         </div>
-        <div class="column">
-            <b>If an Individual </b>
-            <br><br>
-
-            <div class="column-row">
-                <div class="underline">&nbsp;&nbsp;<div>
-                <div><i class="signinput">Signature</i></div>
-                </div>
-
-                <br>
-                <div class="column-row">
-                    <div class="underline"></div>
-                    <div><i class="signinput">Print or Type Name</i></div>
-                </div>
-                </div>
-            </div>
-        </div>
 
     @else
         <div class="row-form">
