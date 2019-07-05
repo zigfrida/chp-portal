@@ -1165,11 +1165,11 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
 <br><br><br>
 <div class="content ">
     <div>
-        <br>
+        <br><br><br><br><br><br>
         <span class="has-text-weight-bold">SECTION 1 TO BE COMPLETED BY THE ISSUER OR SELLING SECURITY HOLDER</span>
         
 
-            <br><br><br><br><br>
+            
             <div class="boxer">
                 <div class="box-row">
                     <div class="box"><h2>1. About your investment<h2></div>
