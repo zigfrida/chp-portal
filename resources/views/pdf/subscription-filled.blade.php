@@ -1173,7 +1173,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
             <div class="boxer">
                 <div class="box-row">
                     <div class="box">
-                        <h2>1. About your investment<h2>
+                        <h2>1. About your investment</h2>
                         <br>
                         <p>Type of securities: <b>Class A and B Limited Partnership Units</b></p>
                         <p>Issuer: <b>CHP Master I Limited Partnership</b></p>
