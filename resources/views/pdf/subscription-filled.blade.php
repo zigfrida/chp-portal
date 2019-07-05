@@ -1168,20 +1168,20 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
     <div>
         
         <span class="has-text-weight-bold">SECTION 1 TO BE COMPLETED BY THE ISSUER OR SELLING SECURITY HOLDER</span>
-        
+            <br><br><br>
             
             <div class="boxer">
                 <div class="box-row">
                     <div class="box"><h2>1. About your investment<h2></div>
                 </div>
-                  
+                <br><br>
                 <p>Type of securities: <b>Class A and B Limited Partnership Units</b></p>
                 <p>Issuer: <b>CHP Master I Limited Partnership</b></p>
                 <p>Purchased from: <b>The Issuer</b></p>
 
                 <br><br><br><br>
                 <h3>SECTIONS 2 TO 4 TO BE COMPLETED BY THE PURCHASER</h3>
-                
+                <div class="page-break"></div>
                 <div class="box-row">
                     <div class="box"><h4>2. Risk acknowledgement</h4><p>This is risky. Initial that you understand that:</p></div>
                     <div class="box">Your initials</div>
