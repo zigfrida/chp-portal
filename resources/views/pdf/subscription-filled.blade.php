@@ -1162,14 +1162,14 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
         <h5 class="subtitle is-5 has-text-weight-bold">WARNING!</h5>
         <h6 class="subtitle is-6 has-text-weight-bold">This investment is risky. Don't invest unless you can afford to lose all the money you pay for this investment</h6>            
 </div>
-<br><br>
+<br><br><br>
 <div class="content ">
     <div>
         <br>
         <span class="has-text-weight-bold">SECTION 1 TO BE COMPLETED BY THE ISSUER OR SELLING SECURITY HOLDER</span>
-        <br><br><br><br><br><br><br>
+        
 
-
+            <br><br><br><br><br>
             <div class="boxer">
                 <div class="box-row">
                     <div class="box"><h2>1. About your investment<h2></div>
@@ -1179,7 +1179,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                 <p>Issuer: <b>CHP Master I Limited Partnership</b></p>
                 <p>Purchased from: <b>The Issuer</b></p>
                 <h3>SECTIONS 2 TO 4 TO BE COMPLETED BY THE PURCHASER</h3>
-                <br><br><br>
+                
                 <div class="box-row">
                     <div class="box"><h4>2. Risk acknowledgement</h4><p>This is risky. Initial that you understand that:</p></div>
                     <div class="box">Your initials</div>
