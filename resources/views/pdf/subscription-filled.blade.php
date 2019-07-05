@@ -1164,7 +1164,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
 
 
                 @if($user[0]->clientType == 'individual')
-                    
+                    <br><br>
                 @else
                     <br>
                 @endif
