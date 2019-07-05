@@ -1181,6 +1181,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
 
                 <br><br><br>
                 <h3>SECTIONS 2 TO 4 TO BE COMPLETED BY THE PURCHASER</h3>
+                <br>
                 <div class="page-break"></div>
                 <div class="box-row">
                     <div class="box"><h4>2. Risk acknowledgement</h4><p>This is risky. Initial that you understand that:</p></div>
