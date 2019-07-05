@@ -65,7 +65,7 @@
 				</tr>
 				<tr>
 					<th>Year Profit Share</th>
-					<td>{{$thisUser[0]->year_profit_share}}</td>
+					<td>${{$thisUser[0]->year_profit_share}}</td>
 				</tr>                                        
 			</table>
 		</article>
