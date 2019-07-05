@@ -1282,7 +1282,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                 </div>
                 <br>
                 <div class="page-break"></div>
-                <br>
+                <br><br>
                 <div class="box-row">
                     <div class="box">
                     - Either alone or with your spouse, you have net assets worth more than $5 million. (Your net assets are your total assets (including real estate) minus your total debt.)
