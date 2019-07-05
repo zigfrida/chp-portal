@@ -1173,11 +1173,16 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
             <div class="boxer">
                 <div class="box-row">
                     <div class="box"><h2>1. About your investment<h2></div>
+                    <div class="box">
+                        <p>Type of securities: <b>Class A and B Limited Partnership Units</b></p>
+                        <br>
+                        <p>Issuer: <b>CHP Master I Limited Partnership</b></p>
+                        <br>
+                        <p>Purchased from: <b>The Issuer</b></p>
+                    </div>
                 </div>
                 <br><br>
-                <p>Type of securities: <b>Class A and B Limited Partnership Units</b></p>
-                <p>Issuer: <b>CHP Master I Limited Partnership</b></p>
-                <p>Purchased from: <b>The Issuer</b></p>
+
 
                 <br><br><br>
                 <h3>SECTIONS 2 TO 4 TO BE COMPLETED BY THE PURCHASER</h3>
@@ -1299,7 +1304,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
               <br>
             
                 <div class="box-row"><!--Headings-->
-                    <div class="box"><h2>4. Your name and signature</h2></div>
+                    <div class="box"><h4>4. Your name and signature</h4></div>
                 </div>
                             
                     
