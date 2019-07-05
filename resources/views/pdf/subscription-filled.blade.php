@@ -1158,7 +1158,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
         <p class="subtitle is-5">Form 45-106F9</p></div>
         <br>
         <h4 class="subtitle is-4">FORM FOR INDIVIDUAL ACCREDITED INVESTORS</h4>
-        <br>
+        <br><br>
         <h5 class="subtitle is-5 has-text-weight-bold">WARNING!</h5>
         <h6 class="subtitle is-6 has-text-weight-bold">This investment is risky. Don't invest unless you can afford to lose all the money you pay for this investment</h6>            
 </div>
@@ -1167,7 +1167,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
     <div>
         <br>
         <span class="has-text-weight-bold">SECTION 1 TO BE COMPLETED BY THE ISSUER OR SELLING SECURITY HOLDER</span>
-        <br>
+        <br><br><br><br><br><br><br>
 
 
             <div class="boxer">
@@ -1179,7 +1179,6 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                 <p>Issuer: <b>CHP Master I Limited Partnership</b></p>
                 <p>Purchased from: <b>The Issuer</b></p>
                 <h3>SECTIONS 2 TO 4 TO BE COMPLETED BY THE PURCHASER</h3>
-                <img src="{{ $user[0]->form_signature }}" alt="Form signature" height="100" width="100">
                     
                 <div class="box-row">
                     <div class="box"><h2>2. Risk acknowledgement</h2><br><p>This is risky. Initial that you understand that:</p></div>
