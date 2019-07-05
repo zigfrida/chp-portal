@@ -853,76 +853,79 @@
                 @if($user[0]->clientType === 'individual')
                     <span class="has-text-weight-bold">(Categories Applicable to Individuals Only)</span>
                     <br>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>&nbsp;</th>
-                                <th>&nbsp;</th>
-                                <th>&nbsp;</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>a)</td>
-                                <td>
-                                    @if($user[0]->ind_ck1 == 1)
-                                        &nbsp;&nbsp;<img style="max-width: none; width:100%" src="{{ $user[0]->form_signature }}" alt="Form signature">
-                                    @endif
-                                </td>
-                                <td>an individual whose net income before taxes exceeded $200,000 in each of the two most recentcalendar years or whose net income before taxes combined with that of a spouse exceeded $300,000 in each of the two most recent calendar years and who, in either case, reasonably expects to exceed that net income level in the current calendar year. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
-                            </tr>
-                            
-                            <tr>
-                                <td>b)</td>
-                                <td>
-                                    @if($user[0]->ind_ck1 == 1)
-                                    <div class="">&nbsp;&nbsp;<img style="max-width: none; width:100%" src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
-                                    @endif
-                                </td>
-                                <td>an individual, who, either alone or with a spouse, has net assets of at least $5,000,000. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
-                            </tr>
 
-                            <tr>
-                                <td>c)</td>
-                                <td>
-                                    @if ($user[0]->ind_ck3 == 1)
-                                    <div class="">&nbsp;&nbsp;<img style="max-width: none; width:100%" src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
-                                    @endif
-                                </td>
-                                <td>an individual who, either alone or with a spouse, beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $1,000,000. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
-                            </tr>
+                    <div class="shrinker">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>a)</td>
+                                    <td>
+                                        @if($user[0]->ind_ck1 == 1)
+                                            &nbsp;&nbsp;<img style="max-width: none; width:100%" src="{{ $user[0]->form_signature }}" alt="Form signature">
+                                        @endif
+                                    </td>
+                                    <td>an individual whose net income before taxes exceeded $200,000 in each of the two most recentcalendar years or whose net income before taxes combined with that of a spouse exceeded $300,000 in each of the two most recent calendar years and who, in either case, reasonably expects to exceed that net income level in the current calendar year. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>b)</td>
+                                    <td>
+                                        @if($user[0]->ind_ck1 == 1)
+                                        <div class="">&nbsp;&nbsp;<img style="max-width: none; width:100%" src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
+                                        @endif
+                                    </td>
+                                    <td>an individual, who, either alone or with a spouse, has net assets of at least $5,000,000. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
+                                </tr>
 
-                            <tr>
-                                <td>d)</td>
-                                <td>
-                                    @if($user[0]->ind_ck4 == 1)
-                                    <div class="">&nbsp;&nbsp;<img  src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
-                                    @endif
-                                </td>
-                                <td>an individual who beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $5,000,000.</td>
-                            </tr>
+                                <tr>
+                                    <td>c)</td>
+                                    <td>
+                                        @if ($user[0]->ind_ck3 == 1)
+                                        <div class="">&nbsp;&nbsp;<img style="max-width: none; width:100%" src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
+                                        @endif
+                                    </td>
+                                    <td>an individual who, either alone or with a spouse, beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $1,000,000. <span class="has-text-weight-bold">[Note: subscribers who qualify under this category must also complete Appendix IA.]</span></td>
+                                </tr>
 
-                            <tr>
-                                <td>e)</td>
-                                <td>
-                                    @if($user[0]->ind_ck5 == 1)
-                                    <div class="">&nbsp;&nbsp;<img  src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
-                                    @endif
-                                </td>
-                                <td>an individual registered under the securities legislation of a jurisdiction of Canada, as a representative of a person registered under the securities legislation of a jurisdiction of Canada as an adviser or dealer.</td>
-                            </tr>
+                                <tr>
+                                    <td>d)</td>
+                                    <td>
+                                        @if($user[0]->ind_ck4 == 1)
+                                        <div class="">&nbsp;&nbsp;<img  src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
+                                        @endif
+                                    </td>
+                                    <td>an individual who beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $5,000,000.</td>
+                                </tr>
 
-                            <tr>
-                                <td>f)</td>
-                                <td>
-                                    @if($user[0]->ind_ck6 == 1)
-                                    <div class="">&nbsp;&nbsp;<img  src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
-                                    @endif
-                                </td>
-                                <td>an individual formerly registered under the securities legislation of a jurisdiction of Canada, other than an individual formerly registered solely as a representative of a limited market dealer under one or both of the Securities Act (Ontario) or the Securities Act (Newfoundland and Labrador),</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                <tr>
+                                    <td>e)</td>
+                                    <td>
+                                        @if($user[0]->ind_ck5 == 1)
+                                        <div class="">&nbsp;&nbsp;<img  src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
+                                        @endif
+                                    </td>
+                                    <td>an individual registered under the securities legislation of a jurisdiction of Canada, as a representative of a person registered under the securities legislation of a jurisdiction of Canada as an adviser or dealer.</td>
+                                </tr>
+
+                                <tr>
+                                    <td>f)</td>
+                                    <td>
+                                        @if($user[0]->ind_ck6 == 1)
+                                        <div class="">&nbsp;&nbsp;<img  src="{{ $user[0]->form_signature }}" alt="Form signature"></div>
+                                        @endif
+                                    </td>
+                                    <td>an individual formerly registered under the securities legislation of a jurisdiction of Canada, other than an individual formerly registered solely as a representative of a limited market dealer under one or both of the Securities Act (Ontario) or the Securities Act (Newfoundland and Labrador),</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                 @elseif($user[0]->clientType === 'business')
                     <span class="has-text-weight-bold">(Categories Applicable to Individuals and Non-Individuals)</span>
