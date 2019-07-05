@@ -836,17 +836,18 @@
         <!-- Appendix -->
 
         <div class="page-break"></div>
-        <div class="content shrinker">
+        <div class="content">
                 <div class="has-text-centered">
                     <h3 class="is-uppercase has-text-weight-bold title" style="margin-bottom: 0;">Appendix I</h3>
                     <h2 class="is-uppercase has-text-weight-bold has-text-link is-3" style="margin-top: 0;">ACCREDITED INVESTOR CERTIFICATE</h2>
                     <h6 class="title is-6">(National Instrument 45-106 and Securities Act(Ontario))</h6>
                 </div>
+                <div class="shrinker">
                 Capitalized terms not specifically defined in this certificate have the meaning ascribed to them in the Agreement to which this certificate is attached.
                 <br>
                 In connection with the execution of the Agreement to which this appendix is attached, the Subscriber represents, warrants and certifies to the Issuer that <span class="has-text-weight-bold">(please initial the applicable categories)</span> the Subscriber is:
-                <br><br>
-
+                
+                </div>
 
 
                 @if($user[0]->clientType === 'individual')
