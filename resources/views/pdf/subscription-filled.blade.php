@@ -1179,7 +1179,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                 <p>Issuer: <b>CHP Master I Limited Partnership</b></p>
                 <p>Purchased from: <b>The Issuer</b></p>
 
-                <br><br><br><br>
+                <br><br><br>
                 <h3>SECTIONS 2 TO 4 TO BE COMPLETED BY THE PURCHASER</h3>
                 <div class="page-break"></div>
                 <div class="box-row">
