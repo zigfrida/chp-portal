@@ -1163,12 +1163,12 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                 <br><br>
 
 
-                @if(user[0]->clientType == 'individual')
+                @if($user[0]->clientType == 'individual')
                     <br><br><br>
                 @else
                     <br>
                 @endif
-                
+
                 <h3>SECTIONS 2 TO 4 TO BE COMPLETED BY THE PURCHASER</h3>
                 <br>
                 <div class="page-break"></div>
