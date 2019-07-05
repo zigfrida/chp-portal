@@ -1097,10 +1097,9 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
 
                 <br>
                 <div class="column-row">
-                    <div class="underline">&nbsp;&nbsp;</div>
+                    <div class="underline"></div>
                     <div><i class="signinput">Print or Type Name</i></div>
                 </div>
-                <br>
                 </div>
             </div>
         </div>
