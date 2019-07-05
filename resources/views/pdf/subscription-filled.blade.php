@@ -1179,9 +1179,9 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                 <p>Issuer: <b>CHP Master I Limited Partnership</b></p>
                 <p>Purchased from: <b>The Issuer</b></p>
                 <h3>SECTIONS 2 TO 4 TO BE COMPLETED BY THE PURCHASER</h3>
-                    
+                <br><br><br>
                 <div class="box-row">
-                    <div class="box"><h4>2. Risk acknowledgement</h4><br><p>This is risky. Initial that you understand that:</p></div>
+                    <div class="box"><h4>2. Risk acknowledgement</h4><p>This is risky. Initial that you understand that:</p></div>
                     <div class="box">Your initials</div>
                 </div>
               
@@ -1277,9 +1277,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                         @endif
                     </div>
                 </div>
-            
-                <div class="page-break"></div>
-                <br><br><br><br>
+
                 <div class="box-row">
                     <div class="box">
                     - Either alone or with your spouse, you have net assets worth more than $5 million. (Your net assets are your total assets (including real estate) minus your total debt.)
@@ -1291,6 +1289,9 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                         @endif
                     </div>
               </div>
+                          
+              <div class="page-break"></div>
+              <br>
             
                 <div class="box-row"><!--Headings-->
                     <div class="box"><h2>4. Your name and signature</h2></div>
