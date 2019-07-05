@@ -1181,7 +1181,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                 <h3>SECTIONS 2 TO 4 TO BE COMPLETED BY THE PURCHASER</h3>
                     
                 <div class="box-row">
-                    <div class="box"><h2>2. Risk acknowledgement</h2><br><p>This is risky. Initial that you understand that:</p></div>
+                    <div class="box"><h4>2. Risk acknowledgement</h4><br><p>This is risky. Initial that you understand that:</p></div>
                     <div class="box">Your initials</div>
                 </div>
               
@@ -1233,7 +1233,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
             
              
                 <div class="box-row"><!--Headings-->
-                    <div class="box"><h2> 3. Accredited investor status </h2></div>
+                    <div class="box"><h4> 3. Accredited investor status </h4></div>
                     <div class="box"></div>
                 </div>
                     
