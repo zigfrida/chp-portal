@@ -838,9 +838,8 @@
         <div class="page-break"></div>
         <div class="content shrinker">
                 <div class="has-text-centered">
-                    <h3 class="is-uppercase has-text-weight-bold title">Appendix I</h3>
-                    <br>    
-                    <h2 class="is-uppercase has-text-weight-bold has-text-link is-3">ACCREDITED INVESTOR CERTIFICATE</h2>
+                    <h3 class="is-uppercase has-text-weight-bold title" style="margin-bottom: 0;">Appendix I</h3>
+                    <h2 class="is-uppercase has-text-weight-bold has-text-link is-3" style="margin-top: 0;">ACCREDITED INVESTOR CERTIFICATE</h2>
                     <h6 class="title is-6">(National Instrument 45-106 and Securities Act(Ontario))</h6>
                 </div>
                 Capitalized terms not specifically defined in this certificate have the meaning ascribed to them in the Agreement to which this certificate is attached.
@@ -852,7 +851,6 @@
 
                 @if($user[0]->clientType === 'individual')
                     <span class="has-text-weight-bold">(Categories Applicable to Individuals Only)</span>
-                    <br>
 
                     <div class="shrinker">
                         <table class="table">
