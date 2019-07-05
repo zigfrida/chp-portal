@@ -1083,9 +1083,8 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                     <div class="underline">&nbsp;&nbsp;<img src="{{ $user[0]->sub_signature }}" alt="Sub signature" height="60" width="90"> </div>
                     <div><i class="signinput">Signature of Person Signing</i></div>
                 </div>
-                <br>
-        
         </div>
+
 
     @else
         <div class="row-form">
@@ -1123,7 +1122,7 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
                 </div>
             </div>
         </div>
-    <br>
+
     @endif
 </div>
 
