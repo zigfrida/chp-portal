@@ -1059,7 +1059,11 @@ The Subscriber acknowledges that the Issuer is relying upon the Subscriber's dis
 
 
 <span class="has-text-weight-bold">DATED</span> <u>{{ $user[0]->signed_year1 }}</u>.
-<br><br><br>
+@if($user[0]->clientType == 'individual')
+    <br><br><br>
+@else
+    <br>
+@endif
 <div class="shrinker">
     @if($user[0]->clientType == 'business')
     <div class="row-form">
