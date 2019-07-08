@@ -1,4 +1,7 @@
 @component('mail::message')
+<br>
+<img src="{{url('/images/cypresshills-black-yellow.png')}}" alt="Cypress Hills Partners" />
+<br><br>
 {{-- Greeting --}}
 @if (! empty($greeting))
 # {{ $greeting }}
