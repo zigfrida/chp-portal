@@ -1,0 +1,207 @@
+.footer {
+    background-color: #333;
+    width: 100%;
+    height: auto;
+    color: #f1f1f1;
+    padding: 3rem 1.5rem 4rem;
+}
+
+.footer .col {
+    width: 450px;
+    height: auto;
+    float: left;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 0px 70px 20px 20px;
+}
+
+#footer-column1 h1 {
+    font-size: 30px;
+    font-family: 'Playfair Display',
+        serif;
+    letter-spacing: 1px;
+    padding-bottom: 10px;
+}
+
+#footer-column1 form {
+    font-family: 'Maitree',
+        serif;
+    font-size: 15px;
+    width: 340px;
+    margin: 0;
+}
+
+#footer-column1 input {
+    background-color: transparent;
+    color: #f1f1f1;
+    margin-top: 5px;
+    margin-bottom: 6px;
+    padding: 4px;
+    border: 1px solid #f1f1f1;
+}
+
+#footer-column1 button {
+    border-radius: 4px;
+    padding: 6px;
+    width: 70px;
+    font-size: 15px;
+    margin-left: calc(50% - 35px);
+    border: 2px solid transparent;
+    background-color: white;
+    color: #666;
+}
+
+#footer-column1 button:hover {
+    border: 2px solid #f5f5f5;
+    background-color: transparent;
+    color: #f5f5f5;
+}
+
+#footer-column1 p {
+    padding-bottom: 7px;
+}
+
+.footer ul {
+    list-style-type: none;
+}
+
+#footer-column2 {
+    font-family: 'Maitree',
+        serif;
+    list-style-type: none;
+}
+
+#footer-column2 ul li {
+    text-decoration: none;
+}
+
+#footer-column2 a {
+    font-size: 14px;
+    color: darkgray;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#footer-column2 a:hover {
+    background-color: transparent;
+    color: white;
+}
+
+#footer-column-column1 {
+    text-align: left;
+    float: left;
+    margin-right: 50px;
+}
+
+#footer-column-column2 {
+    text-align: left;
+    float: left;
+    width: calc(60% - 50px);
+}
+
+#rede-icons {
+    float: left;
+    list-style-type: none;
+    width: 100%;
+    align-content: center;
+}
+
+#rede-icons ul li {
+    float: left;
+    display: block;
+    width: 50px;
+}
+
+#rede-icons img {
+    padding: 5px;
+    margin: 0;
+    height: 43px;
+    width: 43px;
+    display: block;
+    position: relative;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.contain {
+    width: 900px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 500px) {
+    #nav-logo {
+        left: 13px;
+        top: 10px;
+    }
+
+    #nav-logo img {
+        width: 210px;
+    }
+
+    #footer-column1 {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+}
+
+
+@media screen and (max-width: 730px) {
+    .contain {
+        width: 500px;
+        margin: 0 auto;
+    }
+
+    .footer .col {
+        padding: 0px 20px 20px 20px;
+        margin-left: 50px;
+    }
+
+}
+
+@media screen and (max-width: 1024px) {
+    #nav-container {
+        height: 60px;
+        transition-property: height;
+        transition-duration: 0.4s;
+    }
+
+    .topnav .scroll {
+        display: none;
+    }
+
+    .topnav .no-scroll {
+        display: none;
+    }
+
+    #icon {
+        color: #cdb723;
+        font-size: 25px;
+        float: right;
+        display: block;
+        width: 40px;
+        height: auto;
+        padding: 13px 16px;
+    }
+
+    .topnav.responsive {
+        position: relative;
+    }
+
+    .topnav.responsive #icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+}

@@ -14,8 +14,8 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
     <!-- Bulma Version 0.7.4-->
-    <link rel="stylesheet" href="https://unpkg.com/bulma@0.7.4/css/bulma.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
+    {{-- <link rel="stylesheet" href="https://unpkg.com/bulma@0.7.4/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" /> --}}
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
     
     <!--Fonts-->
@@ -32,6 +32,7 @@
 	<link rel="stylesheet" href="{{ asset('css/about/social-icons.css') }}"> --}}
 
     <link rel="stylesheet" type="text/css" href="/css/home.css">
+    <link rel="stylesheet" type="text/css" href="/css/footer.css">
 
     <div id="nav-container">
         <a id="nav-logo" class="scroll" href="#home"><img alt="chp-logo" src="/images/cypresshills-black-yellow.png"></a>
@@ -167,9 +168,9 @@
                         <h2>ADDRESS</h2>
                         <div><p class="contact-info">212 - 1080 Mainland Street<br/>Vancouver, BC V6B 2T4</p></div>
 
-                        <div id="map-container">
+                        {{-- <div id="map-container">
                             <iframe allowtransparency="true" frameborder="0" scrolling="no" style="width: 100%; height: 220px; margin-top: 10px; margin-bottom: 15px;" src="//www.weebly.com/weebly/apps/generateMap.php?map=google&elementid=226950502769000951&ineditor=0&control=3&width=auto&height=250px&overviewmap=0&scalecontrol=0&typecontrol=0&zoom=15&long=-123.12018660000001&lat=49.2755314&domain=www&point=1&align=1&reseller=false"></iframe>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="clearfix"></div>
             </div>
@@ -197,7 +198,7 @@
                         <ul>
                             <li><a class="scroll" href="#home">Home</a></li>
                             <li><a class="scroll" href="#about">About</a></li>
-                            <li><a class="scroll" href="#people">People</a></li>
+                            <li><a href="/people">People</a></li>
                         </ul>
                     </div>
                     <div id="footer-column-column2">

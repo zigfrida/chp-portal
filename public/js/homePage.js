@@ -1,3 +1,7 @@
+/**
+ * Code for page scrolling once topic on nav bar is selected
+ * Scrolling is different depending on the current page (welcome or people page)
+ */
 $('.scroll').on('click', function (e) {
     e.preventDefault();
     var offset = 60;        //60 represents the height of the navbar
@@ -30,6 +34,9 @@ $('.scroll-people').on('click', function (e) {
     });
 });
 
+/**
+ * Codde for collapsible content
+ */
 var coll = document.getElementsByClassName("collapsible");
 var i;
 
@@ -45,15 +52,19 @@ for (i = 0; i < coll.length; i++) {
     });
 }
 
+
+/**
+ * Code for nvigation bar
+ */
 function open_nav() {
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav") {
         x.className += " responsive";
         document.getElementById("nav-container").style.height = "484px";
-        var no_show = document.getElementsByClassName("no-scroll");
-        for (var i = 0; i < no_show.length; i++) {
-            no_show[i].style.height = "60px";
-        }
+        // var no_show = document.getElementsByClassName("no-scroll");
+        // for (var i = 0; i < no_show.length; i++) {
+        //     no_show[i].style.height = "60px";
+        // }
     } else {
         x.className = "topnav";
         document.getElementById("nav-container").style.height = "60px";
