@@ -168,9 +168,9 @@
                         <h2>ADDRESS</h2>
                         <div><p class="contact-info">212 - 1080 Mainland Street<br/>Vancouver, BC V6B 2T4</p></div>
 
-                        {{-- <div id="map-container">
+                        <div id="map-container">
                             <iframe allowtransparency="true" frameborder="0" scrolling="no" style="width: 100%; height: 220px; margin-top: 10px; margin-bottom: 15px;" src="//www.weebly.com/weebly/apps/generateMap.php?map=google&elementid=226950502769000951&ineditor=0&control=3&width=auto&height=250px&overviewmap=0&scalecontrol=0&typecontrol=0&zoom=15&long=-123.12018660000001&lat=49.2755314&domain=www&point=1&align=1&reseller=false"></iframe>
-                        </div> --}}
+                        </div>
                     </div>
                     <div class="clearfix"></div>
             </div>
