@@ -16,23 +16,6 @@
     <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
 	
-    {{-- <style type="text/css">
-        html,
-        body {
-            font-family: 'Open Sans';
-        }
-
-        img {
-            padding: 5px;
-        }
-        
-        .tabs li.is-active a {
-            border-bottom-color: black;
-            color: black;
-            opacity: 0;
-        }
-	</style> --}}
-	
 	<!--Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Neuton&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
@@ -40,7 +23,8 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="/css/home.css">
+	<link rel="stylesheet" type="text/css" href="/css/people.css">
+	<link rel="stylesheet" type="text/css" href="/css/footer.css">
 	
 	<div class="hero-head">
         <nav class="navbar">
@@ -218,7 +202,7 @@
 
 		<section class="container">
 			<div class="columns features" style="margin-top:5%;">
-				<div class="column is-4">
+				<div class="column is-4" style="min-width: 274px;">
 					<div class="card is-shady">
 						<div class="card-image">
 						<figure class="image is-4by3">
@@ -242,7 +226,7 @@
 		
 		<section class="container">
 			<div class="columns features" style="margin-top:5%;">
-				<div class="column is-4">
+				<div class="column is-4" style="min-width: 264px;">
 					<div class="card is-shady">
 						<div class="card-image">
 							<figure class="image is-4by3">
@@ -258,7 +242,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="column is-4">
+				<div class="column is-4" style="min-width: 264px;">
 					<div class="card is-shady">
 						<div class="card-image">
 							<figure class="image is-4by3">
@@ -275,7 +259,7 @@
 					</div>
 				</div>
 				<div class="column is-4">
-					<div class="card is-shady">
+					<div class="card is-shady" style="min-width: 264px;">
 						<div class="card-image">
 							<figure class="image is-4by3">
 								<img src="{{url('/images/person.png')}}" alt="Placeholder image">
@@ -545,14 +529,15 @@
 <footer>
     <div class="footer">
         <div class="contain" id="footer-row">
-            <div class="col" id="footer-column1">
+            <!--SUBSCRIBE SECTION REMOVED-->
+            {{-- <div class="col" id="footer-column1">
                 <h1>Subscribe</h1>
                 <form>
                     <p>Subscribe to receive exclusive features and newsletters.</p>
                     <input type="email" placeholder="Email" style="width:100%"><br>
                     <button type="submit"><b>Submit</b></button>
                 </form>
-            </div>
+            </div> --}}
 
             <div class="col" id="footer-column2">
                 <div>
@@ -571,6 +556,9 @@
                         </ul>
                     </div>
                 </div>
+            </div>
+
+            <div class="col" id="footer-column1">
                 <div id="rede-icons">
                     <ul>
                         <li>

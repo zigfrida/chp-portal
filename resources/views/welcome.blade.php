@@ -14,8 +14,8 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
     <!-- Bulma Version 0.7.4-->
-    <link rel="stylesheet" href="https://unpkg.com/bulma@0.7.4/css/bulma.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
+    {{-- <link rel="stylesheet" href="https://unpkg.com/bulma@0.7.4/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" /> --}}
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
     
     <!--Fonts-->
@@ -32,6 +32,7 @@
 	<link rel="stylesheet" href="{{ asset('css/about/social-icons.css') }}"> --}}
 
     <link rel="stylesheet" type="text/css" href="/css/home.css">
+    <link rel="stylesheet" type="text/css" href="/css/footer.css">
 
     <div id="nav-container">
         <a id="nav-logo" class="scroll" href="#home"><img alt="chp-logo" src="/images/cypresshills-black-yellow.png"></a>
@@ -197,7 +198,7 @@
                         <ul>
                             <li><a class="scroll" href="#home">Home</a></li>
                             <li><a class="scroll" href="#about">About</a></li>
-                            <li><a class="scroll" href="#people">People</a></li>
+                            <li><a href="/people">People</a></li>
                         </ul>
                     </div>
                     <div id="footer-column-column2">
