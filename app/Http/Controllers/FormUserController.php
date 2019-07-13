@@ -313,7 +313,7 @@ class FormUserController extends Controller
             ]
         );
 
-        $newPath = 'https://script.google.com/macros/s/AKfycbx7Of-_WXvFyY3XvB3pTVQvf3U2Mn3tMzkhKfbf1MtkRQPnciZc/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
+        $newPath = 'https://script.google.com/a/macros/chillspartners.com/s/AKfycbwIDFbA6G7JDss8S1ZaSB7jAwDlO_01HJCYIb5mJz1V/dev?user_id='.$id.'&name='.$subscriber_name.'&class='.$class.'&method=updateSpreadUser_idClassName';
 
         /**Saving subagreement into Google Drive */
         $user = \DB::table('form_users')
@@ -537,7 +537,7 @@ class FormUserController extends Controller
                         'subscriber_name' => $request->input('new_subscriber_name'),
                 ]);
 
-                $newPath = 'https://script.google.com/macros/s/AKfycbx7Of-_WXvFyY3XvB3pTVQvf3U2Mn3tMzkhKfbf1MtkRQPnciZc/dev?user_id='.$id.'&name='.$new_subscriber_name.'&method=updateUserName';
+                $newPath = 'https://script.google.com/a/macros/chillspartners.com/s/AKfycbwIDFbA6G7JDss8S1ZaSB7jAwDlO_01HJCYIb5mJz1V/dev?user_id='.$id.'&name='.$new_subscriber_name.'&method=updateUserName';
 
         
 
@@ -557,11 +557,11 @@ class FormUserController extends Controller
                         'subscriber_name' => $subscriber_name,
                 ]);
 
-                $newPath = 'https://script.google.com/macros/s/AKfycbx7Of-_WXvFyY3XvB3pTVQvf3U2Mn3tMzkhKfbf1MtkRQPnciZc/dev?user_id='.$id.'&name='.$subscriber_name.'&method=updateUserName';
+                $newPath = 'https://script.google.com/a/macros/chillspartners.com/s/AKfycbwIDFbA6G7JDss8S1ZaSB7jAwDlO_01HJCYIb5mJz1V/dev?user_id='.$id.'&name='.$subscriber_name.'&method=updateUserName';
             //return redirect('/'.$id.'/edit_profile');
             } else {
                 //means everything else was updated except name
-                $newPath = 'https://script.google.com/macros/s/AKfycbx7Of-_WXvFyY3XvB3pTVQvf3U2Mn3tMzkhKfbf1MtkRQPnciZc/dev?user_id='.$id.'&method=updateUserNameOnlyInvestor';
+                $newPath = 'https://script.google.com/a/macros/chillspartners.com/s/AKfycbwIDFbA6G7JDss8S1ZaSB7jAwDlO_01HJCYIb5mJz1V/dev?user_id='.$id.'&method=updateUserNameOnlyInvestor';
             }
 
             return redirect($newPath);
