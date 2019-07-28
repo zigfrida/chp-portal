@@ -92,6 +92,14 @@ td {
     td {
         padding: 5px 0px 5px 5px;
     }
+
+    .lpinputTitle {
+        float: left;
+        width: 140px;
+        margin-left: 0px;
+        font-size: 17px;
+        margin-bottom: 15px;
+    }
 }
 
 @media screen and (max-width: 768px){
