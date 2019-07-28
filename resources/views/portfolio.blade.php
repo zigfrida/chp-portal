@@ -563,7 +563,7 @@
 @section('fileuploadbetter')
 <form action="/fileupload" method="post" enctype="multipart/form-data">
 	@csrf
-	<div class="field">
+	<div class="field" id="uploadForm">
 		<div class="file is-warning has-name is-boxed">
 			<label class="file-label">
 			<input class="file-input" type="file" name="filelolol" id="file-upload">
@@ -581,7 +581,7 @@
 	</div>
 	<input type="hidden" name="user_id" value="{{ $user[0]->user_id }}">
 	<input type="hidden" name="file_type" value="I">
-	<div class="columns is-centered" style="margin-top: 10px;">
+	<div class="columns is-centered" style="margin-top: 10px;" id="uploadFormButton">
 		<button type="submit" class="button is-warning">Submit</button>
 	</div>
 	<script>

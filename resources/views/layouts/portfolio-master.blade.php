@@ -8,12 +8,16 @@
     <link rel="shortcut icon" href="/images/favicon.ico">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!--Header-->
+    <script type="text/javascript" src="{{ URL::asset('js/menu.js') }}" defer></script>
+
+    <!--Footer-->
+    <link rel="stylesheet" type="text/css" href="/css/footer.css">
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Maitree&display=swap" rel="stylesheet">
+
     <title>Portfolio</title>
-    <style>
-        /* .make-small {
-            padding: 3rem 30rem;
-        } */
-    </style>
 
     <script type="text/javascript" src="{{ URL::asset('js/dropState.js') }}" defer></script>
     
@@ -127,8 +131,8 @@
         <br>
         @if(!$user_table[0]->existing == 'existing' && auth()->user()->isAdmin())
             <div class="columns is-centered">
-                <a class="button is-light" href="{{url($user[0]->user_id.'/filledform')}}" style="padding:10px">Download Subscription Agreement (PDF)</a><br>
-                <a class="button is-light" href="{{url($user[0]->user_id.'/formtest')}}" style="padding:10px">>> Web Version</a><br>
+                <a class="button is-light" href="{{url($user[0]->user_id.'/filledform')}}" style="padding:10px" id="downloadDoc1">Download Subscription Agreement (PDF)</a><br>
+                <a class="button is-light" href="{{url($user[0]->user_id.'/formtest')}}" style="padding:10px" id="downloadDoc2">>> Web Version</a><br>
             </div>
         @endif
     </main>

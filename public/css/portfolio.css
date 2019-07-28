@@ -93,3 +93,21 @@ td {
         padding: 5px 0px 5px 5px;
     }
 }
+
+@media screen and (max-width: 768px){
+    #uploadForm {
+        margin-left: calc(50% - 100px);
+    }
+
+    #uploadFormButton{
+        margin-left: calc(50% - 50px);
+    }
+
+    #downloadDoc1{
+        margin-left: calc(50% - 165px);
+    }
+
+    #downloadDoc2{
+        margin-left: calc(50% - 80px);
+    }
+}

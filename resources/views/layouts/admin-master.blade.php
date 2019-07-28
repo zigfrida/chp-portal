@@ -12,11 +12,23 @@
 
     <script type="text/javascript" src="{{ URL::asset('js/dropState.js') }}" defer></script>
 
+    <!--Header-->
+    <script type="text/javascript" src="{{ URL::asset('js/menu.js') }}" defer></script>
+
+    <!--Footer-->
+    <link rel="stylesheet" type="text/css" href="/css/footer.css">
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Maitree&display=swap" rel="stylesheet">
+
     <title>Cypress Hills Partners</title>
 
     {{-- <link rel="stylesheet" type="text/css" href="/css/home.css"> --}}
 
     <style>
+        body, html {
+            overflow-x: hidden;
+        }
+
         .Site {
             display: flex;
             min-height: 100vh;

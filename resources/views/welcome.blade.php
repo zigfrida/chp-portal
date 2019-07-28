@@ -243,7 +243,5 @@
     </div>
 </footer>
 
-<script type="text/javascript" src="{{ URL::asset('js/menu.js') }}"></script>
-
 <script type="text/javascript" src="{{ URL::asset('js/homePage.js') }}"></script>
 </html>

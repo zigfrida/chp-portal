@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container" style="margin:0;">
     <section class="section">
         <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
@@ -7,7 +7,7 @@
                 <img src="https://www.cypresshillspartners.com/uploads/5/9/5/6/59561431/cypresshills-black-yellow.png" >
                 </a>
 
-                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
@@ -16,7 +16,6 @@
 
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
-
                     <a class="navbar-item" href="/">Home</a>
 
                     <div class="navbar-item has-dropdown is-hoverable">
@@ -57,10 +56,12 @@
                             </a>
                         @endif
                         <hr class="navbar-divider">
-                                    {{-- if I remove this href it doesn't seemingly affect the logout - what gives? --}}
-                        <a class="navbar-item" href="/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            {{-- if I remove this href it doesn't seemingly affect the logout - what gives? --}}
+                        <div class="navbar-item">
+                            <a class="button is-warning" href="/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             Logout
-                        </a>
+                            </a>
+                        </div>
                         <form id="logout-form" action="/logout" method="POST" style="display: none;">@csrf</form>
                     </div>
                 </div>
