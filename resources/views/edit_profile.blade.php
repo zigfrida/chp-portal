@@ -313,7 +313,7 @@
             <br>
             <div class="has-text-centered">
                 <h1 class="title"><span class="decor">Accredited Investor Certificate</span></h1>
-            </div><br>
+            </div>
 
             {{-- checkboxes: not sure if everyone sb able to edit it --}}
             <section class="section">
