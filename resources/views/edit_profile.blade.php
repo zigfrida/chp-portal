@@ -313,7 +313,7 @@
             <form action="/{{ $user[0]->user_id }}/edit_profile_checkboxes" method="post">
                 @method('PATCH')
                 @csrf
-
+                {{ dd($user[0]->clientType == "individual"); }}
                 @if($user[0]->clientType == "individual")
                     <div class="field">
                         <div class="content" style="margin-bottom: 10px;" id="people_checkboxes" >
