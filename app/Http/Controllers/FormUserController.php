@@ -574,7 +574,7 @@ class FormUserController extends Controller
         $user = \DB::table('form_users')
             ->where('user_id', $id)
             ->get();
-        dd($user);
+        dd($user[0]->clientType);
 
 
     }
