@@ -310,7 +310,7 @@
         <hr>
         {{-- checkboxes: not sure if everyone sb able to edit it --}}
         <section class="section">
-            <form action="/{{ $user[0]->user_id }}/edit_profile_checkboxes/" method="post">
+            <form action="/{{ $user[0]->user_id }}/edit_profile_checkboxes" method="post">
                 @method('PATCH')
                 @csrf
 

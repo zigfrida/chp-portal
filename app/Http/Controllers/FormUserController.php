@@ -568,6 +568,11 @@ class FormUserController extends Controller
         }
     }
 
+    public function updateProfileCheckboxes(Request $request, $id)
+    {
+        dd("hi");
+    }
+
     /**
      * Remove the specified resource from storage.
      *
