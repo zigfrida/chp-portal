@@ -404,13 +404,8 @@
                         <div class="field is-grouped is-grouped-right">
                             <div class="control">
                                 <button class="button is-warning" type="submit">
-                                    @if (auth()->user()->isAdmin() && $user[0]->profile_changed)
-                                        Save Changes
-                                    @else
-                                        Save
-                                    @endif
+                                    Save
                                 </button>
-                                <button class="button is-light" type="reset">Cancel</button>
                             </div>
                         </div>
                     </div>
