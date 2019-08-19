@@ -571,26 +571,40 @@ class FormUserController extends Controller
     public function updateProfileCheckboxes(Request $request, $id)
     {
         // get the user
-        dd($request->bus_ck1);
+        dd($request->bus_chk1);
         $user = \DB::table('form_users')
             ->where('user_id', $id)
             ->get();
         if($user[0]->clientType == "business") {
             \DB::table('form_users')
-            ->where('user_id', $id)
-            ->update([
-                'bus_chk1' => $class,
-                'registration_name' => $registration_name,
-                'registration_account_reference' => $registration_account_reference,
-                'registration_address' => $registration_address,
-                'delivery_contact' => $delivery_contact,
-                'delivery_telephone' => $delivery_telephone,
-                'delivery_account_reference' => $delivery_account_reference,
-                'delivery_address' => $delivery_address,
-            ]);
+                ->where('user_id', $id)
+                ->update([
+                    'bus_ck1' => $request->input('bus_ck1') !== null,
+                    'bus_ck2' => $request->input('bus_ck2') !== null,
+                    'bus_ck3' => $request->input('bus_ck3') !== null,
+                    'bus_ck4' => $request->input('bus_ck4') !== null,
+                    'bus_ck5' => $request->input('bus_ck5') !== null,
+                    'bus_ck6' => $request->input('bus_ck6') !== null,
+                    'bus_ck7' => $request->input('bus_ck7') !== null,
+                    'bus_ck8' => $request->input('bus_ck8') !== null,
+                    'bus_ck9' => $request->input('bus_ck9') !== null,
+                    'bus_ck10' => $request->input('bus_ck10') !== null,
+                ]);
+                dd("hi");
+        } else {
+            dd("hey");
+            \DB::table('form_users')
+                ->where('user_id', $id)
+                ->update([
+                    'ind_ck1' => $request->input('ind_ck1') !== null,
+                    'ind_ck2' => $request->input('ind_ck2') !== null,
+                    'ind_ck3' => $request->input('ind_ck3') !== null,
+                    'ind_ck4' => $request->input('ind_ck4') !== null,
+                    'ind_ck5' => $request->input('ind_ck5') !== null,
+                    'ind_ck6' => $request->input('ind_ck6') !== null,
+                ]);
+
         }
-
-
     }
 
     /**
