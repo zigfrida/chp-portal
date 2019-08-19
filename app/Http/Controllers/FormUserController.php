@@ -571,7 +571,7 @@ class FormUserController extends Controller
     public function updateProfileCheckboxes(Request $request, $id)
     {
         // get the user
-        dd($request->risk_chk1);
+        dd($request->bus_chk1);
         $user = \DB::table('form_users')
             ->where('user_id', $id)
             ->get();
