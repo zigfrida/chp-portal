@@ -571,10 +571,11 @@ class FormUserController extends Controller
     public function updateProfileCheckboxes(Request $request, $id)
     {
         // get the user
-        dd($request->bus_chk1);
         $user = \DB::table('form_users')
             ->where('user_id', $id)
             ->get();
+
+    
         if($user[0]->clientType == "business") {
             \DB::table('form_users')
                 ->where('user_id', $id)
