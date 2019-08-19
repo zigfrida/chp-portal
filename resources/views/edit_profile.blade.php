@@ -327,23 +327,38 @@
                                     An individual whose net income before taxes exceeded $200,000 in each of the two most recent calendar years or whose net income before taxes combined with that of a spouse exceeded $300,000 in each of the two most recent calendar years and who, in either case, reasonably expects to exceed that net income level in the current calendar year;
                                 </label>
                                 <label class="checkbox">
-                                    <input type="checkbox"  name="ind_ck2" id="risk_ck2">
+                                    <input type="checkbox"  name="ind_ck2" id="risk_ck2"
+                                    @if ($user[0]->ind_ck2 == "1")
+                                        checked
+                                    @endif>
                                     An individual, who, either alone or with a spouse, has net assets of at least $5,000,000
                                 </label>
                                 <label class="checkbox">
-                                    <input type="checkbox"  name="ind_ck3" id="risk_ck3">
+                                    <input type="checkbox"  name="ind_ck3" id="risk_ck3"
+                                    @if ($user[0]->ind_ck3 == "1")
+                                        checked
+                                    @endif>
                                     An individual who, either alone or with a spouse, beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $1,000,000
                                 </label>
                                 <label class="checkbox">
-                                    <input type="checkbox"  name="ind_ck4" >
+                                    <input type="checkbox"  name="ind_ck4"
+                                    @if ($user[0]->ind_ck4 == "1")
+                                        checked
+                                    @endif>
                                     An individual who beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $5,000,000
                                 </label>
                                 <label class="checkbox">
-                                    <input type="checkbox"  name="ind_ck5" >
+                                    <input type="checkbox"  name="ind_ck5" 
+                                    @if ($user[0]->ind_ck5 == "1")
+                                        checked
+                                    @endif>
                                     An individual registered under the securities legislation of a jurisdiction of Canada, as a representative of a person registered under the securities legislation of a jurisdiction of Canada as an adviser or dealer
                                 </label>
                                 <label class="checkbox">
-                                    <input type="checkbox"  name="ind_ck6" >
+                                    <input type="checkbox"  name="ind_ck6" 
+                                    @if ($user[0]->ind_ck6 == "1")
+                                        checked
+                                    @endif>
                                     An individual formerly registered under the securities legislation of a jurisdiction of Canada, other than an individual formerly registered solely as a representative of a limited market dealer under one or both of the Securities Act (Ontario) or the Securities Act (Newfoundland and Labrador)
                                 </label>
                             </div>
