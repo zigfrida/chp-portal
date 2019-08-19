@@ -570,7 +570,7 @@ class FormUserController extends Controller
 
     public function updateProfileCheckboxes(Request $request, $id)
     {
-        dd($request->clientType);
+        dd($id);
         if ($request->clientType == 'individual') {
             \DB::table('form_users')
                 ->where('user_id', $id)
