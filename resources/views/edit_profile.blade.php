@@ -370,44 +370,74 @@
                             <div class="content" style="margin-bottom: 10px;" id="business_checkboxes">
                                 <br>
                                 <label class="checkbox">
-                                    <input type="checkbox" name="bus_ck1">
+                                    <input type="checkbox" name="bus_ck1"
+                                    @if ($user[0]->bus_ck1 == "1")
+                                        checked
+                                    @endif>
                                     Except in Ontario, a Person registered under the securities legislation of a jurisdiction of Canada as an adviser or dealer
                                 </label>
                                 <label class="checkbox">
-                                    <input type="checkbox" name="bus_ck2">
+                                    <input type="checkbox" name="bus_ck2"
+                                    @if ($user[0]->bus_ck2 == "1")
+                                        checked
+                                    @endif>
                                     Except in Ontario, a pension fund that is regulated by either the Office of the Superintendent of Financial Institutions (Canada) or a pension commission or similar regulatory authority of a jurisdiction of Canada
                                 </label>
                                 <label class="checkbox">
                                     <input type="checkbox" 
-                                    name="bus_ck3">
+                                    name="bus_ck3"
+                                    @if ($user[0]->bus_ck3 == "1")
+                                        checked
+                                    @endif>
                                     A Person, other than an individual or investment fund, that has net assets of at least $5,000,000 as shown on its most recently prepared financial statements
                                 </label>
                                 <label class="checkbox">
-                                    <input type="checkbox" name="bus_ck4">
+                                    <input type="checkbox" name="bus_ck4"
+                                    @if ($user[0]->bus_ck4 == "1")
+                                        checked
+                                    @endif>
                                     An investment fund that distributes or has distributed securities under a prospectus in a jurisdiction of Canada for which the regulator or, in Québec, the securities regulatory authority, has issued a receipt
                                 </label>
                                 <label class="checkbox">
-                                    <input type="checkbox" name="bus_ck5">
+                                    <input type="checkbox" name="bus_ck5"
+                                    @if ($user[0]->bus_ck5 == "1")
+                                        checked
+                                    @endif>
                                     A person acting on behalf of a fully managed account managed by that person if that person is registered or authorized to carry on business as an adviser or the equivalent under the securities legislation of a jurisdiction of Canada or a foreign jurisdiction
                                 </label>
                                 <label class="checkbox">
-                                    <input type="checkbox" name="bus_ck6">
+                                    <input type="checkbox" name="bus_ck6"
+                                    @if ($user[0]->bus_ck6 == "1")
+                                        checked
+                                    @endif>
                                     A registered charity under the Income Tax Act (Canada) that, in regard to the trade, has obtained advice from an eligibility adviser or an adviser registered under the securities legislation of the jurisdiction of the registered charity to provide advice on the securities being traded
                                 </label>
                                 <label class="checkbox">
-                                    <input type="checkbox" name="bus_ck7">
+                                    <input type="checkbox" name="bus_ck7"
+                                    @if ($user[0]->bus_ck7 == "1")
+                                        checked
+                                    @endif>
                                     A person in respect of which all of the owners of interests, direct, indirect, or beneficial, except the voting securities required by law to be owned by directors, are persons that are accredited investors
                                 </label>
                                 <label class="checkbox">
-                                    <input type="checkbox" name="bus_ck8">
+                                    <input type="checkbox" name="bus_ck8"
+                                    @if ($user[0]->bus_ck8 == "1")
+                                        checked
+                                    @endif>
                                     An investment fund that is advised by a person registered as an adviser or a person that is exempt from registration as an adviser 
                                 </label>
                                 <label class="checkbox">
-                                    <input type="checkbox" name="bus_ck9">
+                                    <input type="checkbox" name="bus_ck9"
+                                    @if ($user[0]->bus_ck9 == "1")
+                                        checked
+                                    @endif>
                                     A person that is recognized or designated by the securities regulatory authority or, except in Ontario and Québec, the regulator as an accredited investor           
                                 </label>
                                 <label class="checkbox">
-                                    <input type="checkbox" name="bus_ck10">
+                                    <input type="checkbox" name="bus_ck10"
+                                    @if ($user[0]->bus_ck10 == "1")
+                                        checked
+                                    @endif>
                                     A trust established by an accredited investor for the benefit of the accredited investor’s family members of which a majority of the trustees are accredited investors and all of the beneficiaries are the accredited investor’s spouse, a former spouse of the accredited investor or a parent, grandparent, brother, sister, child or grandchild of that accredited investor, of that accredited investor’s spouse or of that accredited investor’s former spouse
                                 </label>
                             </div>
