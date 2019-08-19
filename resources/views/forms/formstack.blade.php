@@ -367,7 +367,7 @@
             <br>
 
             <br>
-            <div class="tile is-ancestor">
+            {{-- <div class="tile is-ancestor">
                 <div class="tile is-parent">
                     <div class="tile">
                         <article class="tile is-child box">
@@ -451,20 +451,12 @@
                             <h4 class="title is-4">The Subscriber acknowledges that the Issuer is relying upon the Subscriber's disclosure herein. In the event the Subscriber's accredited investor status changes prior to the date on which a certificate representing any of the Units is issued, the Subscriber agrees to immediately notify the Issuer of such change.</h2>
                             <br>
 
-                            {{-- 
-                            <h5 class="subtitle is-5">Initial<span class="has-text-danger">*</span></h5>
-                            <canvas id="myCanvas" width="500" height="250" style="border:1px solid #000000;"></canvas>
-                            <input type="button" onclick="signaturePad.clear()" value="Clear">
-                            <input type="hidden" id="form_signature" name="form_signature" value="">
-                            <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
-
-                            <p>Use your mouse or finger to draw your initials above</p>
-                             --}}
+       
                             <br><br>
                         </article>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <br><br><br>
             <div class="tile is-ancestor" id="individual_accred_investors" style="display:none;">
                     <div class="tile is-parent">
