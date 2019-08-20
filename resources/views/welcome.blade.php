@@ -67,7 +67,7 @@
     <article onclick="close_nav()">
 
         <div id="home">
-            <h1 id="home-text"><span id="oppt"><b>Opportunityyyyy</b></span> on a Road Less Traveled.</h1>
+            <h1 id="home-text"><span id="oppt"><b>Opportunity</b></span> on a Road Less Traveled.</h1>
             <p id="home-icons"><span>Originate</span>&#xB7;<span>Innovate</span>&#xB7;<span>Accelerate</span></p>
             <a class="scroll" href="#about" id="learn_more"><b>LEARN MORE</b></a>
         </div>
