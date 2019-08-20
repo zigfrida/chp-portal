@@ -576,7 +576,6 @@ class FormUserController extends Controller
             ->get();
     
         if($user[0]->clientType == "Business") {
-            dd("business");
             \DB::table('form_users')
                 ->where('user_id', $id)
                 ->update([
@@ -592,7 +591,7 @@ class FormUserController extends Controller
                     'bus_ck10' => $request->input('bus_ck10') !== null,
                 ]);
         } else if ($user[0]->clientType == "Individual") {
-            dd("individual");
+
             \DB::table('form_users')
                 ->where('user_id', $id)
                 ->update([
@@ -604,7 +603,7 @@ class FormUserController extends Controller
                     'ind_ck6' => $request->input('ind_ck6') !== null,
                 ]);
         }
-
+        dd($id);
         $redirectPath = '/'.$id.'/edit_profile';
 
         return redirect($redirectPath);
