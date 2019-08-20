@@ -43,12 +43,14 @@ class SmsController extends Controller
         $accountSid = config('app.twilio')['TWILIO_ACCOUNT_SID'];
         $authToken = config('app.twilio')['TWILIO_AUTH_TOKEN'];
 
+        $phone = '1' . $request->phone;
+
         try{
             $client = new Client(['auth' => [$accountSid, $authToken]]);
             $result = $client->post('https://api.twilio.com/2010-04-01/Accounts/'.$accountSid.'/Messages.json',
             ['form_params' => [
-                'Body' => 'CODE: '. $request->code, //set message body
-                'To' => $request->phone,
+                'Body' => "Here is your verification code for your Cypress Hills' Investor Portal account: ". $request->code, //set message body
+                'To' => $phone,
                 'From' => '+16042109557' //we get this number from twilio
             ]]);
 
