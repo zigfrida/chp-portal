@@ -42,7 +42,7 @@
                 @if (auth()->user()->userType() == 'admin')
                     <a class="no-scroll" id="log-in" href="{{ url('/admin') }}" class="button">Admin Portal</a>
                 @elseif (auth()->user()->userType() == 'standard')
-                    <a class="no-scroll" id="log-in" href="{{ url('/' . auth()->user()->id . '/portfolio') }}" class="button">My Portolio</a>
+                    <a class="no-scroll" id="log-in" href="{{ url('/' . auth()->user()->id . '/portfolio') }}" class="button">My Portfolio</a>
                 @elseif (auth()->user()->userType()== 'ghost')
                     <a class="no-scroll" id="log-in" href="https://google.com" class="button">Exclusive Portal</a>
                 @endif
