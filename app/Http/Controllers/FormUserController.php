@@ -75,7 +75,7 @@ class FormUserController extends Controller
             'clientType' => 'bail|required',
             'req_brokerage' => 'bail|required',
         ]);
-        if ($request->clientType == 'individual') { // user selected Individual
+        if ($request->clientType == 'Individual') { // user selected Individual
             $request->validate([
                 'subscriber_name' => 'required',
                 'city' => 'required',
@@ -87,7 +87,7 @@ class FormUserController extends Controller
                 'phone' => 'required',
                 'total_investment' => 'required',
             ]);
-        } elseif ($request->clientType == 'business') { // user selected Non-Individual
+        } elseif ($request->clientType == 'Business') { // user selected Non-Individual
             $request->validate([
                 'subscriber_name' => 'required',
                 'street' => 'required',
@@ -105,7 +105,7 @@ class FormUserController extends Controller
 
         $redirectPath = '/'.$id.'/portfolio';
 
-        if ($request->clientType == 'individual') {
+        if ($request->clientType == 'Individual') {
             \DB::table('form_users')
                 ->where('user_id', $id)
                 ->update(['subscriber_name' => $request->subscriber_name,
@@ -127,7 +127,7 @@ class FormUserController extends Controller
                         'req_brokerage' => $request->input('req_brokerage'),
                         'yass_ck' => $request->input('yass_ck') !== null,
                     ]);
-        } elseif ($request->clientType == 'business') {
+        } elseif ($request->clientType == 'Business') {
             \DB::table('form_users')
                 ->where('user_id', $id)
                 ->update(['subscriber_name' => $request->subscriber_name,
@@ -224,7 +224,7 @@ class FormUserController extends Controller
         $phone = $request->input('phone');
         $total_investment = $request->input('total_investment');
 
-        if ($clientType == 'individual') {
+        if ($clientType == 'Individual') {
             \DB::table('form_users')
             ->where('user_id', $id)
             ->update([
@@ -251,7 +251,7 @@ class FormUserController extends Controller
                 ->where('user_id', $id)
                 ->update(['access_level' => 1]);
                 
-        } elseif ($clientType == 'business') {
+        } elseif ($clientType == 'Business') {
             \DB::table('form_users')
                 ->where('user_id', $id)
                 ->update([
@@ -575,7 +575,7 @@ class FormUserController extends Controller
             ->where('user_id', $id)
             ->get();
     
-        if($user[0]->clientType == "business") {
+        if($user[0]->clientType == "Business") {
 
             \DB::table('form_users')
                 ->where('user_id', $id)
