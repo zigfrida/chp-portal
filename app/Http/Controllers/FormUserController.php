@@ -603,7 +603,7 @@ class FormUserController extends Controller
                     'ind_ck6' => $request->input('ind_ck6') !== null,
                 ]);
         }
-        dd($id);
+
         $redirectPath = '/'.$id.'/edit_profile';
 
         return redirect($redirectPath);
