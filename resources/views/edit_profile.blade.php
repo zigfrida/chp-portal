@@ -14,6 +14,9 @@
 
     <script type="text/javascript" src="{{ URL::asset('js/dropState.js') }}" defer></script>
 
+    <!--Footer-->
+    <link rel="stylesheet" type="text/css" href="/css/footer.css">
+
 </head>
 
 <body>
