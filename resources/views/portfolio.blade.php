@@ -80,56 +80,58 @@
 					<section class="hero is-dark is-bold">
 						<h1 class="title">LP Performance Data</h1>
 					</section>
-					<table>
-						<tr>
-							<td class="lptable"></td>
-							@for($i = 1; $i <= 4; $i++)
-								<th class="lptable">{{"Q" . $i}}</th>
-							@endfor
-							<th class="lptable">YTD</th>
-						</tr>
-						@foreach ($years as $year)
+					<div style="overflow-x: auto;">
+						<table class="is-fullwidth">
 							<tr>
-							<th>{{"20" . $year->year}}</th>
-							@for ($i = 1; $i <=12; $i = $i + 3)
-								<?php
-								$quater = ""; 
-								$count = DB::table('l_p_performances')->select('value')
-									->whereBetween('month', [$i, $i+2])
-									->where('year','=', $year->year)
-									->where('class','LIKE', $user[0]->class)->count();
-								if ($count == 3){
-									$values = DB::table('l_p_performances')->select('value')
+								<td class="lptable"></td>
+								@for($i = 1; $i <= 4; $i++)
+									<th class="lptable">{{"Q" . $i}}</th>
+								@endfor
+								<th class="lptable">YTD</th>
+							</tr>
+							@foreach ($years as $year)
+								<tr>
+								<th>{{"20" . $year->year}}</th>
+								@for ($i = 1; $i <=12; $i = $i + 3)
+									<?php
+									$quater = ""; 
+									$count = DB::table('l_p_performances')->select('value')
 										->whereBetween('month', [$i, $i+2])
 										->where('year','=', $year->year)
-										->where('class','LIKE', $user[0]->class)->get();
-									
-										if(isset($values[0]->value))
-										$quater = $values->sum('value') * 100 . "%";
-								}?>
-								<td>{{$quater}}</td>
-							@endfor
-							
-							{{-- Displaying YTD on LPPerformace table --}}
-							<?php
-							$countMonths = DB::table('l_p_performances')
-									->where('year','=', $year->year)
-									->where('month','!=', 0)
-									->where('class','LIKE', $user[0]->class)->count();
+										->where('class','LIKE', $user[0]->class)->count();
+									if ($count == 3){
+										$values = DB::table('l_p_performances')->select('value')
+											->whereBetween('month', [$i, $i+2])
+											->where('year','=', $year->year)
+											->where('class','LIKE', $user[0]->class)->get();
+										
+											if(isset($values[0]->value))
+											$quater = $values->sum('value') * 100 . "%";
+									}?>
+									<td>{{$quater}}</td>
+								@endfor
+								
+								{{-- Displaying YTD on LPPerformace table --}}
+								<?php
+								$countMonths = DB::table('l_p_performances')
+										->where('year','=', $year->year)
+										->where('month','!=', 0)
+										->where('class','LIKE', $user[0]->class)->count();
 
-							if ($countMonths % 3 == 0){
-								$ytdValues = DB::table('l_p_performances')
-								->where('month', '!=', 0)
-								->where('year','=', $year->year)
-								->where('class','LIKE', $user[0]->class)->sum('value'); 
-								$ytd = $ytdValues * 100 . "%";
-							}else{
-								$ytd = "";
-							}?>
-							<td>{{$ytd}}</td>
-							</tr>
-						@endforeach
-					</table>
+								if ($countMonths % 3 == 0){
+									$ytdValues = DB::table('l_p_performances')
+									->where('month', '!=', 0)
+									->where('year','=', $year->year)
+									->where('class','LIKE', $user[0]->class)->sum('value'); 
+									$ytd = $ytdValues * 100 . "%";
+								}else{
+									$ytd = "";
+								}?>
+								<td>{{$ytd}}</td>
+								</tr>
+							@endforeach
+						</table>
+					</div>
 				</article>
 			</div>
 		</div>

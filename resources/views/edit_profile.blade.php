@@ -311,7 +311,168 @@
             </section>
         </div>
         <hr>
+        @if(auth()->user()->isAdmin())
 
+            <br>
+            <div class="has-text-centered">
+                <h1 class="title"><span class="decor">Accredited Investor Certificate</span></h1>
+            </div>
+
+            {{-- checkboxes: not sure if everyone sb able to edit it --}}
+            <section class="section">
+                <form action="/{{ $user[0]->user_id }}/edit_profile_checkboxes" method="post">
+                    @method('PATCH')
+                    @csrf
+                    
+                    @if($user[0]->clientType == "individual")
+                        <div class="field">
+                            <div class="content" style="margin-bottom: 10px;" id="people_checkboxes" >
+                                <br>
+                                <div class="control">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="ind_ck1" id="risk_ck1"
+                                        @if ($user[0]->ind_ck1 == "1")
+                                            checked
+                                        @endif>
+                                        An individual whose net income before taxes exceeded $200,000 in each of the two most recent calendar years or whose net income before taxes combined with that of a spouse exceeded $300,000 in each of the two most recent calendar years and who, in either case, reasonably expects to exceed that net income level in the current calendar year;
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox"  name="ind_ck2" id="risk_ck2"
+                                        @if ($user[0]->ind_ck2 == "1")
+                                            checked
+                                        @endif>
+                                        An individual, who, either alone or with a spouse, has net assets of at least $5,000,000
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox"  name="ind_ck3" id="risk_ck3"
+                                        @if ($user[0]->ind_ck3 == "1")
+                                            checked
+                                        @endif>
+                                        An individual who, either alone or with a spouse, beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $1,000,000
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox"  name="ind_ck4"
+                                        @if ($user[0]->ind_ck4 == "1")
+                                            checked
+                                        @endif>
+                                        An individual who beneficially owns financial assets having an aggregate realizable value that, before taxes but net of any related liabilities, exceeds $5,000,000
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox"  name="ind_ck5" 
+                                        @if ($user[0]->ind_ck5 == "1")
+                                            checked
+                                        @endif>
+                                        An individual registered under the securities legislation of a jurisdiction of Canada, as a representative of a person registered under the securities legislation of a jurisdiction of Canada as an adviser or dealer
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox"  name="ind_ck6" 
+                                        @if ($user[0]->ind_ck6 == "1")
+                                            checked
+                                        @endif>
+                                        An individual formerly registered under the securities legislation of a jurisdiction of Canada, other than an individual formerly registered solely as a representative of a limited market dealer under one or both of the Securities Act (Ontario) or the Securities Act (Newfoundland and Labrador)
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        <div class="field">
+                            <div class="control">
+                                <div class="content" style="margin-bottom: 10px;" id="business_checkboxes">
+                                    <br>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="bus_ck1"
+                                        @if ($user[0]->bus_ck1 == "1")
+                                            checked
+                                        @endif>
+                                        Except in Ontario, a Person registered under the securities legislation of a jurisdiction of Canada as an adviser or dealer
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="bus_ck2"
+                                        @if ($user[0]->bus_ck2 == "1")
+                                            checked
+                                        @endif>
+                                        Except in Ontario, a pension fund that is regulated by either the Office of the Superintendent of Financial Institutions (Canada) or a pension commission or similar regulatory authority of a jurisdiction of Canada
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" 
+                                        name="bus_ck3"
+                                        @if ($user[0]->bus_ck3 == "1")
+                                            checked
+                                        @endif>
+                                        A Person, other than an individual or investment fund, that has net assets of at least $5,000,000 as shown on its most recently prepared financial statements
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="bus_ck4"
+                                        @if ($user[0]->bus_ck4 == "1")
+                                            checked
+                                        @endif>
+                                        An investment fund that distributes or has distributed securities under a prospectus in a jurisdiction of Canada for which the regulator or, in Québec, the securities regulatory authority, has issued a receipt
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="bus_ck5"
+                                        @if ($user[0]->bus_ck5 == "1")
+                                            checked
+                                        @endif>
+                                        A person acting on behalf of a fully managed account managed by that person if that person is registered or authorized to carry on business as an adviser or the equivalent under the securities legislation of a jurisdiction of Canada or a foreign jurisdiction
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="bus_ck6"
+                                        @if ($user[0]->bus_ck6 == "1")
+                                            checked
+                                        @endif>
+                                        A registered charity under the Income Tax Act (Canada) that, in regard to the trade, has obtained advice from an eligibility adviser or an adviser registered under the securities legislation of the jurisdiction of the registered charity to provide advice on the securities being traded
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="bus_ck7"
+                                        @if ($user[0]->bus_ck7 == "1")
+                                            checked
+                                        @endif>
+                                        A person in respect of which all of the owners of interests, direct, indirect, or beneficial, except the voting securities required by law to be owned by directors, are persons that are accredited investors
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="bus_ck8"
+                                        @if ($user[0]->bus_ck8 == "1")
+                                            checked
+                                        @endif>
+                                        An investment fund that is advised by a person registered as an adviser or a person that is exempt from registration as an adviser 
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="bus_ck9"
+                                        @if ($user[0]->bus_ck9 == "1")
+                                            checked
+                                        @endif>
+                                        A person that is recognized or designated by the securities regulatory authority or, except in Ontario and Québec, the regulator as an accredited investor           
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="bus_ck10"
+                                        @if ($user[0]->bus_ck10 == "1")
+                                            checked
+                                        @endif>
+                                        A trust established by an accredited investor for the benefit of the accredited investor’s family members of which a majority of the trustees are accredited investors and all of the beneficiaries are the accredited investor’s spouse, a former spouse of the accredited investor or a parent, grandparent, brother, sister, child or grandchild of that accredited investor, of that accredited investor’s spouse or of that accredited investor’s former spouse
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                    <div class="field is-horizontal">
+                        <div class="field-label">
+                            <!-- Left empty for spacing -->
+                        </div>
+                        <div class="field-body">
+                            <div class="field is-grouped is-grouped-right">
+                                <div class="control">
+                                    <button class="button is-warning" type="submit">
+                                        Save
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+        @endif
+        <hr>
         @if(auth()->user()->isAdmin())
 
         <br>

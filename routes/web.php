@@ -139,6 +139,8 @@ Route::get('/{id}/edit_profile', function ($id) {
 })->middleware('auth');
 
 Route::patch('/{id}/edit_profile', 'FormUserController@updateProfile')->middleware('auth');
+Route::patch('/{id}/edit_profile_checkboxes', 'FormUserController@updateProfileCheckboxes')->middleware('auth');
+
 
 /*
     Admin Page
