@@ -324,7 +324,7 @@
                     @method('PATCH')
                     @csrf
                     
-                    @if($user[0]->clientType == "individual")
+                    @if($user[0]->clientType == "Individual")
                         <div class="field">
                             <div class="content" style="margin-bottom: 10px;" id="people_checkboxes" >
                                 <br>
