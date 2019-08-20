@@ -576,7 +576,7 @@ class FormUserController extends Controller
             ->get();
     
         if($user[0]->clientType == "Business") {
-
+            dd("business");
             \DB::table('form_users')
                 ->where('user_id', $id)
                 ->update([
@@ -591,8 +591,8 @@ class FormUserController extends Controller
                     'bus_ck9' => $request->input('bus_ck9') !== null,
                     'bus_ck10' => $request->input('bus_ck10') !== null,
                 ]);
-        } else {
-
+        } else if ($user[0]->clientType == "Individual") {
+            dd("individual");
             \DB::table('form_users')
                 ->where('user_id', $id)
                 ->update([
