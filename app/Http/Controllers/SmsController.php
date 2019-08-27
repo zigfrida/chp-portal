@@ -105,13 +105,23 @@ class SmsController extends Controller
         $id = $GetId[0]->id;
         $phone = "";
 
-        //Trying to get phone number from table
+        //Trying to get phone number from Form Usesr table == Client
         $emailDB = DB::table('form_users')
                 ->where('user_id', $id)
                 ->get();
-
         $phone = $emailDB[0]->phone_mobile;
 
+        //Trying to get phono for admin trying to reset password == Admin
+        //An admin would have a phone, a clinet would not
+        if ($phone == null){
+            $user = DB::table('user')
+                    ->where('id', $id)
+                    ->get();
+            $phone = $user[0]->phone_mobile;
+        }
+
+        //If phone is still null after trying to get from both table, means
+        //client is setting password for the first time, store number what they input
         if ($phone == null){
             $phone = $request->input('phone_mobile');
             \DB::table('form_users')

@@ -37,6 +37,20 @@
                                         @endif
                                     </div>
                                 </div>
+
+                                <div class="form-group row">
+                                    <label for="mobile_phone" class="col-md-4 col-form-label text-md-right">{{ __('Mobile Phone') }}</label>
+
+                                    <div class="col-md-6">
+                                        <input id="phone_mobile" type="tel" class="form-control{{ $errors->has('phone_mobile') ? ' is-invalid' : '' }}" name="phone_mobile" value="{{ $phone_mobile ?? old('phone_mobile') }}" pattern="^[1]?\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$" id="phone_mobile" required autofocus>
+
+                                        @if ($errors->has('phone_mobile'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('phone_mobile') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
         
                                 <div class="form-group row">
                                     <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
